@@ -124,7 +124,7 @@ const ShopProductDetails = (props) => {
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'24/7 Hardware Store'} fontWeight={'500'} img2height={20}
-   press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={18} img3height={15} />
+   press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={15} img3height={18} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
 <SearchInput2 marginTop={10} placeholder={'Enter Keyword'} 
