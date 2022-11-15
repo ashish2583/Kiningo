@@ -152,38 +152,11 @@ paddingLeft={50}/>
 />
    </View> */}
 
-<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
-<Text style={{color:Mycolors.Black,fontWeight:'500'}}>Pick from wide range of categories</Text>
-<Text style={{color:'#FFC40C',fontWeight:'500',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} 
- onPress={()=>{props.navigation.navigate('ShopCategoryAll')}}>View More</Text>
-</View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-          <FlatList
-                  data={categoryData}
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  // numColumns={2}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:100,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:100,height:80,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
-          onPress={()=>{setSelectedCategory(item.id)}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
-          </TouchableOpacity>
-          <View style={{}}>
-          <Text style={{fontSize:11,color: (selectedCategory === item.id) ? '#FFC40C' : Mycolors.Black,marginTop:5,textAlign:'center',fontWeight:'bold'}}>{item.title}</Text>
-          </View>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
-                  data={upData?.filter(el=>el.catId === selectedCategory)}
+                  data={upData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={2}
                   renderItem={({item,index})=>{
