@@ -4,7 +4,7 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import Shop from '../pages/Shop/Shop';
 import ShopProduct from '../pages/Shop/ShopProduct/ShopProduct';
-import FoodDetails from '../pages/Shop/ShopProduct/FoodDetails';
+import ShopProductDetails from '../pages/Shop/ShopProduct/ShopProductDetails';
 import ShopProductAll from '../pages/Shop/ShopProduct/ShopProductAll';
 import ShopCategoryAll from '../pages/Shop/ShopProduct/ShopCategoryAll';
 import ShopCategoryProducts from '../pages/Shop/ShopProduct/ShopCategoryProducts';
@@ -22,7 +22,7 @@ const ShopProductStack=(props)=>{
             screenOptions={{ headerShown:false,}}
              >
             <Stack.Screen component = {ShopProduct} name="ShopProduct" />
-            <Stack.Screen component = {FoodDetails} name="FoodDetails" />
+            <Stack.Screen component = {ShopProductDetails} name="ShopProductDetails" />
             <Stack.Screen component = {ShopProductAll} name="ShopProductAll" />
             <Stack.Screen component = {ShopCategoryAll} name="ShopCategoryAll" />
             <Stack.Screen component = {ShopCategoryProducts} name="ShopCategoryProducts" />

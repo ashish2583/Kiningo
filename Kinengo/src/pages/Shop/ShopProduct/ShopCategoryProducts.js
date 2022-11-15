@@ -163,7 +163,7 @@ paddingLeft={50}/>
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
-          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
+          onPress={()=>{props.navigation.navigate('ShopProductDetails')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>
           </TouchableOpacity>
           <View style={{}}>

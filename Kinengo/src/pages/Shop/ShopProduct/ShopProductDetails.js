@@ -13,7 +13,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { setSelectedCarTab } from 'src/redux/actions/user_action';
 import DatePicker from 'react-native-datepicker';
 
-const FoodDetails = (props) => {
+const ShopProductDetails = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [selectedTab,setselectedTab]=useState('Take Away')
   const [cookingIns,setcookingIns]=useState('')
@@ -848,4 +848,4 @@ const styles = StyleSheet.create({
     color:'#fff',
   },
 });
-export default FoodDetails 
+export default ShopProductDetails 
