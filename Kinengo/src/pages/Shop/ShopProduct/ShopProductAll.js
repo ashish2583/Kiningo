@@ -55,7 +55,7 @@ const ShopProductDetails = (props) => {
       desc:'',
       price:'$140.00',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '2',
