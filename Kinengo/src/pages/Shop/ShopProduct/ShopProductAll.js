@@ -23,28 +23,28 @@ const ShopProductDetails = (props) => {
       title: 'Electronics',
       desc:'',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '2',
       title: 'Farm, Pet & Ranch',
       desc:'',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '3',
       title: 'Hand Tool',
       desc:'',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '4',
       title: 'Hardware',
       desc:'',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
   ])
   const [upData,setupData]=useState([
@@ -188,7 +188,7 @@ paddingLeft={50}/>
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center'}}
           onPress={()=>{props.navigation.navigate('FoodDetails')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
