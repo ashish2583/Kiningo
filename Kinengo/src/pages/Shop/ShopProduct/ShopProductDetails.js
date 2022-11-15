@@ -134,24 +134,31 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 }
 
   return(
-    <SafeAreaView style={{backgroundColor:Mycolors.BG_COLOR}}>
+    <SafeAreaView style={{backgroundColor:'#e8edea'}}>
       <ScrollView>
-   
-
-<View style={{backgroundColor:'#fff',height:dimensions.SCREEN_HEIGHT*33/100,width:'100%'}}>
-    <ImageBackground source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:'100%',overflow:'hidden'}}resizeMode='cover'>
-    <HomeHeader height={60}  paddingHorizontal={15}
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} 
-   img1width={30} img1height={30} img1backgroundColor={'#fff'} img1padding={5} img1borderRadius={4}
-   press2={()=>{}} title2={'Food'} fontWeight={'bold'} img2height={20} color={Mycolors.BG_COLOR}
-   press3={()=>{}} img3width={25} img3height={25} />
-     
-       </ImageBackground>
-    </View>
+      <HomeHeader height={60}  paddingHorizontal={15}
+   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1backgroundColor={'#fff'} img1width={30} img1height={30} img1padding={5} img1borderRadius={4} 
+   press2={()=>{}} title2={'24/7 Hardware Store'} fontWeight={'500'} img2height={20}
+   press3={()=>{}} />
+ <View style={{height:200,borderRadius:20,overflow:'hidden',marginTop:40,width:'96%',alignSelf:'center'}}>
+     <ImageSlider 
+    //  localImg={true}
+    data={[
+        // require('../../assets/Group75972.png'),
+        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+    ]}
+   // onClick={(item, index) => {alert('hello'+index)}}
+    autoPlay={true}
+   // onItemChanged={(item) => console.log("item", item)}
+    closeIconColor="#fff"
+/>
+   </View>
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:Mycolors.BG_COLOR}}>
 
-<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#fff',borderRadius:9,paddingHorizontal:15,paddingVertical:10, top:-50}}>
+<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#fff',borderRadius:9,paddingHorizontal:15,paddingVertical:10}}>
   <View>
 <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>GRECA Vegetarian Greek</Text>
 <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Restaurant</Text>
