@@ -160,7 +160,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#e8edea',borderRadius:9,paddingVertical:10}}>
   <View>
-<Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>GRECA Vegetarian Greek</Text>
+<Text style={{color:Mycolors.Black,fontWeight:'600'}}>Intel 3rd Gen Motherboard</Text>
 <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text>
   </View>
 
@@ -217,21 +217,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 </ViewMoreText>
 </View>
  
-<View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',width:dimensions.SCREEN_WIDTH*95/100,alignSelf:'center'}}>
- 
-  {design(require('../../../assets/shape_39.png'),'Food Preparation Time','34 minutes','45%',25,28,'red',20)}
-  {design(require('../../../assets/shape_40.png'),'Hygiene Food','','45%',25,28,'red',20)}
 
-</View>
-{design(require('../../../assets/shape_41.png'),'Location','Disneys Hollvwood Studios Main Entrance.Kissimmee. FL 34747. United States','95%',25,28,5)}
-<View>
-  {design(require('../../../assets/shape_42.png'),'Timing','Open at 10:00 AM','95%',28,28,5)}
-<TouchableOpacity style={{width:100,height:30,borderColor:'red',borderWidth:0.5,position:'absolute',right:5,top:15,justifyContent:'center',borderRadius:5}}>
-<Text style={{fontSize:11,textAlign:'center',color:"red",fontWeight:'bold'}}>Call Restaurant</Text>
-</TouchableOpacity>
-</View>
-
-{design(require('../../../assets/shape_43.png'),'Cost','Cost for two - $24.78(approx)','95%',35,24,5)}
   
 </View>
 :
@@ -272,77 +258,10 @@ null
 <> 
 
 <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:15,alignItems:'center'}}>
-<Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Menu</Text>
-<View style={{height:40,flexDirection:'row'}}>
- <TouchableOpacity style={{width:40,height:40,backgroundColor:'transparent',justifyContent:'center'}}
- onPress={()=>{setmodlevisual1(true)}}>
-    <Image source={require('../../../assets/searchblue.png')} style={{width:25,height:25,overflow:'hidden',alignSelf:'center'}}></Image>
-   </TouchableOpacity>
-<View style={{}}>
-<Toggle
-  value={toggleValue}
-  onPress={(newState) => {
-    setToggleValue(newState)
-    console.log(newState);
-  }}
-  //  leftTitle="Veg"
-  // rightTitle="Non-Veg"
-  trackBarStyle={{
-    borderColor: "red",
-    width:80,height:25,
-    backgroundColor:'red'
-  }}
-  
-  trackBar={{
-    // activeBackgroundColor: "#9ee3fb",
-    // inActiveBackgroundColor: "#3c4145",
-    // borderActiveColor: "#86c3d7",
-    // borderInActiveColor: "#1c1c1c",
-    //borderWidth: 5,
-    backgroundColor:'#fff',
-    width: 80,
-  }}
-
-  thumbButton={{
-    width: 24,
-    height: 24,
-    radius: 24,
-    backgroundColor:'#fff',
-
-  }}
-  thumbStyle={{
-    left:2,
-    right:2,
-    backgroundColor:'#fff',
-  }}
-  containerStyle={{width:80,height:40}}
-/>
-<View style={{position:'absolute',top:14,right:toggleValue ? 'auto' :8,left:toggleValue ? 5 :'auto'}}>
-  <Text style={{color:'#fff',fontSize:10}}>{toggleValue ? 'Veg' : 'Non-Veg'}</Text>
-</View>
-</View>
-
-</View>
 
 
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-    {
-      upData.map((item,index)=> {
-        return(
-          <View>
-          {flatliistDesign(require('../../../assets/images/layer_40.png'),'Match Time Feast','$140.00',' 34 minutes',()=>{Alert.alert('Add Pressed')},()=>{
-            setmodlevisual1(false)
-            setmodlevisual2(true)
-          }   )}
-           </View>
-        )
-      }
-      )
-    }
-      
-         </View>
  </>
  : null
 }
@@ -513,7 +432,7 @@ null
 <View style={{height:100}} />
 
 </ScrollView>
-{selectedTab=='Dining' ? 
+{selectedTab=='Take Away' ? 
 <View style={{width:'92%',alignSelf:'center',position:'absolute',bottom:10}}>
 <MyButtons title="Book a Dining Slot" height={45} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{
   setmodlevisual4(true)
