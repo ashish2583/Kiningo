@@ -16,55 +16,100 @@ const ShopProductDetails = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
-  const [upData,setupData]=useState([
+  const [selectedCategory, setSelectedCategory]=useState('1')
+  const [categoryData, setCategoryData]=useState([
     {
       id: '1',
-      title: 'Hair Cut',
+      title: 'Electronics',
       desc:'',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '2',
-      title: 'Shaving',
+      title: 'Farm, Pet & Ranch',
       desc:'',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '3',
-      title: 'Facial',
+      title: 'Hand Tool',
       desc:'',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '4',
-      title: 'Hair Color',
+      title: 'Hardware',
       desc:'',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
+    },
+  ])
+  const [upData,setupData]=useState([
+    {
+      id: '1',
+      catId: '1',
+      title: 'Intel 3rd Gen Motherboard',
+      desc:'',
+      price:'$140.00',
+      time:'',
+      img:require('../../../assets/intel_motherboard.png'),
+    },
+    {
+      id: '2',
+      catId: '2',
+      title: 'Intel 3rd Gen Motherboard',
+      desc:'',
+      price:'$140.00',
+      time:'',
+      img:require('../../../assets/intel_motherboard.png'),
+    },
+    {
+      id: '3',
+      catId: '3',
+      title: 'Intel 3rd Gen Motherboard',
+      desc:'',
+      price:'$140.00',
+      time:'',
+      img:require('../../../assets/intel_motherboard.png'),
+    },
+    {
+      id: '4',
+      catId: '4',
+      title: 'Intel 3rd Gen Motherboard',
+      desc:'',
+      price:'$140.00',
+      time:'',
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '5',
-      title: 'Hair wash',
+      catId: '1',
+      title: 'Intel 3rd Gen Motherboard',
       desc:'',
+      price:'$140.00',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '6',
-      title: 'Beard style',
+      catId: '2',
+      title: 'Intel 3rd Gen Motherboard',
       desc:'',
+      price:'$140.00',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
     {
       id: '7',
-      title: 'Facial',
+      catId: '3',
+      title: 'Intel 3rd Gen Motherboard',
       desc:'',
+      price:'$140.00',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      img:require('../../../assets/intel_motherboard.png'),
     },
   ])
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
@@ -78,17 +123,11 @@ const ShopProductDetails = (props) => {
       <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Food'} fontWeight={'500'} img2height={20}
+   press2={()=>{}} title2={'24/7 Hardware Store'} fontWeight={'500'} img2height={20}
    press3={()=>{}} img3width={25} img3height={25} />
-<View style={{width:'95%',alignSelf:'center',backgroundColor:'rgba(0,0,0,0.025)',borderRadius:10,borderBottomColor:'rgba(0,0,0,0.5)',borderBottomWidth:0.2}}>
-  <HomeHeader height={40}  paddingHorizontal={15}
-   press1={()=>{}} img1={require('../../../assets/shape_33.png')} img1width={11} img1height={15} 
-   press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={Mycolors.GrayColor}
-   press3={()=>{setShowChooseMilesModal(true)}} img3={require('../../../assets/shape_32.png')} img3width={25} img3height={25} />
-</View>
 
 <View style={{width:'96%',alignSelf:'center'}}>
-<SearchInput2 marginTop={10} placeholder={'Restaurant Name. Cuisine, Dishes'} 
+<SearchInput2 marginTop={10} placeholder={'Enter Keyword'} 
 serchValue={searchValue} 
 onChangeText={(e)=>{setsearchValue(e)}} 
 press={()=>{Alert.alert('Hi')}}
@@ -112,16 +151,23 @@ paddingLeft={50}/>
 />
    </View> */}
 
+<View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
+<Text style={{color:Mycolors.Black,fontWeight:'500'}}>Pick from wide range of categories</Text>
+<Text style={{color:Mycolors.RED,fontWeight:'500',textDecorationLine: "underline"}} 
+ onPress={()=>{}}>View More</Text>
+</View>
+
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
-                  data={upData}
+                  data={categoryData}
+                  horizontal={true}
                   showsHorizontalScrollIndicator={false}
-                  numColumns={2}
+                  // numColumns={2}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
-          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
+                      <View style={{width:160,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:160,height:130,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          onPress={()=>{setSelectedCategory(item.id)}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
           <View style={{}}>
@@ -140,6 +186,31 @@ paddingLeft={50}/>
       elevation: 5,}}>
           <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
           </TouchableOpacity>
+          </View>
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
+
+<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+          <FlatList
+                  data={upData?.filter(el=>el.catId === selectedCategory)}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={2}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
+          </TouchableOpacity>
+          <View style={{}}>
+          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.title}</Text>
+          </View>
+          <View style={{padding:5,paddingLeft:0,top:-5}}>
+          <Text style={{fontSize:9,color:Mycolors.GrayColor,marginTop:5,textAlign:'left',}}>{item.price}</Text>
           </View>
           </View>
                     )
@@ -290,10 +361,6 @@ paddingLeft={50}/>
            
             </View>
 </Modal>
-{!showChooseMilesModal ?
-<TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
-<Image source={require('../../../assets/prod_cart_img.png')} style={{width:100,height:100 }}/>
-</TouchableOpacity>:null}
     </SafeAreaView>
      );
   }
