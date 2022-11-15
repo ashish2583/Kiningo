@@ -197,12 +197,12 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           numberOfLines={3}
           renderViewMore={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'red',textDecorationLine: "underline"}}>View more</Text>
+              <Text onPress={onPress} style={{color:'#FFC40C',textDecorationLine: "underline"}}>View more</Text>
             )
           }}
           renderViewLess={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'red',textDecorationLine: "underline"}}>View less</Text>
+              <Text onPress={onPress} style={{color:'#FFC40C',textDecorationLine: "underline"}}>View less</Text>
             )
            }}
           textStyle={{textAlign: 'left',width:'95%'}}
