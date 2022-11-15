@@ -122,7 +122,7 @@ paddingLeft={50}/>
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
           // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
-          onPress={()=>{props.navigation.navigate('ShopProductDetails')}}>
+          onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
           <View style={{}}>
