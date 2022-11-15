@@ -55,7 +55,7 @@ const ShopProductDetails = (props) => {
       desc:'',
       price:'$140.00',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '2',
@@ -188,9 +188,9 @@ paddingLeft={50}/>
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center'}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
           onPress={()=>{props.navigation.navigate('FoodDetails')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>
           </TouchableOpacity>
           <View style={{}}>
           <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.title}</Text>
