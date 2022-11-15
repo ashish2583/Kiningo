@@ -156,49 +156,35 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 />
    </View>
 
-<View style={{width:'96%',alignSelf:'center',backgroundColor:Mycolors.BG_COLOR}}>
+<View style={{width:'96%',alignSelf:'center',backgroundColor:'#e8edea'}}>
 
-<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#fff',borderRadius:9,paddingHorizontal:15,paddingVertical:10}}>
+<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#e8edea',borderRadius:9,paddingVertical:10}}>
   <View>
 <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>GRECA Vegetarian Greek</Text>
-<Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Restaurant</Text>
-                          <View style={{flexDirection:'row',marginTop:5}}>
-                          <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
-                          <Text style={{color:Mycolors.Black,fontSize:14,fontWeight:'600',left:5}}>4.5</Text>
-                          </View>
+<Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text>
   </View>
 
   <View>
-  <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',
-  shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 3
-      },
-      shadowRadius: 1,
-      shadowOpacity: 0.3,
-      justifyContent: 'center',
-      elevation: 5,}}>
-          <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
-          </TouchableOpacity>
+    <Text style={{color:'#FFC40C', textAlign:'right', fontSize:16}}>$140.00</Text>
+    <Text style={{color: Mycolors.GrayColor, fontSize:11}}>30% off, $200</Text>
   </View>
 
 </View>
 
-<View style={{flexDirection:'row',justifyContent:'space-between',top:-40}}>
+<View style={{flexDirection:'row',justifyContent:'space-between'}}>
 <View style={{width:'32%'}}>
 <MyButtons title="Take Away" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Take Away')}} marginHorizontal={20} fontSize={10}
-  titlecolor={selectedTab=='Take Away' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} hLinearColor={selectedTab=='Take Away' ?['#fd001f','#b10027']:['transparent','transparent']} backgroundColor={'transparent'}/>
+  titlecolor={selectedTab=='Take Away' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Take Away' ? '#FFC40C' : 'transparent'}/>
 </View>
 
 <View style={{width:'32%'}}>
 <MyButtons title="Dining" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Dining')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Dining' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} hLinearColor={selectedTab=='Dining' ?['#fd001f','#b10027']:['transparent','transparent']} backgroundColor={'transparent'}/>
+  titlecolor={selectedTab=='Dining' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Dining' ? '#FFC40C' : 'transparent'}/>
 </View>
 
 <View style={{width:'32%'}}>
 <MyButtons title="Book A Table" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Book A Table')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Book A Table' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} hLinearColor={selectedTab=='Book A Table' ?['#fd001f','#b10027']:['transparent','transparent']} backgroundColor={'transparent'}/>
+  titlecolor={selectedTab=='Book A Table' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Book A Table' ? '#FFC40C' : 'transparent'}/>
 </View>
 </View>
 
@@ -206,7 +192,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 {selectedTab=='Take Away' ? 
 <View>
-<View style={{width:'95%',alignSelf:'center',top:-20}}>
+<View style={{width:'95%',alignSelf:'center'}}>
 <ViewMoreText
           numberOfLines={3}
           renderViewMore={(onPress)=>{
@@ -221,7 +207,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
            }}
           textStyle={{textAlign: 'left',width:'95%'}}
         >
-          <Text>
+          <Text style={{color:Mycolors.DARK_GREY}}>
           In publishing and graphic design, Lorem ipsum is a place-
           holder text commonly used to demonstrate the visual form
           of a document or a typeface without relying on meaningful
@@ -364,7 +350,7 @@ null
 
  { selectedTab=='Book A Table' ? 
 <> 
-<ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true} style={{paddingHorizontal:15,top:-40}}>
+<ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true} style={{paddingHorizontal:15}}>
         
         <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10}}>Book A Table</Text>
         
