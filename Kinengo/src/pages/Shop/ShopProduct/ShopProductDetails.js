@@ -134,7 +134,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 }
 
   return(
-    <SafeAreaView style={{backgroundColor:'#e8edea'}}>
+    <SafeAreaView style={{backgroundColor:'#e8edea', height:'100%'}}>
       <ScrollView>
       <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1backgroundColor={'#fff'} img1width={30} img1height={30} img1padding={5} img1borderRadius={4} 
@@ -433,14 +433,13 @@ null
 
 </ScrollView>
 {selectedTab=='Take Away' ? 
-<View style={{width:'92%',alignSelf:'center',position:'absolute',bottom:10}}>
-<MyButtons title="Book a Dining Slot" height={45} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{
-  setmodlevisual4(true)
-  setmodlevisual3(false)
-  setmodlevisual1(false)
-  setmodlevisual2(false)
+<View style={{width:'100%',position:'absolute',flexDirection:'row',justifyContent:'space-between',alignItems:'center',height:80, paddingHorizontal:20, borderTopLeftRadius:10, borderTopRightRadius:10,bottom:10, backgroundColor:'#fff'}}>
+<MyButtons title="Add to Cart" height={45} width={'40%'} borderRadius={5} press={()=>{
 }} marginHorizontal={20} fontSize={12}
-  titlecolor={Mycolors.BG_COLOR} marginVertical={0} hLinearColor={['#fd001f','#b10027']} backgroundColor={'transparent'}/>
+  titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
+<MyButtons title="Buy Now" height={45} width={'40%'} borderRadius={5} press={()=>{
+}} marginHorizontal={20} fontSize={12}
+  titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
 </View>
 : null
 }
