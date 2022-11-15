@@ -157,7 +157,7 @@ paddingLeft={50}/>
  onPress={()=>{}}>View More</Text>
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
           <FlatList
                   data={categoryData}
                   horizontal={true}
@@ -166,7 +166,7 @@ paddingLeft={50}/>
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:100,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:100,height:70,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          <TouchableOpacity style={{width:100,height:80,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
           onPress={()=>{setSelectedCategory(item.id)}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
@@ -214,139 +214,6 @@ paddingLeft={50}/>
 <View style={{height:100}} />
 
 </ScrollView>
-<Modal
-        isVisible={showChooseMilesModal}
-        swipeDirection="down"
-        onBackdropPress={()=>setShowChooseMilesModal(false)}
-        onSwipeComplete={(e) => {
-          setShowChooseMilesModal(false)
-        }}
-          scrollTo={() => {}}
-          scrollOffset={1}
-          propagateSwipe={true}
-        coverScreen={false}
-        backdropColor='transparent'
-        style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
-      >
-        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
-          <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-          <View style={{alignItems:'center'}}>
-            <Text style={{color:Mycolors.Black,fontWeight:'500', marginBottom:30, marginTop:10}}>Choose Miles</Text>
-            <MultiSlider
-            // values={[multiSliderValue[0], multiSliderValue[1]]}
-            values={[multiSliderValue[0]]}
-            sliderLength={320}
-            onValuesChange={multiSliderValuesChange}
-            min={0}
-            max={100}
-            step={1}
-            allowOverlap={false}
-            minMarkerOverlapDistance={10}
-            markerStyle={{
-              ...Platform.select({
-                ios: {
-                  height: 30,
-                  width: 30,
-                  shadowColor: '#000000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 3
-                  },
-                  shadowRadius: 1,
-                  shadowOpacity: 0.1,
-                  borderColor:'#ED1C24',
-                  borderWidth:1
-                },
-                android: {
-                  height: 30,
-                  width: 30,
-                  borderRadius: 50,
-                  backgroundColor: '#fff',
-                  borderColor:'#ED1C24',
-                  borderWidth:1
-                }
-              })
-            }}
-            pressedMarkerStyle={{
-              ...Platform.select({
-                android: {
-                  height: 30,
-                  width: 30,
-                  borderRadius: 20,
-                  backgroundColor: '#ED1C24'
-                }
-              })
-            }}
-            selectedStyle={{backgroundColor: '#ED1C24'}}
-            trackStyle={{
-              height:5
-            }}
-            touchDimensions={{
-              height: 40,
-              width: 40,
-              borderRadius: 20,
-              slipDisplacement: 40
-            }}
-            />
-            <View style={{flexDirection:'row', alignItems:'center', width:'95%',
-                  height:60,
-                  paddingHorizontal:20,
-                  backgroundColor:'#fff',
-                  alignSelf:'center',
-                  shadowColor: 'rgba(0, 0, 0, 0.5)',
-                  shadowOffset: {
-                    width: 0,
-                    height: 3
-                  },
-                  shadowRadius: 1,
-                  shadowOpacity: 0.1,
-                  // overflow: 'hidden',
-                  elevation: 5,
-                  marginTop:30,
-                  marginBottom:30,}}>
-            <TextInput
-                ref={myTextInput}
-                value={String(multiSliderValue[0])}
-                onChangeText={(e) => {
-                  const value = e.replace(/[^0-9]/g, '')
-                  if(Number(value) > 100){
-                    Toast.show('Miles cannot be more than 100', Toast.SHORT)
-                  }else if(Number(value) < 0){
-                    Toast.show('Miles cannot be less than 0', Toast.SHORT)
-                  } else{
-                    multiSliderValuesChange([Number(value)])
-                  }
-                }}
-                textAlignVertical={'center'}
-                // onChangeText={(e) => console.log('e', e)}
-                placeholder={'0'}
-                placeholderTextColor="#263238"
-                multiline={true}
-              // maxLength={500}
-              // keyboardType="number-pad"
-                autoCapitalize = 'none'
-                style={{
-                  color:'#263238',
-                  fontSize:12,
-                  fontWeight:'500'
-                }}
-                keyboardType='numeric'
-              />
-              <Text onPress={()=>{myTextInput.current.focus()}} style={{color:'#263238', fontSize:12, fontWeight:'500'}}> miles</Text>
-              </View>
-            {/* <Text style={{color:Mycolors.GrayColor,fontWeight:'600',fontSize:12,marginTop:9}} >{multiSliderValue[0]} miles</Text> */}
-          </View>
-        
-          <View style={{width:'95%',alignSelf:'center'}}>
-          <MyButtons title="Save" height={50} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{props.navigation.navigate('ShopPayment')}} marginHorizontal={20} fontSize={11}
-          titlecolor={Mycolors.BG_COLOR} backgroundColor={'#ED1C24'} marginVertical={0} />
-          </View>
-
-            {/* <View style={{width:100,height:100}} /> */}
-            </ScrollView>
-           
-            </View>
-</Modal>
     </SafeAreaView>
      );
   }

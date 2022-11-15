@@ -128,7 +128,7 @@ paddingLeft={50}/>
           <View style={{}}>
           <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>Cafe 36</Text>
           </View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,top:-10}}>
+          <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,paddingLeft:0,top:-10}}>
           <Text style={{fontSize:9,color:Mycolors.RED,marginTop:5,textAlign:'left',}}>Cafe</Text>
           <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',shadowColor: '#000',
       shadowOffset: {
@@ -283,7 +283,7 @@ paddingLeft={50}/>
         
           <View style={{width:'95%',alignSelf:'center'}}>
           <MyButtons title="Save" height={50} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{props.navigation.navigate('ShopPayment')}} marginHorizontal={20} fontSize={11}
-          titlecolor={Mycolors.BG_COLOR} backgroundColor={'#ED1C24'} marginVertical={0} />
+          titlecolor={Mycolors.BG_COLOR} backgroundColor={'#FFD037'} marginVertical={0} />
           </View>
 
             {/* <View style={{width:100,height:100}} /> */}
