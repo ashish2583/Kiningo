@@ -7,6 +7,7 @@ import ShopProduct from '../pages/Shop/ShopProduct/ShopProduct';
 import FoodDetails from '../pages/Shop/ShopProduct/FoodDetails';
 import ShopProductAll from '../pages/Shop/ShopProduct/ShopProductAll';
 import ShopCategoryAll from '../pages/Shop/ShopProduct/ShopCategoryAll';
+import ShopCategoryProducts from '../pages/Shop/ShopProduct/ShopCategoryProducts';
 import ShopMyOrder from '../pages/Shop/ShopProduct/ShopMyOrder';
 import ShopReview from '../pages/Shop/ShopProduct/ShopReview';
 import ShopPayment from '../pages/Shop/ShopProduct/ShopPayment';
@@ -24,6 +25,7 @@ const ShopProductStack=(props)=>{
             <Stack.Screen component = {FoodDetails} name="FoodDetails" />
             <Stack.Screen component = {ShopProductAll} name="ShopProductAll" />
             <Stack.Screen component = {ShopCategoryAll} name="ShopCategoryAll" />
+            <Stack.Screen component = {ShopCategoryProducts} name="ShopCategoryProducts" />
             <Stack.Screen component = {ShopMyOrder} name="ShopMyOrder" />
             <Stack.Screen component = {ShopReview} name="ShopReview" />
             <Stack.Screen component = {ShopPayment} name="ShopPayment" />

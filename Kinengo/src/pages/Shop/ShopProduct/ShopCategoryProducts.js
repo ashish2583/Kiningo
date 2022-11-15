@@ -10,7 +10,8 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 
-const ShopCategoryAll = (props) => {
+const ShopCategoryProducts = (props) => {
+  console.log('props.route.params',props.route.params);
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -55,7 +56,7 @@ const ShopCategoryAll = (props) => {
       desc:'',
       price:'$140.00',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '2',
@@ -123,11 +124,11 @@ const ShopCategoryAll = (props) => {
       <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Categories'} fontWeight={'500'} img2height={20}
-   press3={()=>{}} />
+   press2={()=>{}} title2={props.route.params?.name} fontWeight={'500'} img2height={20}
+   press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={15} img3height={18} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
-<SearchInput2 marginTop={10} placeholder={'Search Categories'} 
+<SearchInput2 marginTop={10} placeholder={'Enter Keyword'} 
 serchValue={searchValue} 
 onChangeText={(e)=>{setsearchValue(e)}} 
 press={()=>{Alert.alert('Hi')}}
@@ -151,19 +152,53 @@ paddingLeft={50}/>
 />
    </View> */}
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
+<Text style={{color:Mycolors.Black,fontWeight:'500'}}>Pick from wide range of categories</Text>
+<Text style={{color:'#FFC40C',fontWeight:'500',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} 
+ onPress={()=>{props.navigation.navigate('ShopCategoryAll')}}>View More</Text>
+</View>
+
+<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
           <FlatList
                   data={categoryData}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  // numColumns={2}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:100,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:100,height:80,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          onPress={()=>{setSelectedCategory(item.id)}}>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
+          </TouchableOpacity>
+          <View style={{}}>
+          <Text style={{fontSize:11,color: (selectedCategory === item.id) ? '#FFC40C' : Mycolors.Black,marginTop:5,textAlign:'center',fontWeight:'bold'}}>{item.title}</Text>
+          </View>
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
+
+<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+          <FlatList
+                  data={upData?.filter(el=>el.catId === selectedCategory)}
                   showsHorizontalScrollIndicator={false}
                   numColumns={2}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:200,backgroundColor:'#fff', alignItems:'center', borderRadius:15}}
-          onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
-          <Image source={item.img} style={{width:120,height:120,borderRadius:60, marginTop:20}}></Image>
-          <Text style={{fontSize:12,color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
+          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>
           </TouchableOpacity>
+          <View style={{}}>
+          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.title}</Text>
+          </View>
+          <View style={{padding:5,paddingLeft:0,top:-5}}>
+          <Text style={{fontSize:9,color:Mycolors.GrayColor,marginTop:5,textAlign:'left',}}>{item.price}</Text>
+          </View>
           </View>
                     )
                   }}
@@ -186,4 +221,4 @@ paddingLeft={50}/>
 const styles = StyleSheet.create({
 
 });
-export default ShopCategoryAll 
+export default ShopCategoryProducts 
