@@ -700,7 +700,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '48%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
+        <View style={{ height: '55%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
         <View style={{backgroundColor:'rgba(255, 196, 12, 0.1)', paddingVertical:10}}>
           <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10,marginHorizontal:20,}}>Select Pickup date and time</Text>
@@ -797,6 +797,10 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
                   }}
                   keyExtractor={item => item.id}
                 />
+                
+                <MyButtons title="Confirm & Proceed To Payment" height={45} width={'100%'} borderRadius={5} press={()=>{
+}} marginHorizontal={20} fontSize={12} alignSelf='center'
+  titlecolor={Mycolors.BG_COLOR} marginVertical={30} backgroundColor={'#FFC40C'}/>
          </View>
 
 
