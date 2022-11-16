@@ -265,7 +265,7 @@ null
   <View style={{flexDirection:'row', justifyContent:'space-between'}}>
     <View style={{flexDirection:'row'}}>
     <Image source={require('../../../assets/store_image.png')}/>
-    <View style={{marginLeft:10, marginTop:5}}>
+    <View style={{marginLeft:15, marginTop:5}}>
       <Text style={{fontSize:16, fontWeight:'500', color:'#263238'}}>Favlily Store</Text>
       <View style={{flexDirection:'row',marginTop:5}}>
         <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
