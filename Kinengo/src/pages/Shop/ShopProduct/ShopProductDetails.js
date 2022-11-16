@@ -216,7 +216,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           content.
           </Text>
 </ViewMoreText>
-<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10, marginBottom:20,}}>
+<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:20, marginBottom:20,}}>
   <Text style={{color:Mycolors.Black,fontWeight:'600'}}>Explore Similar Products</Text>
   <Text style={{color:'#FFC40C',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} onPress={()=>{}}>View More</Text>
 </View>
