@@ -702,7 +702,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
       >
         <View style={{ height: '48%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-        <View style={{backgroundColor:'rgba(255, 196, 12, 0.05)', paddingVertical:10}}>
+        <View style={{backgroundColor:'rgba(255, 196, 12, 0.1)', paddingVertical:10}}>
           <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10,marginHorizontal:20,}}>Select Pickup date and time</Text>
         </View>
         
