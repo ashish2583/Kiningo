@@ -707,6 +707,56 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         </View>
         
         <View style={{padding:20}}>
+          
+        <View style={{width:'95%',height:50,marginTop:10, marginBottom:20, padding:10,backgroundColor:'#fff',
+              borderColor:'#dee4ec',borderRadius:7,flexDirection:'row',alignItems:'center',shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 3
+              },
+              shadowRadius: 1,
+              shadowOpacity: 0.1,
+              justifyContent: 'center',
+              elevation: 3,}}
+            >
+
+       <DatePicker
+          customStyles={{
+            dateInput: {borderColor:'transparent',left:-90},
+            dateText: {color:Mycolors.Black},
+            dateIcon: styles.dateIcon,
+            dateplaceholder: {
+              alignContent: 'flex-start',
+             
+            },
+            placeholderText: {
+              fontSize: 15,
+              color: Mycolors.GrayColor,
+              marginLeft: '5%',
+              // left:100
+            },
+            zIndex:99999
+          }}
+         
+          androidMode={'spinner'}
+          readOnly={true}
+          style={[styles.datePickerSelectInput]}
+          date={date}
+          mode="date"
+          placeholder={'Select date'}
+          minDate={new Date ()}
+          format='YYYY-MM-DD'
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          iconSource={require ('../../../assets/shape_38.png')}
+          onDateChange={date => {
+            setDate(date)
+          }}
+        />
+
+
+
+          </View>
         <FlatList
                   data={dayData}
                   horizontal={true}
