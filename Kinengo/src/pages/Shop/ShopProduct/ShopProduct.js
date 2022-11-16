@@ -74,11 +74,11 @@ const ShopProduct = (props) => {
 
 
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{}}>
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Food'} fontWeight={'500'} img2height={20}
+   press2={()=>{}} title2={'Shop'} fontWeight={'500'} img2height={20}
    press3={()=>{}} img3width={25} img3height={25} />
 <View style={{width:'95%',alignSelf:'center',backgroundColor:'rgba(0,0,0,0.025)',borderRadius:10,borderBottomColor:'rgba(0,0,0,0.5)',borderBottomWidth:0.2}}>
   <HomeHeader height={40}  paddingHorizontal={15}
@@ -112,7 +112,7 @@ paddingLeft={50}/>
 />
    </View> */}
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+<View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
           <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={false}
@@ -120,7 +120,7 @@ paddingLeft={50}/>
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#F8F8F8',alignSelf:'center'}}
           // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
           onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
@@ -129,7 +129,7 @@ paddingLeft={50}/>
           <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>Cafe 36</Text>
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,paddingLeft:0,top:-10}}>
-          <Text style={{fontSize:9,color:Mycolors.RED,marginTop:5,textAlign:'left',}}>Cafe</Text>
+          <Text style={{fontSize:9,color:'#FFC40C',marginTop:5,textAlign:'left',}}>Cafe</Text>
           <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',shadowColor: '#000',
       shadowOffset: {
         width: 0,

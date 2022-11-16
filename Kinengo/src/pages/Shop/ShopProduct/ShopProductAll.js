@@ -119,7 +119,7 @@ const ShopProductDetails = (props) => {
 
 
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{}}>
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%',backgroundColor: '#F8F8F8'}}>
       <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
@@ -157,7 +157,7 @@ paddingLeft={50}/>
  onPress={()=>{props.navigation.navigate('ShopCategoryAll')}}>View More</Text>
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
+<View style={{width:'100%',alignSelf:'center',marginTop:10, backgroundColor: '#F8F8F8'}}>
           <FlatList
                   data={categoryData}
                   horizontal={true}
@@ -166,7 +166,7 @@ paddingLeft={50}/>
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:100,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:100,height:80,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
+          <TouchableOpacity style={{width:100,height:80,backgroundColor: '#F8F8F8',alignSelf:'center'}}
           onPress={()=>{setSelectedCategory(item.id)}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>

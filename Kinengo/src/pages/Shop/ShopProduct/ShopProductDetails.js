@@ -134,7 +134,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 }
 
   return(
-    <SafeAreaView style={{backgroundColor:'#e8edea'}}>
+    <SafeAreaView style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
       <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1backgroundColor={'#fff'} img1width={30} img1height={30} img1padding={5} img1borderRadius={4} 
@@ -156,9 +156,9 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 />
    </View>
 
-<View style={{width:'96%',alignSelf:'center',backgroundColor:'#e8edea'}}>
+<View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
 
-<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#e8edea',borderRadius:9,paddingVertical:10}}>
+<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#F8F8F8',borderRadius:9,paddingVertical:10}}>
   <View>
 <Text style={{color:Mycolors.Black,fontWeight:'600'}}>Intel 3rd Gen Motherboard</Text>
 <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text>
