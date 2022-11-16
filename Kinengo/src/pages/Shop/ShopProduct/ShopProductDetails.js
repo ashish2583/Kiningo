@@ -215,9 +215,35 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           content.
           </Text>
 </ViewMoreText>
+<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10, marginBottom:20,}}>
+  <Text style={{color:Mycolors.Black,fontWeight:'600'}}>Explore Similar Products</Text>
+  <Text style={{color:'#FFC40C',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} onPress={()=>{}}>View More</Text>
+</View>
+
+<FlatList
+                  data={upData}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
+          onPress={()=>{props.navigation.navigate('ShopProductDetails')}}>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>
+          </TouchableOpacity>
+          <View style={{}}>
+          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.title}</Text>
+          </View>
+          <View style={{padding:5,paddingLeft:0,top:-5}}>
+          <Text style={{fontSize:9,color:Mycolors.GrayColor,marginTop:5,textAlign:'left',}}>{item.price}</Text>
+          </View>
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
 </View>
  
-
   
 </View>
 :
@@ -436,7 +462,7 @@ null
 <View style={{width:'100%',position:'absolute',flexDirection:'row',justifyContent:'space-between',alignItems:'center',height:80, paddingHorizontal:20, borderTopLeftRadius:10, borderTopRightRadius:10,bottom:10, backgroundColor:'#fff'}}>
 <MyButtons title="Add to Cart" height={45} width={'40%'} borderRadius={5} press={()=>{
 }} marginHorizontal={20} fontSize={12}
-  titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
+  titlecolor={'#FFC40C'} marginVertical={0} backgroundColor={'#FFF'} borderColor={'#FFC40C'} borderWidth={1}/>
 <MyButtons title="Buy Now" height={45} width={'40%'} borderRadius={5} press={()=>{
 }} marginHorizontal={20} fontSize={12}
   titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
