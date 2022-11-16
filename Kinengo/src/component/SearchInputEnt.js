@@ -55,7 +55,7 @@ const SearchInputEnt = (props) => {
     <View style={{width:'14%',height:45,backgroundColor:'transparent',borderRadius:8,left:5,position:'absolute'}}>
     <TouchableOpacity style={{width:45,height:45,justifyContent:'center',backgroundColor:Mycolors.LogininputBox,borderRadius:8}}
     onPress={props.presssearch}>
-    <Image source={require('../assets/ent_search_icon.png')} style={{ width: 22, height: 22, alignSelf: 'center'}}></Image>
+    <Image source={props.searchIcon ? props.searchIcon : require('../assets/ent_search_icon.png')} style={{ width: 22, height: 22, alignSelf: 'center'}}></Image>
     </TouchableOpacity>
 
 </View>
