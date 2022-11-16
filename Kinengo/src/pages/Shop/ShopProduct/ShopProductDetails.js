@@ -700,7 +700,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '55%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
+        <View style={{ height: '57%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
         <View style={{backgroundColor:'rgba(255, 196, 12, 0.1)', paddingVertical:10}}>
           <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10,marginHorizontal:20,}}>Select Pickup date and time</Text>
@@ -708,7 +708,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         
         <View style={{padding:20}}>
           
-        <View style={{width:'95%',height:50,marginTop:10, marginBottom:30, padding:10,backgroundColor:'#fff',
+        <View style={{height:50,marginTop:10, marginBottom:30, padding:10,backgroundColor:'#fff',
               borderColor:'#dee4ec',borderRadius:7,flexDirection:'row',alignItems:'center',shadowColor: '#000',
               shadowOffset: {
                 width: 0,
