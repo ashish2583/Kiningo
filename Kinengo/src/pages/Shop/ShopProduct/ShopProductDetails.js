@@ -172,13 +172,13 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 </View>
 
-<View style={{flexDirection:'row',justifyContent:'space-between'}}>
+<View style={{flexDirection:'row',}}>
 <View style={{width:'32%'}}>
 <MyButtons title="Description" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Description')}} marginHorizontal={20} fontSize={10}
   titlecolor={selectedTab=='Description' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Description' ? '#FFC40C' : 'transparent'}/>
 </View>
 
-<View style={{width:'32%'}}>
+<View style={{width:'32%', marginLeft:20}}>
 <MyButtons title="Store Location" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Store Location')}} marginHorizontal={20} fontSize={12}
   titlecolor={selectedTab=='Store Location' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Store Location' ? '#FFC40C' : 'transparent'}/>
 </View>
