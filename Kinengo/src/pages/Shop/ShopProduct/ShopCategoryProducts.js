@@ -2,6 +2,7 @@ import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
 import HomeHeader from 'src/component/HomeHeader';
 import SearchInput2 from 'src/component/SearchInput2';
+import SearchInputEnt from 'src/component/SearchInputEnt';
 import SerchInput from 'src/component/SerchInput';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
@@ -128,8 +129,9 @@ const ShopCategoryProducts = (props) => {
    press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={15} img3height={18} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
-<SearchInput2 marginTop={10} placeholder={'Enter Keyword'} 
-serchValue={searchValue} 
+<SearchInputEnt marginTop={10} placeholder={'Enter Keyword'} 
+serchValue={searchValue}
+searchIcon={require('../../../assets/product_search_icon.png')} 
 onChangeText={(e)=>{setsearchValue(e)}} 
 press={()=>{Alert.alert('Hi')}}
 presssearch={()=>{Alert.alert('Search Pressed')}}
