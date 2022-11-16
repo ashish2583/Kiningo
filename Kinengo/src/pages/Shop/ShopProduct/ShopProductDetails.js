@@ -262,6 +262,7 @@ null
 <> 
 
 <View style={{width:'95%',marginTop:15,alignSelf:'center'}}>
+  
   <View style={{flexDirection:'row', justifyContent:'space-between'}}>
     <View style={{flexDirection:'row'}}>
     <Image source={require('../../../assets/store_image.png')}/>
@@ -277,6 +278,18 @@ null
       <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Contact store</Text>
     </TouchableOpacity>
   </View>
+
+  <Text style={{fontSize:14, fontWeight:'400', color:'#455A64', marginTop:15}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</Text>
+
+  <View style={{flexDirection:'row', marginTop:15}}>
+    <Image source={require('../../../assets/product_location2.png')} style={{height:30, width:30, flex:1 }} resizeMode='contain'/>
+    <View style={{marginLeft:15, flex:4}}>
+      <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>Location</Text>
+      <Text style={{fontSize:14, fontWeight:'500', color:'#B2B7B9'}}>500 S Buena Vista St, Burbank, CA 91521, United States</Text>
+    </View>
+    <Image source={require('../../../assets/product_google_maps_2.png')} style={{height:42, width:42, flex:2 }} resizeMode='contain'/>
+  </View>
+
 </View>
 
  </>
