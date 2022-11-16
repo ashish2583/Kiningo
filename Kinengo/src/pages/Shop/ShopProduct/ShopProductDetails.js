@@ -251,16 +251,6 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 selectedTab=='Dining' ? 
 <View>
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-
-</View>
-
-</View>
-:
-null
-}
-{ selectedTab!='Book A Table' ? 
-<> 
-
 <View style={{width:'95%',marginTop:15,alignSelf:'center'}}>
   
   <View style={{flexDirection:'row', justifyContent:'space-between'}}>
@@ -291,9 +281,11 @@ null
   </View>
 
 </View>
+</View>
 
- </>
- : null
+</View>
+:
+null
 }
  </View>
 
