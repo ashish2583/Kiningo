@@ -708,7 +708,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         
         <View style={{padding:20}}>
           
-        <View style={{width:'95%',height:50,marginTop:10, marginBottom:20, padding:10,backgroundColor:'#fff',
+        <View style={{width:'95%',height:50,marginTop:10, marginBottom:30, padding:10,backgroundColor:'#fff',
               borderColor:'#dee4ec',borderRadius:7,flexDirection:'row',alignItems:'center',shadowColor: '#000',
               shadowOffset: {
                 width: 0,
@@ -787,7 +787,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
                   showsHorizontalScrollIndicator={false}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:90,marginHorizontal:5}}>
+                      <View style={{width:90,marginRight:5}}>
           <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime2==item.id ? '#FFC40C' : Mycolors.GrayColor, backgroundColor: selectedTime2==item.id ? 'rgba(255, 196, 12, 0.05)' : 'transparent'}}
           onPress={()=>{setselectedTime2(item.id)}}>
           <Text style={{fontSize:11,color:selectedTime2==item.id ? '#FFC40C' : Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
