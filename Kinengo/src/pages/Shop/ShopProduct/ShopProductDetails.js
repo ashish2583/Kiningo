@@ -15,7 +15,7 @@ import DatePicker from 'react-native-datepicker';
 
 const ShopProductDetails = (props) => {
   const [searchValue,setsearchValue]=useState('')
-  const [selectedTab,setselectedTab]=useState('Take Away')
+  const [selectedTab,setselectedTab]=useState('Description')
   const [cookingIns,setcookingIns]=useState('')
   const [selectedTime,setselectedTime]=useState('1')
   const [selectedTime2,setselectedTime2]=useState('1')
@@ -174,24 +174,20 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
 <View style={{width:'32%'}}>
-<MyButtons title="Take Away" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Take Away')}} marginHorizontal={20} fontSize={10}
-  titlecolor={selectedTab=='Take Away' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Take Away' ? '#FFC40C' : 'transparent'}/>
+<MyButtons title="Description" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Description')}} marginHorizontal={20} fontSize={10}
+  titlecolor={selectedTab=='Description' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Description' ? '#FFC40C' : 'transparent'}/>
 </View>
 
 <View style={{width:'32%'}}>
-<MyButtons title="Dining" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Dining')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Dining' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Dining' ? '#FFC40C' : 'transparent'}/>
+<MyButtons title="Store Location" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Store Location')}} marginHorizontal={20} fontSize={12}
+  titlecolor={selectedTab=='Store Location' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Store Location' ? '#FFC40C' : 'transparent'}/>
 </View>
 
-<View style={{width:'32%'}}>
-<MyButtons title="Book A Table" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Book A Table')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Book A Table' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Book A Table' ? '#FFC40C' : 'transparent'}/>
-</View>
 </View>
 
 
 
-{selectedTab=='Take Away' ? 
+{selectedTab=='Description' ? 
 <View>
 <View style={{width:'95%',alignSelf:'center'}}>
 <ViewMoreText
@@ -248,7 +244,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   
 </View>
 :
-selectedTab=='Dining' ? 
+selectedTab=='Store Location' ? 
 <View>
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
 <View style={{width:'95%',marginTop:15,alignSelf:'center'}}>
@@ -289,172 +285,12 @@ null
 }
  </View>
 
- { selectedTab=='Book A Table' ? 
-<> 
-<ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true} style={{paddingHorizontal:15}}>
-        
-        <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10}}>Book A Table</Text>
-        
-
-        <View style={{width:'95%',marginHorizontal:5,marginVertical:10, padding:10,backgroundColor:Mycolors.TimingColor,
-              borderColor:Mycolors.RED,borderWidth:0.2,borderRadius:7,alignSelf:'center',}}
-            >
-        <Text style={{fontSize:12,fontWeight:'500',color:Mycolors.Black}}>Enter number of person</Text>
-        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-<View style={{marginTop:10}}>
-<Text style={{fontSize:11,fontWeight:'500',color:Mycolors.Black}}>Person</Text>
-<Text style={{fontSize:10,fontWeight:'500',color:Mycolors.RED,marginTop:4}}>{counter}</Text>
-</View>
-<View style={{width:65,right:5,borderWidth:0.2,borderColor:Mycolors.RED,borderRadius:2}}>
-<HomeHeader height={21}  paddingHorizontal={7}
-   press1={()=>{counter<=0 ? setcounter(1) : setcounter(counter-1) }} img1={require('../../../assets/remove.png')} img1width={10} img1height={3} 
-   press2={()=>{}} title2={counter} fontWeight={'500'} img2height={20} fontSize={12}
-   press3={()=>{setcounter(counter+1)}} img3={require('../../../assets/add.png')} img3width={10} img3height={10} />
-</View>
-        </View>
-
-          </View>
-
-          <TouchableOpacity style={{width:'95%',height:50,marginHorizontal:5,marginVertical:10, padding:10,backgroundColor:Mycolors.TimingColor,
-              borderColor:'#dee4ec',borderRadius:7,alignSelf:'center',flexDirection:'row',alignItems:'center'}}
-            >
-          <View style={{width:25,height:25,alignSelf:'center',top:-2}}>
-          <Image source={require('../../../assets/shape_42.png')}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
-          </View>
-          <View style={{marginLeft:10}}>
-          <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:11,}} >Timings</Text>
-          <Text style={{color:Mycolors.GrayColor,fontWeight:'400',fontSize:10,marginTop:4}} >10-00AM- 11-00 PM</Text>
-          </View>
-          </TouchableOpacity>
-
-          <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginVertical:10}}>
-          <Text style={{color:Mycolors.Black,fontWeight:'500',fontSize:13}}>For Today</Text>
-          </View> 
-
-          <View style={{width:'97%',alignSelf:'center'}}>
-          <FlatList
-                  data={upData}
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:90,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime==item.id ? Mycolors.RED: Mycolors.GrayColor}}
-          onPress={()=>{setselectedTime(item.id)}}>
-          <Text style={{fontSize:11,color:selectedTime==item.id ? Mycolors.RED: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
-          </TouchableOpacity>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-         <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginVertical:10}}>
-          <Text style={{color:Mycolors.Black,fontWeight:'500',fontSize:13}}>For Later</Text>
-          </View> 
-
-          <View style={{width:'95%',height:50,marginHorizontal:5,marginVertical:10, padding:10,backgroundColor:'#fff',
-              borderColor:'#dee4ec',borderRadius:7,alignSelf:'center',flexDirection:'row',alignItems:'center',shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 3
-              },
-              shadowRadius: 1,
-              shadowOpacity: 0.1,
-              justifyContent: 'center',
-              elevation: 3,}}
-            >
-
-       <DatePicker
-          customStyles={{
-            dateInput: {borderColor:'transparent',left:-90},
-            dateText: {color:Mycolors.Black},
-            dateIcon: styles.dateIcon,
-            dateplaceholder: {
-              alignContent: 'flex-start',
-             
-            },
-            placeholderText: {
-              fontSize: 15,
-              color: Mycolors.GrayColor,
-              marginLeft: '5%',
-              // left:100
-            },
-            zIndex:99999
-          }}
-         
-          androidMode={'spinner'}
-          readOnly={true}
-          style={[styles.datePickerSelectInput]}
-          date={date}
-          mode="date"
-          placeholder={'Select date'}
-          minDate={new Date ()}
-          format='YYYY-MM-DD'
-          confirmBtnText="Confirm"
-          cancelBtnText="Cancel"
-          iconSource={require ('../../../assets/shape_38.png')}
-          onDateChange={date => {
-            setDate(date)
-          }}
-        />
-
-
-
-          </View>
-
-          <View style={{width:'97%',alignSelf:'center',marginTop:10}}>
-          <FlatList
-                  data={upData}
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:90,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime2==item.id ? Mycolors.RED: Mycolors.GrayColor}}
-          onPress={()=>{setselectedTime2(item.id)}}>
-          <Text style={{fontSize:11,color:selectedTime2==item.id ? Mycolors.RED: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
-          </TouchableOpacity>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-           <View style={{width:'95%',height:100,borderRadius:2,marginTop:25,alignSelf:'center'}}>
-          <TextInput
-                value={cookingIns}
-                onChangeText={(e) => setcookingIns(e)}
-                placeholder={'Add Cooking Instruction'}
-                placeholderTextColor="#bbbbbb"
-                multiline={true}
-              // maxLength={500}
-              // keyboardType="number-pad"
-                autoCapitalize = 'none'
-                style={[styles.input]}
-              />
-
-          </View>       
-          <View style={{width:'95%',alignSelf:'center'}}>
-          <MyButtons title="Confirm & Book Dining Slot" height={40} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{
-             setmodlevisual3(true)
-             setmodlevisual1(false)
-             setmodlevisual2(false)
-          }} marginHorizontal={20} fontSize={11}
-          titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0} hLinearColor={['#b10027','#fd001f']}/>
-          </View>
-            </ScrollView>
-           
- </>
- : null
-}
+ 
 
 <View style={{height:100}} />
 
 </ScrollView>
-{selectedTab=='Take Away' ? 
+{selectedTab=='Description' ? 
 <View style={{width:'100%',position:'absolute',flexDirection:'row',justifyContent:'space-between',alignItems:'center',height:80, borderTopLeftRadius:10, borderTopRightRadius:10,bottom:10, paddingHorizontal:20, backgroundColor:'#fff'}}>
 <MyButtons title="Add to Cart" height={45} width={'48%'} borderRadius={5} press={()=>{
 }} fontSize={12}
@@ -671,7 +507,7 @@ setmodlevisual4(true)}} fontSize={12}
 
           </View>       
           <View style={{width:'95%',alignSelf:'center'}}>
-          <MyButtons title="Confirm & Book Dining Slot" height={40} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{}} marginHorizontal={20} fontSize={11}
+          <MyButtons title="Confirm & Book Store Location Slot" height={40} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{}} marginHorizontal={20} fontSize={11}
           titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0} hLinearColor={['#b10027','#fd001f']}/>
           </View>
 
