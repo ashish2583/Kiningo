@@ -464,7 +464,7 @@ null
 }} marginHorizontal={20} fontSize={12}
   titlecolor={'#FFC40C'} marginVertical={0} backgroundColor={'#FFF'} borderColor={'#FFC40C'} borderWidth={1}/>
 <MyButtons title="Buy Now" height={45} width={'40%'} borderRadius={5} press={()=>{
-}} marginHorizontal={20} fontSize={12}
+setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
   titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
 </View>
 : null
@@ -688,6 +688,7 @@ null
 <Modal
         isVisible={modlevisual4}
         swipeDirection="down"
+        onBackdropPress={()=>{setmodlevisual4(false)}}
         onSwipeComplete={(e) => {
           setmodlevisual4(false)
         }}
@@ -698,11 +699,13 @@ null
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '48%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '48%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+        <View style={{backgroundColor:'rgba(255, 196, 12, 0.1)', paddingVertical:10}}>
+          <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10,marginHorizontal:20,}}>Select Pickup date and time</Text>
+        </View>
         
-        <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10}}>Book A Slot</Text>
-        
+        <View style={{padding:20}}>
         <Text style={{color:Mycolors.RED,fontWeight:'400',fontSize:12,marginTop:20}}>#KIN876549</Text>
             <View>
              <View style={{flexDirection:'row',alignItems:'center',width:'100%'}}>
@@ -748,6 +751,7 @@ null
 </View>
 
             <View style={{width:100,height:100}} />
+            </View>
             </ScrollView>
            
             </View>
