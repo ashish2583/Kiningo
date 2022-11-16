@@ -702,7 +702,7 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
       >
         <View style={{ height: '48%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-        <View style={{backgroundColor:'rgba(255, 196, 12, 0.1)', paddingVertical:10}}>
+        <View style={{backgroundColor:'rgba(255, 196, 12, 0.05)', paddingVertical:10}}>
           <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10,marginHorizontal:20,}}>Select Pickup date and time</Text>
         </View>
         
@@ -788,9 +788,9 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:90,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime2==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor, backgroundColor: selectedTime2==item.id ? '#FBF8FB' : 'transparent'}}
+          <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime2==item.id ? '#FFC40C' : Mycolors.GrayColor, backgroundColor: selectedTime2==item.id ? 'rgba(255, 196, 12, 0.05)' : 'transparent'}}
           onPress={()=>{setselectedTime2(item.id)}}>
-          <Text style={{fontSize:11,color:selectedTime2==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
+          <Text style={{fontSize:11,color:selectedTime2==item.id ? '#FFC40C' : Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
           </TouchableOpacity>
           </View>
                     )
