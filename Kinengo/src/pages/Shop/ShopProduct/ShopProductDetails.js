@@ -763,11 +763,11 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
                   showsHorizontalScrollIndicator={false}
                   renderItem={({item,index})=>{
                     return(
-          <TouchableOpacity style={{flexDirection:'row',width:100,marginRight:10,height:40,justifyContent:'space-between',alignItems:'center',borderWidth:0.5,borderRadius:5,paddingHorizontal:10,borderColor:selectedTime==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor, backgroundColor: selectedTime==item.id ? '#FBF8FB' : 'transparent'}}
+          <TouchableOpacity style={{flexDirection:'row',width:100,marginRight:10,height:40,justifyContent:'space-between',alignItems:'center',borderWidth:0.5,borderRadius:5,paddingHorizontal:10,borderColor:selectedTime==item.id ? '#FFC40C': Mycolors.GrayColor, backgroundColor: selectedTime==item.id ? 'rgba(255, 196, 12, 0.05)' : 'transparent'}}
           onPress={()=>{setselectedTime(item.id)}}>
-          <Text style={{fontSize:11,color:selectedTime==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.dayPart}</Text>
+          <Text style={{fontSize:11,color:selectedTime==item.id ? '#FFC40C': Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.dayPart}</Text>
           {selectedTime==item.id ? 
-            <Image source={require('../../../assets/ent_sel_circle.png')}  style={{width:20,height:20,alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+            <Image source={require('../../../assets/product_sel_circle.png')}  style={{width:20,height:20,alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
             :
             <Image source={require('../../../assets/ent_unsel_circle.png')}  style={{width:20,height:20,alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
           }
