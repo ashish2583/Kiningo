@@ -134,7 +134,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 }
 
   return(
-    <SafeAreaView style={{backgroundColor:'#e8edea', height:'100%'}}>
+    <SafeAreaView style={{backgroundColor:'#e8edea'}}>
       <ScrollView>
       <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1backgroundColor={'#fff'} img1width={30} img1height={30} img1padding={5} img1borderRadius={4} 
