@@ -26,6 +26,7 @@ const ShopProductDetails = (props) => {
   const [modlevisual2,setmodlevisual2] = useState(false)
   const [modlevisual3,setmodlevisual3] = useState(false)
   const [modlevisual4,setmodlevisual4] = useState(false)
+  const [dayData, setDayData]=useState([{dayPart:'Day', id: 1},{dayPart:'Afternoon', id: 2},{dayPart:'Evening', id: 3}])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -706,49 +707,48 @@ setmodlevisual4(true)}} marginHorizontal={20} fontSize={12}
         </View>
         
         <View style={{padding:20}}>
-        <Text style={{color:Mycolors.RED,fontWeight:'400',fontSize:12,marginTop:20}}>#KIN876549</Text>
-            <View>
-             <View style={{flexDirection:'row',alignItems:'center',width:'100%'}}>
-              <View style={{width:'50%'}}>
-              <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:15}}>Table Number</Text>
-              <Text style={{color:Mycolors.GrayColor,fontSize:11,marginTop:4}}>14</Text>
-              </View>
-              <View style={{width:'50%'}}>
-              <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:15}}>Booking for</Text>
-              <Text style={{color:Mycolors.GrayColor,fontSize:11,marginTop:4}}>3 person</Text>
-              </View>
-              </View>
-              <View style={{flexDirection:'row',alignItems:'center',width:'100%',marginTop:10}}>
-              <View style={{width:'50%'}}>
-              <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:15}}>Table Booking Time</Text>
-              <Text style={{color:Mycolors.GrayColor,fontSize:11,marginTop:4}}>21 July 2021, 11:00 AM</Text>
-              </View>
-              <View style={{width:'50%'}}>
-              <TouchableOpacity style={{width:120,height:40,borderColor:Mycolors.RED,borderWidth:0.5,borderRadius:4,justifyContent:'center',top:8}}>
-              <Text style={{textAlign:'center',color:Mycolors.RED,fontSize:12,fontWeight:'600'}}>View Order</Text>
-              </TouchableOpacity>
-              </View>
-              </View>
+        <FlatList
+                  data={dayData}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  renderItem={({item,index})=>{
+                    return(
+          <TouchableOpacity style={{flexDirection:'row',width:100,marginRight:10,height:40,justifyContent:'space-between',alignItems:'center',borderWidth:0.5,borderRadius:5,paddingHorizontal:10,borderColor:selectedTime==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor, backgroundColor: selectedTime==item.id ? '#FBF8FB' : 'transparent'}}
+          onPress={()=>{setselectedTime(item.id)}}>
+          <Text style={{fontSize:11,color:selectedTime==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.dayPart}</Text>
+          {selectedTime==item.id ? 
+            <Image source={require('../../../assets/ent_sel_circle.png')}  style={{width:20,height:20,alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+            :
+            <Image source={require('../../../assets/ent_unsel_circle.png')}  style={{width:20,height:20,alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+          }
+          </TouchableOpacity>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />  
+                <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',marginTop:20}}>
+          <Text style={{color:Mycolors.Black,fontWeight:'500',fontSize:13}}>Select Time Slot</Text>
+          </View> 
 
+          <View style={{width:'97%',marginTop:10}}>
+          <FlatList
+                  data={upData}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:90,marginHorizontal:5}}>
+          <TouchableOpacity style={{width:90,height:40,justifyContent:'center',borderWidth:0.5,borderRadius:5,borderColor:selectedTime2==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor, backgroundColor: selectedTime2==item.id ? '#FBF8FB' : 'transparent'}}
+          onPress={()=>{setselectedTime2(item.id)}}>
+          <Text style={{fontSize:11,color:selectedTime2==item.id ? Mycolors.ServiceHeader: Mycolors.GrayColor,textAlign:'center',fontWeight:'bold'}}>{item.time}</Text>
+          </TouchableOpacity>
           </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
 
-
-<View style={{width:'100%',padding:10,borderRadius:15,borderColor:Mycolors.GrayColor,borderWidth:0.3,marginTop:20}}>
-  <View style={{flexDirection:'row',alignItems:'center',width:'85%',marginTop:10}}>
-   <View style={{width:40,height:40,backgroundColor:Mycolors.GREEN,justifyContent:'center',borderRadius:20}}>
-    <Image source={require('../../../assets/shape_39.png')} style={{width:25,height:28,overflow:'hidden',alignSelf:'center'}}></Image>
-   </View>
-   <View style={{marginLeft:10,width:'85%'}}>
-    <Text style={{fontSize:13,fontWeight:'bold',color:Mycolors.Black}}>Order Status</Text>
-    <Text style={{fontSize:13,color:Mycolors.GREEN,marginTop:7,lineHeight:18}}>Accepted by restaurant vour table no 14 is booked</Text>
-   </View>
-   
-  </View>
-<View style={{flexDirection:'row',marginTop:10}}>
-<Text style={{fontWeight:'600',color:Mycolors.Black,fontSize:12}}>Note:</Text>
-<Text style={{fontWeight:'400',color:Mycolors.Black,fontSize:12}}> Show your booking number when asked</Text>
-</View>
-</View>
 
             <View style={{width:100,height:100}} />
             </View>
