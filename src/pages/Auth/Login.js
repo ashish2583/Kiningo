@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveUserResult, saveUserToken, setUserType } from '../../redux/actions/user_action';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { baseUrl, login, booking_verify_ride, requestPostApi } from '../../WebApi/Service'
+import { baseUrl, login, requestPostApi } from '../../WebApi/Service'
 import Loader from '../../WebApi/Loader';
 import Toast from 'react-native-simple-toast'
 import MyAlert from '../../component/MyAlert';
@@ -33,8 +33,7 @@ const Login = (props) => {
    }
 
   const LoginPressed = async () => {
-    Login_Pressed('hi')
-    // const mobileN=mobileInput.getInputValue()
+   
     var EmailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email == '') {
       Alert.alert('Enter email address');
@@ -55,13 +54,8 @@ const Login = (props) => {
       const { responseJson, err } = await requestPostApi(login, data, 'POST', '')
       setLoading(false)
       console.log('the res==>>', responseJson)
-      if (err == null) {
-        if (responseJson.status) {
-         
-        } else {
-          setalert_sms(responseJson.message)
-          setMy_Alert(true)
-        }
+      if (responseJson.headers.success == 1) {
+        Login_Pressed(responseJson.body)
       } else {
          setalert_sms(err)
          setMy_Alert(true)

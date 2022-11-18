@@ -505,7 +505,8 @@ null
           </View>       
           <View style={{width:'95%',alignSelf:'center'}}>
           <MyButtons title="Confirm & Book Dining Slot" height={40} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{
-             setmodlevisual3(true)
+             setmodlevisual3(false)
+             setmodlevisual4(true)
              setmodlevisual1(false)
              setmodlevisual2(false)
           }} marginHorizontal={20} fontSize={11}
@@ -523,8 +524,8 @@ null
 {selectedTab=='Dining' ? 
 <View style={{width:'92%',alignSelf:'center',position:'absolute',bottom:10}}>
 <MyButtons title="Book a Dining Slot" height={45} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{
-  setmodlevisual4(true)
-  setmodlevisual3(false)
+  setmodlevisual4(false)
+  setmodlevisual3(true)
   setmodlevisual1(false)
   setmodlevisual2(false)
 }} marginHorizontal={20} fontSize={12}
@@ -589,6 +590,7 @@ null
           scrollTo={() => {}}
           scrollOffset={1}
           propagateSwipe={true}
+        onBackdropPress={() =>  setmodlevisual2(false)}
         coverScreen={false}
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}

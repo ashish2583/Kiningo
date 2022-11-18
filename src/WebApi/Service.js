@@ -10,7 +10,8 @@ import {  useSelector, useDispatch } from 'react-redux';
 
 export const register = 'auth/register'
 export const login = 'auth/login'
-export const verify_otp = 'auth/login/otp-verify'
+export const verify_otp = 'auth/verify-otp'
+
 export const booking_bid_ride = 'booking/bid_ride'
 export const booking_get_bid_status = 'booking/get_bid_status'
 export const booking_start_ride = 'booking/start_ride'
@@ -86,11 +87,11 @@ export const requestPostApi = async (endPoint,body,method,token) =>
       {
         let responseJson = await response.json();
         //Completion block 
-        return {responseJson:null,err:responseJson.message}
+        return {responseJson:responseJson,err:responseJson.headers.message}
       }else{
-          // let responson = await response.json();
+        let responseJson = await response.json();
           // console.log(responson)
-        return {responseJson:null,err:'Something went wrong!'}
+        return {responseJson:responseJson,err:responseJson.headers.message}
       }
     } catch (error) {
       console.log('the error is',error)

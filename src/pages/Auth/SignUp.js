@@ -9,7 +9,11 @@ import LinearGradient from 'react-native-linear-gradient'
 import CountryPicker, { getAllCountries, getCallingCode,DARK_THEME } from 'react-native-country-picker-modal';
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import {SvgCssUri,Rect,Circle } from 'react-native-svg';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { saveUserResult, saveUserToken, setUserType } from '../../redux/actions/user_action';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { baseUrl, login, register, requestPostApi } from '../../WebApi/Service'
+import Loader from '../../WebApi/Loader';
 const SignUp = (props) => {
 
   const [flag,setFlag]=useState('http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg')
@@ -27,17 +31,55 @@ const SignUp = (props) => {
   const[cpassView,setcPassView]=useState(true)
   const [My_Alert, setMy_Alert] = useState(false)
   const [alert_sms, setalert_sms] = useState('')
+  const [loading, setLoading] = useState(false)
 
 useEffect(()=>{
   
 }) 
 
 
-  const signupPressed=()=>{
-    props.navigation.navigate('Otp', { number: number, otp: '1234', from: 'SignUp',c_code: code })
+  const signupPressed=async()=>{
 
-    // number !='' ? 
-    // : Toast.show('Please enter number')
+    var EmailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (fristname == '') {
+      Alert.alert('Enter first name');
+    }else if (lastname=='') {
+      Alert.alert('Enter last name');
+    }else if (number=='') {
+      Alert.alert('Enter mobile number');
+    }else if (email == '') {
+      Alert.alert('Enter email address');
+    } else if (!EmailReg.test(email)) {
+      Alert.alert('Enter valid email');
+    }else if (address == '') {
+      Alert.alert('Enter Address');
+    }else if (pass == '') {
+      Alert.alert('Enter password');
+    } else if (confPass == '') {
+      Alert.alert('Enter confirm password');
+    } else if (confPass != pass) {
+      Alert.alert('Password & confirm password should be same');
+    } else {
+      setLoading(true)
+     
+      var data={
+                first_name: fristname,
+                last_name: lastname,
+                email: email,
+                password: pass,
+                phone: code+number,
+                address:address
+              }
+      const { responseJson, err } = await requestPostApi(register, data, 'POST', '')
+      setLoading(false)
+      console.log('the res==>>', responseJson)
+      if (responseJson.headers.success == 1) {
+        props.navigation.navigate('Otp', { number: number, otp: responseJson.body.otp, from: 'SignUp',c_code: code })
+      } else {
+         setalert_sms(err)
+         setMy_Alert(true)
+      }
+    }
   }
  
   const countryselect=(cod)=>{
@@ -249,6 +291,7 @@ useEffect(()=>{
    
          {My_Alert ? <MyAlert sms={alert_sms} okPress={()=>{setMy_Alert(false)}} /> : null }
     </LinearGradient>
+    {loading ? <Loader /> : null}
     </SafeAreaView>
   );
 }

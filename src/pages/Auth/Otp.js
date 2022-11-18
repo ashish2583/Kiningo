@@ -27,30 +27,29 @@ const Otp = (props) => {
   const [alert_sms, setalert_sms] = useState('')
 
   const optclicked=async()=>{
-    LoginPressed('hi')
-  //   if(props.route.params.otp==value){
-  //     let formdata = new FormData();
-  //       formdata.append("phone_no",props.route.params.number);
-  //       formdata.append("otp",value);
-  //       formdata.append("user_group",3);
-  //       setLoading(true)
-  //  const{responseJson,err}  = await requestPostApi(verify_otp,formdata,'POST','') 
-  //   setLoading(false)
-  //   if(err==null){
-  //       if(responseJson.status){
-  //         console.log('user All Data account_type ==>>',responseJson.data)
-  //         // dispatch(saveUserToken(responseJson.data.token))
-  //         LoginPressed(responseJson.data)
-  //     }else{
-  //         Toast.show(responseJson.message);
-  //       }
-  //   }else{
-  //           setalert_sms(err)
-  //           setMy_Alert(true)
-  //   }
-  // }else{
-  //   Toast.show('Please enter valid opt')
-  // } 
+    // LoginPressed('hi')
+    if(props.route.params.otp==value){
+      let formdata = new FormData();
+        formdata.append("phone_no",props.route.params.number);
+        formdata.append("otp",value);
+      var data={
+          "phone": props.route.params.c_code + props.route.params.number,
+          "otp": value
+        }
+        setLoading(true)
+   const{responseJson,err}  = await requestPostApi(verify_otp,data,'POST','') 
+    setLoading(false)
+    console.log('the res==>>', responseJson)
+    if (responseJson.headers.success == 1) {
+      LoginPressed(responseJson.body)
+      // props.navigation.navigate('Login')
+    } else {
+       setalert_sms(err)
+       setMy_Alert(true)
+           }
+  }else{
+    Toast.show('Please enter valid opt')
+  } 
   }
 
   const LoginPressed=(data)=>{
