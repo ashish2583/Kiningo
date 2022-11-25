@@ -198,46 +198,6 @@ const ShopProduct = (props) => {
 
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
-          <FlatList
-                  data={upData}
-                  showsHorizontalScrollIndicator={false}
-                  numColumns={2}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
-          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
-          </TouchableOpacity>
-          <View style={{}}>
-          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>Cafe 36</Text>
-          </View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,top:-10}}>
-          <Text style={{fontSize:9,color:Mycolors.RED,marginTop:5,textAlign:'left',}}>Cafe</Text>
-          <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 3
-      },
-      shadowRadius: 1,
-      shadowOpacity: 0.3,
-      justifyContent: 'center',
-      elevation: 5,}}>
-          <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
-          </TouchableOpacity>
-          </View>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-
-
-
-
 
  </View>
 <View style={{height:100}} />
