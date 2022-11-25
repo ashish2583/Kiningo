@@ -81,7 +81,7 @@ const EventsHome = (props) => {
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
    press2={()=>{}} title2={'Events'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} />
-<View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginVertical:10}}>
+<View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginTop:20, marginBottom:10, }}>
   <TouchableOpacity style={styles.topButtonView}>
     <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Events</Text>
   </TouchableOpacity>
