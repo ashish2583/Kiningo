@@ -89,12 +89,12 @@ const EventsHome = (props) => {
 </View>
 
 <View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginVertical:10}}>
-  <View style={styles.topButtonView}>
+  <TouchableOpacity style={styles.topButtonView}>
     <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Event</Text>
-  </View>
-<View style={styles.topButtonView}>
+  </TouchableOpacity>
+<TouchableOpacity style={styles.topButtonView}>
   <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>Show Purchased Tickets</Text>
-</View>
+</TouchableOpacity>
 </View>
 <View style={{width:'96%',alignSelf:'center'}}>
 <SearchInputEnt marginTop={10} placeholder={'Restaurant Name. Cuisine, Dishes'} 
