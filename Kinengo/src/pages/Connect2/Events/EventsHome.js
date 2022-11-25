@@ -77,9 +77,9 @@ const EventsHome = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
-    <HomeHeader height={60}  paddingHorizontal={15}
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Events'} fontWeight={'500'} img2height={20}
+    <HomeHeader height={60}  paddingHorizontal={15} backgroundColor='#fff'
+   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
+   press2={()=>{}} title2={'Events'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} />
 <View style={{width:'95%',alignSelf:'center',backgroundColor:'rgba(0,0,0,0.025)',borderRadius:10,borderBottomColor:'rgba(0,0,0,0.5)',borderBottomWidth:0.2}}>
   <HomeHeader height={40}  paddingHorizontal={15}
@@ -88,6 +88,14 @@ const EventsHome = (props) => {
    press3={()=>{setShowChooseMilesModal(true)}} img3={require('../../../assets/shape_32.png')} img3width={25} img3height={25} />
 </View>
 
+<View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginVertical:10}}>
+  <View style={styles.topButtonView}>
+    <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Event</Text>
+  </View>
+<View style={styles.topButtonView}>
+  <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>Show Purchased Tickets</Text>
+</View>
+</View>
 <View style={{width:'96%',alignSelf:'center'}}>
 <SearchInputEnt marginTop={10} placeholder={'Restaurant Name. Cuisine, Dishes'} 
 serchValue={searchValue} 
@@ -301,6 +309,18 @@ paddingLeft={50}/>
      );
   }
 const styles = StyleSheet.create({
-
+  topButtonView:{
+    justifyContent:'center',
+    alignItems:'center',  
+    backgroundColor:'#fff',
+    borderRadius:20,
+    paddingHorizontal:15,
+    paddingVertical:10,
+    shadowColor: '#0089CF',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.1,
+    elevation: 5,
+  }
 });
 export default EventsHome 
