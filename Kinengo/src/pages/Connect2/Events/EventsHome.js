@@ -81,16 +81,9 @@ const EventsHome = (props) => {
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
    press2={()=>{}} title2={'Events'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} />
-<View style={{width:'95%',alignSelf:'center',backgroundColor:'rgba(0,0,0,0.025)',borderRadius:10,borderBottomColor:'rgba(0,0,0,0.5)',borderBottomWidth:0.2}}>
-  <HomeHeader height={40}  paddingHorizontal={15}
-   press1={()=>{}} img1={require('../../../assets/product_location_icon.png')} img1width={11} img1height={15} 
-   press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={Mycolors.GrayColor}
-   press3={()=>{setShowChooseMilesModal(true)}} img3={require('../../../assets/shape_32.png')} img3width={25} img3height={25} />
-</View>
-
 <View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginVertical:10}}>
   <TouchableOpacity style={styles.topButtonView}>
-    <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Event</Text>
+    <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Events</Text>
   </TouchableOpacity>
 <TouchableOpacity style={styles.topButtonView}>
   <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>Show Purchased Tickets</Text>
