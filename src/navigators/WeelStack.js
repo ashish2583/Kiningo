@@ -53,6 +53,7 @@ import ShopEat from '../pages/Shop/ShopEat/ShopEat';
 import ShopIntertenment from '../pages/Shop/ShopIntertenment';
 import ShopProduct from '../pages/Shop/ShopProduct';
 
+
 import Talkie from '../pages/Talkie/Talkie';
 import Finenc from '../pages/Talkie/Finenc';
 import General from '../pages/Talkie/General';
@@ -66,8 +67,8 @@ import Weather from '../pages/Talkie/Weather';
 
 import Repair from '../pages/Deal/ServiceDemands/Repair';
 import ShopEatStack from './ShopEatStack';
-
-
+import shopEntertainmentStack from './ShopEntertainmentStack'
+import ShopProductStack from './ShopProductStack'
 const WeelStack=(props)=>{
    
     const Stack = createNativeStackNavigator();
@@ -125,8 +126,10 @@ const WeelStack=(props)=>{
 
             <Stack.Screen component = {Shop} name="Shop" />
             <Stack.Screen component = {ShopEatStack} name="ShopEat" />
-            <Stack.Screen component = {ShopIntertenment} name="ShopIntertenment" />
-            <Stack.Screen component = {ShopProduct} name="ShopProduct" />
+            {/* <Stack.Screen component = {ShopIntertenment} name="ShopIntertenment" /> */}
+            <Stack.Screen component = {shopEntertainmentStack} name="ShopIntertenment" />
+            <Stack.Screen component = {ShopProductStack} name="ShopProduct" />
+            {/* <Stack.Screen component = {ShopProduct} name="ShopProduct" /> */}
 
             <Stack.Screen component = {Talkie} name="Talkie" />
             <Stack.Screen component = {Finenc} name="Finenc" />

@@ -6,11 +6,16 @@ import SerchInput from '../../../component/SerchInput';
 import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
 import MyButtons from '../../../component/MyButtons';
-
+import { baseUrl, login, requestPostApi,requestGetApi,shop_eat } from '../../../WebApi/Service'
+import Loader from '../../../WebApi/Loader';
+import Toast from 'react-native-simple-toast'
+import MyAlert from '../../../component/MyAlert';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ShopEat = (props) => {
   const [searchValue,setsearchValue]=useState('')
-
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -62,9 +67,27 @@ const ShopEat = (props) => {
       img:require('../../../assets/images/images.png'),
     },
   ])
+  const [My_Alert, setMy_Alert] = useState(false)
+  const [alert_sms, setalert_sms] = useState('')
   useEffect(()=>{
-
+    homePage()
  },[])
+
+ const homePage = async () => {
+   
+    setLoading(true)
+    
+    const { responseJson, err } = await requestGetApi(shop_eat, '', 'GET', '')
+    setLoading(false)
+    console.log('the res==>>', responseJson)
+    // if (responseJson.headers.success == 1) {
+     
+    // } else {
+    //    setalert_sms(err)
+    //    setMy_Alert(true)
+    // }
+  
+}
 
 
   return(
@@ -90,21 +113,6 @@ presssearch={()=>{Alert.alert('Search Pressed')}}
 paddingLeft={50}/>
  
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
 
 <View style={{width:'100%',alignSelf:'center',marginTop:15}}>
           <FlatList

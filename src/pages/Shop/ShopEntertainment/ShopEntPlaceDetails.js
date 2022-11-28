@@ -1,16 +1,16 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, Modal as RNModal} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import { Rating } from 'react-native-ratings';
 import ViewMoreText from 'react-native-view-more-text';
 import Toggle from "react-native-toggle-element";
 import Modal from 'react-native-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { setSelectedCarTab } from 'src/redux/actions/user_action';
+// import { setSelectedCarTab } from '../../../redux/actions/user_action';
 import DatePicker from 'react-native-datepicker';
 import ImageViewer from 'react-native-image-zoom-viewer';
 
@@ -247,7 +247,6 @@ press3={()=>{}} img3width={25} img3height={25} />
 </View>
 
 
-
 {selectedTab=='Explore' ? 
 <View>
 <View style={{width:'95%',alignSelf:'center',top:-20}}>
@@ -283,30 +282,31 @@ press3={()=>{}} img3width={25} img3height={25} />
 <View style={{}}>
   
 
-{/* <View style={{position:'absolute',top:14,right:toggleValue ? 'auto' :8,left:toggleValue ? 5 :'auto'}}>
-  <Text style={{color:'#fff',fontSize:10}}>{toggleValue ? 'Veg' : 'Non-Veg'}</Text>
-</View> */}
 </View>
 
 </View>
 
 
 </View>
+
 <FlatList
     data={images?.map((el, index)=>{
       return {uri: el, id: index}
   })}
-  // style={{height:400}}
     numColumns={2}
     renderItem={({item,index})=>{
       console.log('index', item);
       return(
+        <>
           <TouchableOpacity style={{height:200,width:'45%',marginTop:10,backgroundColor:Mycolors.BG_COLOR,marginHorizontal:8,borderRadius:10}}
           onPress={()=>{setImageIndex(item.id); setShowImageGallery(true)}}>
-          {/* <Text>{index}</Text> */}
           <Image source={{uri:item.uri}} style={{width:'100%',height:'100%',alignSelf:'center',overflow:'hidden'}}></Image>
-    
           </TouchableOpacity>
+          {/* {images.length==index ?
+          <View style={{width:10,height}} /> 
+          : null
+          } */}
+          </>
       )
     }}
     keyExtractor={item => item.id}
@@ -324,41 +324,39 @@ selectedTab=='Review' ?
 <View style={{top:-25}}>
 <Text style={{fontWeight:'bold',color:Mycolors.Black, marginLeft:25}}>Reviews</Text>
 <View style={{width:'100%',alignSelf:'center',marginTop:5}}>
-          <FlatList
-                  data={reviewData}
-                  keyExtractor={item => item.id}
-                  renderItem={({item,index})=>{
-                    return(
-                      <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/1.2,height:500,marginHorizontal:5,backgroundColor:'#fff',
-                    //   shadowOffset: {
-                    //   width: 0,
-                    //   height: 3
-                    // },
-                    // shadowRadius: 1,
-                    // shadowOpacity: 0.3,
-                   // justifyContent: 'center',
-                    // elevation: 5,
-                    borderRadius:10, alignSelf:'center', margin:15, paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}>
-                    <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10}}>
-                      <Image source={item.reviewerPhoto} style={{width:40,height:40,borderRadius:20}} resizeMode='cover'/>
-                      <View style={{marginHorizontal:15}}>
-                        <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.name}</Text>
-                        <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{`Posted on ${item.time}`}</Text>
-                      </View>
-                    </View>
-                    <View style={{borderBottomColor:Mycolors.GrayColor, borderBottomWidth:0.2}}/>
-                    <View style={{paddingHorizontal:15}}>
-                      <View style={{flexDirection:'row',marginTop:5, paddingTop:10,paddingBottom:15,}}>
-                        <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
-                        <Text style={{color:Mycolors.Black,fontSize:14,fontWeight:'600',left:5}}>4.5</Text>
-                      </View>
-                          <Text style={{color:Mycolors.DARK_GREY,marginBottom:5}}>{item.text}</Text>
-                          <Image source={require('../../../assets/images/layer_42.png')}style={{width:'90%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}}resizeMode='cover'/>
-                    </View>
-                    </TouchableOpacity>
-                    )
-                  }}
-                />
+    {
+      reviewData.map((item,index)=> {
+        return(
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/1.2,height:500,marginHorizontal:5,backgroundColor:'#fff',
+        //   shadowOffset: {
+        //   width: 0,
+        //   height: 3
+        // },
+        // shadowRadius: 1,
+        // shadowOpacity: 0.3,
+       // justifyContent: 'center',
+        // elevation: 5,
+        borderRadius:10, alignSelf:'center', margin:15, paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}>
+        <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10}}>
+          <Image source={item.reviewerPhoto} style={{width:40,height:40,borderRadius:20}} resizeMode='cover'/>
+          <View style={{marginHorizontal:15}}>
+            <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.name}</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{`Posted on ${item.time}`}</Text>
+          </View>
+        </View>
+        <View style={{borderBottomColor:Mycolors.GrayColor, borderBottomWidth:0.2}}/>
+        <View style={{paddingHorizontal:15}}>
+          <View style={{flexDirection:'row',marginTop:5, paddingTop:10,paddingBottom:15,}}>
+            <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
+            <Text style={{color:Mycolors.Black,fontSize:14,fontWeight:'600',left:5}}>4.5</Text>
+          </View>
+              <Text style={{color:Mycolors.DARK_GREY,marginBottom:5}}>{item.text}</Text>
+              <Image source={require('../../../assets/images/layer_42.png')}style={{width:'90%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}}resizeMode='cover'/>
+        </View>
+        </TouchableOpacity>
+        )
+        })}
+         
          </View>
 
 </View>
@@ -475,6 +473,8 @@ null
           </View> 
 
           <View style={{width:'97%',alignSelf:'center'}}>
+
+         
           <FlatList
                   data={dayData}
                   horizontal={true}

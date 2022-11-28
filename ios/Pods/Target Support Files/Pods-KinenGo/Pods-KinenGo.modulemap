@@ -1,6 +1,0 @@
-module Pods_KinenGo {
-  umbrella header "Pods-KinenGo-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,11 +1,11 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import Modal from 'react-native-modal';
 import DatePicker from 'react-native-datepicker';
 import { Rating, AirbnbRating } from 'react-native-ratings';

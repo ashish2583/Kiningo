@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@ptomasroos/react-native-multi-slider": "^2.2.2",
     "@react-native-async-storage/async-storage": "^1.17.7",
     "@react-native-community/datetimepicker": "^6.2.0",
     "@react-native-community/push-notification-ios": "^1.10.1",
@@ -39,8 +40,10 @@
     "react-native-gifted-chat": "^1.0.2",
     "react-native-image-picker": "^4.8.4",
     "react-native-image-slider-banner": "^1.0.2",
+    "react-native-image-zoom-viewer": "^3.0.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-masonry-list": "^2.16.1",
     "react-native-modal": "^13.0.1",
     "react-native-push-notification": "^8.1.1",
     "react-native-ratings": "^8.1.0",

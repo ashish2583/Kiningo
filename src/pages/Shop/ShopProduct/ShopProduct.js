@@ -1,12 +1,12 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SearchInputEnt from 'src/component/SearchInputEnt';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SearchInputEnt from '../../../component/SearchInputEnt';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
@@ -76,7 +76,7 @@ const ShopProduct = (props) => {
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
-      <ScrollView>
+      {/* <ScrollView> */}
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'Shop'} fontWeight={'500'} img2height={20}
@@ -97,23 +97,6 @@ press={()=>{Alert.alert('Hi')}}
 presssearch={()=>{Alert.alert('Search Pressed')}}
 paddingLeft={50}/>
  
-
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
-
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
           <FlatList
                   data={upData}
@@ -121,9 +104,9 @@ paddingLeft={50}/>
                   numColumns={2}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
+                      <>
+          <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#F8F8F8',alignSelf:'center'}}
-          // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
           onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
@@ -145,21 +128,31 @@ paddingLeft={50}/>
           </TouchableOpacity>
           </View>
           </View>
-                    )
+{upData.length-1==index ?
+<View style={{width:10,height:650}}></View>
+:null}
+           </>
+              )
                   }}
                   keyExtractor={item => item.id}
                 />
          </View>
 
-
-
-
-
-
  </View>
-<View style={{height:100}} />
 
-</ScrollView>
+{!showChooseMilesModal ?
+<View style={{width:'32%',position:'absolute',bottom:180,left:20}}>
+<MyButtons title="My Orders" height={45} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{props.navigation.navigate('ShopproductMyOrder')}} marginHorizontal={20} fontSize={11}
+  titlecolor={Mycolors.BG_COLOR}   hLinearColor={['#b10027' , Mycolors.ORANGE]}/>
+  
+</View>
+: null }
+
+{!showChooseMilesModal ?
+<TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:100,height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:200, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5,backgroundColor:'transparent'}}>
+<Image source={require('../../../assets/prod_cart_img.png')} style={{width:100,height:100 }}/>
+</TouchableOpacity>:null}
+
 <Modal
         isVisible={showChooseMilesModal}
         swipeDirection="down"
@@ -293,10 +286,7 @@ paddingLeft={50}/>
            
             </View>
 </Modal>
-{!showChooseMilesModal ?
-<TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
-<Image source={require('../../../assets/prod_cart_img.png')} style={{width:100,height:100 }}/>
-</TouchableOpacity>:null}
+
     </SafeAreaView>
      );
   }

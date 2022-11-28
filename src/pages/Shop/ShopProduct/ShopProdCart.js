@@ -1,11 +1,11 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 const ShopProduct = (props) => {
@@ -91,6 +91,7 @@ const ShopProduct = (props) => {
   useEffect(()=>{
 
  },[])
+ 
  const deleteItem = ({item,  index}) =>{
     // console.log('deleteItem item', item);
     const cartItemsCopy = [...cartItems]
@@ -170,7 +171,7 @@ const ShopProduct = (props) => {
 
   return(
     <SafeAreaView style={{}}>
-      <ScrollView>
+      {/* <ScrollView> */}
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'Cart'} fontWeight={'500'} img2height={20}
@@ -184,27 +185,26 @@ const ShopProduct = (props) => {
 </View>
 
 <View style={{marginTop:40}}>
+  
     <FlatList
     data={cartItems}
     numColumns={1}
     keyExtractor={item => item.id}
     renderItem={(v) =>
         renderItem(v, () => {
-        //   console.log('Pressed', v);
           deleteItem(v);
         })
       }
     />
-
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+{/* <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={2}
                   renderItem={({item,index})=>{
-                    return(
+                    return( 
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
           onPress={()=>{props.navigation.navigate('FoodDetails')}}>
@@ -232,17 +232,12 @@ const ShopProduct = (props) => {
                   }}
                   keyExtractor={item => item.id}
                 />
-         </View>
-
-
-
-
-
+         </View> */}
 
  </View>
 <View style={{height:100}} />
 
-</ScrollView>
+{/* </ScrollView> */}
     </SafeAreaView>
      );
   }

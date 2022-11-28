@@ -1,6 +1,0 @@
-module Pods_KinenGo_KinenGoTests {
-  umbrella header "Pods-KinenGo-KinenGoTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

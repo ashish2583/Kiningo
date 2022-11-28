@@ -1,11 +1,11 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import Modal from 'react-native-modal';
 import DatePicker from 'react-native-datepicker';
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -18,21 +18,20 @@ const ShopReview = (props) => {
   const [upData,setupData]=useState([
     {
       id: '1',
-      title: 'Tasty Food',
+      title: 'Good Product',
       desc:'Order placed by mistake',
       time:'',
      
     },
     {
       id: '2',
-      title: 'Extremely Yummy Food',
+      title: 'Easy to use',
       desc:'Food preparation time was to late',
       time:'',
-     
     },
     {
       id: '3',
-      title: 'Average',
+      title: 'Average product Quelity',
       desc:'Restaurant manager behaviour was not good',
       time:'',
      
@@ -70,13 +69,13 @@ const ShopReview = (props) => {
     
 
 <View style={{width:'90%',alignSelf:'center'}}>
-<Text style={{fontWeight:'600',fontSize:16,marginTop:5,color:Mycolors.Black,lineHeight:20}}>GRECA Vegetarian Greek</Text>
+{/* <Text style={{fontWeight:'600',fontSize:16,marginTop:5,color:Mycolors.Black,lineHeight:20}}>GRECA Vegetarian Greek</Text> */}
 <View style={{marginTop:20}}>
-<Image source={require('../../../assets/images/layer_42.png')} style={{width:'100%',height:160,alignSelf:'center',borderRadius:10,overflow:'hidden'}}></Image>
+<Image source={require('../../../assets/intel_motherboard.png')} style={{width:'100%',height:200,alignSelf:'center',borderRadius:10,overflow:'hidden'}}></Image>
 </View>
 
 
-<Text style={{fontWeight:'500',fontSize:13,marginTop:20,color:Mycolors.Black,lineHeight:20}}>Please select food & restaurant experienced rating</Text>
+<Text style={{fontWeight:'500',fontSize:13,marginTop:20,color:Mycolors.Black,lineHeight:20}}>Please Select product experienced rating</Text>
 <View style={{marginTop:20,paddingHorizontal:5,backgroundColor:'#fff',alignItems:'flex-start'}}>
 <Rating
 // type='heart'
@@ -98,7 +97,7 @@ startingValue={3}
                   renderItem={({item,index})=>{
                     return(
                       <View style={{marginHorizontal:5,}}>
-          <TouchableOpacity style={{height:40,backgroundColor:checkitem==item ? Mycolors.RED:'transparent',alignSelf:'center',borderColor:Mycolors.GrayColor,borderWidth:0.5,borderRadius:5,paddingHorizontal:15,justifyContent:'center'}}
+          <TouchableOpacity style={{height:40,backgroundColor:checkitem==item ? Mycolors.ORANGE:'transparent',alignSelf:'center',borderColor:Mycolors.GrayColor,borderWidth:0.5,borderRadius:5,paddingHorizontal:15,justifyContent:'center'}}
           onPress={()=>{setcheckitem(item)}}>
           <Text style={{textAlign:'center',color:checkitem==item ? Mycolors.BG_COLOR:Mycolors.Black,fontSize:13,fontWeight:'500'}}>{item.title}</Text>
           </TouchableOpacity>
@@ -110,7 +109,7 @@ startingValue={3}
          </View>
 
 
-<Text style={{fontWeight:'500',fontSize:13,marginTop:20,color:Mycolors.Black,lineHeight:20}}>Please provide us your feedback about GRECA Vegetarian Greek</Text>
+<Text style={{fontWeight:'500',fontSize:13,marginTop:20,color:Mycolors.Black,lineHeight:20}}>Please provide us your feedback about electric Spark point</Text>
 
 <View style={{width:'100%',height:120,borderRadius:2,marginTop:10,alignSelf:'center'}}>
     <TextInput

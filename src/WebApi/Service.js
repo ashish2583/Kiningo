@@ -5,14 +5,15 @@ import {  useSelector, useDispatch } from 'react-redux';
 
 
  export const baseUrl = 'http://54.153.75.225/backend/api/v1/'
-//
+// shop/eat
 //API END POINT LISTS  
 
 export const register = 'auth/register'
 export const login = 'auth/login'
 export const verify_otp = 'auth/verify-otp'
+export const shop_eat = 'shop/eat'
 
-export const booking_bid_ride = 'booking/bid_ride'
+
 export const booking_get_bid_status = 'booking/get_bid_status'
 export const booking_start_ride = 'booking/start_ride'
 export const booking_verify_ride = 'booking/verify_ride'

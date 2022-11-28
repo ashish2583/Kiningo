@@ -1,16 +1,16 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import Modal from 'react-native-modal';
 import DatePicker from 'react-native-datepicker';
 
 
-const ShopMyOrder = (props) => {
+const ShopproductMyOrder = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [modlevisual1,setmodlevisual1] = useState(false)
   const [checkitem,setcheckitem]=useState('')
@@ -122,7 +122,7 @@ const cancleDesign=(title,press,check)=>{
       <ScrollView showsVerticalScrollIndicator={false}>
     <HomeHeader height={60}  paddingHorizontal={15}// backgroundColor={'#fff'}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Dining & Booked Table'} fontWeight={'500'} img2height={20}
+   press2={()=>{}} title2={'My Orders'} fontWeight={'500'} img2height={20}
    press3={()=>{}} img3width={25} img3height={25} />
 <View style={{width:'95%',alignSelf:'center',backgroundColor:'rgba(0,0,0,0.025)',borderRadius:10,borderBottomColor:'rgba(0,0,0,0.5)',borderBottomWidth:0.2}}>
   <HomeHeader height={40}  paddingHorizontal={15}
@@ -165,8 +165,6 @@ const cancleDesign=(title,press,check)=>{
         />
 </View>
 </View>
-
-    
 
 <View style={{width:'90%',alignSelf:'center'}}>
 
@@ -349,4 +347,4 @@ const styles = StyleSheet.create({
   //   color:Mycolors.GrayColor,
   // },
 });
-export default ShopMyOrder
+export default ShopproductMyOrder

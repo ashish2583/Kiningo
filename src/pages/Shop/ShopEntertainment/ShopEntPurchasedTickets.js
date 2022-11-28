@@ -1,9 +1,9 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, Modal as RNModal} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
-import MyButtons from 'src/component/MyButtons';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
+import MyButtons from '../../../component/MyButtons';
 import Modal from 'react-native-modal';
 import DatePicker from 'react-native-datepicker';
 import LinearGradient from 'react-native-linear-gradient'
@@ -91,57 +91,7 @@ const PurchasedTickets = (props) => {
       img:require('../../../assets/images/images.png'),
     },
   ])
-  const [upData,setupData]=useState([
-    {
-      id: '1',
-      title: 'Hair Cut',
-      desc:'',
-      time:'10:00AM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '2',
-      title: 'Shaving',
-      desc:'',
-      time:'10:30AM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '3',
-      title: 'Facial',
-      desc:'',
-      time:'11:00AM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '4',
-      title: 'Hair Color',
-      desc:'',
-      time:'11:30AM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '5',
-      title: 'Hair wash',
-      desc:'',
-      time:'12:00PM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '6',
-      title: 'Beard style',
-      desc:'',
-      time:'12:30PM',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '7',
-      title: 'Facial',
-      desc:'',
-      time:'01:00PM',
-      img:require('../../../assets/images/images.png'),
-    },
-  ])
+ 
   useEffect(()=>{
 
  },[])
@@ -272,69 +222,65 @@ press3={()=>{}} img3width={25} img3height={25} />
 <Text style={{color:Mycolors.Black,fontWeight:'bold', marginBottom:20, marginTop:5}}>Purchased Tickets</Text>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:5}}>
-          <FlatList
-                  data={purchasedData}
-                  keyExtractor={item => item.id}
-                  renderItem={({item,index})=>{
-                    return(
-                    //   <TouchableOpacity style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
-                    // borderRadius:10, alignSelf:'center', margin:15, paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}>
-                    <>
-                    <LinearGradient
-                    colors={[Mycolors.White, '#F9F2EB' ]}
-                    // style={{width:'100%',height: 'auto',alignItems: 'center',
-                    // justifyContent: 'center'}}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
-                    borderRadius:15, alignSelf:'center', paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}
-                  >
-                    <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10, marginTop:10}}>
-                      <View style={{marginHorizontal:10}}>
-                        <Text style={{color:Mycolors.White,fontSize:12,fontWeight:'600', backgroundColor:Mycolors.ServiceHeader, paddingVertical:5,paddingHorizontal:5, borderRadius:5, marginRight:'auto', marginBottom:10}}>Ticket Number: {item.ticketNum}</Text>
-                        <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.eventName}</Text>
-                        <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.eventType}</Text>
-                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
-                          <View style={{width:'60%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Adults</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.adults}</Text>
-                          </View>
-                          <View style={{width:'40%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Child</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.child}</Text>
-                          </View>
-                        </View>
-                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginTop:25}}>
-                          <View style={{width:'60%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Date</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.date}</Text>
-                          </View>
-                          <View style={{width:'40%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Time</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.time}</Text>
-                          </View>
-                        </View>
-                        <View style={{marginTop:25}}>
-                          <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Location</Text>
-                          <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.location}</Text>
-                          <Text style={{color:Mycolors.Black,fontWeight:'bold', marginTop:25}}>Price</Text>
-                          <Text style={{color:Mycolors.ServiceHeader,fontWeight:'bold',fontSize:13,marginVertical:4}}>${item.price}</Text>
-                        </View>
-                      </View>
-                    </View>
-                    {/* <View style={{borderColor:Mycolors.GrayColor, borderBottomWidth:0.2, borderStyle: 'dashed'}}/> */}
-                    <View style={{marginHorizontal:25,borderColor:Mycolors.GrayColor,borderWidth:1,borderStyle: 'dashed',marginTop:40,marginBottom:10,}}/>
-                    <View style={{paddingHorizontal:25, alignItems:'center'}}>
-                          <Image source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}} resizeMode='cover'/>
-                    </View>
-                    </LinearGradient>
-                    <View style={{width:'80%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#FCA3F7', alignSelf:'center'}}/>
-                    <View style={{width:'60%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#F76EF0', alignSelf:'center', marginBottom:55}}/>
-                    </>
-                    // </TouchableOpacity>
-                    )
-                  }}
-                />
+ {
+ purchasedData.map((item,index)=> {
+     return(
+       <>
+      <LinearGradient
+      colors={[Mycolors.White, '#F9F2EB' ]}
+      // style={{width:'100%',height: 'auto',alignItems: 'center',
+      // justifyContent: 'center'}}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
+      borderRadius:15, alignSelf:'center', paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}
+    >
+      <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10, marginTop:10}}>
+        <View style={{marginHorizontal:10}}>
+          <Text style={{color:Mycolors.White,fontSize:12,fontWeight:'600', backgroundColor:Mycolors.ServiceHeader, paddingVertical:5,paddingHorizontal:5, borderRadius:5, marginRight:'auto', marginBottom:10}}>Ticket Number: {item.ticketNum}</Text>
+          <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.eventName}</Text>
+          <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.eventType}</Text>
+          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
+            <View style={{width:'60%'}}>
+              <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Adults</Text>
+              <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.adults}</Text>
+            </View>
+            <View style={{width:'40%'}}>
+              <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Child</Text>
+              <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.child}</Text>
+            </View>
+          </View>
+          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginTop:25}}>
+            <View style={{width:'60%'}}>
+              <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Date</Text>
+              <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.date}</Text>
+            </View>
+            <View style={{width:'40%'}}>
+              <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Time</Text>
+              <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.time}</Text>
+            </View>
+          </View>
+          <View style={{marginTop:25}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Location</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.location}</Text>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold', marginTop:25}}>Price</Text>
+            <Text style={{color:Mycolors.ServiceHeader,fontWeight:'bold',fontSize:13,marginVertical:4}}>${item.price}</Text>
+          </View>
+        </View>
+      </View>
+      <View style={{marginHorizontal:25,borderColor:Mycolors.GrayColor,borderWidth:1,borderStyle: 'dashed',marginTop:40,marginBottom:10,}}/>
+      <View style={{paddingHorizontal:25, alignItems:'center'}}>
+            <Image source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}} resizeMode='cover'/>
+      </View>
+      </LinearGradient>
+      <View style={{width:'80%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#FCA3F7', alignSelf:'center'}}/>
+      <View style={{width:'60%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#F76EF0', alignSelf:'center', marginBottom:55}}/>
+      </>
+      )
+} 
+  )
+}   
+        
          </View>
 </View>
 </View>
@@ -396,69 +342,70 @@ selectedTab=='Cancelled Tickets' ?
 <Text style={{color:Mycolors.Black,fontWeight:'bold', marginBottom:20, marginTop:5}}>Cancelled Tickets</Text>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:5}}>
-          <FlatList
-                  data={cancelledData}
-                  keyExtractor={item => item.id}
-                  renderItem={({item,index})=>{
-                    return(
-                    //   <TouchableOpacity style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
-                    // borderRadius:10, alignSelf:'center', margin:15, paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}>
-                    <>
-                    <LinearGradient
-                    colors={[Mycolors.White, '#F9F2EB' ]}
-                    // style={{width:'100%',height: 'auto',alignItems: 'center',
-                    // justifyContent: 'center'}}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
-                    borderRadius:15, alignSelf:'center', paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}
-                  >
-                    <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10, marginTop:10}}>
-                      <View style={{marginHorizontal:10}}>
-                        <Text style={{color:Mycolors.White,fontSize:12,fontWeight:'600', backgroundColor:Mycolors.ServiceHeader, paddingVertical:5,paddingHorizontal:5, borderRadius:5, marginRight:'auto', marginBottom:10}}>Ticket Number: {item.ticketNum}</Text>
-                        <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.eventName}</Text>
-                        <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.eventType}</Text>
-                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
-                          <View style={{width:'60%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Adults</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.adults}</Text>
-                          </View>
-                          <View style={{width:'40%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Child</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.child}</Text>
-                          </View>
-                        </View>
-                        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginTop:25}}>
-                          <View style={{width:'60%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Date</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.date}</Text>
-                          </View>
-                          <View style={{width:'40%'}}>
-                            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Time</Text>
-                            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.time}</Text>
-                          </View>
-                        </View>
-                        <View style={{marginTop:25}}>
-                          <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Location</Text>
-                          <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.location}</Text>
-                          <Text style={{color:Mycolors.Black,fontWeight:'bold', marginTop:25}}>Price</Text>
-                          <Text style={{color:Mycolors.ServiceHeader,fontWeight:'bold',fontSize:13,marginVertical:4}}>${item.price}</Text>
-                        </View>
-                      </View>
-                    </View>
-                    {/* <View style={{borderColor:Mycolors.GrayColor, borderBottomWidth:0.2, borderStyle: 'dashed'}}/> */}
-                    <View style={{marginHorizontal:25,borderColor:Mycolors.GrayColor,borderWidth:1,borderStyle: 'dashed',marginTop:40,marginBottom:10,}}/>
-                    <View style={{paddingHorizontal:25, alignItems:'center'}}>
-                          <Image source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}} resizeMode='cover'/>
-                    </View>
-                    </LinearGradient>
-                    <View style={{width:'80%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#FCA3F7', alignSelf:'center'}}/>
-                    <View style={{width:'60%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#F76EF0', alignSelf:'center', marginBottom:55}}/>
-                    </>
-                    // </TouchableOpacity>
-                    )
-                  }}
-                />
+
+{
+cancelledData.map((item,index)=> {
+  return(
+    //   <TouchableOpacity style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
+    // borderRadius:10, alignSelf:'center', margin:15, paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}>
+    <>
+    <LinearGradient
+    colors={[Mycolors.White, '#F9F2EB' ]}
+    // style={{width:'100%',height: 'auto',alignItems: 'center',
+    // justifyContent: 'center'}}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 1 }}
+    style={{width:'100%',height:740,marginHorizontal:5,backgroundColor:'#fff',
+    borderRadius:15, alignSelf:'center', paddingVertical:15, borderWidth:0.2, borderColor:Mycolors.GrayColor}}
+  >
+    <View style={{flexDirection:'row',alignItems:'center', paddingHorizontal:15, paddingBottom:10, marginTop:10}}>
+      <View style={{marginHorizontal:10}}>
+        <Text style={{color:Mycolors.White,fontSize:12,fontWeight:'600', backgroundColor:Mycolors.ServiceHeader, paddingVertical:5,paddingHorizontal:5, borderRadius:5, marginRight:'auto', marginBottom:10}}>Ticket Number: {item.ticketNum}</Text>
+        <Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{item.eventName}</Text>
+        <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.eventType}</Text>
+        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
+          <View style={{width:'60%'}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Adults</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.adults}</Text>
+          </View>
+          <View style={{width:'40%'}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Child</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.child}</Text>
+          </View>
+        </View>
+        <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginTop:25}}>
+          <View style={{width:'60%'}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Date</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.date}</Text>
+          </View>
+          <View style={{width:'40%'}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Time</Text>
+            <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.time}</Text>
+          </View>
+        </View>
+        <View style={{marginTop:25}}>
+          <Text style={{color:Mycolors.Black,fontWeight:'bold'}}>Location</Text>
+          <Text style={{color:Mycolors.GrayColor,fontSize:13,marginVertical:4}}>{item.location}</Text>
+          <Text style={{color:Mycolors.Black,fontWeight:'bold', marginTop:25}}>Price</Text>
+          <Text style={{color:Mycolors.ServiceHeader,fontWeight:'bold',fontSize:13,marginVertical:4}}>${item.price}</Text>
+        </View>
+      </View>
+    </View>
+    {/* <View style={{borderColor:Mycolors.GrayColor, borderBottomWidth:0.2, borderStyle: 'dashed'}}/> */}
+    <View style={{marginHorizontal:25,borderColor:Mycolors.GrayColor,borderWidth:1,borderStyle: 'dashed',marginTop:40,marginBottom:10,}}/>
+    <View style={{paddingHorizontal:25, alignItems:'center'}}>
+          <Image source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:220,overflow:'hidden', borderRadius:5, marginTop:20}} resizeMode='cover'/>
+    </View>
+    </LinearGradient>
+    <View style={{width:'80%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#FCA3F7', alignSelf:'center'}}/>
+    <View style={{width:'60%', height:15, borderBottomLeftRadius:15,borderBottomRightRadius:15, backgroundColor:'#F76EF0', alignSelf:'center', marginBottom:55}}/>
+    </>
+    // </TouchableOpacity>
+    )
+})
+}
+
+      
          </View>
 </View>
 </View>

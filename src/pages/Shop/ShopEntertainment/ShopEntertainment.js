@@ -1,12 +1,12 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SearchInputEnt from 'src/component/SearchInputEnt';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SearchInputEnt from '../../../component/SearchInputEnt';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 
 
 const ShopEat = (props) => {
@@ -70,7 +70,6 @@ const ShopEat = (props) => {
 
   return(
     <SafeAreaView style={{}}>
-      <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'Entertainment'} fontWeight={'500'} img2height={20}
@@ -91,27 +90,6 @@ presssearch={()=>{Alert.alert('Search Pressed')}}
 paddingLeft={50}/>
  
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
-
-  {/* <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
-<Text style={{color:Mycolors.Black,fontWeight:'500'}}>Explore Nearby</Text>
-<Text style={{color:Mycolors.RED,fontWeight:'500',textDecorationLine: "underline"}} 
- onPress={()=>{}}>View More</Text>
-</View> */}
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
@@ -121,6 +99,7 @@ paddingLeft={50}/>
                   numColumns={2}
                   renderItem={({item,index})=>{
                     return(
+                      <>
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
           onPress={()=>{props.navigation.navigate('PlaceDetails')}}>
@@ -144,17 +123,22 @@ paddingLeft={50}/>
           </TouchableOpacity>
           </View>
           </View>
-                    )
+          
+          {upData.length-1==index ?
+           <View style={{width:10,height:800}}></View>
+          : null}
+                 </> 
+                   )
                   }}
                   keyExtractor={item => item.id}
                 />
+
+                
          </View>
 
  </View>
-<View style={{height:100}} />
 
-</ScrollView>
-<View style={{width:'80%',height:60,flexDirection:'row',justifyContent:'space-between',position:'absolute',bottom:20,alignSelf:'center'}}>
+<View style={{width:'80%',height:60,flexDirection:'row',justifyContent:'space-between',position:'absolute',bottom:200,alignSelf:'center'}}>
 <MyButtons title="Purchased Tickets" height={45} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{props.navigation.navigate('ShopEntPurchasedTickets')}} fontSize={11}
   titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.ServiceHeader}/>
 </View>

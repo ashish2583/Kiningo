@@ -1,16 +1,16 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import { Rating } from 'react-native-ratings';
 import ViewMoreText from 'react-native-view-more-text';
 import Toggle from "react-native-toggle-element";
 import Modal from 'react-native-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { setSelectedCarTab } from 'src/redux/actions/user_action';
+import { setSelectedCarTab } from '../../../redux/actions/user_action';
 import DatePicker from 'react-native-datepicker';
 
 const ShopProductDetails = (props) => {
@@ -141,7 +141,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1backgroundColor={'#fff'} img1width={30} img1height={30} img1padding={5} img1borderRadius={4} 
    press2={()=>{}} title2={'24/7 Hardware Store'} fontWeight={'500'} img2height={20}
    press3={()=>{}} />
- <View style={{height:200,borderRadius:20,overflow:'hidden',marginTop:40,width:'96%',alignSelf:'center'}}>
+ <View style={{height:200,borderRadius:20,overflow:'hidden',width:'96%',alignSelf:'center'}}>
      <ImageSlider 
     //  localImg={true}
     data={[
@@ -175,12 +175,15 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 <View style={{flexDirection:'row',}}>
 <View style={{width:'32%'}}>
 <MyButtons title="Description" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Description')}} marginHorizontal={20} fontSize={10}
-  titlecolor={selectedTab=='Description' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Description' ? '#FFC40C' : 'transparent'}/>
+  titlecolor={selectedTab=='Description' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Description' ? '#FFC40C' : 'transparent'} hLinearColor={[ selectedTab=='Description' ? '#b10027' : 'transparent' ,selectedTab=='Description' ? Mycolors.ORANGE : 'transparent']}/>
+
 </View>
 
 <View style={{width:'32%', marginLeft:20}}>
 <MyButtons title="Store Location" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Store Location')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Store Location' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Store Location' ? '#FFC40C' : 'transparent'}/>
+  titlecolor={selectedTab=='Store Location' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Store Location' ? '#FFC40C' : 'transparent'} hLinearColor={[ selectedTab=='Store Location' ? '#b10027' : 'transparent' ,selectedTab=='Store Location' ? Mycolors.ORANGE : 'transparent']}/>
+
+
 </View>
 
 </View>
@@ -217,7 +220,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   <Text style={{color:'#FFC40C',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} onPress={()=>{}}>View More</Text>
 </View>
 
-<FlatList
+       <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={true}
                   horizontal
@@ -296,7 +299,7 @@ null
 }} fontSize={12}
   titlecolor={'#FFC40C'} marginVertical={0} backgroundColor={'#FFF'} borderColor={'#FFC40C'} borderWidth={1}/>
 <MyButtons title="Buy Now" height={45} width={'48%'} borderRadius={5} press={()=>{
-setmodlevisual4(true)}} fontSize={12}
+setmodlevisual4(true)}} fontSize={12} hLinearColor={[ '#b10027', Mycolors.ORANGE]}
   titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
 </View>
 : null

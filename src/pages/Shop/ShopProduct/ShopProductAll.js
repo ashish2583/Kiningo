@@ -1,12 +1,12 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SearchInputEnt from 'src/component/SearchInputEnt';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SearchInputEnt from '../../../component/SearchInputEnt';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
@@ -24,7 +24,7 @@ const ShopProductDetails = (props) => {
       title: 'Electronics',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/images/dddd.jpg'),
     },
     {
       id: '2',
@@ -38,14 +38,14 @@ const ShopProductDetails = (props) => {
       title: 'Hand Tool',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/images/ddd.jpg'),
     },
     {
       id: '4',
       title: 'Hardware',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/images/dd.jpg'),
     },
   ])
   const [upData,setupData]=useState([
@@ -87,7 +87,7 @@ const ShopProductDetails = (props) => {
     },
     {
       id: '5',
-      catId: '1',
+      catId: '5',
       title: 'Intel 3rd Gen Motherboard',
       desc:'',
       price:'$140.00',
@@ -96,7 +96,7 @@ const ShopProductDetails = (props) => {
     },
     {
       id: '6',
-      catId: '2',
+      catId: '3',
       title: 'Intel 3rd Gen Motherboard',
       desc:'',
       price:'$140.00',
@@ -121,11 +121,10 @@ const ShopProductDetails = (props) => {
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%',backgroundColor: '#F8F8F8'}}>
-      <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'24/7 Hardware Store'} fontWeight={'500'} img2height={20}
-   press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={15} img3height={18} />
+   press3={()=>{}} img3={require('../../../assets/layer_9.png')} img3width={13} img3height={18} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
 <SearchInputEnt marginTop={10} placeholder={'Enter Keyword'} 
@@ -137,21 +136,6 @@ presssearch={()=>{Alert.alert('Search Pressed')}}
 paddingLeft={50}/>
  
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
 
 <View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
 <Text style={{color:Mycolors.Black,fontWeight:'500'}}>Pick from wide range of categories</Text>
@@ -181,14 +165,14 @@ paddingLeft={50}/>
                   keyExtractor={item => item.id}
                 />
          </View>
-
+<ScrollView>
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
                   data={upData?.filter(el=>el.catId === selectedCategory)}
-                  showsHorizontalScrollIndicator={false}
                   numColumns={2}
                   renderItem={({item,index})=>{
                     return(
+                      <>
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
           onPress={()=>{props.navigation.navigate('ShopProductDetails')}}>
@@ -201,21 +185,16 @@ paddingLeft={50}/>
           <Text style={{fontSize:9,color:Mycolors.GrayColor,marginTop:5,textAlign:'left',}}>{item.price}</Text>
           </View>
           </View>
-                    )
+    </>  
+                  )
                   }}
                   keyExtractor={item => item.id}
                 />
          </View>
-
-
-
-
-
+         <View style={{width:10,height:500}}></View>
+  </ScrollView> 
 
  </View>
-<View style={{height:100}} />
-
-</ScrollView>
     </SafeAreaView>
      );
   }

@@ -1,12 +1,12 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
-import SearchInput2 from 'src/component/SearchInput2';
-import SearchInputEnt from 'src/component/SearchInputEnt';
-import SerchInput from 'src/component/SerchInput';
-import { dimensions, Mycolors } from 'src/utility/Mycolors';
+import HomeHeader from '../../../component/HomeHeader';
+import SearchInput2 from '../../../component/SearchInput2';
+import SearchInputEnt from '../../../component/SearchInputEnt';
+import SerchInput from '../../../component/SerchInput';
+import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
-import MyButtons from 'src/component/MyButtons';
+import MyButtons from '../../../component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
@@ -47,72 +47,22 @@ const ShopCategoryAll = (props) => {
       time:'',
       img:require('../../../assets/farmland.jpg'),
     },
-  ])
-  const [upData,setupData]=useState([
-    {
-      id: '1',
-      catId: '1',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '2',
-      catId: '2',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '3',
-      catId: '3',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '4',
-      catId: '4',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
     {
       id: '5',
-      catId: '1',
-      title: 'Intel 3rd Gen Motherboard',
+      title: 'Hand Tool',
       desc:'',
-      price:'$140.00',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
     {
       id: '6',
-      catId: '2',
-      title: 'Intel 3rd Gen Motherboard',
+      title: 'Hardware',
       desc:'',
-      price:'$140.00',
       time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '7',
-      catId: '3',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      img:require('../../../assets/farmland.jpg'),
     },
   ])
+ 
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
   useEffect(()=>{
 
@@ -121,7 +71,7 @@ const ShopCategoryAll = (props) => {
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
-      <ScrollView>
+      {/* <ScrollView> */}
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
    press2={()=>{}} title2={'Categories'} fontWeight={'500'} img2height={20}
@@ -137,29 +87,14 @@ presssearch={()=>{Alert.alert('Search Pressed')}}
 paddingLeft={50}/>
  
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
-
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
                   data={categoryData}
-                  showsHorizontalScrollIndicator={false}
+                  showsVerticalScrollIndicator={false}
                   numColumns={2}
                   renderItem={({item,index})=>{
                     return(
+                      <>
                       <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5,marginVertical:5}}>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:200,backgroundColor:'#fff', alignItems:'center', borderRadius:15}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
@@ -167,6 +102,10 @@ paddingLeft={50}/>
           <Text style={{fontSize:12,color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
           </TouchableOpacity>
           </View>
+          {categoryData.length-1==index ?
+          <View style={{width:10,height:600}}></View>
+        :null}
+          </>
                     )
                   }}
                   keyExtractor={item => item.id}
@@ -179,9 +118,9 @@ paddingLeft={50}/>
 
 
  </View>
-<View style={{height:100}} />
+{/* <View style={{height:100}} /> */}
 
-</ScrollView>
+{/* </ScrollView> */}
     </SafeAreaView>
      );
   }
