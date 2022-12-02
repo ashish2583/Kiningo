@@ -108,6 +108,20 @@ const EventsHome = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5}}>
+          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#fff', paddingHorizontal:35, paddingVertical:10, width:'100%'}}>
+            
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/people-following-person.png')}/>
+              <View style={{justifyContent:'center',marginLeft:10}}>
+                <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>{item.name}</Text>       
+                <Text style={{fontSize:13, fontWeight:'400', color:'#B2B7B9', marginTop:2}}>Following</Text>       
+              </View>
+            </View>
+
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/people-three-dots.png')}/>
+            </View>          
+          </View>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH,height:200,backgroundColor:'#F8F8F8',alignSelf:'center'}}
           // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
           onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
@@ -118,17 +132,6 @@ const EventsHome = (props) => {
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,paddingLeft:0,top:-10}}>
           <Text style={{fontSize:9,color:'#FFC40C',marginTop:5,textAlign:'left',}}>Cafe</Text>
-          <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 3
-      },
-      shadowRadius: 1,
-      shadowOpacity: 0.3,
-      justifyContent: 'center',
-      elevation: 5,}}>
-          <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
-          </TouchableOpacity>
           </View>
           </View>
                     )
