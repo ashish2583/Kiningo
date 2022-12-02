@@ -82,15 +82,18 @@ const EventsHome = (props) => {
    press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
+  
+  {/* <View style={{flexDirection:'row', alignItems:'center',marginTop:400, marginBottom:400, height:100, backgroundColor:'red'}}>
+    <Image source={require('../../../assets/people-add-post.png')} style={{width:20, height:20}}/>
+    <Image source={require('../../../assets/people-add-post.png')} style={{width:20, height:20}}/>
+  </View> */}
 
-  <TouchableOpacity onPress={()=>{Alert.alert('create post clicked')}} style={styles.createPostView}>
+  <TouchableOpacity style={styles.createPostView}>
     <View style={styles.createPostLeftSubView}>
-      <Image source={require('../../../assets/people-add-post-image.png')}/>
+      <Image source={require('../../../assets/people-add-post-image.png')} style={{width:40, height:40}}/>
       <Text style={styles.createPostText}>What's on your mind</Text>
     </View>
-    <View style={{width:'10%'}}>
-      <Image source={require('../../../assets/people-add-post.png')}/>
-    </View>
+    <Image source={require('../../../assets/people-add-post.png')} style={{width:50, height:50}}/>
   </TouchableOpacity>
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
@@ -313,16 +316,17 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    width:'100%'
+    width:'100%',
+    height:50,
   },
   createPostLeftSubView:{
-    width:'85%',
+    width:'83%',
     flexDirection:'row',
     alignItems:'center',
     backgroundColor:'#fff',
     paddingVertical:5, 
     paddingLeft:10, 
-    borderRadius:10
+    borderRadius:10,
   },
   createPostText:{
     color:'#B2B7B9',
