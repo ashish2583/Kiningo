@@ -83,12 +83,14 @@ const EventsHome = (props) => {
    press3={()=>{}} img3width={25} img3height={25} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
-  <TouchableOpacity onPress={()=>{Alert.alert('create post clicked')}} style={{flexDirection:'row', alignItems:'center', width:'100%'}}>
-    <View style={{width:'85%', flexDirection:'row', alignItems:'center', backgroundColor:'#fff', paddingVertical:5, paddingHorizontal:10, borderRadius:10}}>
+  <TouchableOpacity onPress={()=>{Alert.alert('create post clicked')}} style={styles.createPostView}>
+    <View style={styles.createPostLeftSubView}>
       <Image source={require('../../../assets/people-add-post-image.png')}/>
-      <Text style={{color:'#B2B7B9', fontSize:14, fontWeight:'300', marginLeft:10}}>What's on your mind</Text>
+      <Text style={styles.createPostText}>What's on your mind</Text>
     </View>
-      <Image source={require('../../../assets/people-add-post.png')} style={{width:'10%'}}/>
+    <View style={{width:'10%'}}>
+      <Image source={require('../../../assets/people-add-post.png')}/>
+    </View>
   </TouchableOpacity>
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
@@ -306,6 +308,27 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     shadowOpacity: 0.1,
     elevation: 5,
-  }
+  },
+  createPostView:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%'
+  },
+  createPostLeftSubView:{
+    width:'85%',
+    flexDirection:'row',
+    alignItems:'center',
+    backgroundColor:'#fff',
+    paddingVertical:5, 
+    paddingLeft:10, 
+    borderRadius:10
+  },
+  createPostText:{
+    color:'#B2B7B9',
+    fontSize:14,
+    fontWeight:'300',
+    marginLeft:10
+  },
 });
 export default EventsHome 
