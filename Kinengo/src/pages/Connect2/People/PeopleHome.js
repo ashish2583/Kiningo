@@ -1,6 +1,6 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
+import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
 import SerchInput from 'src/component/SerchInput';
@@ -77,10 +77,10 @@ const EventsHome = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
-    <HomeHeader height={60}  paddingHorizontal={15} backgroundColor='#fff'
+    <HomeHeaderRoundBottom height={80}  paddingHorizontal={15} backgroundColor='#fff'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
    press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
-   press3={()=>{}} img3width={25} img3height={25} />
+   press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={15} borderBottomRightRadius={15} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
   {/* <View style={{flexDirection:'row', alignItems:'center',marginTop:400, marginBottom:400, height:100, backgroundColor:'red'}}>
