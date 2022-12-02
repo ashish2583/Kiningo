@@ -79,25 +79,17 @@ const EventsHome = (props) => {
       <ScrollView>
     <HomeHeader height={60}  paddingHorizontal={15} backgroundColor='#fff'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
-   press2={()=>{}} title2={'Events'} fontWeight={'500'} img2height={20} color='#455A64'
+   press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} />
-<View style={{width:'90%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center', marginTop:20, marginBottom:10, }}>
-  <TouchableOpacity style={styles.topButtonView}>
-    <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>View Joined Events</Text>
+<View style={{width:'90%',alignSelf:'center', marginTop:20}}>
+
+  <TouchableOpacity onPress={()=>{Alert.alert('create post clicked')}} style={{flexDirection:'row', alignItems:'center', width:'100%'}}>
+    <View style={{width:'85%', flexDirection:'row', alignItems:'center', backgroundColor:'#fff', paddingVertical:5, paddingHorizontal:10, borderRadius:10}}>
+      <Image source={require('../../../assets/people-add-post-image.png')}/>
+      <Text style={{color:'#B2B7B9', fontSize:14, fontWeight:'300', marginLeft:10}}>What's on your mind</Text>
+    </View>
+      <Image source={require('../../../assets/people-add-post.png')} style={{width:'10%'}}/>
   </TouchableOpacity>
-<TouchableOpacity style={styles.topButtonView}>
-  <Text style={{fontSize:14,color:'#6D2F92',marginTop:5,textAlign:'left',fontWeight:'400', }}>Show Purchased Tickets</Text>
-</TouchableOpacity>
-</View>
-<View style={{width:'96%',alignSelf:'center'}}>
-<SearchInputEnt marginTop={10} placeholder={'Restaurant Name. Cuisine, Dishes'} 
-serchValue={searchValue} 
-searchIcon={require('../../../assets/product_search_icon.png')}
-onChangeText={(e)=>{setsearchValue(e)}} 
-press={()=>{Alert.alert('Hi')}}
-presssearch={()=>{Alert.alert('Search Pressed')}}
-paddingLeft={50}/>
- 
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
      <ImageSlider 

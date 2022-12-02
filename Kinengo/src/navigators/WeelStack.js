@@ -67,7 +67,7 @@ import Weather from '../pages/Talkie/Weather';
 import Repair from '../pages/Deal/ServiceDemands/Repair';
 import ShopEatStack from './ShopEatStack';
 import ShopEntertainmentStack from './ShopEntertainmentStack';
-import Connect2EventsStack from './Connect2EventsStack';
+import Connect2PeopleStack from './Connect2PeopleStack';
 import ShopProductStack from './ShopProductStack';
 
 
@@ -133,7 +133,7 @@ const WeelStack=(props)=>{
             <Stack.Screen component = {ShopIntertenment} name="ShopIntertenment" />
             <Stack.Screen component = {ShopProduct} name="ShopProduct" />
             
-            <Stack.Screen component = {Connect2EventsStack} name="Connect2EventsStack" />
+            <Stack.Screen component = {Connect2PeopleStack} name="Connect2PeopleStack" />
 
             <Stack.Screen component = {Talkie} name="Talkie" />
             <Stack.Screen component = {Finenc} name="Finenc" />
