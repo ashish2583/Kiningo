@@ -30,6 +30,22 @@ const PeopleFollowers = (props) => {
       numFollowing: '536',
       numPosts: '12K' 
     },
+    {
+      id: '2',
+      name: 'Parth Shinge',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
+    },
+    {
+      id: '3',
+      name: 'Naumika Nair',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
+    },
   ])
 
 
@@ -54,14 +70,14 @@ const PeopleFollowers = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
-                        <View style={{flexDirection:'row', backgroundColor:'#fff', padding:10, borderRadius:10}}>
+                        <View style={styles.flatlistMainView}>
                           <Image source={item.img}/>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
-                            <View style={{flexDirection:'row', alignItems:'center'}}>
-                              <Text style={{fontSize:14, fontWeight:'300', color:'#000'}}>{item.numFollowers} followers</Text>
-                              <Text style={{fontSize:14, fontWeight:'300', color:'#000', marginLeft:10}}>{item.numFollowing} following</Text>
-                              <Text style={{fontSize:14, fontWeight:'300', color:'#000', marginLeft:10}}>{item.numPosts} posts</Text>
+                            <View style={styles.numberView}>
+                              <Text style={styles.numberStyle}>{item.numFollowers} followers</Text>
+                              <Text style={[styles.numberStyle, {marginLeft:10}]}>{item.numFollowing} following</Text>
+                              <Text style={[styles.numberStyle, {marginLeft:10}]}>{item.numPosts} posts</Text>
                             </View>
                           </View>
 
@@ -87,6 +103,21 @@ const PeopleFollowers = (props) => {
      );
   }
 const styles = StyleSheet.create({
-
+  flatlistMainView:{
+    flexDirection:'row', 
+    backgroundColor:'#fff', 
+    padding:10, 
+    borderRadius:10
+  },
+  numberView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    flexWrap: 'wrap'
+  },
+  numberStyle:{
+    fontSize:14, 
+    fontWeight:'300', 
+    color:'#000'
+  }
 });
 export default PeopleFollowers 
