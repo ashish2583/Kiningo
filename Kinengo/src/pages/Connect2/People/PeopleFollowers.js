@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
   flatlistMainView:{
     flexDirection:'row', 
     backgroundColor:'#fff', 
-    padding:10, 
+    paddingVertical:15, 
+    paddingHorizontal:10, 
     borderRadius:10
   },
   numberView:{
