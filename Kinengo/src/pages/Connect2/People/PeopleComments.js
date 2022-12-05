@@ -68,7 +68,7 @@ const PeopleComments = (props) => {
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20,}}>
+<View style={{width:'100%',alignSelf:'center',}}>
           <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={false}
