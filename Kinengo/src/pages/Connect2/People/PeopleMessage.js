@@ -77,10 +77,13 @@ const PeopleMessage = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
-    <HomeHeaderRoundBottom height={80}  paddingHorizontal={15} backgroundColor='#fff'
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
-   press2={()=>{}} title2={'Messages'} fontWeight={'500'} img2height={20} color='#455A64'
-   press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={25} borderBottomRightRadius={25} />
+<View style={{flexDirection:'row', alignItems:'center', height:80, backgroundColor:'#fff',padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
+  <TouchableOpacity onPress={()=>{props.navigation.goBack()}}>
+    <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
+  </TouchableOpacity>
+  <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+</View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
 
