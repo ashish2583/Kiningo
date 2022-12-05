@@ -1,5 +1,5 @@
 import React, { useEffect,useState ,useRef} from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, Keyboard} from 'react-native';
 import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
@@ -62,6 +62,7 @@ const PeopleMessage = (props) => {
       me: true,
       time: '6:00 pm'
     }])
+    Keyboard.dismiss()
     setUserMessage('')
    }
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
