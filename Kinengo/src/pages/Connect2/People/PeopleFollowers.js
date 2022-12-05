@@ -10,6 +10,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import LinearGradient from 'react-native-linear-gradient'
 
 const image1 = require('../../../assets/people-following-person.png')
 const image2 = require('../../../assets/people-sender-image.png')
@@ -70,6 +71,10 @@ const PeopleFollowers = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
+                        <LinearGradient
+                          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                          style={{flex: 1,}}
+                        >
                         <View style={styles.flatlistMainView}>
                           <Image source={item.img}/>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
@@ -82,6 +87,7 @@ const PeopleFollowers = (props) => {
                           </View>
 
                         </View>
+                        </LinearGradient>
                       </View>
                     )
                   }}
