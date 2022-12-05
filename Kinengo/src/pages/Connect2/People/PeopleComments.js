@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight:'500',
     color:'#000',
-    flex: 6
+    flex: 7
   },
   sendButtonView:{
     backgroundColor:'#0089CF', 
