@@ -108,11 +108,11 @@ const EventsHome = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5}}>
-          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', paddingHorizontal:15, paddingVertical:10, width:'90%', borderTopLeftRadius:20, borderTopRightRadius:20, }}>
+          <View style={styles.flatlistMainView}>
             
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+            <View style={styles.followingImageView}>
               <Image source={require('../../../assets/people-following-person.png')}/>
-              <View style={{justifyContent:'center',marginLeft:10}}>
+              <View style={styles.followingView}>
                 <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>{item.name}</Text>       
                 <Text style={{fontSize:13, fontWeight:'400', color:'#B2B7B9', marginTop:2}}>Following</Text>       
               </View>
@@ -331,10 +331,29 @@ const styles = StyleSheet.create({
     fontWeight:'300',
     marginLeft:10
   },
+  flatlistMainView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    justifyContent:'space-between', 
+    backgroundColor:'#fff', 
+    paddingHorizontal:15, 
+    paddingVertical:10, 
+    width:'90%', 
+    borderTopLeftRadius:20, 
+    borderTopRightRadius:20, 
+  },
   rightButtonsView: {
     backgroundColor:'#F8F8F8',
     padding:10,
     borderRadius:20
+  },
+  followingImageView:{
+    flexDirection:'row', 
+    alignItems:'center'
+  },
+  followingView:{
+    justifyContent:'center',
+    marginLeft:10
   }
 });
 export default EventsHome 
