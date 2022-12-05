@@ -11,6 +11,9 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 
+const image1 = require('../../../assets/people-following-person.png')
+const image2 = require('../../../assets/people-sender-image.png')
+
 const PeopleMessage = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
@@ -20,39 +23,33 @@ const PeopleMessage = (props) => {
   const [upData,setupData]=useState([
     {
       id: '1',
-      name: 'Aryav Nadkarni',
-      desc:'Amazing footbal shorts caption this',
-      numViews:'183K',
-      numComments:'183',
-      time:'',
-      img:require('../../../assets/images/images.png'),
+      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+      me: false,
+      time: '12:50 pm'
     },
     {
       id: '2',
-      name: 'Aryav Nadkarni',
-      desc:'Amazing footbal shorts caption this',
-      numViews:'183K',
-      numComments:'183',
-      time:'',
-      img:require('../../../assets/images/images.png'),
+      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+      me: false,
+      time: '12:51 pm'
     },
     {
-      id: '3',
-      name: 'Aryav Nadkarni',
-      desc:'Amazing footbal shorts caption this',
-      numViews:'183K',
-      numComments:'183',
-      time:'',
-      img:require('../../../assets/images/images.png'),
+      id: '2',
+      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+      me: true,
+      time: '12:51 pm'
     },
     {
-      id: '4',
-      name: 'Aryav Nadkarni',
-      desc:'Amazing footbal shorts caption this',
-      numViews:'183K',
-      numComments:'183',
-      time:'',
-      img:require('../../../assets/images/images.png'),
+      id: '2',
+      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+      me: false,
+      time: '12:51 pm'
+    },
+    {
+      id: '2',
+      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
+      me: true,
+      time: '12:51 pm'
     },
 
   ])
@@ -80,6 +77,15 @@ const PeopleMessage = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
+                        <View style={{flexDirection:'row', width:'70%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
+                          <Image source={item.me ? image2: image1} style={{width:30, height:30}}/>
+                          <View>
+                          <View style={{backgroundColor:'#fff', marginLeft:10, width:'60%', padding:10}}>
+                            <Text style={{fontSize:13, fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
+                          </View>
+                          <Text style={{fontSize:13, fontWeight:'400', color:'#455A64', marginLeft:10}}>{item.time}</Text>
+                          </View>
+                        </View>
                       </View>
                     )
                   }}
