@@ -24,6 +24,7 @@ const PeopleComments = (props) => {
       message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
       time:'14 min',
       img:require('../../../assets/comment-person-image.png'),
+      isLiked: true
     },
     {
       id: '2',
@@ -31,6 +32,7 @@ const PeopleComments = (props) => {
       message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
       time:'14 min',
       img:require('../../../assets/comment-person-image.png'),
+      isLiked: false
     },
     {
       id: '3',
@@ -38,6 +40,7 @@ const PeopleComments = (props) => {
       message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
       time:'14 min',
       img:require('../../../assets/comment-person-image.png'),
+      isLiked: true
     },
     {
       id: '4',
@@ -45,6 +48,7 @@ const PeopleComments = (props) => {
       message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
       time:'14 min',
       img:require('../../../assets/comment-person-image.png'),
+      isLiked: true
     },
 
   ])
@@ -83,7 +87,9 @@ const PeopleComments = (props) => {
                           </View>
                           <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
-                              <Image source={true ? require('../../../assets/people-unsel-heart.png') : require('../../../assets/people-sel-heart.png')}/>
+                              <TouchableOpacity onPress={()=>{setupData(upData.map((el, elIndex)=> index === elIndex ? {...el, isLiked: !item.isLiked} : el))}}>
+                                <Image source={item.isLiked ? require('../../../assets/people-unsel-heart.png') : require('../../../assets/people-sel-heart.png')}/>
+                              </TouchableOpacity>
                               <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
                             </View>
                             <View style={{flexDirection:'row', alignItems:'center'}}>
