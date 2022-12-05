@@ -107,7 +107,7 @@ const EventsHome = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:10}}>
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
@@ -133,11 +133,14 @@ const EventsHome = (props) => {
           onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
-          <View style={{}}>
-          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>Cafe 36</Text>
-          </View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,paddingLeft:0,top:-10}}>
-          <Text style={{fontSize:9,color:'#FFC40C',marginTop:5,textAlign:'left',}}>Cafe</Text>
+
+          <View style={styles.flatlistBottomView}>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:20, height:20}}/>
+              <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:20, height:20}}/>
+              <Image source={require('../../../assets/people-message.png')} style={{width:20, height:20}}/>
+            </View>
+            <Text style={{fontSize:12, fontWeight:'400', color:'#455A64'}}>183K views</Text>
           </View>
           </View>
                     )
@@ -354,6 +357,17 @@ const styles = StyleSheet.create({
   followingView:{
     justifyContent:'center',
     marginLeft:10
+  },
+  flatlistBottomView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    justifyContent:'space-between', 
+    backgroundColor:'#fff', 
+    paddingVertical:15, 
+    paddingHorizontal:20, 
+    width:'90%', 
+    borderBottomRightRadius:20, 
+    borderBottomLeftRadius:20
   }
 });
 export default EventsHome 
