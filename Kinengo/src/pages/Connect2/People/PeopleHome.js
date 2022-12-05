@@ -68,7 +68,7 @@ const PeopleHome = (props) => {
     <HomeHeaderRoundBottom height={80}  paddingHorizontal={15} backgroundColor='#fff'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
    press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
-   press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={15} borderBottomRightRadius={15} />
+   press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={25} borderBottomRightRadius={25} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
   {/* <View style={{flexDirection:'row', alignItems:'center',marginTop:400, marginBottom:400, height:100, backgroundColor:'red'}}>
@@ -131,7 +131,7 @@ const PeopleHome = (props) => {
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH,height:200,backgroundColor:'#F8F8F8',alignSelf:'center'}}
           // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
           onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
+          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',}}></Image>
           </TouchableOpacity>
 
           <View style={styles.flatlistMainBottomView}>            
