@@ -84,7 +84,7 @@ const PeopleMessage = (props) => {
                               <Text style={{fontSize:13, fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
                             </View>
                             <Text style={{fontSize:13, fontWeight:'400', color:'#455A64', marginLeft:10}}>{item.time}</Text>
-                            </View>
+                          </View>
                         </View>
                       </View>
                     )
