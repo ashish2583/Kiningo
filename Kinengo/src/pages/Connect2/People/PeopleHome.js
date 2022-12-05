@@ -138,7 +138,7 @@ const PeopleHome = (props) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleFollowers')} style={{marginRight:10}}>
                   <Image source={require('../../../assets/people-like.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
