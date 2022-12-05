@@ -108,7 +108,7 @@ const EventsHome = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5}}>
-          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', paddingHorizontal:15, paddingVertical:10, width:'90%'}}>
+          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', paddingHorizontal:15, paddingVertical:10, width:'90%', borderTopLeftRadius:20, borderTopRightRadius:20, }}>
             
             <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={require('../../../assets/people-following-person.png')}/>
@@ -119,8 +119,12 @@ const EventsHome = (props) => {
             </View>
 
             <View style={{flexDirection:'row', alignItems:'center'}}>
-              <Image source={require('../../../assets/people-three-dots.png')}/>
-              <Image source={require('../../../assets/people-bookmark.png')}/>
+              <View style={[styles.rightButtonsView, {marginRight:10}]}>
+                <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
+              </View>
+              <View style={styles.rightButtonsView}>
+                <Image source={require('../../../assets/people-bookmark.png')} style={{width:20, height:20}} resizeMode='contain'/>
+              </View>
             </View>
                       
           </View>
@@ -327,5 +331,10 @@ const styles = StyleSheet.create({
     fontWeight:'300',
     marginLeft:10
   },
+  rightButtonsView: {
+    backgroundColor:'#F8F8F8',
+    padding:10,
+    borderRadius:20
+  }
 });
 export default EventsHome 
