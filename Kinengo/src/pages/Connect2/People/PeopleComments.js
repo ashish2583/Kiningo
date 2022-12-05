@@ -79,6 +79,7 @@ const PeopleComments = (props) => {
     }
   })
   setupData([...upDataCopy])
+  Keyboard.dismiss()
   setUserMessage('')
  }
  const likeChildComment = (parentId, childIndex) => {
