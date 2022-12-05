@@ -134,13 +134,21 @@ const EventsHome = (props) => {
           <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
 
-          <View style={styles.flatlistBottomView}>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-              <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:20, height:20}}/>
-              <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:20, height:20}}/>
-              <Image source={require('../../../assets/people-message.png')} style={{width:20, height:20}}/>
+          <View style={styles.flatlistMainBottomView}>            
+            
+            <View style={styles.flatlistBottomView}>
+              <View style={{flexDirection:'row', alignItems:'center'}}>
+                <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:20, height:20}}/>
+                <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:20, height:20}}/>
+                <Image source={require('../../../assets/people-message.png')} style={{width:20, height:20}}/>
+              </View>
+              <Text style={{fontSize:12, fontWeight:'400', color:'#455A64'}}>183K views</Text>
             </View>
-            <Text style={{fontSize:12, fontWeight:'400', color:'#455A64'}}>183K views</Text>
+
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+                <Image source={require('../../../assets/people-liked-by.png')} style={{width:20, height:20}}/>
+                <Text style={{marginLeft:10, fontSize:12, fontWeight:'400', color:'#455A64'}}>Liked by Jerry paul and 23.3 K others</Text>
+            </View>
           </View>
           </View>
                     )
@@ -358,16 +366,18 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     marginLeft:10
   },
-  flatlistBottomView:{
-    flexDirection:'row', 
-    alignItems:'center', 
-    justifyContent:'space-between', 
+  flatlistMainBottomView:{
     backgroundColor:'#fff', 
     paddingVertical:15, 
     paddingHorizontal:20, 
     width:'90%', 
     borderBottomRightRadius:20, 
     borderBottomLeftRadius:20
-  }
+  },
+  flatlistBottomView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    justifyContent:'space-between', 
+  },
 });
 export default EventsHome 
