@@ -55,6 +55,9 @@ const PeopleMessage = (props) => {
 
   ])
   const sendMessage = () => {
+    if(userMessage?.trim?.length === 0){
+      return
+    }
     const lastId = upData?.length
     setupData([...upData, {
       id:String(lastId+1),
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#0089CF', 
     paddingHorizontal:30, 
     paddingVertical:10, 
-    borderRadius:5,
+    borderRadius:20,
     flex:1,
     justifyContent:'center',
     alignItems:'center'

@@ -64,6 +64,9 @@ const PeopleComments = (props) => {
  },[upData])
 
  const sendMessage = () => {
+  if(userMessage?.trim?.length === 0){
+    return
+  }
   const upDataCopy = [...upData]
   upDataCopy.map(el=>{
     if(replyingTo === el.id){
