@@ -11,7 +11,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 
-const PeopleHome = (props) => {
+const PeopleComments = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -67,7 +67,7 @@ const PeopleHome = (props) => {
       <ScrollView>
     <HomeHeaderRoundBottom height={80}  paddingHorizontal={15} backgroundColor='#fff'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
-   press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
+   press2={()=>{}} title2={'20 Comments'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={15} borderBottomRightRadius={15} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
@@ -138,15 +138,9 @@ const PeopleHome = (props) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-like.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-comment.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-message.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
+                <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:25, height:25}}/>
+                <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:25, height:25}}/>
+                <Image source={require('../../../assets/people-message.png')} style={{width:25, height:25}}/>
               </View>
               <Text style={styles.text1}>183K views</Text>
             </View>
@@ -403,4 +397,4 @@ const styles = StyleSheet.create({
     color:'#455A64'
   }
 });
-export default PeopleHome 
+export default PeopleComments 

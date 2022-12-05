@@ -3,6 +3,7 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 
 import PeopleHome from '../pages/Connect2/People/PeopleHome';
+import PeopleComments from '../pages/Connect2/People/PeopleComments';
 import ShopEat from '../pages/Shop/ShopEat/ShopEat';
 import FoodDetails from '../pages/Shop/ShopEat/FoodDetails';
 import ShopMyOrder from '../pages/Shop/ShopEat/ShopMyOrder';
@@ -18,6 +19,7 @@ const ShopEatStack=(props)=>{
             screenOptions={{ headerShown:false,}}
              >
             <Stack.Screen component = {PeopleHome} name="PeopleHome" />
+            <Stack.Screen component = {PeopleComments} name="PeopleComments" />
             <Stack.Screen component = {ShopEat} name="ShopEat" />
             <Stack.Screen component = {FoodDetails} name="FoodDetails" />
             <Stack.Screen component = {ShopMyOrder} name="ShopMyOrder" />
