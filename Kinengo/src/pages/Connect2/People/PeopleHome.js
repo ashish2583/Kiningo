@@ -107,7 +107,7 @@ const PeopleHome = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:10}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
