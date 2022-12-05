@@ -92,7 +92,7 @@ const PeopleMessage = (props) => {
                         <View style={{flexDirection:'row', width:'80%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
                           <Image source={item.me ? image2: image1} style={{width:30, height:30}}/>
                           <View style={{width:'80%'}}>
-                            <View style={{backgroundColor:'#fff', marginLeft:10, padding:10, borderRadius:15}}>
+                            <View style={{backgroundColor:'#fff', marginLeft:10, padding:10, borderRadius:15, marginRight:'auto'}}>
                               <Text style={{fontSize:13, fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
                             </View>
                             <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginLeft:10, marginTop:2}}>{item.time}</Text>
