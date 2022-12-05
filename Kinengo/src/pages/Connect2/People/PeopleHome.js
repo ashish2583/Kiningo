@@ -138,16 +138,28 @@ const EventsHome = (props) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:20, height:20}}/>
-                <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:20, height:20}}/>
-                <Image source={require('../../../assets/people-message.png')} style={{width:20, height:20}}/>
+                <Image source={require('../../../assets/people-like.png')} style={{marginRight:10, width:25, height:25}}/>
+                <Image source={require('../../../assets/people-comment.png')} style={{marginRight:10, width:25, height:25}}/>
+                <Image source={require('../../../assets/people-message.png')} style={{width:25, height:25}}/>
               </View>
               <Text style={{fontSize:12, fontWeight:'400', color:'#455A64'}}>183K views</Text>
             </View>
 
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-                <Image source={require('../../../assets/people-liked-by.png')} style={{width:20, height:20}}/>
+            <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
+                <Image source={require('../../../assets/people-liked-by.png')} style={{width:30, height:30}} resizeMode='contain'/>
                 <Text style={{marginLeft:10, fontSize:12, fontWeight:'400', color:'#455A64'}}>Liked by Jerry paul and 23.3 K others</Text>
+            </View>
+
+            <View style={{marginTop:10}}>
+              <Text style={{fontSize:12, fontWeight:'400', color:'#455A64'}}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text>
+            </View>
+
+            <View style={{marginTop:5}}>
+              <Text style={{fontSize:12, fontWeight:'400', color:'#0089CF'}}>View all 183 comments</Text>
+            </View>
+
+            <View style={{marginTop:10}}>
+              <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9'}}>23 min ago</Text>
             </View>
           </View>
           </View>
