@@ -75,7 +75,7 @@ const PeopleComments = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginHorizontal:5, marginBottom:10, paddingHorizontal:20}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginHorizontal:5, marginBottom:15, paddingHorizontal:20}}>
                         <View>
                           <View style={{flexDirection:'row', alignItems:'center'}}>
                             <Image source={item.img}/>
@@ -98,6 +98,7 @@ const PeopleComments = (props) => {
                             </View>
                           </View>
                         </View>
+                        <View style={{borderBottomColor: '#E0E0E0', borderBottomWidth: 1, marginTop:10}}/>
                      </View>
                     )
                   }}
