@@ -73,9 +73,9 @@ const PeopleFollowers = (props) => {
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
                         <LinearGradient
                           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-                          style={{flex: 1,}}
+                          style={styles.flatlistMainView}
                         >
-                        <View style={styles.flatlistMainView}>
+                        {/* <View style={styles.flatlistMainView}> */}
                           <Image source={item.img}/>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
@@ -86,7 +86,7 @@ const PeopleFollowers = (props) => {
                             </View>
                           </View>
 
-                        </View>
+                        {/* </View> */}
                         </LinearGradient>
                       </View>
                     )
