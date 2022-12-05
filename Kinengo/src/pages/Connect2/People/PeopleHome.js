@@ -108,7 +108,7 @@ const EventsHome = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5}}>
-          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#fff', paddingHorizontal:35, paddingVertical:10, width:'100%'}}>
+          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', paddingHorizontal:15, paddingVertical:10, width:'90%'}}>
             
             <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={require('../../../assets/people-following-person.png')}/>
@@ -120,7 +120,9 @@ const EventsHome = (props) => {
 
             <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={require('../../../assets/people-three-dots.png')}/>
-            </View>          
+              <Image source={require('../../../assets/people-bookmark.png')}/>
+            </View>
+                      
           </View>
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH,height:200,backgroundColor:'#F8F8F8',alignSelf:'center'}}
           // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
