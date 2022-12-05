@@ -24,54 +24,13 @@ const PeopleFollowers = (props) => {
   const [upData,setupData]=useState([
     {
       id: '1',
-      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-      me: false,
-      time: '12:50 pm'
+      name: 'Chetan Manne',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
     },
-    {
-      id: '2',
-      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-      me: false,
-      time: '12:51 pm'
-    },
-    {
-      id: '2',
-      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-      me: true,
-      time: '12:51 pm'
-    },
-    {
-      id: '2',
-      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-      me: false,
-      time: '12:51 pm'
-    },
-    {
-      id: '2',
-      message: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...',
-      me: true,
-      time: '12:51 pm'
-    },
-
   ])
-  const sendMessage = () => {
-    if(userMessage?.trim?.length === 0){
-      return
-    }
-    const lastId = upData?.length
-    setupData([...upData, {
-      id:String(lastId+1),
-      message: userMessage,
-      me: true,
-      time: '6:00 pm'
-    }])
-    Keyboard.dismiss()
-    setUserMessage('')
-   }
-  const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
-  useEffect(()=>{
-
- },[])
 
 
   return(
@@ -82,7 +41,7 @@ const PeopleFollowers = (props) => {
     <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni (followers screen)</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
@@ -95,14 +54,17 @@ const PeopleFollowers = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
-                        <View style={{flexDirection:'row', width:'80%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
-                          <Image source={item.me ? image2: image1} style={{width:30, height:30}}/>
-                          <View style={{width:'80%'}}>
-                            <View style={{backgroundColor:'#fff', marginLeft:10, padding:10, borderRadius:15, marginRight:'auto'}}>
-                              <Text style={{fontSize:13, fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
+                        <View style={{flexDirection:'row', backgroundColor:'#fff', padding:10, borderRadius:10}}>
+                          <Image source={item.img}/>
+                          <View style={{marginLeft:10, justifyContent:'space-between'}}>
+                            <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                              <Text style={{fontSize:14, fontWeight:'300', color:'#000'}}>{item.numFollowers} followers</Text>
+                              <Text style={{fontSize:14, fontWeight:'300', color:'#000', marginLeft:10}}>{item.numFollowing} following</Text>
+                              <Text style={{fontSize:14, fontWeight:'300', color:'#000', marginLeft:10}}>{item.numPosts} posts</Text>
                             </View>
-                            <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginLeft:10, marginTop:2}}>{item.time}</Text>
                           </View>
+
                         </View>
                       </View>
                     )
@@ -121,58 +83,10 @@ const PeopleFollowers = (props) => {
 
 </ScrollView>
 
-<View style={styles.addCommentView}>
-  <TextInput
-    value={userMessage}
-    onChangeText={(text) => {
-      setUserMessage(text)
-    }}
-    placeholder="Type a message"
-    placeholderTextColor={'#B2B7B9'}
-    style={styles.input}
-    multiline
-  />
-  <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
-    <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
-  </TouchableOpacity>
-  </View>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-  addCommentView:{
-    position:'absolute', 
-    bottom:20,
-    width:'100%', 
-    backgroundColor:'#fff', 
-    padding:15, 
-    flexDirection:'row',
-    alignItems:'center', 
-    justifyContent:'space-between',
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3
-    // },
-    // shadowRadius: 1,
-    // shadowOpacity: 0.3,
-    // elevation: 5,
-  },
-  input: {
-    paddingLeft: 20,
-    fontSize: 14,
-    fontWeight:'500',
-    color:'#000',
-    flex: 7
-  },
-  sendButtonView:{
-    backgroundColor:'#0089CF', 
-    paddingHorizontal:30, 
-    paddingVertical:10, 
-    borderRadius:20,
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  }
+
 });
 export default PeopleFollowers 
