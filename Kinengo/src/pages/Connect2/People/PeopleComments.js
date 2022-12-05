@@ -90,7 +90,6 @@ const PeopleComments = (props) => {
     return el
   })
   setupData([...upDataCopy])
-  // setupData(upData.map((el, elIndex)=> index === elIndex ? {...el, isLiked: !item.isLiked} : el))
  }
 
  const returnReplies = (itemid) => {
