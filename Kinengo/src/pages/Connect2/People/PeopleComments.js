@@ -17,6 +17,7 @@ const PeopleComments = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [userMessage, setUserMessage] = useState('')
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -106,19 +107,33 @@ const PeopleComments = (props) => {
                 />
          </View>
 
-
-
-
-
-
  </View>
 <View style={{height:100}} />
 
 </ScrollView>
+<View style={{position:'absolute', bottom:20, width:'100%', backgroundColor:'#fff', padding:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+  <TextInput
+    value={userMessage}
+    onChangeText={(text) => {
+      setUserMessage(text)
+    }}
+    placeholder="What's on your mind"
+    placeholderTextColor={'#B2B7B9'}
+    style={styles.input}
+  />
+  <TouchableOpacity style={{backgroundColor:'#0089CF', paddingHorizontal:30, paddingVertical:10, borderRadius:5}}>
+    <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
+  </TouchableOpacity>
+  </View>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-  
+  input: {
+    paddingLeft: 20,
+    fontSize: 14,
+    fontWeight:'500',
+    color:'#000',
+  },
 });
 export default PeopleComments 
