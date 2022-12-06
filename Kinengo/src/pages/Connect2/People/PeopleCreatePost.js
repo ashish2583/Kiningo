@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     }, 
     shadowRadius: 5,
     shadowOpacity: 0.05,
-    elevation: 5,
+    elevation: 2,
   },
   eyeView:{
     flexDirection:'row', 
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     }, 
     shadowRadius: 5,
     shadowOpacity: 0.05,
-    elevation: 5,
+    elevation: 2,
   },
   uploadImageView:{
     flexDirection:'row', 
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     }, 
     shadowRadius: 5,
     shadowOpacity: 0.03,
-    elevation: 5,
+    elevation: 1,
   },
   imageView:{
     justifyContent:'center', 
