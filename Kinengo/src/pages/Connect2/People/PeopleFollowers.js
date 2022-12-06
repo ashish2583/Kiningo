@@ -88,8 +88,8 @@ const PeopleFollowers = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
-<View style={styles.createPostView}>
-    <View style={styles.createPostLeftSubView}>
+<View style={styles.searchView}>
+    <View style={styles.searchLeftSubView}>
       <TextInput
         placeholder="Search"
         placeholderTextColor={'#B2B7B9'} 
@@ -163,14 +163,14 @@ const styles = StyleSheet.create({
     fontWeight:'300', 
     color:'#000'
   },
-  createPostView:{
+  searchView:{
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
     width:'100%',
     height:50,
   },
-  createPostLeftSubView:{
+  searchLeftSubView:{
     width:'83%',
     flexDirection:'row',
     alignItems:'center',
