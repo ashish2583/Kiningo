@@ -63,7 +63,7 @@ const PeopleMessages = (props) => {
     <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni (messages)</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   

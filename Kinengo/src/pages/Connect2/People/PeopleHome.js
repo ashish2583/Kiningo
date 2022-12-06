@@ -76,7 +76,7 @@ const PeopleHome = (props) => {
     <Image source={require('../../../assets/people-add-post.png')} style={{width:20, height:20}}/>
   </View> */}
 
-  <TouchableOpacity style={styles.createPostView}>
+  <TouchableOpacity style={styles.createPostView} onPress={()=>{props.navigation.navigate('PeopleCreatePost')}}>
     <View style={styles.createPostLeftSubView}>
       <Image source={require('../../../assets/people-add-post-image.png')} style={{width:40, height:40}}/>
       <Text style={styles.createPostText}>What's on your mind</Text>
