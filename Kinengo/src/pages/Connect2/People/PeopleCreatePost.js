@@ -49,7 +49,7 @@ const PeopleCreatePost = (props) => {
     </View>
   </View>
 
-  <View style={{marginTop:10}}>
+  <View style={{marginTop:10, marginBottom:20}}>
     <TextInput
         //  value={reson}
         //  onChangeText={(e) => setreson(e)}
@@ -63,7 +63,15 @@ const PeopleCreatePost = (props) => {
       />  
   </View>  
 
-
+  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', borderRadius:10, padding:20,}}>
+    <View style={{flexDirection:'row', alignItems:'center'}}>
+      <View style={{justifyContent:'center', alignItems:'center', backgroundColor:'#F8F8F8', padding:10, width: 60, height:60 ,borderRadius:30,}}>
+        <Image source={require('../../../assets/people-upload-photo-video.png')}/>
+      </View>
+      <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginLeft:10}}>Photo/Video</Text>
+    </View>
+    <Image source={require('../../../assets/people-right-arrow.png')}/>
+  </View>  
 
 </View>
 
