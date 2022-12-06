@@ -26,26 +26,30 @@ const PeopleMessages = (props) => {
     {
       id: '1',
       name: 'Chetan Manne',
+      isOnline: true,
+      message:'Nice video jane liked…. Recent message short preview',
       img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
     },
     {
-      id: '2',
-      name: 'Parth Shinge',
+      id: '1',
+      name: 'Chetan Manne',
+      isOnline: false,
+      message:'Nice video jane liked…. Recent message short preview',
       img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
     },
     {
-      id: '3',
-      name: 'Naumika Nair',
+      id: '1',
+      name: 'Chetan Manne',
+      isOnline: true,
+      message:'Nice video jane liked…. Recent message short preview',
       img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
+    },
+    {
+      id: '1',
+      name: 'Chetan Manne',
+      isOnline: false ,
+      message:'Nice video jane liked…. Recent message short preview',
+      img: require('../../../assets/comment-person-image.png'),
     },
   ])
 
@@ -91,10 +95,8 @@ const PeopleMessages = (props) => {
                           <Image source={item.img}/>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
-                            <View style={styles.numberView}>
-                              <Text style={styles.numberStyle}>{item.numFollowers} followers</Text>
-                              <Text style={[styles.numberStyle, {marginLeft:10}]}>{item.numFollowing} following</Text>
-                              <Text style={[styles.numberStyle, {marginLeft:10}]}>{item.numPosts} posts</Text>
+                            <View style={{width:'95%'}}>
+                              <Text style={styles.messageStyle}>{item.message}</Text>
                             </View>
                           </View>
 
@@ -128,12 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:10, 
     borderRadius:10
   },
-  numberView:{
-    flexDirection:'row', 
-    alignItems:'center', 
-    flexWrap: 'wrap'
-  },
-  numberStyle:{
+  messageStyle:{
     fontSize:14, 
     fontWeight:'300', 
     color:'#000'
