@@ -36,7 +36,7 @@ const PeopleCreatePost = (props) => {
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 
-  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', padding:10, borderRadius:10}}>
+  <View style={styles.rowWithImageView}>
     
     <View style={{flexDirection:'row', alignItems:'center',}}>
       <Image source={image1}/>
@@ -127,13 +127,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     elevation: 5,
   },
-  eyeView:{
+  rowWithImageView:{
     flexDirection:'row', 
-    alignItems:'center',
-    backgroundColor:'#0089CF', 
-    borderRadius:20,
-    paddingVertical:10,
-    paddingHorizontal:12,
+    alignItems:'center', 
+    justifyContent:'space-between', 
+    backgroundColor:'#fff', 
+    padding:10, 
+    borderRadius:10,
     shadowColor: '#0089CF',
     shadowOffset: {
       width:0,
@@ -142,6 +142,14 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.10,
     elevation: 5,
+  },
+  eyeView:{
+    flexDirection:'row', 
+    alignItems:'center',
+    backgroundColor:'#0089CF', 
+    borderRadius:20,
+    paddingVertical:10,
+    paddingHorizontal:12,
   },
   input: {
     paddingLeft: 15,
@@ -153,7 +161,15 @@ const styles = StyleSheet.create({
     paddingHorizontal:15,
     paddingVertical:10,
     color:Mycolors.Black,
-    borderRadius:10
+    borderRadius:10,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 5,
   },
   uploadImageView:{
     flexDirection:'row', 
@@ -163,6 +179,14 @@ const styles = StyleSheet.create({
     borderRadius:10, 
     paddingVertical:10,
     paddingHorizontal:20,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.03,
+    elevation: 5,
   },
   imageView:{
     justifyContent:'center', 
