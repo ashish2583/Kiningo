@@ -48,7 +48,24 @@ const PeopleCreatePost = (props) => {
       <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>View Profile</Text>
     </View>
   </View>
-         </View>
+
+  <View style={{marginTop:10}}>
+    <TextInput
+        //  value={reson}
+        //  onChangeText={(e) => setreson(e)}
+        placeholder={`What's on your mind`}
+        placeholderTextColor="#bbbbbb"
+        multiline={true}
+      // maxLength={500}
+      // keyboardType="number-pad"
+        autoCapitalize = 'none'
+        style={[styles.input]}
+      />  
+  </View>  
+
+
+
+</View>
 
 
 
@@ -88,13 +105,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     elevation: 5,
   },
-  input: {
-    paddingLeft: 10,
-    fontSize: 14,
-    fontWeight:'300',
-    color:'#000',
-    flex: 7
-  },
   eyeView:{
     flexDirection:'row', 
     alignItems:'center',
@@ -110,6 +120,18 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.10,
     elevation: 5,
-  }
+  },
+  input: {
+    paddingLeft: 15,
+    width:'100%',
+    fontSize: 14,
+    backgroundColor: '#fff',
+    height:100,
+    borderRadius:5,
+    paddingHorizontal:15,
+    paddingVertical:10,
+    color:Mycolors.Black,
+    borderRadius:10
+  },
 });
 export default PeopleCreatePost 
