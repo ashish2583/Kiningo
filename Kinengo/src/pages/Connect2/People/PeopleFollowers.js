@@ -91,10 +91,10 @@ const PeopleFollowers = (props) => {
   
  <View style={{flexDirection:'row', justifyContent:'space-around', alignItems:'center', marginBottom:20}}>
     <TouchableOpacity style={isFollowersTabSelected ? styles.selectedTabView : styles.unSelectedTabView} onPress={()=>{!isFollowersTabSelected && setIsFollowersTabSelected(true) }}>
-      <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Followers</Text>
+      <Text style={styles.tabText}>Followers</Text>
     </TouchableOpacity>
     <TouchableOpacity style={isFollowersTabSelected ? styles.unSelectedTabView : styles.selectedTabView} onPress={()=>{isFollowersTabSelected && setIsFollowersTabSelected(false) }}>
-      <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Following</Text>
+      <Text style={styles.tabText}>Following</Text>
     </TouchableOpacity>
   </View> 
 
@@ -212,5 +212,10 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center'
   },
+  tabText:{
+    fontSize:14, 
+    fontWeight:'400', 
+    color:'#455A64'
+  }
 });
 export default PeopleFollowers 
