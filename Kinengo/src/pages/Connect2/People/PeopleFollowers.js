@@ -22,6 +22,7 @@ const PeopleFollowers = (props) => {
   const [userMessage, setUserMessage] = useState('')
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [isFollowersTabSelected, setIsFollowersTabSelected] = useState(true)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -88,6 +89,15 @@ const PeopleFollowers = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
+ <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', paddingHorizontal:40, marginBottom:20}}>
+    <TouchableOpacity style={isFollowersTabSelected ? styles.selectedTabView : {width:'37%'}} onPress={()=>{!isFollowersTabSelected && setIsFollowersTabSelected(true) }}>
+      <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Followers</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={isFollowersTabSelected ? {width:'37%'} : styles.selectedTabView} onPress={()=>{isFollowersTabSelected && setIsFollowersTabSelected(false) }}>
+      <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Following</Text>
+    </TouchableOpacity>
+  </View> 
+
 <View style={styles.searchView}>
     <View style={styles.searchLeftSubView}>
       <TextInput
@@ -186,5 +196,12 @@ const styles = StyleSheet.create({
     color:'#000',
     flex: 7
   },
+  selectedTabView: {
+    backgroundColor:'#fff',
+    borderRadius:10,
+    paddingHorizontal:20,
+    paddingVertical:10,
+    width:'37%'
+  }
 });
 export default PeopleFollowers 
