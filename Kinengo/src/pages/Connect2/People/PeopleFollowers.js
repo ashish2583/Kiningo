@@ -203,7 +203,15 @@ const styles = StyleSheet.create({
     paddingVertical:10,
     width:'45%',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    shadowColor: '#0089CF',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    elevation: 5,
   },
   unSelectedTabView: {
     // paddingHorizontal:20,
