@@ -24,7 +24,7 @@ const HomeHeaderRoundBottom = (props) => {
             height:3
             }, 
             shadowRadius: 5,
-            shadowOpacity: 0.03,
+            shadowOpacity: 1,
             elevation: 5,
             }}
             >
