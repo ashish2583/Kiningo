@@ -179,12 +179,6 @@ const styles = StyleSheet.create({
     paddingLeft:10, 
     borderRadius:10,
   },
-  createPostText:{
-    color:'#B2B7B9',
-    fontSize:14,
-    fontWeight:'300',
-    marginLeft:10
-  },
   input: {
     paddingLeft: 10,
     fontSize: 14,
