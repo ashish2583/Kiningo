@@ -161,6 +161,14 @@ const styles = StyleSheet.create({
     paddingVertical:5, 
     paddingLeft:10, 
     borderRadius:10,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 5,
   },
   input: {
     paddingLeft: 10,
