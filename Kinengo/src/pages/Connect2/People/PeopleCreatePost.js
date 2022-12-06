@@ -26,18 +26,28 @@ const PeopleCreatePost = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
-<View style={{flexDirection:'row', alignItems:'center', height:80, backgroundColor:'#fff',padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
-  <TouchableOpacity onPress={()=>{props.navigation.goBack()}}>
-    <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
-  </TouchableOpacity>
-  <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
-</View>
+      <HomeHeaderRoundBottom height={80}  paddingHorizontal={15} backgroundColor='#fff'
+   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/events_arrow.png')} img1width={25} img1height={20} 
+   press2={()=>{}} title2={'Create People'} fontWeight={'500'} img2height={20} color='#455A64'
+   press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={25} borderBottomRightRadius={25} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
 
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
+
+  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', padding:10, borderRadius:10}}>
+    
+    <View style={{flexDirection:'row', alignItems:'center',}}>
+      <Image source={image1}/>
+      <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aayav Nadkarni</Text>
+    </View>
+    
+    <View style={styles.eyeView}>
+      <Image source={require('../../../assets/people-eye-image.png')}/>
+      <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>View Profile</Text>
+    </View>
+  </View>
          </View>
 
 
@@ -85,5 +95,21 @@ const styles = StyleSheet.create({
     color:'#000',
     flex: 7
   },
+  eyeView:{
+    flexDirection:'row', 
+    alignItems:'center',
+    backgroundColor:'#0089CF', 
+    borderRadius:20,
+    paddingVertical:10,
+    paddingHorizontal:12,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 5,
+  }
 });
 export default PeopleCreatePost 
