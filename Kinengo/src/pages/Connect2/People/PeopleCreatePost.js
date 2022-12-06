@@ -11,6 +11,8 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
+import {launchCamera,launchImageLibrary} from 'react-native-image-picker';
+import Video from 'react-native-video';
 
 const image1 = require('../../../assets/people-following-person.png')
 
@@ -21,7 +23,119 @@ const PeopleCreatePost = (props) => {
   const [userMessage, setUserMessage] = useState('')
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [pick, setpick] = useState('')
+  const [capturedVideo, setcapturedVideo] = useState('')
+  const [filepath, setfilepath] = useState(null)
+
+  const openLibrary = async () => {
+    setmodlevisual(false)
+    let options = {
+      title: 'Select Image',
+      customButtons: [
+        {
+          name: 'customOptionKey',
+          title: 'Choose Photo from Custom Option'
+        },
+      ],
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
   
+    launchImageLibrary(options, (image) => {
+      if (!image.didCancel) {
+        console.log('the ddd==', image.assets[0].uri)
+        var photo = {
+          uri: image.assets[0].uri,
+          type: "image/jpeg",
+          name: image.assets[0].fileName
+        };
+        setpick(photo)
+        setfilepath(image)
+      }
+    })
+  
+  
+  }
+  const requestCameraPermission = async () => {
+    opencamera()
+    // try {
+    //   const granted = await PermissionsAndroid.request(
+    //     PermissionsAndroid.PERMISSIONS.CAMERA,
+    //     {
+    //       title: "App Camera Permission",
+    //       message:"App needs access to your camera ",
+    //       buttonNeutral: "Ask Me Later",
+    //       buttonNegative: "Cancel",
+    //       buttonPositive: "OK"
+    //     }
+    //   );
+    //   console.log("CPermissionsAndroid.RESULTS",PermissionsAndroid.RESULTS.GRANTED);
+    //   console.log("CPermissionsAndroid.RESULTS",granted);
+    //   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+    //     console.log("Camera permission given");
+    //     opencamera()
+    //   } else {
+    //     console.log("Camera permission denied");
+    //     // opencamera()
+    //   }
+    // } catch (err) {
+    //   console.warn(err);
+    // }
+  };
+  const opencamera = async () => {
+    // setmodlevisual(false)
+  
+    let options = {
+      title: 'Select Image',
+      customButtons: [
+        {
+          name: 'customOptionKey',
+          title: 'Choose Photo from Custom Option'
+        },
+      ],
+      mediaType:'video',
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    
+    if(true){
+      launchCamera(options, (video) => {
+        if (!video.didCancel) {
+          console.log('the ddd==', video)
+          var obj = {
+            uri: video.assets[0].uri,
+            type: "video/mp4",
+            name: video.assets[0].fileName
+          };
+          setcapturedVideo(obj)
+          setfilepath(video)
+        }
+    
+      })
+    }else{
+      launchCamera(options, (image) => {
+        if (!image.didCancel) {
+          console.log('the ddd==', image)
+          var photo = {
+            uri: image.assets[0].uri,
+            type: "image/jpeg",
+            name: image.assets[0].fileName
+          };
+          setpick(photo)
+          setfilepath(image)
+        }
+    
+      })
+    }
+  }
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
@@ -78,15 +192,31 @@ const PeopleCreatePost = (props) => {
   <LinearGradient
     colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
     style={[styles.uploadImageView, {marginTop:10}]}>  
-    <View style={{flexDirection:'row', alignItems:'center'}}>
+    <TouchableOpacity style={{flexDirection:'row', alignItems:'center'}} onPress={()=>requestCameraPermission()}>
       <View style={styles.imageView}>
         <Image source={require('../../../assets/people-camera-image.png')}/>
       </View>
       <Text style={styles.imageText}>Camera</Text>
-    </View>
-    <Image source={require('../../../assets/people-right-arrow.png')}/>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>requestCameraPermission()}>
+      <Image source={require('../../../assets/people-right-arrow.png')}/>
+    </TouchableOpacity>
   </LinearGradient> 
 
+  {capturedVideo?.uri ?   
+  <Video 
+    source={{uri: capturedVideo?.uri}}   // Can be a URL or a local file.
+    // ref={(ref) => {
+    //   this.player = ref
+    // }}                                          
+    // onBuffer={this.onBuffer}                // Callback when remote video is buffering
+    // onError={this.videoError}               // Callback when video cannot be loaded
+    paused={false} 
+    repeat={true} 
+    controls={true} 
+    // style={{height:100, width:100}} 
+    />
+    :null}
 </View>
 
 
