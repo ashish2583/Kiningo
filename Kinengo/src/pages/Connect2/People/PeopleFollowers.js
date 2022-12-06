@@ -112,7 +112,7 @@ const PeopleFollowers = (props) => {
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
           <FlatList
-                  data={upData}
+                  data={isFollowersTabSelected ? upData : upData2}
                   showsHorizontalScrollIndicator={false}
                   numColumns={1}
                   renderItem={({item,index})=>{
