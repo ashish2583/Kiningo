@@ -4,7 +4,7 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import PeopleHome from '../pages/Connect2/People/PeopleHome';
 import PeopleComments from '../pages/Connect2/People/PeopleComments';
-import PeopleMessage from '../pages/Connect2/People/PeopleMessage';
+import PeopleChat from '../pages/Connect2/People/PeopleChat';
 import PeopleFollowers from '../pages/Connect2/People/PeopleFollowers';
 import ShopEat from '../pages/Shop/ShopEat/ShopEat';
 import FoodDetails from '../pages/Shop/ShopEat/FoodDetails';
@@ -22,7 +22,7 @@ const ShopEatStack=(props)=>{
              >
             <Stack.Screen component = {PeopleHome} name="PeopleHome" />
             <Stack.Screen component = {PeopleComments} name="PeopleComments" />
-            <Stack.Screen component = {PeopleMessage} name="PeopleMessage" />
+            <Stack.Screen component = {PeopleChat} name="PeopleChat" />
             <Stack.Screen component = {PeopleFollowers} name="PeopleFollowers" />
             <Stack.Screen component = {ShopEat} name="ShopEat" />
             <Stack.Screen component = {FoodDetails} name="FoodDetails" />

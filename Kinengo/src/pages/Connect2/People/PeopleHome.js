@@ -144,7 +144,7 @@ const PeopleHome = (props) => {
                 <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
                   <Image source={require('../../../assets/people-comment.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleMessage')} style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleChat')} style={{marginRight:10}}>
                   <Image source={require('../../../assets/people-message.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
               </View>
