@@ -96,7 +96,7 @@ const PeopleMessages = (props) => {
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
                             <View style={{width:'95%'}}>
-                              <Text style={styles.messageStyle}>{item.message}</Text>
+                              <Text style={styles.numberStyle}>{item.message}</Text>
                             </View>
                           </View>
 
@@ -130,7 +130,12 @@ const styles = StyleSheet.create({
     paddingHorizontal:10, 
     borderRadius:10
   },
-  messageStyle:{
+  numberView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    flexWrap: 'wrap'
+  },
+  numberStyle:{
     fontSize:14, 
     fontWeight:'300', 
     color:'#000'
