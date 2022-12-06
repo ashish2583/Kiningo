@@ -92,7 +92,12 @@ const PeopleMessages = (props) => {
                           style={styles.flatlistMainView}
                         >
                         {/* <View style={styles.flatlistMainView}> */}
-                          <Image source={item.img}/>
+                          <View>
+                            <Image source={item.img} style={{width:50, height:50}}/>
+                            {item.isOnline ?
+                            <View style={{backgroundColor:'#29913C', width:9, height:9, position:'absolute', borderRadius:4.5, left:47, top:50/2, borderWidth:1, borderColor:'#fff'}}/>
+                            :null}  
+                            </View>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
                             <View style={{width:'95%'}}>
