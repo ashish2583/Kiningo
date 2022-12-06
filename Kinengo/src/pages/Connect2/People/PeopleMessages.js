@@ -15,7 +15,7 @@ import LinearGradient from 'react-native-linear-gradient'
 const image1 = require('../../../assets/people-following-person.png')
 const image2 = require('../../../assets/people-sender-image.png')
 
-const PeopleFollowers = (props) => {
+const PeopleMessages = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -85,7 +85,7 @@ const PeopleFollowers = (props) => {
     <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni (messages)</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
@@ -226,4 +226,4 @@ const styles = StyleSheet.create({
     color:'#455A64'
   }
 });
-export default PeopleFollowers 
+export default PeopleMessages 
