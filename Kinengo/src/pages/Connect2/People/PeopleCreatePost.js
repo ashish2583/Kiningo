@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff', 
     padding:10, 
     borderRadius:10,
-    shadowColor: '#0089CF',
+    shadowColor: '#000000',
     shadowOffset: {
       width:0,
       height:3
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     paddingVertical:10,
     color:Mycolors.Black,
     borderRadius:10,
-    shadowColor: '#0089CF',
+    shadowColor: '#000000',
     shadowOffset: {
       width:0,
       height:3
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     borderRadius:10, 
     paddingVertical:10,
     paddingHorizontal:20,
-    shadowColor: '#0089CF',
+    shadowColor: '#000000',
     shadowOffset: {
       width:0,
       height:3
