@@ -95,7 +95,7 @@ const PeopleMessages = (props) => {
                           <View>
                             <Image source={item.img} style={{width:50, height:50}}/>
                             {item.isOnline ?
-                            <View style={{backgroundColor:'#29913C', width:9, height:9, position:'absolute', borderRadius:4.5, left:47, top:50/2, borderWidth:1, borderColor:'#fff'}}/>
+                            <View style={styles.onlineDot}/>
                             :null}  
                             </View>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
@@ -168,5 +168,16 @@ const styles = StyleSheet.create({
     color:'#000',
     flex: 7
   },
+  onlineDot: {
+    backgroundColor:'#29913C', 
+    width:12, 
+    height:12, 
+    position:'absolute', 
+    borderRadius:12/2, 
+    left:47, 
+    top:50/2-3, 
+    borderWidth:2, 
+    borderColor:'#fff'
+  }
 });
 export default PeopleMessages 
