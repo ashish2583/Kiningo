@@ -58,7 +58,7 @@ const PeopleFollowers = (props) => {
     <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni (followers screen)</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
@@ -70,7 +70,7 @@ const PeopleFollowers = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
+                      <View style={{width:'100%',marginHorizontal:5, marginBottom:20}}>
                         <LinearGradient
                           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
                           style={styles.flatlistMainView}
@@ -111,7 +111,7 @@ const PeopleFollowers = (props) => {
 const styles = StyleSheet.create({
   flatlistMainView:{
     flexDirection:'row', 
-    backgroundColor:'#fff', 
+    // backgroundColor:'#fff', 
     paddingVertical:15, 
     paddingHorizontal:10, 
     borderRadius:10
