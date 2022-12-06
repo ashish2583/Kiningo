@@ -55,7 +55,7 @@ const PeopleMessage = (props) => {
 
   ])
   const sendMessage = () => {
-    if(userMessage?.trim?.length === 0){
+    if(userMessage?.trim()?.length === 0){
       return
     }
     const lastId = upData?.length

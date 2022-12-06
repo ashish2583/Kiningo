@@ -1,5 +1,5 @@
 import React, { useEffect,useState ,useRef} from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, ImageEditor} from 'react-native';
+import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, ImageEditor, Keyboard} from 'react-native';
 import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
@@ -64,26 +64,42 @@ const PeopleComments = (props) => {
  },[upData])
 
  const sendMessage = () => {
-  if(userMessage?.trim?.length === 0){
+  if(userMessage?.trim()?.length === 0){
     return
   }
-  const upDataCopy = [...upData]
-  upDataCopy.map(el=>{
-    if(replyingTo === el.id){
-      el.replies.push({
-        id:99,
-        name:'saurabh saneja',
-        message: userMessage,
-        time: '0 min',
-        img: require('../../../assets/people-sender-image.png'),
-        isLiked: false
-      })
-      return el
-    }
-  })
-  setupData([...upDataCopy])
+  if(replyingTo){
+    const upDataCopy = [...upData]
+    upDataCopy.map(el=>{
+      if(replyingTo === el.id){
+        el.replies.push({
+          id:99,
+          name:'saurabh saneja',
+          message: userMessage,
+          time: '0 min',
+          img: require('../../../assets/people-sender-image.png'),
+          isLiked: false
+        })
+        return el
+      }
+    })
+    setupData([...upDataCopy])
+  }else{
+    const nextId = upData?.length+1
+    setupData([...upData, 
+      {
+        id: String(nextId),
+        name: 'Saurabh Saneja',
+        message:userMessage,
+        time:'14 min',
+        img:require('../../../assets/comment-person-image.png'),
+        isLiked: false,
+        replies:[]
+      },
+    ])
+  }
   Keyboard.dismiss()
   setUserMessage('')
+  setReplyingTo('')
  }
  const likeChildComment = (parentId, childIndex) => {
   const upDataCopy = [...upData]
@@ -113,7 +129,7 @@ const PeopleComments = (props) => {
     <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
       <View style={{flexDirection:'row', alignItems:'center'}}>
         <TouchableOpacity onPress={()=>{likeChildComment(itemid, index)}}>
-          <Image source={item.isLiked ? require('../../../assets/people-unsel-heart.png') : require('../../../assets/people-sel-heart.png')} style={{width:30, height:30}}/>
+          <Image source={item.isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-unsel-heart.png')} style={{width:30, height:30}}/>
         </TouchableOpacity>
         <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
       </View>
