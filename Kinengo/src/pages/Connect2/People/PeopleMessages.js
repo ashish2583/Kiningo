@@ -22,7 +22,6 @@ const PeopleMessages = (props) => {
   const [userMessage, setUserMessage] = useState('')
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
-  const [isFollowersTabSelected, setIsFollowersTabSelected] = useState(true)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -49,32 +48,6 @@ const PeopleMessages = (props) => {
       numPosts: '12K' 
     },
   ])
-  const [upData2,setupData2]=useState([
-    {
-      id: '1',
-      name: 'Chetan Manne2',
-      img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
-    },
-    {
-      id: '2',
-      name: 'Parth Shinge2',
-      img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
-    },
-    {
-      id: '3',
-      name: 'Naumika Nair2',
-      img: require('../../../assets/comment-person-image.png'),
-      numFollowers: '1.1M', 
-      numFollowing: '536',
-      numPosts: '12K' 
-    },
-  ])
 
 
   return(
@@ -89,14 +62,6 @@ const PeopleMessages = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
- <View style={{flexDirection:'row', justifyContent:'space-around', alignItems:'center', marginBottom:20}}>
-    <TouchableOpacity style={isFollowersTabSelected ? styles.selectedTabView : styles.unSelectedTabView} onPress={()=>{!isFollowersTabSelected && setIsFollowersTabSelected(true) }}>
-      <Text style={styles.tabText}>Followers</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={isFollowersTabSelected ? styles.unSelectedTabView : styles.selectedTabView} onPress={()=>{isFollowersTabSelected && setIsFollowersTabSelected(false) }}>
-      <Text style={styles.tabText}>Following</Text>
-    </TouchableOpacity>
-  </View> 
 
 <View style={styles.searchView}>
     <View style={styles.searchLeftSubView}>
@@ -112,7 +77,7 @@ const PeopleMessages = (props) => {
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
           <FlatList
-                  data={isFollowersTabSelected ? upData : upData2}
+                  data={upData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={1}
                   renderItem={({item,index})=>{
@@ -196,34 +161,5 @@ const styles = StyleSheet.create({
     color:'#000',
     flex: 7
   },
-  selectedTabView: {
-    backgroundColor:'#fff',
-    borderRadius:20,
-    // paddingHorizontal:20,
-    paddingVertical:10,
-    width:'45%',
-    alignItems:'center',
-    justifyContent:'center',
-    shadowColor: '#0089CF',
-    shadowOffset: {
-      width:0,
-      height:3
-    }, 
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
-    elevation: 5,
-  },
-  unSelectedTabView: {
-    // paddingHorizontal:20,
-    paddingVertical:10,
-    width:'45%',
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  tabText:{
-    fontSize:14, 
-    fontWeight:'400', 
-    color:'#455A64'
-  }
 });
 export default PeopleMessages 
