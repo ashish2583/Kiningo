@@ -48,6 +48,32 @@ const PeopleFollowers = (props) => {
       numPosts: '12K' 
     },
   ])
+  const [upData2,setupData2]=useState([
+    {
+      id: '1',
+      name: 'Chetan Manne2',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
+    },
+    {
+      id: '2',
+      name: 'Parth Shinge2',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
+    },
+    {
+      id: '3',
+      name: 'Naumika Nair2',
+      img: require('../../../assets/comment-person-image.png'),
+      numFollowers: '1.1M', 
+      numFollowing: '536',
+      numPosts: '12K' 
+    },
+  ])
 
 
   return(
@@ -58,10 +84,21 @@ const PeopleFollowers = (props) => {
     <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni (followers)</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
+<View style={styles.createPostView}>
+    <View style={styles.createPostLeftSubView}>
+      <TextInput
+        placeholder="Search"
+        placeholderTextColor={'#B2B7B9'} 
+        style={styles.input}
+      />
+    </View>
+    
+    <Image source={require('../../../assets/people-search.png')} style={{width:50, height:50}}/>
+  </View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
           <FlatList
@@ -125,6 +162,35 @@ const styles = StyleSheet.create({
     fontSize:14, 
     fontWeight:'300', 
     color:'#000'
-  }
+  },
+  createPostView:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center',
+    width:'100%',
+    height:50,
+  },
+  createPostLeftSubView:{
+    width:'83%',
+    flexDirection:'row',
+    alignItems:'center',
+    backgroundColor:'#fff',
+    paddingVertical:5, 
+    paddingLeft:10, 
+    borderRadius:10,
+  },
+  createPostText:{
+    color:'#B2B7B9',
+    fontSize:14,
+    fontWeight:'300',
+    marginLeft:10
+  },
+  input: {
+    paddingLeft: 10,
+    fontSize: 14,
+    fontWeight:'300',
+    color:'#000',
+    flex: 7
+  },
 });
 export default PeopleFollowers 
