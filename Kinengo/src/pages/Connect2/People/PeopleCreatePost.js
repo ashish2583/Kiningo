@@ -63,7 +63,9 @@ const PeopleCreatePost = (props) => {
       />  
   </View>  
 
-  <View style={styles.uploadImageView}>
+  <LinearGradient
+    colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+    style={styles.uploadImageView}>
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <View style={styles.imageView}>
         <Image source={require('../../../assets/people-upload-photo-video.png')}/>
@@ -71,9 +73,11 @@ const PeopleCreatePost = (props) => {
       <Text style={styles.imageText}>Photo/Video</Text>
     </View>
     <Image source={require('../../../assets/people-right-arrow.png')}/>
-  </View>
+  </LinearGradient>
 
-  <View style={[styles.uploadImageView, {marginTop:10}]}>
+  <LinearGradient
+    colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+    style={[styles.uploadImageView, {marginTop:10}]}>  
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <View style={styles.imageView}>
         <Image source={require('../../../assets/people-camera-image.png')}/>
@@ -81,7 +85,7 @@ const PeopleCreatePost = (props) => {
       <Text style={styles.imageText}>Camera</Text>
     </View>
     <Image source={require('../../../assets/people-right-arrow.png')}/>
-  </View>  
+  </LinearGradient> 
 
 </View>
 
