@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
       height:3
     }, 
     shadowRadius: 5,
-    shadowOpacity: 0.10,
+    shadowOpacity: 0.05,
     elevation: 5,
   },
   eyeView:{
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
       height:3
     }, 
     shadowRadius: 5,
-    shadowOpacity: 0.10,
+    shadowOpacity: 0.05,
     elevation: 5,
   },
   uploadImageView:{
