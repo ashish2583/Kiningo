@@ -63,12 +63,22 @@ const PeopleCreatePost = (props) => {
       />  
   </View>  
 
-  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', backgroundColor:'#fff', borderRadius:10, padding:20,}}>
+  <View style={styles.uploadImageView}>
     <View style={{flexDirection:'row', alignItems:'center'}}>
-      <View style={{justifyContent:'center', alignItems:'center', backgroundColor:'#F8F8F8', padding:10, width: 60, height:60 ,borderRadius:30,}}>
+      <View style={styles.imageView}>
         <Image source={require('../../../assets/people-upload-photo-video.png')}/>
       </View>
-      <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginLeft:10}}>Photo/Video</Text>
+      <Text style={styles.imageText}>Photo/Video</Text>
+    </View>
+    <Image source={require('../../../assets/people-right-arrow.png')}/>
+  </View>
+
+  <View style={[styles.uploadImageView, {marginTop:10}]}>
+    <View style={{flexDirection:'row', alignItems:'center'}}>
+      <View style={styles.imageView}>
+        <Image source={require('../../../assets/people-camera-image.png')}/>
+      </View>
+      <Text style={styles.imageText}>Camera</Text>
     </View>
     <Image source={require('../../../assets/people-right-arrow.png')}/>
   </View>  
@@ -141,5 +151,29 @@ const styles = StyleSheet.create({
     color:Mycolors.Black,
     borderRadius:10
   },
+  uploadImageView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    justifyContent:'space-between', 
+    backgroundColor:'#fff', 
+    borderRadius:10, 
+    paddingVertical:10,
+    paddingHorizontal:20,
+  },
+  imageView:{
+    justifyContent:'center', 
+    alignItems:'center', 
+    backgroundColor:'#F8F8F8', 
+    padding:10, 
+    width: 60, 
+    height:60, 
+    borderRadius:30,
+  },
+  imageText:{
+    fontSize:14, 
+    fontWeight:'500', 
+    color:'#455A64', 
+    marginLeft:10
+  }
 });
 export default PeopleCreatePost 
