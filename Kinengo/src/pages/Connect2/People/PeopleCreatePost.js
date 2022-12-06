@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     width:'100%',
     fontSize: 14,
     backgroundColor: '#fff',
-    height:100,
+    height:200,
     borderRadius:5,
     paddingHorizontal:15,
     paddingVertical:10,
