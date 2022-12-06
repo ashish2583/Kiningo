@@ -94,7 +94,7 @@ const PeopleMessages = (props) => {
                         >
                         {/* <View style={styles.flatlistMainView}> */}
                           <View>
-                            <Image source={item.img} style={{width:onlinePersonImageWidth, height:onlinePersonImageWidth}} resizeMode='contain' />
+                            <Image source={item.img} style={styles.onlinePerson} resizeMode='contain' />
                             {item.isOnline ?
                             <View style={styles.onlineDot}/>
                             :null}  
@@ -168,6 +168,10 @@ const styles = StyleSheet.create({
     fontWeight:'300',
     color:'#000',
     flex: 7
+  },
+  onlinePerson:{
+    width:onlinePersonImageWidth, 
+    height:onlinePersonImageWidth
   },
   onlineDot: {
     backgroundColor:'#29913C', 
