@@ -18,6 +18,14 @@ const HomeHeaderRoundBottom = (props) => {
             flexDirection:"row",
             justifyContent:'space-between',
             alignItems:"center",
+            shadowColor: '#E0E0E0',
+            shadowOffset: {
+            width:0,
+            height:3
+            }, 
+            shadowRadius: 5,
+            shadowOpacity: 0.03,
+            elevation: 5,
             }}
             >
    {props.press1 ?  
