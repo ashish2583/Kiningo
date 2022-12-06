@@ -13,7 +13,8 @@ import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 
 const image1 = require('../../../assets/people-following-person.png')
-const image2 = require('../../../assets/people-sender-image.png')
+const onlinePersonImageWidth = 50
+const onlineDotWidth = 12
 
 const PeopleMessages = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -93,7 +94,7 @@ const PeopleMessages = (props) => {
                         >
                         {/* <View style={styles.flatlistMainView}> */}
                           <View>
-                            <Image source={item.img} style={{width:50, height:50}}/>
+                            <Image source={item.img} style={{width:onlinePersonImageWidth, height:onlinePersonImageWidth}} resizeMode='contain' />
                             {item.isOnline ?
                             <View style={styles.onlineDot}/>
                             :null}  
@@ -170,12 +171,12 @@ const styles = StyleSheet.create({
   },
   onlineDot: {
     backgroundColor:'#29913C', 
-    width:12, 
-    height:12, 
+    width:onlineDotWidth, 
+    height:onlineDotWidth, 
     position:'absolute', 
-    borderRadius:12/2, 
+    borderRadius:onlineDotWidth/2, 
     left:47, 
-    top:50/2-3, 
+    top:onlinePersonImageWidth/2-3, 
     borderWidth:2, 
     borderColor:'#fff'
   }
