@@ -92,21 +92,21 @@ const PeopleProfileScreen = (props) => {
       <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-end', marginTop:10}}>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={styles.numView}
+          style={[styles.numView, {marginRight:10}]}
           >
           <Text style={styles.numValue}>09</Text>
           <Text style={styles.numText}>Posts</Text>
         </LinearGradient>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={styles.numView}
+          style={[styles.numView, {marginRight:10}]}
           >
           <Text style={styles.numValue}>1.1M</Text>
           <Text style={styles.numText}>Followers</Text>
         </LinearGradient>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={[styles.numView, {marginRight:0}]}
+          style={styles.numView}
           >
           <Text style={styles.numValue}>369</Text>
           <Text style={styles.numText}>Following</Text>
@@ -282,7 +282,6 @@ const styles = StyleSheet.create({
   },
   numView:{
     alignItems:'center', 
-    marginRight:10
   },
   numValue:{
     fontSize:20, 
