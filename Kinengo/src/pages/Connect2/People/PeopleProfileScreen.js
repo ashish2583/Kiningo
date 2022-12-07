@@ -10,6 +10,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import LinearGradient from 'react-native-linear-gradient'
 
 const PeopleProfileScreen = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -70,8 +71,49 @@ const PeopleProfileScreen = (props) => {
    press2={()=>{}} title2={'People'} fontWeight={'500'} img2height={20} color='#455A64'
    press3={()=>{}} img3width={25} img3height={25} borderBottomLeftRadius={25} borderBottomRightRadius={25} />
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
-  
+    
+  <LinearGradient
+    colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+    style={styles.descriptionView}
+    >
+    {/* <View style={styles.descriptionView}> */}
+      <View style={styles.imageRowView}>
+        
+        <View style={{flexDirection:'row', alignItems:'center'}}>
+          <Image source={require('../../../assets/people-following-person.png')}/>
+          <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+        </View>
 
+        <View style={styles.followingView}>
+          <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Following</Text>
+        </View>
+      </View>
+
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-end', marginTop:10}}>
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={styles.numView}
+          >
+          <Text style={styles.numValue}>09</Text>
+          <Text style={styles.numText}>Posts</Text>
+        </LinearGradient>
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={styles.numView}
+          >
+          <Text style={styles.numValue}>1.1M</Text>
+          <Text style={styles.numText}>Followers</Text>
+        </LinearGradient>
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={[styles.numView, {marginRight:0}]}
+          >
+          <Text style={styles.numValue}>369</Text>
+          <Text style={styles.numText}>Following</Text>
+          </LinearGradient>
+      </View>
+    {/* </View> */}
+    </LinearGradient>
 
  </View>
 <View style={{height:100}} />
@@ -214,80 +256,41 @@ const PeopleProfileScreen = (props) => {
      );
   }
 const styles = StyleSheet.create({
-  topButtonView:{
-    justifyContent:'center',
-    alignItems:'center',  
-    backgroundColor:'#fff',
-    borderRadius:20,
-    paddingHorizontal:15,
-    paddingVertical:10,
-    shadowColor: '#0089CF',
-    shadowOffset: {width: 0,height: 3},
-    shadowRadius: 1,
-    shadowOpacity: 0.1,
-    elevation: 5,
-  },
-  createPostView:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    width:'100%',
-    height:50,
-  },
-  createPostLeftSubView:{
-    width:'83%',
-    flexDirection:'row',
-    alignItems:'center',
-    backgroundColor:'#fff',
-    paddingVertical:5, 
-    paddingLeft:10, 
-    borderRadius:10,
-  },
-  createPostText:{
-    color:'#B2B7B9',
-    fontSize:14,
-    fontWeight:'300',
-    marginLeft:10
-  },
-  flatlistMainView:{
-    flexDirection:'row', 
-    alignItems:'center', 
-    justifyContent:'space-between', 
+  descriptionView:{
     backgroundColor:'#fff', 
-    paddingHorizontal:15, 
-    paddingVertical:10, 
-    width:'90%', 
-    borderTopLeftRadius:20, 
-    borderTopRightRadius:20, 
+    padding:10, 
+    borderRadius:10
   },
-  rightButtonsView: {
-    backgroundColor:'#F8F8F8',
-    padding:10,
-    borderRadius:20
-  },
-  followingImageView:{
+  imageRowView:{
     flexDirection:'row', 
+    justifyContent:'space-between', 
     alignItems:'center'
   },
   followingView:{
-    justifyContent:'center',
-    marginLeft:10
+    paddingHorizontal:20,
+    paddingVertical:10,
+    backgroundColor:'#fff',
+    borderRadius:20,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    elevation: 5,
   },
-  flatlistMainBottomView:{
-    backgroundColor:'#fff', 
-    paddingVertical:15, 
-    paddingHorizontal:20, 
-    width:'90%', 
-    borderBottomRightRadius:20, 
-    borderBottomLeftRadius:20
-  },
-  flatlistBottomView:{
-    flexDirection:'row', 
+  numView:{
     alignItems:'center', 
-    justifyContent:'space-between', 
+    marginRight:10
   },
-  text1:{
-    fontSize:12, 
+  numValue:{
+    fontSize:20, 
+    fontWeight:'500', 
+    color:'#455A64'
+  },
+  numText:{
+    fontSize:14, 
     fontWeight:'400', 
     color:'#455A64'
   }
