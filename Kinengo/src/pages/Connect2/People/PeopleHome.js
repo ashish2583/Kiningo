@@ -100,14 +100,15 @@ const PeopleHome = (props) => {
 />
    </View> */}
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
+<View style={{marginTop:10}}>
           <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={1}
+                  style={{alignSelf:'center'}}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH,marginHorizontal:5, marginBottom:20}}>
+                      <View style={{width:'100%', marginVertical:10, borderRadius:30}}>
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
