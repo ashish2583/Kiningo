@@ -12,7 +12,6 @@ import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import {launchCamera,launchImageLibrary} from 'react-native-image-picker';
-import Video from 'react-native-video';
 
 const image1 = require('../../../assets/people-following-person.png')
 
@@ -203,20 +202,6 @@ const PeopleCreatePost = (props) => {
     </TouchableOpacity>
   </LinearGradient> 
 
-  {capturedVideo?.uri ?   
-  <Video 
-    source={{uri: capturedVideo?.uri}}   // Can be a URL or a local file.
-    // ref={(ref) => {
-    //   this.player = ref
-    // }}                                          
-    // onBuffer={this.onBuffer}                // Callback when remote video is buffering
-    // onError={this.videoError}               // Callback when video cannot be loaded
-    paused={false} 
-    repeat={true} 
-    controls={true} 
-    // style={{height:100, width:100}} 
-    />
-    :null}
 </View>
 
 
