@@ -11,7 +11,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 
-const PeopleHome = (props) => {
+const PeopleProfileScreen = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -111,13 +111,9 @@ const PeopleHome = (props) => {
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
-                <Image source={require('../../../assets/people-following-person.png')}/>
-              </TouchableOpacity>
+              <Image source={require('../../../assets/people-following-person.png')}/>
               <View style={styles.followingView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
                 <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>{item.name}</Text>       
-              </TouchableOpacity>
                 <Text style={{fontSize:13, fontWeight:'400', color:'#B2B7B9', marginTop:2}}>Following</Text>       
               </View>
             </View>
@@ -164,9 +160,9 @@ const PeopleHome = (props) => {
               <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text>
             </View>
 
-            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginTop:5}}>
+            <View style={{marginTop:5}}>
               <Text style={{fontSize:12, fontWeight:'400', color:'#0089CF'}}>View all 183 comments</Text>
-            </TouchableOpacity>
+            </View>
 
             <View style={{marginTop:10}}>
               <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9'}}>23 min ago</Text>
@@ -403,4 +399,4 @@ const styles = StyleSheet.create({
     color:'#455A64'
   }
 });
-export default PeopleHome 
+export default PeopleProfileScreen 
