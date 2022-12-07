@@ -259,7 +259,15 @@ const styles = StyleSheet.create({
   descriptionView:{
     backgroundColor:'#fff', 
     padding:10, 
-    borderRadius:10
+    borderRadius:15,
+    shadowColor: '#000',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.03,
+    elevation: 1,
   },
   imageRowView:{
     flexDirection:'row', 
@@ -281,7 +289,18 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   numView:{
-    alignItems:'center', 
+    alignItems:'center',
+    width:'25%',
+    paddingVertical:10,
+    borderRadius:15,
+    shadowColor: '#000',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.03,
+    elevation: 1, 
   },
   numValue:{
     fontSize:20, 
