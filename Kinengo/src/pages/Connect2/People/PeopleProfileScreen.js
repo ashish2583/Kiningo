@@ -76,12 +76,15 @@ const PeopleProfileScreen = (props) => {
     colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
     style={styles.descriptionView}
     >
+      <View style={{flex:1}}>
+        <Image source={require('../../../assets/people-following-person.png')}/>
+      </View>    
     {/* <View style={styles.descriptionView}> */}
+    <View style={{flex:5}}>
       <View style={styles.imageRowView}>
         
         <View style={{flexDirection:'row', alignItems:'center'}}>
-          <Image source={require('../../../assets/people-following-person.png')}/>
-          <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+          <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>Aryav Nadkarni</Text>
         </View>
 
         <View style={styles.followingView}>
@@ -89,7 +92,7 @@ const PeopleProfileScreen = (props) => {
         </View>
       </View>
 
-      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-end', marginTop:10}}>
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-start', marginTop:10}}>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={[styles.numView, {marginRight:10}]}
@@ -111,6 +114,23 @@ const PeopleProfileScreen = (props) => {
           <Text style={styles.numValue}>369</Text>
           <Text style={styles.numText}>Following</Text>
           </LinearGradient>
+      </View>
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-start', marginTop:10}}>
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={[styles.numView, {marginRight:10}]}
+          >
+          <Text style={styles.numValue}>1.1M</Text>
+          <Text style={styles.numText}>Followers</Text>
+        </LinearGradient>
+        <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={styles.numView}
+          >
+          <Text style={styles.numValue}>369</Text>
+          <Text style={styles.numText}>Following</Text>
+          </LinearGradient>
+      </View>
       </View>
     {/* </View> */}
     </LinearGradient>
@@ -257,6 +277,7 @@ const PeopleProfileScreen = (props) => {
   }
 const styles = StyleSheet.create({
   descriptionView:{
+    flexDirection:'row',
     backgroundColor:'#fff', 
     padding:10, 
     borderRadius:15,
