@@ -21,7 +21,6 @@ const PeopleProfileScreen = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(1)
-  const [videoThumb, setVideoThumb] = useState('')
   const [loading, setLoading] = useState(false)
   const [upData,setupData]=useState([
     {
@@ -111,7 +110,6 @@ const PeopleProfileScreen = (props) => {
         timeStamp: 10000,
         cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
       })
-      setVideoThumb(resp.path)
       setupData(el=>el.map(el=>{
               if(el.type === 'video'){
                 return {...el, thumbnail: resp.path}
