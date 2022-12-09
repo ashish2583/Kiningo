@@ -18,6 +18,7 @@ const PeopleProfileScreen = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [selectedFilter, setSelectedFilter] = useState(1)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -62,6 +63,13 @@ const PeopleProfileScreen = (props) => {
 
  },[])
 
+ const onChangeFilter = (newFilter) =>{
+    if(newFilter === selectedFilter){
+      return
+    }
+
+    setSelectedFilter(newFilter)
+ }
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
@@ -138,18 +146,18 @@ const PeopleProfileScreen = (props) => {
 
     <View style={styles.allFiltersRow}>
       <View style={styles.filter1View}>
-        <TouchableOpacity>
-          <Image source={require('../../../assets/people-all-filter.png')}/>
+        <TouchableOpacity onPress={()=>onChangeFilter(1)}>
+          <Image source={selectedFilter === 1 ? require('../../../assets/people-all-filter-selected.png') : require('../../../assets/people-all-filter.png')}/>
         </TouchableOpacity>
       </View>
       <View style={styles.filter2View}>
-        <TouchableOpacity>
-          <Image source={require('../../../assets/people-image-filter.png')}/>
+        <TouchableOpacity onPress={()=>onChangeFilter(2)}>
+          <Image source={selectedFilter === 2 ? require('../../../assets/people-image-filter-selected.png') : require('../../../assets/people-image-filter.png')}/>
         </TouchableOpacity>
       </View>
       <View style={styles.filter3View}>
-        <TouchableOpacity>
-          <Image source={require('../../../assets/people-video-filter.png')}/>
+        <TouchableOpacity onPress={()=>onChangeFilter(3)}>
+          <Image source={selectedFilter === 3 ? require('../../../assets/people-video-filter-selected.png') : require('../../../assets/people-video-filter.png')}/>
           </TouchableOpacity>
       </View>
     </View>      
