@@ -7,7 +7,6 @@ import SerchInput from 'src/component/SerchInput';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
 import MyButtons from 'src/component/MyButtons';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
@@ -19,7 +18,7 @@ const PeopleProfileScreen = (props) => {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
-  const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [showPostsModal, setShowPostsModal] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(1)
   const [loading, setLoading] = useState(false)
   const [upData,setupData]=useState([
@@ -243,7 +242,7 @@ const PeopleProfileScreen = (props) => {
                     return(
                       <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:10}}>
           <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
-          onPress={()=>{}}>
+          onPress={()=>{setShowPostsModal(true)}}>
             {item.type === 'image' ?
           <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
           :
@@ -264,11 +263,11 @@ const PeopleProfileScreen = (props) => {
 
 </ScrollView>
 <Modal
-        isVisible={showChooseMilesModal}
+        isVisible={showPostsModal}
         swipeDirection="down"
-        onBackdropPress={()=>setShowChooseMilesModal(false)}
+        onBackdropPress={()=>setShowPostsModal(false)}
         onSwipeComplete={(e) => {
-          setShowChooseMilesModal(false)
+          setShowPostsModal(false)
         }}
           scrollTo={() => {}}
           scrollOffset={1}
@@ -277,119 +276,40 @@ const PeopleProfileScreen = (props) => {
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '100%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingVertical: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+          <View style={{flexDirection:'row', justifyContent:'space-between', width:'90%', alignSelf:'center'}}>
+            <Text style={{color:Mycolors.Black,fontWeight:'500', marginBottom:30, marginTop:10}}>Posts Modal</Text>
+            <TouchableOpacity onPress={()=>setShowPostsModal(false)}><Text style={{color:'red', fontSize:16, fontWeight:'400'}}>Close</Text></TouchableOpacity>
+          </View>
           <View style={{alignItems:'center'}}>
-            <Text style={{color:Mycolors.Black,fontWeight:'500', marginBottom:30, marginTop:10}}>Choose Miles</Text>
-            <MultiSlider
-            // values={[multiSliderValue[0], multiSliderValue[1]]}
-            values={[multiSliderValue[0]]}
-            sliderLength={320}
-            onValuesChange={multiSliderValuesChange}
-            min={0}
-            max={100}
-            step={1}
-            allowOverlap={false}
-            minMarkerOverlapDistance={10}
-            markerStyle={{
-              ...Platform.select({
-                ios: {
-                  height: 30,
-                  width: 30,
-                  shadowColor: '#000000',
-                  shadowOffset: {
-                    width: 0,
-                    height: 3
-                  },
-                  shadowRadius: 1,
-                  shadowOpacity: 0.1,
-                  borderColor:'#ED1C24',
-                  borderWidth:1
-                },
-                android: {
-                  height: 30,
-                  width: 30,
-                  borderRadius: 50,
-                  backgroundColor: '#fff',
-                  borderColor:'#ED1C24',
-                  borderWidth:1
-                }
-              })
-            }}
-            pressedMarkerStyle={{
-              ...Platform.select({
-                android: {
-                  height: 30,
-                  width: 30,
-                  borderRadius: 20,
-                  backgroundColor: '#ED1C24'
-                }
-              })
-            }}
-            selectedStyle={{backgroundColor: '#ED1C24'}}
-            trackStyle={{
-              height:5
-            }}
-            touchDimensions={{
-              height: 40,
-              width: 40,
-              borderRadius: 20,
-              slipDisplacement: 40
-            }}
-            />
-            <View style={{flexDirection:'row', alignItems:'center', width:'95%',
-                  height:60,
-                  paddingHorizontal:20,
-                  backgroundColor:'#fff',
-                  alignSelf:'center',
-                  shadowColor: 'rgba(0, 0, 0, 0.5)',
-                  shadowOffset: {
-                    width: 0,
-                    height: 3
-                  },
-                  shadowRadius: 1,
-                  shadowOpacity: 0.1,
-                  // overflow: 'hidden',
-                  elevation: 5,
-                  marginTop:30,
-                  marginBottom:30,}}>
-            <TextInput
-                ref={myTextInput}
-                value={String(multiSliderValue[0])}
-                onChangeText={(e) => {
-                  const value = e.replace(/[^0-9]/g, '')
-                  if(Number(value) > 100){
-                    Toast.show('Miles cannot be more than 100', Toast.SHORT)
-                  }else if(Number(value) < 0){
-                    Toast.show('Miles cannot be less than 0', Toast.SHORT)
-                  } else{
-                    multiSliderValuesChange([Number(value)])
-                  }
-                }}
-                textAlignVertical={'center'}
-                // onChangeText={(e) => console.log('e', e)}
-                placeholder={'0'}
-                placeholderTextColor="#263238"
-                multiline={true}
-              // maxLength={500}
-              // keyboardType="number-pad"
-                autoCapitalize = 'none'
-                style={{
-                  color:'#263238',
-                  fontSize:12,
-                  fontWeight:'500'
-                }}
-                keyboardType='numeric'
-              />
-              <Text onPress={()=>{myTextInput.current.focus()}} style={{color:'#263238', fontSize:12, fontWeight:'500'}}> miles</Text>
+            <View style={{}}>
+                    <FlatList
+                  data={upData}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={1}
+                  style={{alignSelf:'center'}}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:200, marginHorizontal: index % 3 == 1 ? 5 : 0, height:100,marginVertical:10}}>
+          <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
+          onPress={()=>{}}>
+            {item.type === 'image' ?
+          <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
+          :
+          <ImageBackground source={{uri: item.thumbnail}} style={{width:'100%',height:'100%',alignSelf:'center',justifyContent:'center'}} resizeMode='cover' >
+            <Image source={require('../../../assets/people-play-button.png')} style={{width:'30%',height:'30%',alignSelf:'center',}} resizeMode='contain' ></Image>
+          </ImageBackground>
+          }
+          </TouchableOpacity>
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
               </View>
-            {/* <Text style={{color:Mycolors.GrayColor,fontWeight:'600',fontSize:12,marginTop:9}} >{multiSliderValue[0]} miles</Text> */}
           </View>
         
-          <View style={{width:'95%',alignSelf:'center'}}>
-          <MyButtons title="Save" height={50} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{props.navigation.navigate('ShopPayment')}} marginHorizontal={20} fontSize={11}
-          titlecolor={Mycolors.BG_COLOR} backgroundColor={'#FFD037'} marginVertical={0} />
-          </View>
 
             {/* <View style={{width:100,height:100}} /> */}
             </ScrollView>
