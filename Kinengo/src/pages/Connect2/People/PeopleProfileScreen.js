@@ -23,6 +23,8 @@ const PeopleProfileScreen = (props) => {
   const [selectedFilter, setSelectedFilter] = useState(1)
   const [startFromIndex, setStartFromIndex] = useState(0)
   const [loading, setLoading] = useState(false)
+  const [originalData, setOriginalData]=useState([])
+  const [filteredData, setFilteredData]=useState([])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -147,13 +149,17 @@ const PeopleProfileScreen = (props) => {
         timeStamp: 10000,
         // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
       })
-      setupData(el=>el.map(el=>{
-              if(el.type === 'video'){
-                return {...el, thumbnail: resp.path}
-              }else{
-                return el
-              }
-            }))
+      const updatedData = upData.map(el=>{
+        if(el.type === 'video'){
+          return {...el, thumbnail: resp.path}
+        }else{
+          return el
+        }
+      })
+      console.log('updatedData', updatedData);
+      setupData([...updatedData])
+      setOriginalData([...updatedData])
+      setFilteredData([...updatedData])
     } catch (error) {
       console.log('thumbnail creating error', error);      
     }
@@ -166,6 +172,13 @@ const PeopleProfileScreen = (props) => {
     }
 
     setSelectedFilter(newFilter)
+    if(newFilter === 1) {
+      setFilteredData([...originalData])
+    }else if(newFilter === 2) {
+      setFilteredData(originalData?.filter(el=>el?.type === 'image'))
+    }else if(newFilter === 3) {
+      setFilteredData(originalData?.filter(el=>el?.type === 'video'))
+    }
  }
 
   return(
@@ -272,7 +285,7 @@ const PeopleProfileScreen = (props) => {
 
     <View style={{marginTop:10}}>
           <FlatList
-                  data={upData}
+                  data={filteredData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={3}
                   style={{alignSelf:'center'}}
