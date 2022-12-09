@@ -11,7 +11,9 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
-
+import VideoPlayer from 'react-native-video-player'
+import { createThumbnail } from "react-native-create-thumbnail";
+import Loader from '../../../WebApi/Loader';
 const PeopleProfileScreen = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
@@ -19,6 +21,8 @@ const PeopleProfileScreen = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(1)
+  const [videoThumb, setVideoThumb] = useState('')
+  const [loading, setLoading] = useState(false)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -81,13 +85,45 @@ const PeopleProfileScreen = (props) => {
       type:'image',
       source:require('../../../assets/images/images.png'),
     },
+    {
+      id: '7',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      type:'video',
+      source:`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
+    },
     
   ])
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
   useEffect(()=>{
-
- },[])
-
+    generateThumb()
+  },[])
+  
+  const generateThumb = async () => {
+    setLoading(true)
+    try {
+      const resp = await createThumbnail({
+        url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
+        timeStamp: 10000,
+      })
+      setVideoThumb(resp.path)
+      setupData(el=>el.map(el=>{
+              if(el.type === 'video'){
+                return {...el, thumbnail: resp.path}
+              }else{
+                return el
+              }
+            }))
+    } catch (error) {
+      console.log('thumbnail creating error', error);      
+    }
+    setLoading(false)
+  } 
+  
  const onChangeFilter = (newFilter) =>{
     if(newFilter === selectedFilter){
       return
@@ -186,6 +222,17 @@ const PeopleProfileScreen = (props) => {
           </TouchableOpacity>
       </View>
     </View>  
+    
+    {upData?.filter(el=>el.type === 'video').map(item=>{
+      return (
+        <VideoPlayer
+          video={{ uri: item.source }}
+          videoWidth={1600}
+          videoHeight={900}
+          thumbnail={{ uri: item.thumbnail }}
+      />
+      )
+    })}
 
     <View style={{marginTop:10}}>
           <FlatList
@@ -344,6 +391,7 @@ const PeopleProfileScreen = (props) => {
            
             </View>
 </Modal>
+    {loading ? <Loader /> : null}
     </SafeAreaView>
      );
   }
