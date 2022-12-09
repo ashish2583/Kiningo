@@ -156,7 +156,6 @@ const PeopleProfileScreen = (props) => {
           return el
         }
       })
-      console.log('updatedData', updatedData);
       setupData([...updatedData])
       setOriginalData([...updatedData])
       setFilteredData([...updatedData])
