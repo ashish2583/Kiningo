@@ -236,16 +236,22 @@ const PeopleProfileScreen = (props) => {
 
     <View style={{marginTop:10}}>
           <FlatList
-                  data={upData?.filter(el=>el.type=='image')}
+                  data={upData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={3}
                   style={{alignSelf:'center'}}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:120, marginHorizontal: index % 2 == 0 ? 5 : 0, height:150,marginVertical:10}}>
+                      <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:150,marginVertical:10}}>
           <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
           onPress={()=>{}}>
+            {item.type === 'image' ?
           <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
+          :
+          <ImageBackground source={{uri: item.thumbnail}} style={{width:'100%',height:'100%',alignSelf:'center',justifyContent:'center'}} resizeMode='contain' >
+            <Image source={require('../../../assets/people-play-button.png')} style={{width:'30%',height:'30%',alignSelf:'center',}} resizeMode='contain' ></Image>
+          </ImageBackground>
+          }
           </TouchableOpacity>
           </View>
                     )
