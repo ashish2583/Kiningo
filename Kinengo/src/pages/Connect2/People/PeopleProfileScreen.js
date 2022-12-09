@@ -27,7 +27,8 @@ const PeopleProfileScreen = (props) => {
       numViews:'183K',
       numComments:'183',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      type:'image',
+      source:require('../../../assets/images/images.png'),
     },
     {
       id: '2',
@@ -36,7 +37,9 @@ const PeopleProfileScreen = (props) => {
       numViews:'183K',
       numComments:'183',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      type:'image',
+      type:'video',
+      source:`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
     },
     {
       id: '3',
@@ -45,7 +48,8 @@ const PeopleProfileScreen = (props) => {
       numViews:'183K',
       numComments:'183',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      type:'image',
+      source:require('../../../assets/images/images.png'),
     },
     {
       id: '4',
@@ -54,9 +58,30 @@ const PeopleProfileScreen = (props) => {
       numViews:'183K',
       numComments:'183',
       time:'',
-      img:require('../../../assets/images/images.png'),
+      type:'image',
+      source:require('../../../assets/images/images.png'),
     },
-
+    {
+      id: '5',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/images/images.png'),
+    },
+    {
+      id: '6',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/images/images.png'),
+    },
+    
   ])
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
   useEffect(()=>{
@@ -160,7 +185,27 @@ const PeopleProfileScreen = (props) => {
           <Image source={selectedFilter === 3 ? require('../../../assets/people-video-filter-selected.png') : require('../../../assets/people-video-filter.png')}/>
           </TouchableOpacity>
       </View>
-    </View>      
+    </View>  
+
+    <View style={{marginTop:10}}>
+          <FlatList
+                  data={upData?.filter(el=>el.type=='image')}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={3}
+                  style={{alignSelf:'center'}}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:120, marginHorizontal: index % 2 == 0 ? 5 : 0, height:150,marginVertical:10}}>
+          <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
+          onPress={()=>{}}>
+          <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
+          </TouchableOpacity>
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>    
 
  </View>
 <View style={{height:100}} />
@@ -400,6 +445,6 @@ const styles = StyleSheet.create({
     flex:1, 
     flexDirection:'row', 
     justifyContent:'flex-end'
-  }
+  },
 });
 export default PeopleProfileScreen 
