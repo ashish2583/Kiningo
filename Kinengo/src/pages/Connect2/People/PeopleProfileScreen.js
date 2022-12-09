@@ -108,7 +108,7 @@ const PeopleProfileScreen = (props) => {
       const resp = await createThumbnail({
         url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
         timeStamp: 10000,
-        cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+        // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
       })
       setupData(el=>el.map(el=>{
               if(el.type === 'video'){
