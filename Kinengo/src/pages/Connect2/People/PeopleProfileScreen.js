@@ -92,7 +92,7 @@ const PeopleProfileScreen = (props) => {
         </View>
       </View>
 
-      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-start', marginTop:10}}>
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:10}}>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={[styles.numView, {marginRight:10}]}
@@ -115,25 +115,44 @@ const PeopleProfileScreen = (props) => {
           <Text style={styles.numText}>Following</Text>
           </LinearGradient>
       </View>
-      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'flex-start', marginTop:10}}>
-        <LinearGradient
-          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={[styles.numView, {marginRight:10}]}
-          >
-          <Text style={styles.numValue}>1.1M</Text>
-          <Text style={styles.numText}>Followers</Text>
-        </LinearGradient>
-        <LinearGradient
+      <View style={{flexDirection:'row', alignItems:'center', marginTop:20}}>
+        <TouchableOpacity style={styles.blueButtonView}>
+          <Image source={require('../../../assets/people-message2.png')}/>
+          <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Message</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.blueButtonView, {marginLeft:10}]}>
+          <Image source={require('../../../assets/people-block.png')}/>
+          <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Block</Text>
+        </TouchableOpacity>
+        {/* <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={styles.numView}
           >
           <Text style={styles.numValue}>369</Text>
           <Text style={styles.numText}>Following</Text>
-          </LinearGradient>
+          </LinearGradient> */}
       </View>
       </View>
     {/* </View> */}
     </LinearGradient>
+
+    <View style={{flexDirection:'row', alignItems:'center', marginTop:20, paddingHorizontal:20}}>
+      <View style={{flex:1, flexDirection:'row', justifyContent:'flex-start'}}>
+        <TouchableOpacity>
+          <Image source={require('../../../assets/people-all-filter.png')}/>
+        </TouchableOpacity>
+      </View>
+      <View style={{flex:1, flexDirection:'row', justifyContent:'center'}}>
+        <TouchableOpacity>
+          <Image source={require('../../../assets/people-image-filter.png')}/>
+        </TouchableOpacity>
+      </View>
+      <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end'}}>
+        <TouchableOpacity>
+          <Image source={require('../../../assets/people-video-filter.png')}/>
+          </TouchableOpacity>
+      </View>
+    </View>      
 
  </View>
 <View style={{height:100}} />
@@ -279,7 +298,9 @@ const styles = StyleSheet.create({
   descriptionView:{
     flexDirection:'row',
     backgroundColor:'#fff', 
-    padding:10, 
+    paddingTop:10, 
+    paddingHorizontal:10, 
+    paddingBottom:20, 
     borderRadius:15,
     shadowColor: '#000',
     shadowOffset: {
@@ -311,9 +332,11 @@ const styles = StyleSheet.create({
   },
   numView:{
     alignItems:'center',
-    width:'25%',
-    paddingVertical:10,
+    width:90,
+    height:90,
+    justifyContent:'center',
     borderRadius:15,
+    paddingHorizontal:10,
     shadowColor: '#000',
     shadowOffset: {
     width:0,
@@ -332,6 +355,22 @@ const styles = StyleSheet.create({
     fontSize:14, 
     fontWeight:'400', 
     color:'#455A64'
+  },
+  blueButtonView:{
+    flexDirection:'row',
+    alignItems:'center',
+    backgroundColor:'#0089CF',
+    paddingHorizontal:15,
+    paddingVertical:10,
+    borderRadius:20,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    elevation: 1,
   }
 });
 export default PeopleProfileScreen 
