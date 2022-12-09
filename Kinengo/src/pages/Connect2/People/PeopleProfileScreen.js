@@ -94,6 +94,43 @@ const PeopleProfileScreen = (props) => {
       type:'video',
       source:`http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`,
     },
+    {
+      id: '8',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/people-one-post-image.png'),
+    },{
+      id: '9',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/people-one-post-image.png'),
+    },{
+      id: '10',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/people-one-post-image.png'),
+    },{
+      id: '11',
+      name: 'Aryav Nadkarni',
+      desc:'Amazing footbal shorts caption this',
+      numViews:'183K',
+      numComments:'183',
+      time:'',
+      type:'image',
+      source:require('../../../assets/people-one-post-image.png'),
+    },
     
   ])
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
@@ -297,9 +334,12 @@ const PeopleProfileScreen = (props) => {
             {item.type === 'image' ?
           <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
           :
-          <ImageBackground source={{uri: item.thumbnail}} style={{width:'100%',height:'100%',alignSelf:'center',justifyContent:'center'}} resizeMode='cover' >
-            <Image source={require('../../../assets/people-play-button.png')} style={{width:'30%',height:'30%',alignSelf:'center',}} resizeMode='contain' ></Image>
-          </ImageBackground>
+          <VideoPlayer
+            video={{ uri: item.source }}
+            videoWidth={1600}
+            videoHeight={900}
+            thumbnail={{ uri: item.thumbnail }}
+          />
           }
           </TouchableOpacity>
           </View>
