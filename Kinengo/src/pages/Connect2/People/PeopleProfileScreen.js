@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 import Loader from '../../../WebApi/Loader';
+import PostsModal from './modals/PostsModal';
 const PeopleProfileScreen = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
@@ -20,6 +21,7 @@ const PeopleProfileScreen = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showPostsModal, setShowPostsModal] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(1)
+  const [startFromIndex, setStartFromIndex] = useState(0)
   const [loading, setLoading] = useState(false)
   const [upData,setupData]=useState([
     {
@@ -137,7 +139,6 @@ const PeopleProfileScreen = (props) => {
   useEffect(()=>{
     generateThumb()
   },[])
-  
   const generateThumb = async () => {
     setLoading(true)
     try {
@@ -258,7 +259,7 @@ const PeopleProfileScreen = (props) => {
       </View>
     </View>  
     
-    {upData?.filter(el=>el.type === 'video').map(item=>{
+    {/* {upData?.filter(el=>el.type === 'video').map(item=>{
       return (
         <VideoPlayer
           video={{ uri: item.source }}
@@ -267,7 +268,7 @@ const PeopleProfileScreen = (props) => {
           thumbnail={{ uri: item.thumbnail }}
       />
       )
-    })}
+    })} */}
 
     <View style={{marginTop:10}}>
           <FlatList
@@ -279,7 +280,7 @@ const PeopleProfileScreen = (props) => {
                     return(
                       <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:10}}>
           <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
-          onPress={()=>{setShowPostsModal(true)}}>
+          onPress={()=>{setStartFromIndex(index);setShowPostsModal(true);}}>
             {item.type === 'image' ?
           <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
           :
@@ -299,63 +300,13 @@ const PeopleProfileScreen = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
-<Modal
-        isVisible={showPostsModal}
-        swipeDirection="down"
-        onBackdropPress={()=>setShowPostsModal(false)}
-        onSwipeComplete={(e) => {
-          setShowPostsModal(false)
-        }}
-          scrollTo={() => {}}
-          scrollOffset={1}
-          propagateSwipe={true}
-        coverScreen={false}
-        backdropColor='transparent'
-        style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
-      >
-        <View style={{ height: '100%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingVertical: 20 }}>
-          <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-          <View style={{flexDirection:'row', justifyContent:'space-between', width:'90%', alignSelf:'center'}}>
-            <Text style={{color:Mycolors.Black,fontWeight:'500', marginBottom:30, marginTop:10}}>Posts Modal</Text>
-            <TouchableOpacity onPress={()=>setShowPostsModal(false)}><Text style={{color:'red', fontSize:16, fontWeight:'400'}}>Close</Text></TouchableOpacity>
-          </View>
-          <View style={{alignItems:'center'}}>
-            <View style={{}}>
-                    <FlatList
-                  data={upData}
-                  showsHorizontalScrollIndicator={false}
-                  numColumns={1}
-                  style={{alignSelf:'center'}}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:200, marginHorizontal: index % 3 == 1 ? 5 : 0, height:100,marginVertical:10}}>
-          <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
-          onPress={()=>{}}>
-            {item.type === 'image' ?
-          <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}} resizeMode='contain' ></Image>
-          :
-          <VideoPlayer
-            video={{ uri: item.source }}
-            videoWidth={1600}
-            videoHeight={900}
-            thumbnail={{ uri: item.thumbnail }}
-          />
-          }
-          </TouchableOpacity>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-              </View>
-          </View>
-        
-
-            {/* <View style={{width:100,height:100}} /> */}
-            </ScrollView>
-           
-            </View>
-</Modal>
+    
+    <PostsModal
+      isVisible={showPostsModal}
+      setIsVisible={setShowPostsModal} 
+      data={upData}
+      startFromIndex={startFromIndex}
+    />
     {loading ? <Loader /> : null}
     </SafeAreaView>
      );
