@@ -136,18 +136,18 @@ const PeopleProfileScreen = (props) => {
     {/* </View> */}
     </LinearGradient>
 
-    <View style={{flexDirection:'row', alignItems:'center', marginTop:20, paddingHorizontal:20}}>
-      <View style={{flex:1, flexDirection:'row', justifyContent:'flex-start'}}>
+    <View style={styles.allFiltersRow}>
+      <View style={styles.filter1View}>
         <TouchableOpacity>
           <Image source={require('../../../assets/people-all-filter.png')}/>
         </TouchableOpacity>
       </View>
-      <View style={{flex:1, flexDirection:'row', justifyContent:'center'}}>
+      <View style={styles.filter2View}>
         <TouchableOpacity>
           <Image source={require('../../../assets/people-image-filter.png')}/>
         </TouchableOpacity>
       </View>
-      <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end'}}>
+      <View style={styles.filter3View}>
         <TouchableOpacity>
           <Image source={require('../../../assets/people-video-filter.png')}/>
           </TouchableOpacity>
@@ -371,6 +371,27 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.1,
     elevation: 1,
+  },
+  allFiltersRow:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    marginTop:20, 
+    paddingHorizontal:20
+  },
+  filter1View:{
+    flex:1, 
+    flexDirection:'row', 
+    justifyContent:'flex-start'
+  },
+  filter2View:{
+    flex:1, 
+    flexDirection:'row', 
+    justifyContent:'center'
+  },
+  filter3View:{
+    flex:1, 
+    flexDirection:'row', 
+    justifyContent:'flex-end'
   }
 });
 export default PeopleProfileScreen 
