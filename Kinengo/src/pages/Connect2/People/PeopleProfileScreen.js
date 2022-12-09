@@ -32,7 +32,7 @@ const PeopleProfileScreen = (props) => {
       numComments:'183',
       time:'',
       type:'image',
-      source:require('../../../assets/images/images.png'),
+      source:require('../../../assets/people-one-post-image.png'),
     },
     {
       id: '2',
@@ -53,7 +53,7 @@ const PeopleProfileScreen = (props) => {
       numComments:'183',
       time:'',
       type:'image',
-      source:require('../../../assets/images/images.png'),
+      source:require('../../../assets/people-one-post-image.png'),
     },
     {
       id: '4',
@@ -63,7 +63,7 @@ const PeopleProfileScreen = (props) => {
       numComments:'183',
       time:'',
       type:'image',
-      source:require('../../../assets/images/images.png'),
+      source:require('../../../assets/people-one-post-image.png'),
     },
     {
       id: '5',
@@ -73,7 +73,7 @@ const PeopleProfileScreen = (props) => {
       numComments:'183',
       time:'',
       type:'image',
-      source:require('../../../assets/images/images.png'),
+      source:require('../../../assets/people-one-post-image.png'),
     },
     {
       id: '6',
@@ -83,7 +83,7 @@ const PeopleProfileScreen = (props) => {
       numComments:'183',
       time:'',
       type:'image',
-      source:require('../../../assets/images/images.png'),
+      source:require('../../../assets/people-one-post-image.png'),
     },
     {
       id: '7',
