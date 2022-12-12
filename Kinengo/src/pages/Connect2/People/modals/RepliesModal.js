@@ -65,7 +65,6 @@ const sendMessage = () => {
   }
   Keyboard.dismiss()
   setUserMessage('')
-  // setReplyingTo('')
   }
   // useEffect(()=>{
   //   ref.current && ref.current.scrollToIndex({index: initialIndex})
@@ -83,9 +82,7 @@ const sendMessage = () => {
       propagateSwipe={true}
       coverScreen={false}
       onModalWillShow={()=>{
-        console.log('onShow showAtUsername', showAtUsername);
         if(showAtUsername){
-          // setUserMessage(`@${item.name}`)
           setUserMessage(`@${data?.find(el=>el.id === replyingTo)?.name}`)
           myTextInput.current.focus()
         }
