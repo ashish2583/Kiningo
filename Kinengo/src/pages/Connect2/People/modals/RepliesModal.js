@@ -17,7 +17,7 @@ import Modal from 'react-native-modal';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import VideoPlayer from 'react-native-video-player'
 
-const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setReplyingTo, returnReplies = () => {}}) => {
+const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setReplyingTo, showAtUsername, returnReplies = () => {}}) => {
     const [initialIndex, setInitialIndex] = useState(null)
     // let flatListRef = useRef();
     // const scrollRef = useRef({ flatListRef: undefined });
@@ -82,7 +82,14 @@ const sendMessage = () => {
       scrollOffset={1}
       propagateSwipe={true}
       coverScreen={false}
-      onShow={()=>setInitialIndex(startFromIndex)}
+      onModalWillShow={()=>{
+        console.log('onShow showAtUsername', showAtUsername);
+        if(showAtUsername){
+          // setUserMessage(`@${item.name}`)
+          setUserMessage(`@${data?.find(el=>el.id === replyingTo)?.name}`)
+          myTextInput.current.focus()
+        }
+      }}
     //   onShow={()=>{
     //     scrollRef.current?.flatListRef.scrollToIndex(10);
     //   }}
@@ -124,7 +131,7 @@ const sendMessage = () => {
             </Text>
           </View>
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
-          {data?.filter(el=>el.id === replyingTo)?.map(item=> 
+          {data?.filter(el=>el.id === replyingTo)?.map((item, index)=> 
           <View>
             <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={item.img}/>

@@ -20,6 +20,7 @@ const PeopleComments = (props) => {
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [userMessage, setUserMessage] = useState('')
   const [replyingTo, setReplyingTo] = useState('')
+  const [showAtUsername, setShowAtUsername] = useState(false)
   const [showRepliesModal, setShowRepliesModal] = useState(false)
   const [upData,setupData]=useState([
     {
@@ -216,7 +217,7 @@ const PeopleComments = (props) => {
                               </TouchableOpacity>
                               <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
                             </View>
-                            <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${item.name}`); setReplyingTo(item.id)}} style={{flexDirection:'row', alignItems:'center'}}>
+                            <TouchableOpacity onPress={()=>{setShowAtUsername(true); setReplyingTo(item.id); setShowRepliesModal(true);}} style={{flexDirection:'row', alignItems:'center'}}>
                               <Image source={require('../../../assets/people-reply-image.png')}/>
                               <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
                             </TouchableOpacity>
@@ -263,6 +264,7 @@ const PeopleComments = (props) => {
       setData={setupData}
       replyingTo={replyingTo}
       setReplyingTo={setReplyingTo}
+      showAtUsername={showAtUsername}
       returnReplies={returnReplies}
       // startFromIndex={startFromIndex}
     />
