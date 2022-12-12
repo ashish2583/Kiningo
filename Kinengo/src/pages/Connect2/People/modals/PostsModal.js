@@ -64,24 +64,21 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-between',
               width: '90%',
               alignSelf: 'center',
             }}>
+            <TouchableOpacity onPress={() => setIsVisible(false)} style={{width:25, height:20, justifyContent:'center'}}>
+              <Image source={require('../../../../assets/events_arrow.png')}/>
+            </TouchableOpacity>
             <Text
               style={{
-                color: Mycolors.Black,
+                color: '#455A64',
                 fontWeight: '500',
                 marginBottom: 30,
-                marginTop: 10,
+                marginLeft: 10,
               }}>
               Posts Modal
             </Text>
-            <TouchableOpacity onPress={() => setIsVisible(false)}>
-              <Text style={{color: 'red', fontSize: 16, fontWeight: '400'}}>
-                Close
-              </Text>
-            </TouchableOpacity>
           </View>
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
           {/* <View style={{alignItems: 'center'}}> */}
