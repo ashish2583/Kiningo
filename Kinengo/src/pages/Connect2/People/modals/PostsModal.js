@@ -93,7 +93,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
                   style={{alignSelf:'center'}}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:'100%', marginVertical:10, borderRadius:30}}>
+                      <View style={{width:'100%', marginVertical:10, borderRadius:30, alignSelf:'center'}}>
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
@@ -200,10 +200,11 @@ const styles = StyleSheet.create({
     justifyContent:'space-between', 
     backgroundColor:'#fff', 
     paddingHorizontal:15, 
-    paddingVertical:10, 
+    paddingVertical:10,
     width:'90%', 
     borderTopLeftRadius:20, 
-    borderTopRightRadius:20, 
+    borderTopRightRadius:20,
+    alignSelf:'center' 
   },
   followingImageView:{
     flexDirection:'row', 
@@ -216,10 +217,11 @@ const styles = StyleSheet.create({
   flatlistMainBottomView:{
     backgroundColor:'#fff', 
     paddingVertical:15, 
-    paddingHorizontal:20, 
+    paddingHorizontal:15,
     width:'90%', 
     borderBottomRightRadius:20, 
-    borderBottomLeftRadius:20
+    borderBottomLeftRadius:20,
+    alignSelf:'center'
   },
   flatlistBottomView:{
     flexDirection:'row', 
