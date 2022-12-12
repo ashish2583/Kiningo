@@ -262,6 +262,7 @@ const PeopleComments = (props) => {
       data={upData}
       setData={setupData}
       replyingTo={replyingTo}
+      setReplyingTo={setReplyingTo}
       returnReplies={returnReplies}
       // startFromIndex={startFromIndex}
     />

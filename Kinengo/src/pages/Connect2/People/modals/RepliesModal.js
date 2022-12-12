@@ -11,23 +11,65 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  Keyboard
 } from 'react-native';
 import Modal from 'react-native-modal';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import VideoPlayer from 'react-native-video-player'
 
-const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, returnReplies = () => {}}) => {
+const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setReplyingTo, returnReplies = () => {}}) => {
     const [initialIndex, setInitialIndex] = useState(null)
     // let flatListRef = useRef();
     // const scrollRef = useRef({ flatListRef: undefined });
     const ref = useRef(null)
+    const myTextInput = useRef()
+    const [userMessage, setUserMessage] = useState('')
 //   let refFlatList = null;
 //   useEffect(()=>{
 //         refFlatList.current && refFlatList.current.scrollToIndex({animated: true, index:10 })
 //   },[])
-  useEffect(()=>{
-    ref.current && ref.current.scrollToIndex({index: initialIndex})
-  },[initialIndex])
+
+const sendMessage = () => {
+  if(userMessage?.trim()?.length === 0){
+    return
+  }
+  if(replyingTo){
+    const dataCopy = [...data]
+    dataCopy.map(el=>{
+      if(replyingTo === el.id){
+        el.replies.push({
+          id:99,
+          name:'saurabh saneja',
+          message: userMessage,
+          time: '0 min',
+          img: require('../../../../assets/people-sender-image.png'),
+          isLiked: false
+        })
+        return el
+      }
+    })
+    setData([...dataCopy])
+  }else{
+    const nextId = data?.length+1
+    setData([...data, 
+      {
+        id: String(nextId),
+        name: 'Saurabh Saneja',
+        message:userMessage,
+        time:'14 min',
+        img:require('../../../../assets/comment-person-image.png'),
+        isLiked: false,
+        replies:[]
+      },
+    ])
+  }
+  Keyboard.dismiss()
+  setUserMessage('')
+  // setReplyingTo('')
+  }
+  // useEffect(()=>{
+  //   ref.current && ref.current.scrollToIndex({index: initialIndex})
+  // },[initialIndex])
   return (
     <Modal
       isVisible={isVisible}
@@ -114,6 +156,22 @@ const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, retur
           {/* <View style={{width:100,height:100}} /> */}
         </ScrollView>
       </View>
+      <View style={styles.addCommentView}>
+      <TextInput
+        ref={myTextInput}
+        value={userMessage}
+        onChangeText={(text) => {
+          setUserMessage(text)
+        }}
+        placeholder="What's on your mind"
+        placeholderTextColor={'#B2B7B9'}
+        style={styles.input}
+        multiline
+      />
+      <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
+        <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
+      </TouchableOpacity>
+      </View>
     </Modal>
   );
 };
@@ -168,5 +226,39 @@ const styles = StyleSheet.create({
     padding:10,
     borderRadius:20
   },
+  addCommentView:{
+    position:'absolute', 
+    bottom:20,
+    width:'100%', 
+    backgroundColor:'#fff', 
+    padding:15, 
+    flexDirection:'row',
+    alignItems:'center', 
+    justifyContent:'space-between',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
+    // shadowRadius: 1,
+    // shadowOpacity: 0.3,
+    // elevation: 5,
+  },
+  input: {
+    paddingLeft: 20,
+    fontSize: 14,
+    fontWeight:'500',
+    color:'#000',
+    flex: 7
+  },
+  sendButtonView:{
+    backgroundColor:'#0089CF', 
+    paddingHorizontal:30, 
+    paddingVertical:10, 
+    borderRadius:5,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  }
 })
 export default RepliesModal;
