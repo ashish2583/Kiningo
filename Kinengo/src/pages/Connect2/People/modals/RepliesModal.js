@@ -137,29 +137,29 @@ const sendMessage = () => {
           borderTopRightRadius: 30,
           paddingVertical: 20,
         }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '90%',
+            alignSelf: 'center',
+          }}>
+          <TouchableOpacity onPress={() => setIsVisible(false)} style={{width:25, height:20, justifyContent:'center'}}>
+            <Image source={require('../../../../assets/events_arrow.png')} style={{width:'100%',height:'100%',alignSelf:'center'}}/>
+          </TouchableOpacity>
+          <Text
+            style={{
+              color: '#455A64',
+              fontWeight: '500',
+              fontSize:14,
+              marginBottom: 30,
+              marginLeft: 20,
+            }}>
+            Replies
+          </Text>
+        </View>
         <ScrollView
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled={true}>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: '90%',
-              alignSelf: 'center',
-            }}>
-            <TouchableOpacity onPress={() => setIsVisible(false)} style={{width:25, height:20, justifyContent:'center'}}>
-              <Image source={require('../../../../assets/events_arrow.png')} style={{width:'100%',height:'100%',alignSelf:'center'}}/>
-            </TouchableOpacity>
-            <Text
-              style={{
-                color: '#455A64',
-                fontWeight: '500',
-                fontSize:14,
-                marginBottom: 30,
-                marginLeft: 20,
-              }}>
-              Replies
-            </Text>
-          </View>
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
           {data?.filter(el=>el.id === replyingTo)?.map((item, index)=> 
           <View>
