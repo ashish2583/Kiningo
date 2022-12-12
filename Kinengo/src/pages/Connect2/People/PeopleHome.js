@@ -28,6 +28,8 @@ const PeopleHome = (props) => {
       numComments:'183',
       time:'',
       img:require('../../../assets/images/images.png'),
+      isSaved: false,
+      isLiked: false
     },
     {
       id: '2',
@@ -37,6 +39,8 @@ const PeopleHome = (props) => {
       numComments:'183',
       time:'',
       img:require('../../../assets/images/images.png'),
+      isSaved: false,
+      isLiked: false
     },
     {
       id: '3',
@@ -46,6 +50,8 @@ const PeopleHome = (props) => {
       numComments:'183',
       time:'',
       img:require('../../../assets/images/images.png'),
+      isSaved: false,
+      isLiked: false
     },
     {
       id: '4',
@@ -55,6 +61,8 @@ const PeopleHome = (props) => {
       numComments:'183',
       time:'',
       img:require('../../../assets/images/images.png'),
+      isSaved: false,
+      isLiked: false
     },
 
   ])
@@ -63,6 +71,16 @@ const PeopleHome = (props) => {
 
  },[])
 
+ const changeSaved = (id) => {
+  const updataCopy = [...upData]
+  const updatedData = updataCopy?.map(el=>el.id === id ? {...el, isSaved: !el.isSaved }: el)
+  setupData([...updatedData])
+ }
+ const changeLiked = (id) => {
+  const updataCopy = [...upData]
+  const updatedData = updataCopy?.map(el=>el.id === id ? {...el, isLiked: !el.isLiked }: el)
+  setupData([...updatedData])
+ }
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
@@ -129,9 +147,9 @@ const PeopleHome = (props) => {
               <View style={[styles.rightButtonsView, {marginRight:10}]}>
                 <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
               </View>
-              <View style={styles.rightButtonsView}>
-                <Image source={require('../../../assets/people-bookmark.png')} style={{width:20, height:20}} resizeMode='contain'/>
-              </View>
+              <TouchableOpacity onPress={()=>{changeSaved(item.id)}} style={styles.rightButtonsView}>
+                <Image source={!item.isSaved ? require('../../../assets/people-bookmark.png') : require('../../../assets/people-bookmark-selected.png')} style={{width:20, height:20}} resizeMode='contain'/>
+              </TouchableOpacity>
             </View>
                       
           </View>
@@ -145,8 +163,8 @@ const PeopleHome = (props) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{true ? props.navigation.navigate('PeopleMessages') : props.navigation.navigate('PeopleFollowers')}} style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-like.png')} style={{width:25, height:25}}/>
+                <TouchableOpacity onPress={()=>{changeLiked(item.id)}} style={{marginRight:10}}>
+                  <Image source={item.isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-like.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
                   <Image source={require('../../../assets/people-comment.png')} style={{width:25, height:25}}/>
