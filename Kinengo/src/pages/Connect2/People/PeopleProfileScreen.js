@@ -320,7 +320,7 @@ const PeopleProfileScreen = (props) => {
     <PostsModal
       isVisible={showPostsModal}
       setIsVisible={setShowPostsModal} 
-      data={upData}
+      data={filteredData}
       startFromIndex={startFromIndex}
     />
     {loading ? <Loader /> : null}
