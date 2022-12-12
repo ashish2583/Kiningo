@@ -33,7 +33,7 @@ const returnReplies = (itemid) => {
   return (
     replies?.map((item, index)=> 
     <>
-    <View style={{width:'80%', marginLeft:30, marginTop:10}}>
+    <View style={{width:'90%', marginLeft:30, marginTop:10}}>
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <Image source={item.img}/>
       <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{item.name}</Text>

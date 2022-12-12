@@ -122,7 +122,7 @@ const PeopleComments = (props) => {
   }
   return (
 
-    <View style={{width:'80%', marginLeft:30, marginTop:10}}>
+    <View style={{width:'90%', marginLeft:30, marginTop:10}}>
     {replies?.length > 1 ? 
     <TouchableOpacity onPress={()=>{setShowAtUsername(false);setReplyingTo(itemid);setShowRepliesModal(true)}} style={{marginBottom:10}}>
       <Text style={{fontSize:14, fontWeight:'500', color:'#0089CF'}}>{`View previous ${replies?.length -1} replies`}</Text>
