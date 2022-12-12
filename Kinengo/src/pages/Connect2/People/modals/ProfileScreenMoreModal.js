@@ -71,7 +71,7 @@ const ProfileScreenMoreModal = ({isVisible, setIsVisible}) => {
           nestedScrollEnabled={true}>
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
             <View style={{backgroundColor:'#F8F8F8', paddingHorizontal:10, paddingVertical:20, borderRadius:10}}>
-                <TouchableOpacity style={{marginHorizontal:20, flexDirection:'row', alignItems:'center'}} onPress={()=>{}}>
+                <TouchableOpacity style={{marginHorizontal:20, flexDirection:'row', alignItems:'center'}} onPress={()=>{navigation.navigate('PeopleSaved')}}>
                 <Image source={require('../../../../assets/people-bookmark.png')} style={{width:20, height:20}} resizeMode='contain'/>
                     <Text style={styles.link}>Saved Screen</Text>
                 </TouchableOpacity>
