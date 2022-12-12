@@ -10,6 +10,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import RepliesModal from './modals/RepliesModal';
 
 const PeopleComments = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -19,6 +20,7 @@ const PeopleComments = (props) => {
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [userMessage, setUserMessage] = useState('')
   const [replyingTo, setReplyingTo] = useState('')
+  const [showRepliesModal, setShowRepliesModal] = useState(false)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -143,6 +145,42 @@ const PeopleComments = (props) => {
     )
     )
  }
+ const returnOneReply = (itemid) => {
+  const replies = upData?.find(el=>el.id === itemid)?.replies
+  if(replies?.length === 0){
+    return
+  }
+  return (
+
+    <View style={{width:'80%', marginLeft:30, marginTop:10}}>
+    {replies?.length > 1 ? 
+    <TouchableOpacity onPress={()=>{setReplyingTo(itemid);setShowRepliesModal(true)}} style={{marginBottom:10}}>
+      <Text style={{fontSize:18, fontWeight:'500', color:'#000'}}>{`View previous ${replies?.length -1} replies`}</Text>
+    </TouchableOpacity>
+    :null}
+    <View style={{flexDirection:'row', alignItems:'center'}}>
+      <Image source={replies[0].img}/>
+      <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{replies[0].name}</Text>
+      <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{replies[0].time}</Text>
+    </View>
+    <View style={{marginTop:10}}>
+      <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{replies[0].message}</Text>
+    </View>
+    <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+      <View style={{flexDirection:'row', alignItems:'center'}}>
+        <TouchableOpacity onPress={()=>{likeChildComment(itemid, index)}}>
+          <Image source={replies[0].isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-unsel-heart.png')} style={{width:30, height:30}}/>
+        </TouchableOpacity>
+        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
+      </View>
+      <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${replies[0].name}`); setReplyingTo(itemid)}} style={{flexDirection:'row', alignItems:'center'}}>
+        <Image source={require('../../../assets/people-reply-image.png')}/>
+        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+    )
+ }
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff'}}>
       <ScrollView>
@@ -187,7 +225,7 @@ const PeopleComments = (props) => {
                         <View style={{borderBottomColor: '#E0E0E0', borderBottomWidth: 1, marginTop:10}}/>
                         {item?.replies?.length > 0 ?
                         <>
-                        {returnReplies(item.id)}
+                        {returnOneReply(item.id)}
                         </>
                         :null}
                         </>
@@ -218,6 +256,15 @@ const PeopleComments = (props) => {
     <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
   </TouchableOpacity>
   </View>
+  <RepliesModal
+      isVisible={showRepliesModal}
+      setIsVisible={setShowRepliesModal} 
+      data={upData}
+      setData={setupData}
+      replyingTo={replyingTo}
+      returnReplies={returnReplies}
+      // startFromIndex={startFromIndex}
+    />
     </SafeAreaView>
      );
   }
