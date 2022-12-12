@@ -199,7 +199,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff', 
     paddingHorizontal:15, 
     paddingVertical:10,
-    width:'90%', 
+    // width:'90%', 
+    width:dimensions.SCREEN_WIDTH*0.9, 
     borderTopLeftRadius:20, 
     borderTopRightRadius:20,
     alignSelf:'center' 
@@ -216,7 +217,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff', 
     paddingVertical:15, 
     paddingHorizontal:15,
-    width:'90%', 
+    // width:'90%', 
+    width:dimensions.SCREEN_WIDTH*0.9, 
     borderBottomRightRadius:20, 
     borderBottomLeftRadius:20,
     alignSelf:'center'
