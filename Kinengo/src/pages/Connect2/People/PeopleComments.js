@@ -115,37 +115,6 @@ const PeopleComments = (props) => {
   setupData([...upDataCopy])
  }
 
- const returnReplies = (itemid) => {
-  const replies = upData?.find(el=>el.id === itemid)?.replies
-  return (
-    replies?.map((item, index)=> 
-    <>
-    <View style={{width:'80%', marginLeft:30, marginTop:10}}>
-    <View style={{flexDirection:'row', alignItems:'center'}}>
-      <Image source={item.img}/>
-      <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{item.name}</Text>
-      <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{item.time}</Text>
-    </View>
-    <View style={{marginTop:10}}>
-      <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{item.message}</Text>
-    </View>
-    <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-      <View style={{flexDirection:'row', alignItems:'center'}}>
-        <TouchableOpacity onPress={()=>{likeChildComment(itemid, index)}}>
-          <Image source={item.isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-unsel-heart.png')} style={{width:30, height:30}}/>
-        </TouchableOpacity>
-        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
-      </View>
-      <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${item.name}`); setReplyingTo(itemid)}} style={{flexDirection:'row', alignItems:'center'}}>
-        <Image source={require('../../../assets/people-reply-image.png')}/>
-        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-    </>
-    )
-    )
- }
  const returnOneReply = (itemid) => {
   const replies = upData?.find(el=>el.id === itemid)?.replies
   if(replies?.length === 0){
@@ -265,7 +234,6 @@ const PeopleComments = (props) => {
       replyingTo={replyingTo}
       setReplyingTo={setReplyingTo}
       showAtUsername={showAtUsername}
-      returnReplies={returnReplies}
       // startFromIndex={startFromIndex}
     />
     </SafeAreaView>
