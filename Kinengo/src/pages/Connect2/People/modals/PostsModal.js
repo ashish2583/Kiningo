@@ -74,6 +74,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
               style={{
                 color: '#455A64',
                 fontWeight: '500',
+                fontSize: 14,
                 marginBottom: 30,
                 marginLeft: 20,
               }}>
