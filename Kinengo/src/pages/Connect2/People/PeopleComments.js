@@ -134,9 +134,9 @@ const PeopleComments = (props) => {
       <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{replies[0].time}</Text>
     </View>
     <View style={{marginTop:10}}>
-      <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{replies[0].message}</Text>
+      <Text numberOfLines={1} style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{replies[0].message}</Text>
     </View>
-    <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+    {/* <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
       <View style={{flexDirection:'row', alignItems:'center'}}>
         <TouchableOpacity onPress={()=>{likeChildComment(itemid, index)}}>
           <Image source={replies[0].isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-unsel-heart.png')} style={{width:30, height:30}}/>
@@ -147,7 +147,7 @@ const PeopleComments = (props) => {
         <Image source={require('../../../assets/people-reply-image.png')}/>
         <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
       </TouchableOpacity>
-    </View>
+    </View> */}
   </View>
     )
  }
