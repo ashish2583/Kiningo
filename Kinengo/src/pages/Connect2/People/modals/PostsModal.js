@@ -16,6 +16,7 @@ import Modal from 'react-native-modal';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import VideoPlayer from 'react-native-video-player'
 import { useNavigation } from '@react-navigation/native';
+import ReadMoreComponent from '../Components/ReadMoreComponent'
 
 const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
     const navigation = useNavigation();  
@@ -170,7 +171,8 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
             </View>
 
             <View style={{marginTop:10}}>
-              <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text>
+              <ReadMoreComponent text={'Amazing football shorts caption this'} />
+              {/* <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text> */}
             </View>
 
             <TouchableOpacity onPress={()=>navigation.navigate('PeopleComments')} style={{marginTop:5}}>
