@@ -15,8 +15,10 @@ import {
 import Modal from 'react-native-modal';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import VideoPlayer from 'react-native-video-player'
+import { useNavigation } from '@react-navigation/native';
 
 const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
+    const navigation = useNavigation();  
     const [initialIndex, setInitialIndex] = useState(null)
     // let flatListRef = useRef();
     // const scrollRef = useRef({ flatListRef: undefined });
@@ -95,11 +97,11 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
           <View style={styles.flatlistMainView}>
             
             <View style={styles.followingImageView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
+              <TouchableOpacity onPress={()=>navigation.navigate('PeopleProfileScreen')}>
                 <Image source={require('../../../../assets/people-following-person.png')}/>
               </TouchableOpacity>
               <View style={styles.followingView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
+              <TouchableOpacity onPress={()=>navigation.navigate('PeopleProfileScreen')}>
                 <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>{item.name}</Text>       
               </TouchableOpacity>
                 <Text style={{fontSize:13, fontWeight:'400', color:'#B2B7B9', marginTop:2}}>Following</Text>       
@@ -118,7 +120,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
           </View>
           {item.type === 'image' ? 
           <TouchableOpacity style={styles.imageView}
-          // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
+          // onPress={()=>{navigation.navigate('FoodDetails')}}>
           onPress={()=>{}}>
             <Image
               source={item.source}
@@ -149,13 +151,13 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{true ? props.navigation.navigate('PeopleMessages') : props.navigation.navigate('PeopleFollowers')}} style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>{true ? navigation.navigate('PeopleMessages') : navigation.navigate('PeopleFollowers')}} style={{marginRight:10}}>
                   <Image source={require('../../../../assets/people-like.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('PeopleComments')} style={{marginRight:10}}>
                   <Image source={require('../../../../assets/people-comment.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleChat')} style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>navigation.navigate('PeopleChat')} style={{marginRight:10}}>
                   <Image source={require('../../../../assets/people-message.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
               </View>
@@ -171,7 +173,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
               <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text>
             </View>
 
-            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginTop:5}}>
+            <TouchableOpacity onPress={()=>navigation.navigate('PeopleComments')} style={{marginTop:5}}>
               <Text style={{fontSize:12, fontWeight:'400', color:'#0089CF'}}>View all 183 comments</Text>
             </TouchableOpacity>
 
