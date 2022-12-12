@@ -16,13 +16,15 @@ const image1 = require('../../../assets/people-following-person.png')
 const image2 = require('../../../assets/people-sender-image.png')
 
 const PeopleFollowers = (props) => {
+
+  const [changeTab, setChangeTab]=useState(typeof props.route.params?.gotoFollowersTab === 'string' && props.route.params?.gotoFollowersTab === 'no' ? true : false)
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [userMessage, setUserMessage] = useState('')
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
-  const [isFollowersTabSelected, setIsFollowersTabSelected] = useState(true)
+  const [isFollowersTabSelected, setIsFollowersTabSelected] = useState(changeTab ? false : true)
   const [upData,setupData]=useState([
     {
       id: '1',

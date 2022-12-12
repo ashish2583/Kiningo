@@ -221,7 +221,7 @@ const PeopleProfileScreen = (props) => {
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={[styles.numView, {marginRight:10}]}
           >
-            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleFollowers')}>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleFollowers', {gotoFollowersTab: 'yes'})} style={{justifyContent:'center', alignItems:'center'}}>
               <Text style={styles.numValue}>1.1M</Text>
               <Text style={styles.numText}>Followers</Text>
             </TouchableOpacity>
@@ -230,8 +230,10 @@ const PeopleProfileScreen = (props) => {
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={styles.numView}
           >
-          <Text style={styles.numValue}>369</Text>
-          <Text style={styles.numText}>Following</Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleFollowers', {gotoFollowersTab: 'no'})} style={{justifyContent:'center', alignItems:'center'}}>
+              <Text style={styles.numValue}>369</Text>
+              <Text style={styles.numText}>Following</Text>
+            </TouchableOpacity>
           </LinearGradient>
       </View>
       <View style={{flexDirection:'row', alignItems:'center', marginTop:20}}>
