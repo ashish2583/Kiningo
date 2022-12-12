@@ -151,7 +151,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
             
             <View style={styles.flatlistBottomView}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{true ? navigation.navigate('PeopleMessages') : navigation.navigate('PeopleFollowers')}} style={{marginRight:10}}>
+                <TouchableOpacity onPress={()=>{}} style={{marginRight:10}}>
                   <Image source={require('../../../../assets/people-like.png')} style={{width:25, height:25}}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>navigation.navigate('PeopleComments')} style={{marginRight:10}}>
