@@ -90,6 +90,9 @@ const sendMessage = () => {
           myTextInput.current.focus()
         }
       }}
+      onModalWillHide={()=>{
+        setUserMessage('')
+      }}
     //   onShow={()=>{
     //     scrollRef.current?.flatListRef.scrollToIndex(10);
     //   }}
