@@ -32,12 +32,6 @@ const ShopEatStack=(props)=>{
             <Stack.Screen component = {PeopleCreatePost} name="PeopleCreatePost" />
             <Stack.Screen component = {PeopleProfileScreen} name="PeopleProfileScreen" />
             <Stack.Screen component = {PeopleSaved} name="PeopleSaved" />
-            <Stack.Screen component = {ShopEat} name="ShopEat" />
-            <Stack.Screen component = {FoodDetails} name="FoodDetails" />
-            <Stack.Screen component = {ShopMyOrder} name="ShopMyOrder" />
-            <Stack.Screen component = {ShopReview} name="ShopReview" />
-            <Stack.Screen component = {ShopPayment} name="ShopPayment" />
-            {/* <Stack.Screen component = {Shop} name="Shop" /> */}
             
 
         </Stack.Navigator>
