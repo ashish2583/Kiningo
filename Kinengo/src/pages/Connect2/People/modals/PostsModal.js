@@ -136,6 +136,8 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
             videoWidth={dimensions.SCREEN_WIDTH*0.9}
             videoHeight={300}
             thumbnail={{uri: item.thumbnail}}
+            endWithThumbnail
+            disableControlsAutoHide
             customStyles={{
               thumbnail: {width: dimensions.SCREEN_WIDTH*0.9, height:300},
               // videoWrapper: {width: dimensions.SCREEN_WIDTH, height:300},
