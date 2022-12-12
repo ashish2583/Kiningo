@@ -46,7 +46,7 @@ const ProfileScreenMoreModal = ({isVisible, setIsVisible}) => {
           borderTopRightRadius: 30,
           paddingVertical: 20,
         }}>
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             width: '90%',
@@ -65,7 +65,7 @@ const ProfileScreenMoreModal = ({isVisible, setIsVisible}) => {
             }}>
             Go to
           </Text>
-        </View>
+        </View> */}
         <ScrollView
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled={true}>
