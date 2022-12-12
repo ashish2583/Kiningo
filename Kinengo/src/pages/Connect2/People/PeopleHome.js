@@ -10,6 +10,8 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import ViewMoreText from 'react-native-view-more-text';
+import ReadMoreComponent from './Components/ReadMoreComponent';
 
 const PeopleHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -161,8 +163,9 @@ const PeopleHome = (props) => {
                 <Text style={[styles.text1, {marginLeft:10}]}>Liked by Jerry paul and 23.3 K others</Text>
             </View>
 
-            <View style={{marginTop:10}}>
-              <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text>
+            <View style={{flex:1}}>
+              {/* <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text> */}
+              <ReadMoreComponent text={`Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this `}/>
             </View>
 
             <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginTop:5}}>
