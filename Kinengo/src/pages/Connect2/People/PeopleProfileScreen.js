@@ -207,6 +207,10 @@ const PeopleProfileScreen = (props) => {
         <View style={styles.followingView}>
           <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Following</Text>
         </View>
+
+        <View style={styles.threeDotsView}>
+          <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
+        </View>
       </View>
 
       <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:10}}>
@@ -425,6 +429,11 @@ const styles = StyleSheet.create({
     flex:1, 
     flexDirection:'row', 
     justifyContent:'flex-end'
+  },
+  threeDotsView: {
+    backgroundColor:'#F8F8F8',
+    padding:10,
+    borderRadius:20
   },
 });
 export default PeopleProfileScreen 
