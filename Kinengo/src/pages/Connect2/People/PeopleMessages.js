@@ -99,7 +99,7 @@ const PeopleMessages = (props) => {
                             <View style={styles.onlineDot}/>
                             :null}  
                             </View>
-                          <View style={{marginLeft:10, justifyContent:'space-between'}}>
+                          <View style={{marginLeft:15, justifyContent:'space-between'}}>
                             <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
                             <View style={{width:'95%'}}>
                               <Text style={styles.numberStyle}>{item.message}</Text>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     height:onlineDotWidth, 
     position:'absolute', 
     borderRadius:onlineDotWidth/2, 
-    left:47, 
+    left:onlinePersonImageWidth-8, 
     top:onlinePersonImageWidth/2-3, 
     borderWidth:2, 
     borderColor:'#fff'
