@@ -30,9 +30,17 @@ const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setRe
 //   },[])
 const returnReplies = (itemid) => {
   const replies = data?.find(el=>el.id === itemid)?.replies
+  
   return (
-    replies?.map((item, index)=> 
-    <>
+    <FlatList
+    data={replies}
+    showsHorizontalScrollIndicator={false}
+    numColumns={1}
+    keyExtractor={item => item.id}
+    renderItem={({item, index})=>{
+      return (
+
+      <>
     <View style={{width:'90%', marginLeft:30, marginTop:10}}>
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <Image source={item.img}/>
@@ -55,9 +63,11 @@ const returnReplies = (itemid) => {
       </TouchableOpacity>
     </View>
   </View>
-    </>
+  </>
     )
-    )
+    }}
+    />
+  )
  }
 const sendMessage = () => {
   if(userMessage?.trim()?.length === 0){
