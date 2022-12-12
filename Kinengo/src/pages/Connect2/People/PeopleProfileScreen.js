@@ -144,6 +144,13 @@ const PeopleProfileScreen = (props) => {
   useEffect(()=>{
     generateThumb()
   },[])
+  useEffect(() => {
+    const unsubscribe = props.navigation.addListener('blur', () => {
+      setShowMoreModal(false)
+    });
+    return unsubscribe;
+  }, [props.navigation]);
+
   const generateThumb = async () => {
     setLoading(true)
     try {
