@@ -41,7 +41,7 @@ const ProfileScreenMoreModal = ({isVisible, setIsVisible}) => {
       <View
         style={{
           height: '30%',
-          backgroundColor: '#F8F8F8',
+          backgroundColor: '#FFF',
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           paddingVertical: 20,
@@ -70,9 +70,12 @@ const ProfileScreenMoreModal = ({isVisible, setIsVisible}) => {
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled={true}>
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
-            <TouchableOpacity>
-                <Text style={styles.link}>Saved Screen</Text>
-            </TouchableOpacity>
+            <View style={{backgroundColor:'#F8F8F8', paddingHorizontal:10, paddingVertical:20, borderRadius:10}}>
+                <TouchableOpacity style={{marginHorizontal:20, flexDirection:'row', alignItems:'center'}} onPress={()=>{}}>
+                <Image source={require('../../../../assets/people-bookmark.png')} style={{width:20, height:20}} resizeMode='contain'/>
+                    <Text style={styles.link}>Saved Screen</Text>
+                </TouchableOpacity>
+            </View>
           </View>
 
           <View style={{width:100,height:100}} />
@@ -85,10 +88,8 @@ const styles = StyleSheet.create({
   link:{
     fontSize:16, 
     fontWeight:'400', 
-    color:'#0089CF',
-    textAlign:'center',
-    textDecorationLine:'underline',
-    textDecorationColor:'#0089CF'
+    color:'#455A64',
+    marginLeft:10
   }
 })
 export default ProfileScreenMoreModal;
