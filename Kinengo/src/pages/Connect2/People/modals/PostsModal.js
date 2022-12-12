@@ -53,7 +53,7 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
       <View
         style={{
           height: '100%',
-          backgroundColor: '#fff',
+          backgroundColor: '#F8F8F8',
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
           paddingVertical: 20,
@@ -83,7 +83,8 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={{alignItems: 'center'}}>
+          <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
+          {/* <View style={{alignItems: 'center'}}> */}
             <View style={{}}>
                     <FlatList
                   data={data}
@@ -128,18 +129,19 @@ const PostsModal = ({isVisible, setIsVisible, data, startFromIndex = 0}) => {
                 height: '100%',
                 alignSelf: 'center',
               }}
-              resizeMode="contain"></Image>
+              resizeMode="cover"></Image>
           {/* <Image source={item.source} style={{width:'100%',height:'100%',alignSelf:'center',}}></Image> */}
           </TouchableOpacity>
           : 
           <VideoPlayer
             video={{uri: item.source}}
-            videoWidth={dimensions.SCREEN_WIDTH}
+            videoWidth={dimensions.SCREEN_WIDTH*0.9}
             videoHeight={300}
             thumbnail={{uri: item.thumbnail}}
             customStyles={{
-              thumbnail: {width: dimensions.SCREEN_WIDTH, height:300},
-              videoWrapper: {width: dimensions.SCREEN_WIDTH, height:300},
+              thumbnail: {width: dimensions.SCREEN_WIDTH*0.9, height:300},
+              // videoWrapper: {width: dimensions.SCREEN_WIDTH, height:300},
+              wrapper: {alignSelf:'center'},
             }}
           />
             }
