@@ -14,12 +14,15 @@ import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 import Loader from '../../../WebApi/Loader';
 import PostsModal from './modals/PostsModal';
+import ProfileScreenMoreModal from './modals/ProfileScreenMoreModal';
+
 const PeopleProfileScreen = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showPostsModal, setShowPostsModal] = useState(false)
+  const [showMoreModal, setShowMoreModal] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(1)
   const [startFromIndex, setStartFromIndex] = useState(0)
   const [loading, setLoading] = useState(false)
@@ -208,9 +211,9 @@ const PeopleProfileScreen = (props) => {
           <Text style={{fontSize:14, fontWeight:'400', color:'#455A64'}}>Following</Text>
         </View>
 
-        <View style={styles.threeDotsView}>
+        <TouchableOpacity style={styles.threeDotsView} onPress={()=>{setShowMoreModal(true)}}>
           <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
-        </View>
+        </TouchableOpacity>
       </View>
 
       <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:10}}>
@@ -326,6 +329,10 @@ const PeopleProfileScreen = (props) => {
       setIsVisible={setShowPostsModal} 
       data={filteredData}
       startFromIndex={startFromIndex}
+    />
+    <ProfileScreenMoreModal
+      isVisible={showMoreModal}
+      setIsVisible={setShowMoreModal} 
     />
     {loading ? <Loader /> : null}
     </SafeAreaView>
