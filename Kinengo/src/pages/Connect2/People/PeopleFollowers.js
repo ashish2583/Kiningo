@@ -125,7 +125,9 @@ const PeopleFollowers = (props) => {
                         {/* <View style={styles.flatlistMainView}> */}
                           <Image source={item.img}/>
                           <View style={{marginLeft:10, justifyContent:'space-between'}}>
-                            <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
+                            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
+                              <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.name}</Text>
+                            </TouchableOpacity>
                             <View style={styles.numberView}>
                               <Text style={styles.numberStyle}>{item.numFollowers} followers</Text>
                               <Text style={[styles.numberStyle, {marginLeft:10}]}>{item.numFollowing} following</Text>

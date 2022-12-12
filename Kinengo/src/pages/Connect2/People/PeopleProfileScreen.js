@@ -221,8 +221,10 @@ const PeopleProfileScreen = (props) => {
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
           style={[styles.numView, {marginRight:10}]}
           >
-          <Text style={styles.numValue}>1.1M</Text>
-          <Text style={styles.numText}>Followers</Text>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleFollowers')}>
+              <Text style={styles.numValue}>1.1M</Text>
+              <Text style={styles.numText}>Followers</Text>
+            </TouchableOpacity>
         </LinearGradient>
         <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
@@ -233,7 +235,7 @@ const PeopleProfileScreen = (props) => {
           </LinearGradient>
       </View>
       <View style={{flexDirection:'row', alignItems:'center', marginTop:20}}>
-        <TouchableOpacity style={styles.blueButtonView}>
+        <TouchableOpacity style={styles.blueButtonView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
           <Image source={require('../../../assets/people-message2.png')}/>
           <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Message</Text>
         </TouchableOpacity>
