@@ -203,6 +203,7 @@ const PeopleProfileScreen = (props) => {
     colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
     style={styles.descriptionView}
     >
+      <View style={{flexDirection:'row', alignItems:'center'}}>
       <View style={{flex:1}}>
         <Image source={require('../../../assets/people-following-person.png')}/>
       </View>    
@@ -221,6 +222,8 @@ const PeopleProfileScreen = (props) => {
         <TouchableOpacity style={styles.threeDotsView} onPress={()=>{setShowMoreModal(true)}}>
           <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
         </TouchableOpacity>
+      </View>
+      </View>
       </View>
 
       <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:10}}>
@@ -250,7 +253,7 @@ const PeopleProfileScreen = (props) => {
             </TouchableOpacity>
           </LinearGradient>
       </View>
-      <View style={{flexDirection:'row', alignItems:'center', marginTop:20}}>
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:"space-evenly", marginTop:20}}>
         <TouchableOpacity style={styles.blueButtonView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
           <Image source={require('../../../assets/people-message2.png')}/>
           <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Message</Text>
@@ -266,7 +269,6 @@ const PeopleProfileScreen = (props) => {
           <Text style={styles.numValue}>369</Text>
           <Text style={styles.numText}>Following</Text>
           </LinearGradient> */}
-      </View>
       </View>
     {/* </View> */}
     </LinearGradient>
@@ -347,7 +349,6 @@ const PeopleProfileScreen = (props) => {
   }
 const styles = StyleSheet.create({
   descriptionView:{
-    flexDirection:'row',
     backgroundColor:'#fff', 
     paddingTop:10, 
     paddingHorizontal:10, 
