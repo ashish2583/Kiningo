@@ -209,7 +209,7 @@ const PeopleComments = (props) => {
          </View>
 
  </View>
-<View style={{height:100}} />
+<View style={{height:200}} />
 
 </ScrollView>
 <View style={styles.addCommentView}>
