@@ -183,7 +183,7 @@ const sendMessage = () => {
             </View>
             <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
               <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> index === elIndex ? {...el, isLiked: !item.isLiked} : el))}}>
+                <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> item.index === el.index ? {...el, isLiked: !item.isLiked} : el))}}>
                   <Image source={item.isLiked ? require('../../../../assets/people-unsel-heart.png') : require('../../../../assets/people-sel-heart.png')} style={{width:30, height:30}}/>
                 </TouchableOpacity>
                 <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
