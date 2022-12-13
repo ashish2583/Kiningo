@@ -258,14 +258,14 @@ const PeopleProfileScreen = (props) => {
       <TouchableOpacity style={styles.blueButtonSuperView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
         <View style={styles.blueButtonSubView}>
           <Image source={require('../../../assets/people-message2.png')}/>
-          <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Message</Text>
+          <Text style={styles.blueButtonText}>Message</Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.blueButtonSuperView}>
         <View style={styles.blueButtonSubView}>
           <Image source={require('../../../assets/people-block.png')}/>
-          <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Block</Text>
+          <Text style={styles.blueButtonText}>Block</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -443,6 +443,12 @@ const styles = StyleSheet.create({
     alignItems:'center', 
     paddingHorizontal:10,
     justifyContent:'center'
+  },
+  blueButtonText:{
+    fontSize:14, 
+    fontWeight:'400', 
+    color:'#fff', 
+    marginLeft:10
   },
   allFiltersRow:{
     flexDirection:'row', 
