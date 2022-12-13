@@ -253,23 +253,22 @@ const PeopleProfileScreen = (props) => {
             </TouchableOpacity>
           </LinearGradient>
       </View>
-      <View style={{flexDirection:'row', alignItems:'center', justifyContent:"space-evenly", marginTop:20}}>
-        <TouchableOpacity style={styles.blueButtonView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
+
+    <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:20}}>
+      <TouchableOpacity style={styles.blueButtonSuperView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
+        <View style={styles.blueButtonSubView}>
           <Image source={require('../../../assets/people-message2.png')}/>
           <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Message</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.blueButtonView, {marginLeft:10}]}>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.blueButtonSuperView}>
+        <View style={styles.blueButtonSubView}>
           <Image source={require('../../../assets/people-block.png')}/>
           <Text style={{fontSize:14, fontWeight:'400', color:'#fff', marginLeft:10}}>Block</Text>
-        </TouchableOpacity>
-        {/* <LinearGradient
-          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={styles.numView}
-          >
-          <Text style={styles.numValue}>369</Text>
-          <Text style={styles.numText}>Following</Text>
-          </LinearGradient> */}
-      </View>
+        </View>
+      </TouchableOpacity>
+    </View>
     {/* </View> */}
     </LinearGradient>
 
@@ -423,6 +422,27 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.1,
     elevation: 1,
+  },
+  blueButtonSuperView:{
+    justifyContent:'center',
+    backgroundColor:'#0089CF', 
+    width:120, 
+    height:40,
+    borderRadius:20,
+    shadowColor: '#0089CF',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    elevation: 1,
+  },
+  blueButtonSubView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    paddingHorizontal:10,
+    justifyContent:'center'
   },
   allFiltersRow:{
     flexDirection:'row', 
