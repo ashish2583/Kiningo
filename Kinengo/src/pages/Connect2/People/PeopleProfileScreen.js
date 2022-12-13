@@ -306,7 +306,7 @@ const PeopleProfileScreen = (props) => {
                   data={filteredData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={3}
-                  style={{alignSelf:'center'}}
+                  style={{alignSelf: filteredData?.length < 3 ? 'flex-start' : 'center'}}
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:10}}>
