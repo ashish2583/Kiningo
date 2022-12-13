@@ -236,6 +236,7 @@ const PeopleComments = (props) => {
       replyingTo={replyingTo}
       setReplyingTo={setReplyingTo}
       showAtUsername={showAtUsername}
+      likeChildComment={likeChildComment}
       // startFromIndex={startFromIndex}
     />
     </SafeAreaView>

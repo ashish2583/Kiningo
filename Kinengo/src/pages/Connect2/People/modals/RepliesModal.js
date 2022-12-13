@@ -17,7 +17,7 @@ import Modal from 'react-native-modal';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import VideoPlayer from 'react-native-video-player'
 
-const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setReplyingTo, showAtUsername}) => {
+const RepliesModal = ({isVisible, setIsVisible, data, setData, replyingTo, setReplyingTo, showAtUsername, likeChildComment}) => {
     const [initialIndex, setInitialIndex] = useState(null)
     // let flatListRef = useRef();
     // const scrollRef = useRef({ flatListRef: undefined });
