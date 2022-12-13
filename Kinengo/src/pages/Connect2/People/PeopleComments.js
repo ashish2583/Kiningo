@@ -245,7 +245,7 @@ const PeopleComments = (props) => {
 const styles = StyleSheet.create({
   addCommentView:{
     position:'absolute', 
-    bottom:20,
+    bottom:100,
     width:'100%', 
     backgroundColor:'#fff', 
     padding:15, 
