@@ -11,8 +11,6 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
-import ViewMoreText from 'react-native-view-more-text';
-// import ReadMoreComponent from './Components/ReadMoreComponent';
 
 const PeopleHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -102,92 +100,21 @@ const PeopleHome = (props) => {
     </View>
   </View>
 
+  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth, marginTop:10}}/>  
   <HomeHeader height={40}  paddingHorizontal={15}
    press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
    press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
-   press3={()=>{setShowChooseMilesModal(true)}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
+   press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
+  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth,marginTop:10}}/>  
 
-<View style={{marginTop:10}}>
-          <FlatList
-                  data={upData}
-                  showsHorizontalScrollIndicator={false}
-                  numColumns={1}
-                  style={{alignSelf:'center'}}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View style={{width:'100%', marginVertical:10, borderRadius:30}}>
-          <View style={styles.flatlistMainView}>
-            
-            <View style={styles.followingImageView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
-                <Image source={require('../../../assets/people-following-person.png')}/>
-              </TouchableOpacity>
-              <View style={styles.followingView}>
-              <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleProfileScreen')}>
-                <Text style={{fontSize:14, fontWeight:'600', color:'#455A64'}}>{item.name}</Text>       
-              </TouchableOpacity>
-                <Text style={{fontSize:13, fontWeight:'400', color:'#B2B7B9', marginTop:2}}>Following</Text>       
-              </View>
-            </View>
-
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-              <View style={[styles.rightButtonsView, {marginRight:10}]}>
-                <Image source={require('../../../assets/people-three-dots.png')} style={{width:20, height:20}} resizeMode='contain'/>
-              </View>
-              <TouchableOpacity onPress={()=>{changeSaved(item.id)}} style={styles.rightButtonsView}>
-                <Image source={!item.isSaved ? require('../../../assets/people-bookmark.png') : require('../../../assets/people-bookmark-selected.png')} style={{width:20, height:20}} resizeMode='contain'/>
-              </TouchableOpacity>
-            </View>
-                      
-          </View>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH,height:200,backgroundColor:'#F8F8F8',alignSelf:'center'}}
-          // onPress={()=>{props.navigation.navigate('FoodDetails')}}>
-          onPress={()=>{props.navigation.navigate('ShopProductAll')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',}}></Image>
-          </TouchableOpacity>
-
-          <View style={styles.flatlistMainBottomView}>            
-            
-            <View style={styles.flatlistBottomView}>
-              <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{changeLiked(item.id)}} style={{marginRight:10}}>
-                  <Image source={item.isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-like.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-comment.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleMessages')} style={{marginRight:10}}>
-                  <Image source={require('../../../assets/people-message.png')} style={{width:25, height:25}}/>
-                </TouchableOpacity>
-              </View>
-              <Text style={styles.text1}>183K views</Text>
-            </View>
-
-            <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
-                <Image source={require('../../../assets/people-liked-by.png')} style={{width:30, height:30}} resizeMode='contain'/>
-                <Text style={[styles.text1, {marginLeft:10}]}>Liked by Jerry paul and 23.3 K others</Text>
-            </View>
-
-            <View style={{flex:1}}>
-              {/* <Text style={styles.text1}>Amazing football shorts caption this<Text style={{color:'#B2B7B9'}}>…More</Text></Text> */}
-              {/* <ReadMoreComponent text={`Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this Amazing football shorts caption this `}/> */}
-            </View>
-
-            <TouchableOpacity onPress={()=>props.navigation.navigate('PeopleComments')} style={{marginTop:5}}>
-              <Text style={{fontSize:12, fontWeight:'400', color:'#0089CF'}}>View all 183 comments</Text>
-            </TouchableOpacity>
-
-            <View style={{marginTop:10}}>
-              <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9'}}>23 min ago</Text>
-            </View>
-          </View>
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
+  <View style={{}}>
+    <Image source={require('../../../assets/dating-home-big-image.png')} style={{alignSelf:'center', width:300, height:300}}/>
+    <Text style={{fontSize:10, lineHeight:15, color:'#4a4c52', textAlign:'center', marginTop:10, marginBottom:30}}>
+        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
+    </Text>
+    <MyButtons title="Go Online" height={60} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{}} marginHorizontal={20} fontSize={11}
+      titlecolor={Mycolors.BG_COLOR}  hLinearColor={['#8d046e', '#e30f50']}/>
+  </View>  
 
 
 
