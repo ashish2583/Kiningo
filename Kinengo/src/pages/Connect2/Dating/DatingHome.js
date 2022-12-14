@@ -1,6 +1,7 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
 import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
+import HomeHeader from 'src/component/HomeHeader';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
 import SerchInput from 'src/component/SerchInput';
@@ -99,8 +100,12 @@ const PeopleHome = (props) => {
     <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
         <Image source={require('../../../assets/dating-home-header-right-image.png')}/>
     </View>
-
   </View>
+
+  <HomeHeader height={40}  paddingHorizontal={15}
+   press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
+   press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
+   press3={()=>{setShowChooseMilesModal(true)}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
 
 <View style={{marginTop:10}}>
           <FlatList
