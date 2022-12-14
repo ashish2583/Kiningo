@@ -11,6 +11,12 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import Carousel from './Components/Carousel/Carousel';
+const SliderData = [
+  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
+  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
+  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
+]
 
 const PeopleHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -107,23 +113,7 @@ const PeopleHome = (props) => {
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth,marginTop:10}}/>  
 
-
-  <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: require('../../../assets/dating-selection-big-image.png')},
-        {img: require('../../../assets/dating-selection-big-image.png')},
-        {img: require('../../../assets/dating-selection-big-image.png')}
-    ]}
-    localImg
-   // onClick={(item, index) => {alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="#fff"
-/>  
-
-
+  {SliderData.length > 0 ? <Carousel data={SliderData} /> : null}  
 
  </View>
 <View style={{height:100}} />
