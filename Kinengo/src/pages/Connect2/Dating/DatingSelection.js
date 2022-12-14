@@ -107,16 +107,21 @@ const PeopleHome = (props) => {
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth,marginTop:10}}/>  
 
-  <View style={{}}>
-    <Image source={require('../../../assets/dating-home-big-image.png')} style={{alignSelf:'center', width:350, height:300, marginTop:40}}/>
-    <Text style={{fontSize:10, lineHeight:15, color:'#4a4c52', textAlign:'center', marginTop:30, marginBottom:40}}>
-        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
-    </Text>
-    <MyButtons title="Go Online" height={60} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{props.navigation.navigate('DatingSelection')}} marginHorizontal={20} fontSize={11}
-      titlecolor={Mycolors.BG_COLOR}  hLinearColor={['#8d046e', '#e30f50']}/>
-  </View>  
 
-
+  <ImageSlider 
+    //  localImg={true}
+    data={[
+        // require('../../assets/Group75972.png'),
+        {img: require('../../../assets/dating-selection-big-image.png')},
+        {img: require('../../../assets/dating-selection-big-image.png')},
+        {img: require('../../../assets/dating-selection-big-image.png')}
+    ]}
+    localImg
+   // onClick={(item, index) => {alert('hello'+index)}}
+    autoPlay={true}
+   // onItemChanged={(item) => console.log("item", item)}
+    closeIconColor="#fff"
+/>  
 
 
 
