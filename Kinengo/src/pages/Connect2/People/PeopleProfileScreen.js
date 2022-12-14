@@ -310,7 +310,7 @@ const PeopleProfileScreen = (props) => {
                   style={{alignSelf: filteredData?.length < 3 ? 'flex-start' : 'center'}}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:5}}>
+                      <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginBottom:5}}>
           <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
           onPress={()=>{setStartFromIndex(index);setShowPostsModal(true);}}>
             {item.type === 'image' ?
