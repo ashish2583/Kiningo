@@ -254,7 +254,8 @@ const PeopleProfileScreen = (props) => {
           </LinearGradient>
       </View>
 
-    <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:20}}>
+    {/* <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-evenly', marginTop:20}}> */}
+    <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20, marginHorizontal:50}}>
       <TouchableOpacity style={styles.blueButtonSuperView} onPress={()=>{props.navigation.navigate('PeopleChat')}}>
         <View style={styles.blueButtonSubView}>
           <Image source={require('../../../assets/people-message2.png')}/>
@@ -309,7 +310,7 @@ const PeopleProfileScreen = (props) => {
                   style={{alignSelf: filteredData?.length < 3 ? 'flex-start' : 'center'}}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:10}}>
+                      <View style={{width:120, marginHorizontal: index % 3 == 1 ? 5 : 0, height:120,marginVertical:5}}>
           <TouchableOpacity style={{width:'100%',height:'auto',backgroundColor:'#F8F8F8',alignSelf:'center'}}
           onPress={()=>{setStartFromIndex(index);setShowPostsModal(true);}}>
             {item.type === 'image' ?
