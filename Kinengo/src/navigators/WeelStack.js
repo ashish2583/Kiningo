@@ -68,6 +68,7 @@ import Repair from '../pages/Deal/ServiceDemands/Repair';
 import ShopEatStack from './ShopEatStack';
 import ShopEntertainmentStack from './ShopEntertainmentStack';
 import Connect2PeopleStack from './Connect2PeopleStack';
+import Connect2DatingStack from './Connect2DatingStack';
 import ShopProductStack from './ShopProductStack';
 
 
@@ -134,6 +135,7 @@ const WeelStack=(props)=>{
             <Stack.Screen component = {ShopProduct} name="ShopProduct" />
             
             <Stack.Screen component = {Connect2PeopleStack} name="Connect2PeopleStack" />
+            <Stack.Screen component = {Connect2DatingStack} name="Connect2DatingStack" />
 
             <Stack.Screen component = {Talkie} name="Talkie" />
             <Stack.Screen component = {Finenc} name="Finenc" />
