@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     position:'absolute', 
     bottom:20,
     width:'100%', 
-    backgroundColor:'#fff', 
+    backgroundColor:'#fff0f0', 
     padding:15, 
     flexDirection:'row',
     alignItems:'center', 
