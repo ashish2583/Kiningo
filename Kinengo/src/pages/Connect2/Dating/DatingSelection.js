@@ -12,6 +12,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import Carousel from './Components/Carousel/Carousel';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 const SliderData = [
   {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
   {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
@@ -87,6 +88,15 @@ const PeopleHome = (props) => {
   setupData([...updatedData])
  }
 
+ const onReject = (id) => {
+  console.log('id rejected', id);
+ }
+ const onLove = (id) => {
+  console.log('id loved', id);
+ }
+ const onRefresh = (id) => {
+  console.log('id refreshed', id);
+ }
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
@@ -113,7 +123,7 @@ const PeopleHome = (props) => {
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth,marginTop:10}}/>  
 
-  {SliderData.length > 0 ? <Carousel data={SliderData} /> : null}  
+  {SliderData.length > 0 ? <Carousel data={SliderData} onReject={onReject} onLove={onLove} onRefresh={onRefresh} /> : null}  
 
  </View>
 <View style={{height:100}} />

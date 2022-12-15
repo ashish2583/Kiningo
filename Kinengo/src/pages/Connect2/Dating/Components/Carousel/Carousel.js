@@ -8,7 +8,7 @@ import { dimensions } from 'src/utility/Mycolors';
 //styles
 import {styles} from './CarouselStyle';
 
-const Carousel = ({data}) => {
+const Carousel = ({data, onReject = () => {}, onLove = () => {}, onRefresh = () => {}}) => {
   //ref
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const interval = React.useRef(0);
@@ -56,7 +56,7 @@ const Carousel = ({data}) => {
     clearInterval(interval.current);
   };
   //function : render function
-  const renderItem = ({item}) => <CarouselItem item={item} />;
+  const renderItem = ({item}) => <CarouselItem item={item} onReject={onReject} onLove={onLove} onRefresh={onRefresh}/>;
   //useEffect
   // React.useEffect(() => {
   //   startAutoScroll();

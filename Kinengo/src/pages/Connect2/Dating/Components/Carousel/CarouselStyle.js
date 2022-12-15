@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   itemCon: {
-    height: dimensions.SCREEN_HEIGHT / 1.8,
+    height: dimensions.SCREEN_HEIGHT / 1.5,
     width: dimensions.SCREEN_WIDTH - 40,
     borderRadius: 20,
     // alignSelf:'center',
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   imageStyle: {
     width: '100%',
-    height: '100%',
+    height: '80%',
     borderRadius: 20,
     alignSelf:'center'
   },
@@ -44,4 +44,9 @@ export const styles = StyleSheet.create({
     height: 7,
     width: 85,
   },
+  buttonsRow:{
+    flexDirection:'row',
+    alignItems:'center',
+    alignSelf:'center'
+  }
 });
