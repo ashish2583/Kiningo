@@ -12,7 +12,7 @@ const CarouselItem = ({item, onReject = () => {}, onLove = () => {}, onRefresh =
   //function : navigation function
   //UI
   return (
-    <TouchableOpacity activeOpacity={0.5} style={styles.itemCon}>
+    <View activeOpacity={0.5} style={styles.itemCon}>
       <Image source={{uri: item.slider}} style={styles.imageStyle} />
       <View style={styles.buttonsRow}>
         <TouchableOpacity onPress={()=>{onReject(1)}}>
@@ -33,7 +33,10 @@ const CarouselItem = ({item, onReject = () => {}, onLove = () => {}, onRefresh =
         <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
         <Text style={{fontSize:10, color:'#e1e1e1'}}>5 miles away</Text>
       </View>
-    </TouchableOpacity>
+
+      <View style={{backgroundColor:'#fd869f', marginHorizontal:50, top:-30, width:'100%'}}/>
+      <View style={{backgroundColor:'#fdeef2', marginHorizontal:50, top:-10, width:'100%'}}/>
+    </View>
     
   );
 };
