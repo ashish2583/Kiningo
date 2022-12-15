@@ -95,14 +95,16 @@ const DatingChat = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:'100%',marginHorizontal:5, marginBottom:20}}>
-                        <View style={{flexDirection:'row', width:'80%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
-                          <Image source={item.me ? image2: image1} style={{width:30, height:30}}/>
-                          <View style={{width:'100%'}}>
+                        <View style={{width:'80%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
+                          {/* <Image source={item.me ? image2: image1} style={{width:30, height:30}}/> */}
+                          {/* <View style={{width:'100%'}}> */}
                             <View style={item.me ? styles.rightChatView : styles.leftChatView}>
-                              <Text style={item.me ? styles.rightMessage : styles.leftMessage}>{item.message}</Text>
+                              <View style={{backgroundColor: item.me ? '#e42f5e' : '#fff', marginLeft:10, padding:10, borderRadius:15,}}>
+                                <Text style={item.me ? styles.rightMessage : styles.leftMessage}>{item.message}</Text>
+                              </View>
+                                <Text style={{fontSize:10, fontWeight:'400', color:'#e42f5e', marginTop:2, textAlign:'right'}}>{item.time}</Text>
                             </View>
-                            <Text style={{fontSize:10, fontWeight:'400', color:'#e42f5e', marginLeft:10, marginTop:2}}>{item.time}</Text>
-                          </View>
+                          {/* </View> */}
                         </View>
                       </View>
                     )
@@ -176,20 +178,17 @@ const styles = StyleSheet.create({
   },
   leftChatView:{
     width:'85%',
-    backgroundColor:'#fff', 
-    marginLeft:10, 
-    padding:10, 
-    borderRadius:15, 
+    // marginLeft:10, 
+    // padding:10, 
+    // borderRadius:15, 
     marginRight:'auto'
   },
   rightChatView:{
     width:'85%',
-    backgroundColor:'#fff', 
-    marginLeft:10, 
-    padding:10, 
-    borderRadius:15, 
+    // marginLeft:10, 
+    // padding:10, 
+    // borderRadius:15, 
     marginRight:'auto',
-    backgroundColor:'#e42f5e'
   },
   leftMessage:{
     fontSize:13, 
