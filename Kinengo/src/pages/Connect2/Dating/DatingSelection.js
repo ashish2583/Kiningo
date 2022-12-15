@@ -93,6 +93,7 @@ const PeopleHome = (props) => {
  }
  const onLove = (id) => {
   console.log('id loved', id);
+  props.navigation.navigate('DatingMessages')
  }
  const onRefresh = (id) => {
   console.log('id refreshed', id);
