@@ -144,9 +144,14 @@ const DatingChat = (props) => {
     style={styles.input}
     multiline
   />
-  <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
-    <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
-  </TouchableOpacity>
+    <View style={{flexDirection:'row', alignItems:'center', flex:2}}>
+        <TouchableOpacity onPress={sendMessage} style={styles.cameraButtonView}>
+            <Image source={require('../../../assets/dating-camera-icon.png')}/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
+            <Image source={require('../../../assets/dating-send-icon.png')}/>
+        </TouchableOpacity>
+    </View>
   </View>
     </SafeAreaView>
      );
@@ -178,10 +183,17 @@ const styles = StyleSheet.create({
     flex: 7
   },
   sendButtonView:{
-    backgroundColor:'#0089CF', 
+    backgroundColor:'#fee3e3', 
     paddingHorizontal:30, 
     paddingVertical:10, 
     borderRadius:20,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  cameraButtonView:{
+    paddingHorizontal:20, 
+    paddingVertical:10, 
     flex:1,
     justifyContent:'center',
     alignItems:'center'
