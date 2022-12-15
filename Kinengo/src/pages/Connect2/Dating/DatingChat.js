@@ -94,18 +94,28 @@ const DatingChat = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:'100%',marginHorizontal:5, marginBottom:20}}>
-                        <View style={{width:'80%', alignSelf: item.me ? 'flex-end' : 'flex-start'}}>
-                          {/* <Image source={item.me ? image2: image1} style={{width:30, height:30}}/> */}
-                          {/* <View style={{width:'100%'}}> */}
-                            <View style={item.me ? styles.rightChatView : styles.leftChatView}>
-                              <View style={{backgroundColor: item.me ? '#e42f5e' : '#fff', marginLeft:10, padding:10, borderRadius:15,}}>
-                                <Text style={item.me ? styles.rightMessage : styles.leftMessage}>{item.message}</Text>
+                      <View style={{width:'100%', marginBottom:20}}>
+                        {item.me ?
+                        <View style={{flexDirection:'row'}}>
+                            <View style={{flex:2.5}}/>
+                            <View style={{flex:5.5}}>
+                            <View style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,}}>
+                                <Text style={styles.rightMessage}>{item.message}</Text>
                               </View>
                                 <Text style={{fontSize:10, fontWeight:'400', color:'#e42f5e', marginTop:2, textAlign:'right'}}>{item.time}</Text>
                             </View>
-                          {/* </View> */}
                         </View>
+                        :
+                        <View style={{flexDirection:'row'}}>
+                            <View style={{flex:5.5}}>
+                            <View style={{backgroundColor: '#fff', marginLeft:10, padding:10, borderRadius:15,}}>
+                                <Text style={styles.leftMessage}>{item.message}</Text>
+                              </View>
+                                <Text style={{fontSize:10, fontWeight:'400', color:'#e42f5e', marginTop:2, textAlign:'right'}}>{item.time}</Text>
+                            </View>
+                            <View style={{flex:2.5}}/>
+                        </View>
+                        }
                       </View>
                     )
                   }}
@@ -175,20 +185,6 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center'
-  },
-  leftChatView:{
-    width:'85%',
-    // marginLeft:10, 
-    // padding:10, 
-    // borderRadius:15, 
-    marginRight:'auto'
-  },
-  rightChatView:{
-    width:'85%',
-    // marginLeft:10, 
-    // padding:10, 
-    // borderRadius:15, 
-    marginRight:'auto',
   },
   leftMessage:{
     fontSize:13, 
