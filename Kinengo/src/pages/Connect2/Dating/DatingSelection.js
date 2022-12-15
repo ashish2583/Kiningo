@@ -90,6 +90,7 @@ const PeopleHome = (props) => {
 
  const onReject = (id) => {
   console.log('id rejected', id);
+  props.navigation.navigate('DatingChat')
  }
  const onLove = (id) => {
   console.log('id loved', id);
