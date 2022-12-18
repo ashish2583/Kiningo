@@ -95,9 +95,10 @@ const PeopleHome = (props) => {
  const onLove = (id) => {
   console.log('id loved', id);
   props.navigation.navigate('DatingMessages')
- }
- const onRefresh = (id) => {
+}
+const onRefresh = (id) => {
   console.log('id refreshed', id);
+  props.navigation.navigate('DatingEditProfile')
  }
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
