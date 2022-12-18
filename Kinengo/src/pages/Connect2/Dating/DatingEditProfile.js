@@ -71,15 +71,15 @@ const DatingEditProfile = (props) => {
 
 <View style={styles.topContainer}>
   <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
-  <View style={{flexDirection:'row'}}>
-    <View style={{flexDirection:'row', alignItems:"center"}}>
+  <View style={styles.contactUsContainer}>
+    <View style={styles.contactUsSubContainer}>
       <Image source={require('../../../assets/dating-email-icon.png')}/>
-      <View>
+      <View style={{}}>
         <Text style={styles.contactText}>Email</Text>
         <Text style={styles.contactValue}>john.doe@gmail.com</Text>
       </View>
     </View>
-    <View style={{flexDirection:'row', alignItems:"center"}}>
+    <View style={styles.contactUsSubContainer}>
       <Image source={require('../../../assets/dating-phone-icon.png')}/>
       <View>
         <Text style={styles.contactText}>Phone</Text>
@@ -173,9 +173,19 @@ const styles = StyleSheet.create({
   },
   topContainer:{
     backgroundColor:'#fff', 
-    padding:10, 
+    // padding:10, 
     borderRadius:10, 
     marginTop:80
+  },
+  contactUsContainer:{
+    flexDirection:'row', 
+    // justifyContent:'space-around',
+    top:-60
+  },
+  contactUsSubContainer:{
+    flexDirection:'row', 
+    alignItems:"center",
+    flex:1
   },
   profilePictureStyle:{
     alignSelf:'center', 
