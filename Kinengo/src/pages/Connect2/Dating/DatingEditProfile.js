@@ -93,7 +93,17 @@ const DatingEditProfile = (props) => {
       </View>
     </View>
   </View>
-</View>  
+</View>
+
+<View style={styles.changePasswordContainer}>
+  <View style={{flexDirection:'row', alignItems:'center'}}>
+    <View styles={styles.changePasswordImageView}>
+      <Image source={require('../../../assets/change-password-image.png')} style={styles.changePasswordImage} resizeMode='contain'/>
+    </View>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#4a4c52'}}>Change Password</Text>
+  </View>
+  <Image source={require('../../../assets/change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/>
+</View>
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 </View>
 
@@ -233,6 +243,27 @@ const styles = StyleSheet.create({
     lineHeight:15, 
     color:'#4a4c52', 
     fontWeight:'bold'
+  },
+  changePasswordContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    backgroundColor:'#fff0f0',
+    margin: 10
+  },
+  changePasswordImageView:{
+    justifyContent:'center',
+    alignItems:'center',
+    width:50,
+    height:50,
+    borderRadius:25,
+    backgroundColor:'#ff3b7f'
+  },
+  changePasswordImage:{
+    width:40,
+    height:40,
+    // borderRadius:25,
+    // backgroundColor:'#ff3b7f'
   },
 });
 export default DatingEditProfile 
