@@ -267,8 +267,6 @@ const styles = StyleSheet.create({
   changePasswordImage:{
     width:40,
     height:40,
-    // borderRadius:25,
-    // backgroundColor:'#ff3b7f'
   },
 });
 export default DatingEditProfile 
