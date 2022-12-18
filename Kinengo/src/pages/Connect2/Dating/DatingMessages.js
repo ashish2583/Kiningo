@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     height:onlineDotWidth, 
     position:'absolute', 
     borderRadius:onlineDotWidth/2, 
-    left:onlinePersonImageWidth-18, 
+    left:onlinePersonImageWidth-8, 
     top:onlinePersonImageWidth/10, 
     borderWidth:2, 
     borderColor:'#fff'
