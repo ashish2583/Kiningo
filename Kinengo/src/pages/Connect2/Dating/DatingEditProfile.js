@@ -184,14 +184,15 @@ const styles = StyleSheet.create({
     marginTop:80
   },
   contactUsContainer:{
-    flexDirection:'row', 
-    // justifyContent:'space-around',
-    top:-60
+    flexDirection:'row',
+    alignItems:'center', 
+    justifyContent:'space-between',
+    top:-60,
+    marginHorizontal:20
   },
   contactUsSubContainer:{
     flexDirection:'row', 
     alignItems:"center",
-    flex:1
   },
   profilePictureStyle:{
     alignSelf:'center', 
