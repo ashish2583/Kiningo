@@ -29,28 +29,28 @@ const DatingMessages = (props) => {
       name: 'Chetan Manne',
       isOnline: true,
       message:'Reference site about lorem...',
-      img: require('../../../assets/comment-person-image.png'),
+      img: require('../../../assets/dating-message-image.png'),
     },
     {
       id: '1',
       name: 'Chetan Manne',
       isOnline: false,
       message:'Reference site about lorem...',
-      img: require('../../../assets/comment-person-image.png'),
+      img: require('../../../assets/dating-message-image.png'),
     },
     {
       id: '1',
       name: 'Chetan Manne',
       isOnline: true,
       message:'Reference site about lorem...',
-      img: require('../../../assets/comment-person-image.png'),
+      img: require('../../../assets/dating-message-image.png'),
     },
     {
       id: '1',
       name: 'Chetan Manne',
       isOnline: false ,
       message:'Reference site about lorem...',
-      img: require('../../../assets/comment-person-image.png'),
+      img: require('../../../assets/dating-message-image.png'),
     },
   ])
 
@@ -83,7 +83,7 @@ const DatingMessages = (props) => {
                         >
                         {/* <View style={styles.flatlistMainView}> */}
                           <View style={{flex:1}}>
-                            <Image source={item.img} style={styles.onlinePerson} resizeMode='contain' />
+                            <Image source={item.img} style={styles.onlinePerson} />
                             {item.isOnline ?
                             <View style={styles.onlineDot}/>
                             :null}  
@@ -168,7 +168,11 @@ const styles = StyleSheet.create({
   },
   onlinePerson:{
     width:onlinePersonImageWidth, 
-    height:onlinePersonImageWidth
+    height:onlinePersonImageWidth,
+    borderRadius: onlinePersonImageWidth/2,
+    borderWidth:2,
+    borderColor:'#e1194d',
+    height:40, width:40, borderRadius:20, borderColor:'#e42f5e', borderWidth:2
   },
   onlineDot: {
     backgroundColor:'#29913C', 
@@ -176,7 +180,7 @@ const styles = StyleSheet.create({
     height:onlineDotWidth, 
     position:'absolute', 
     borderRadius:onlineDotWidth/2, 
-    left:onlinePersonImageWidth-8, 
+    left:onlinePersonImageWidth-18, 
     top:onlinePersonImageWidth/10, 
     borderWidth:2, 
     borderColor:'#fff'
