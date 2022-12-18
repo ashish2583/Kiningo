@@ -72,16 +72,22 @@ const DatingEditProfile = (props) => {
 <View style={styles.topContainer}>
   <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
   <View style={styles.contactUsContainer}>
+   
     <View style={styles.contactUsSubContainer}>
-      <Image source={require('../../../assets/dating-email-icon.png')}/>
-      <View style={{}}>
+      <View style={styles.contactImageView}>
+        <Image source={require('../../../assets/dating-email-icon.png')} style={styles.contactImage} resizeMode='contain'/>
+      </View>
+      <View style={{marginLeft:10}}>
         <Text style={styles.contactText}>Email</Text>
         <Text style={styles.contactValue}>john.doe@gmail.com</Text>
       </View>
     </View>
+    
     <View style={styles.contactUsSubContainer}>
-      <Image source={require('../../../assets/dating-phone-icon.png')}/>
-      <View>
+      <View style={styles.contactImageView}>
+        <Image source={require('../../../assets/dating-phone-icon.png')} style={styles.contactImage} resizeMode='contain'/>
+      </View>
+      <View style={{marginLeft:10}}>
         <Text style={styles.contactText}>Phone</Text>
         <Text style={styles.contactValue}>+1 1234567890</Text>
       </View>
@@ -195,6 +201,26 @@ const styles = StyleSheet.create({
     top:-(60+10), 
     borderWidth:7, 
     borderColor:'#fff'
+  },
+  contactImageView:{
+    justifyContent:'center', 
+    alignItems:'center', 
+    backgroundColor:'#fff', 
+    width:50, 
+    height:50, 
+    borderRadius:25,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 2,
+  },
+  contactImage:{
+    width:30,
+    height:30
   },
   contactText:{
     fontSize:10, 
