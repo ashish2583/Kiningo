@@ -172,7 +172,6 @@ const styles = StyleSheet.create({
     borderRadius: onlinePersonImageWidth/2,
     borderWidth:2,
     borderColor:'#e1194d',
-    height:40, width:40, borderRadius:20, borderColor:'#e42f5e', borderWidth:2
   },
   onlineDot: {
     backgroundColor:'#29913C', 
