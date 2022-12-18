@@ -95,6 +95,25 @@ const DatingEditProfile = (props) => {
   </View>
 </View>
 
+{/* dating-edit-image.png
+dating-logout-image.png */}
+<View style={{flexDirection:'row', alignItems:'center'}}>
+  
+  <View>
+    <View style={styles.buttonView}>
+      <Image/>
+    </View>
+    <Text style={{fontSize:10, lineHeight:15, color:'#282727'}}>Logout</Text>
+  </View>
+  
+  <View>
+    <View style={styles.buttonView}>
+      <Image/>
+    </View>
+    <Text style={{fontSize:10, lineHeight:15, color:'#282727'}}>Edit</Text>
+  </View>
+</View>
+
 <View style={styles.changePasswordContainer}>
   <View style={styles.changePasswordLeftSubContainer}>
     <View styles={styles.changePasswordImageView}>
@@ -267,6 +286,22 @@ const styles = StyleSheet.create({
   changePasswordImage:{
     width:40,
     height:40,
+  },
+  buttonView:{
+    justifyContent:'center', 
+    alignItems:'center', 
+    backgroundColor:'#fff', 
+    width:50, 
+    height:50, 
+    borderRadius:25,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 2,
   },
 });
 export default DatingEditProfile 
