@@ -96,11 +96,11 @@ const DatingEditProfile = (props) => {
 </View>
 
 <View style={styles.changePasswordContainer}>
-  <View style={{flexDirection:'row', alignItems:'center'}}>
+  <View style={styles.changePasswordLeftSubContainer}>
     <View styles={styles.changePasswordImageView}>
       <Image source={require('../../../assets/dating-change-password-image.png')} style={styles.changePasswordImage} resizeMode='contain'/>
     </View>
-    <Text style={{fontSize:10, fontWeight:'bold', color:'#4a4c52'}}>Change Password</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#4a4c52', marginLeft:10}}>Change Password</Text>
   </View>
   <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/>
 </View>
@@ -249,7 +249,12 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'space-between',
     backgroundColor:'#fff0f0',
-    margin: 10
+    padding: 10,
+    height:80
+  },
+  changePasswordLeftSubContainer:{
+    flexDirection:'row', 
+    alignItems:'center'
   },
   changePasswordImageView:{
     justifyContent:'center',
