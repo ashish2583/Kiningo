@@ -16,7 +16,7 @@ const image1 = require('../../../assets/people-following-person.png')
 const onlinePersonImageWidth = 50
 const onlineDotWidth = 12
 
-const DatingEditProfile = (props) => {
+const DatingProfile = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -63,7 +63,7 @@ const DatingEditProfile = (props) => {
     <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
   <View style={{flex:3, flexDirection:'row', justifyContent:'center'}}>
-      <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Edit Profile</Text>
+      <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Profile</Text>
   </View>
   <View style={{flex:1}}/>
 </View>
@@ -344,4 +344,4 @@ const styles = StyleSheet.create({
     height:20
   },
 });
-export default DatingEditProfile 
+export default DatingProfile 
