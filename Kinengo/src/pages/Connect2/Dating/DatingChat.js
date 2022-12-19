@@ -81,8 +81,8 @@ const DatingChat = (props) => {
   <TouchableOpacity onPress={()=>{props.navigation.goBack()}}>
     <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
-  <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
-  <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
+  <Image source={image1} style={{marginLeft:10, height:40, width:40, borderRadius:40/2, borderWidth:2, borderColor:'e42f5e'}}/>
+  <Text style={{fontSize:12.5, fontWeight:'bold', color:'#4a4c52', marginLeft:10}}>Aryav Nadkarni</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
