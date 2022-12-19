@@ -79,7 +79,7 @@ const DatingChat = (props) => {
       <ScrollView>
 <View style={{flexDirection:'row', alignItems:'center', height:80, backgroundColor:'#fff',padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
   <TouchableOpacity onPress={()=>{props.navigation.goBack()}}>
-    <Image source={require('../../../assets/events_arrow.png')} style={{width:25, height:20}}/>
+    <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
   <Image source={image1} style={{marginLeft:10, height:28, width:28}}/>
   <Text style={{fontSize:14, fontWeight:'600', color:'#455A64', marginLeft:10}}>Aryav Nadkarni</Text>
