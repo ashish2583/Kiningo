@@ -96,7 +96,22 @@ const DatingEditProfile = (props) => {
     </View>
   </ImageBackground>
 {/* </View> */}
-
+{/* dating-liked-by-image.png
+dating-matched-with-image.png */}
+<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#e42f5e'}}>
+  <View style={{flexDirection:'row', alignItems:'center'}}>
+    <View style={styles.buttonView}>
+      <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.buttonImage}/>
+    </View>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Liked by {'\n'}55%</Text>
+  </View>
+  <View style={{flexDirection:'row', alignItems:'center'}}>
+    <View style={styles.buttonView}>
+      <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.buttonImage}/>
+    </View>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Matched with {'\n'}75%</Text>
+  </View>
+</View>
 {/* dating-edit-image.png
 dating-logout-image.png */}
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:20}}>
