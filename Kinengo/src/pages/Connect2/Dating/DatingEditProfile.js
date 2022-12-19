@@ -99,7 +99,7 @@ const DatingEditProfile = (props) => {
 {/* </View> */}
 {/* dating-liked-by-image.png
 dating-matched-with-image.png */}
-<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginHorizontal:20, height:100}}>
+<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginHorizontal:30, height:100}}>
   <View style={{flexDirection:'row', alignItems:'center'}}>
     <View style={styles.likeView}>
       <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage} resizeMode='contain'/>
