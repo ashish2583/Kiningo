@@ -103,13 +103,13 @@ dating-matched-with-image.png */}
     <View style={styles.likeView}>
       <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage} resizeMode='contain'/>
     </View>
-    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Liked by {'\n'}55%</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff', marginLeft:10}}>Liked by {'\n'}55%</Text>
   </View>
   <View style={{flexDirection:'row', alignItems:'center'}}>
     <View style={styles.likeView}>
       <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.likeImage} resizeMode='contain'/>
     </View>
-    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Matched with {'\n'}75%</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#fff', marginLeft:10}}>Matched with {'\n'}75%</Text>
   </View>
 </View>
 {/* dating-edit-image.png
@@ -328,9 +328,9 @@ const styles = StyleSheet.create({
     justifyContent:'center', 
     alignItems:'center', 
     backgroundColor:'#fff', 
-    width:60, 
-    height:60, 
-    borderRadius:30,
+    width:50, 
+    height:50, 
+    borderRadius:25,
   },
   likeImage:{
     width:30,
