@@ -100,14 +100,14 @@ const DatingEditProfile = (props) => {
 dating-matched-with-image.png */}
 <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#e42f5e'}}>
   <View style={{flexDirection:'row', alignItems:'center'}}>
-    <View style={styles.buttonView}>
-      <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.buttonImage}/>
+    <View style={styles.likeView}>
+      <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage}/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Liked by {'\n'}55%</Text>
   </View>
   <View style={{flexDirection:'row', alignItems:'center'}}>
-    <View style={styles.buttonView}>
-      <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.buttonImage}/>
+    <View style={styles.likeView}>
+      <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.likeImage}/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Matched with {'\n'}75%</Text>
   </View>
@@ -323,6 +323,26 @@ const styles = StyleSheet.create({
   buttonImage:{
     width:30,
     height:30
-  }
+  },
+  likeView:{
+    justifyContent:'center', 
+    alignItems:'center', 
+    backgroundColor:'#fff', 
+    width:60, 
+    height:60, 
+    borderRadius:30,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width:0,
+      height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 2,
+  },
+  likeImage:{
+    width:30,
+    height:30
+  },
 });
 export default DatingEditProfile 
