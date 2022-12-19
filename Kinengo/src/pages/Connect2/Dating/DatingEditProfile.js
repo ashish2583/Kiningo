@@ -101,13 +101,13 @@ dating-matched-with-image.png */}
 <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#e42f5e'}}>
   <View style={{flexDirection:'row', alignItems:'center'}}>
     <View style={styles.likeView}>
-      <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage}/>
+      <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage} resizeMode='contain'/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Liked by {'\n'}55%</Text>
   </View>
   <View style={{flexDirection:'row', alignItems:'center'}}>
     <View style={styles.likeView}>
-      <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.likeImage}/>
+      <Image source={require('../../../assets/dating-matched-with-image.png')} style={styles.likeImage} resizeMode='contain'/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#fff'}}>Matched with {'\n'}75%</Text>
   </View>
@@ -118,14 +118,14 @@ dating-logout-image.png */}
   
   <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
-      <Image source={require('../../../assets/dating-edit-image.png')} style={styles.buttonImage}/>
+      <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Logout</Text>
   </View>
   
   <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
-    <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
+    <Image source={require('../../../assets/dating-edit-image.png')} style={styles.buttonImage}/>
     </View>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Edit</Text>
   </View>
@@ -331,14 +331,6 @@ const styles = StyleSheet.create({
     width:60, 
     height:60, 
     borderRadius:30,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width:0,
-      height:3
-    }, 
-    shadowRadius: 5,
-    shadowOpacity: 0.05,
-    elevation: 2,
   },
   likeImage:{
     width:30,
