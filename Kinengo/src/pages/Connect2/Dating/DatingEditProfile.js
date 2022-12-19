@@ -70,6 +70,7 @@ const DatingEditProfile = (props) => {
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
 {/* <View style={styles.topContainer}> */}
+<View style={{width:'100%', backgroundColor:'#e42f5e'}}>
   <ImageBackground source={require('../../../assets/dating-edit-profile-top-image.png')} style={{width:'100%', height:220, marginTop:80}}>
     <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
     <View style={styles.contactUsContainer}>
@@ -98,7 +99,7 @@ const DatingEditProfile = (props) => {
 {/* </View> */}
 {/* dating-liked-by-image.png
 dating-matched-with-image.png */}
-<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', backgroundColor:'#e42f5e'}}>
+<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',marginHorizontal:20}}>
   <View style={{flexDirection:'row', alignItems:'center'}}>
     <View style={styles.likeView}>
       <Image source={require('../../../assets/dating-liked-by-image.png')} style={styles.likeImage} resizeMode='contain'/>
@@ -114,8 +115,8 @@ dating-matched-with-image.png */}
 </View>
 {/* dating-edit-image.png
 dating-logout-image.png */}
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:20}}>
-  
+<ImageBackground source={require('../../../assets/dating-edit-profile-bottom-image.png')} style={{width:'100%', height:220,marginTop:50}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:40}}>
   <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
       <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
@@ -130,7 +131,6 @@ dating-logout-image.png */}
     <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Edit</Text>
   </View>
 </View>
-
 <View style={styles.changePasswordContainer}>
   <View style={styles.changePasswordLeftSubContainer}>
     <View style={styles.changePasswordImageView}>
@@ -140,6 +140,11 @@ dating-logout-image.png */}
   </View>
   <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/>
 </View>
+  </ImageBackground> 
+
+
+</View>
+
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 </View>
 
@@ -286,6 +291,8 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     backgroundColor:'#fff0f0',
     padding: 10,
+    marginHorizontal:10,
+    marginTop:40
     // height:120
   },
   changePasswordLeftSubContainer:{
