@@ -116,7 +116,7 @@ dating-matched-with-image.png */}
 {/* dating-edit-image.png
 dating-logout-image.png */}
 <ImageBackground source={require('../../../assets/dating-edit-profile-bottom-image.png')} style={{width:'100%', height:220,}}>
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:40}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:40, top:-10}}>
   <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
       <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
