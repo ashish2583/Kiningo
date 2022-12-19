@@ -69,31 +69,33 @@ const DatingEditProfile = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
-<View style={styles.topContainer}>
-  <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
-  <View style={styles.contactUsContainer}>
-   
-    <View style={styles.contactUsSubContainer}>
-      <View style={styles.contactImageView}>
-        <Image source={require('../../../assets/dating-email-icon.png')} style={styles.contactImage} resizeMode='contain'/>
-      </View>
-      <View style={{marginLeft:10}}>
-        <Text style={styles.contactText}>Email</Text>
-        <Text style={styles.contactValue}>john.doe@gmail.com</Text>
-      </View>
-    </View>
+{/* <View style={styles.topContainer}> */}
+  <ImageBackground source={require('../../../assets/dating-edit-profile-top-image.png')} style={{width:'100%', height:220, marginTop:80}}>
+    <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
+    <View style={styles.contactUsContainer}>
     
-    <View style={styles.contactUsSubContainer}>
-      <View style={styles.contactImageView}>
-        <Image source={require('../../../assets/dating-phone-icon.png')} style={styles.contactImage} resizeMode='contain'/>
+      <View style={styles.contactUsSubContainer}>
+        <View style={styles.contactImageView}>
+          <Image source={require('../../../assets/dating-email-icon.png')} style={styles.contactImage} resizeMode='contain'/>
+        </View>
+        <View style={{marginLeft:10}}>
+          <Text style={styles.contactText}>Email</Text>
+          <Text style={styles.contactValue}>john.doe@gmail.com</Text>
+        </View>
       </View>
-      <View style={{marginLeft:10}}>
-        <Text style={styles.contactText}>Phone</Text>
-        <Text style={styles.contactValue}>+1 1234567890</Text>
+      
+      <View style={styles.contactUsSubContainer}>
+        <View style={styles.contactImageView}>
+          <Image source={require('../../../assets/dating-phone-icon.png')} style={styles.contactImage} resizeMode='contain'/>
+        </View>
+        <View style={{marginLeft:10}}>
+          <Text style={styles.contactText}>Phone</Text>
+          <Text style={styles.contactValue}>+1 1234567890</Text>
+        </View>
       </View>
     </View>
-  </View>
-</View>
+  </ImageBackground>
+{/* </View> */}
 
 {/* dating-edit-image.png
 dating-logout-image.png */}
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center', 
     justifyContent:'space-between',
-    top:-60,
+    top:-40,
     marginHorizontal:20
   },
   contactUsSubContainer:{
