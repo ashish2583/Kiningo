@@ -20,7 +20,7 @@ const DatingEditProfile = (props) => {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [userMessage, setUserMessage] = useState('')
-  const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
+  const [multiSliderValue, setMultiSliderValue] = useState([18, 60])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedPassions, setSelectedPassions] = useState(['90s Kid', 'Festival', 'Travelling'])
   const [showMeValue, setShowMeValue] = useState(0)
