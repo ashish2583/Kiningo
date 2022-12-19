@@ -101,11 +101,11 @@ const PeopleHome = (props) => {
   </View>
 
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth, marginTop:10}}/>  
-  <HomeHeader height={40}  paddingHorizontal={15}
+  <HomeHeader height={40}  paddingHorizontal={0}
    press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
    press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
-  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth,marginTop:10}}/>  
+  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>  
 
   <View style={{}}>
     <Image source={require('../../../assets/dating-home-big-image.png')} style={{alignSelf:'center', width:350, height:300, marginTop:40}}/>
