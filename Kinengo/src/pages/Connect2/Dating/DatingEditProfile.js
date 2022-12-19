@@ -124,15 +124,16 @@ const DatingEditProfile = (props) => {
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10}}>
   <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>Age preference</Text>
-  <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>18-24</Text>
+  <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>{`${multiSliderValue[0]}-${multiSliderValue[1]}`}</Text>
 </View>
-<MultiSlider
-            // values={[multiSliderValue[0], multiSliderValue[1]]}
-            values={[multiSliderValue[0]]}
+<View style={{alignItems:'center'}}>
+  <MultiSlider
+            values={[multiSliderValue[0], multiSliderValue[1]]}
+            // values={[multiSliderValue[0]]}
             sliderLength={320}
             onValuesChange={multiSliderValuesChange}
-            min={0}
-            max={100}
+            min={18}
+            max={60}
             step={1}
             allowOverlap={false}
             minMarkerOverlapDistance={10}
@@ -182,6 +183,7 @@ const DatingEditProfile = (props) => {
               slipDisplacement: 40
             }}
             />
+     </View>       
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 </View>
 
