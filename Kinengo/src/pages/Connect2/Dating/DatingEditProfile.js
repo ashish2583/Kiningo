@@ -103,14 +103,14 @@ dating-logout-image.png */}
     <View style={styles.buttonView}>
       <Image source={require('../../../assets/dating-edit-image.png')} style={styles.buttonImage}/>
     </View>
-    <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginTop:10}}>Logout</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Logout</Text>
   </View>
   
   <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
     <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
     </View>
-    <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginTop:10}}>Edit</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Edit</Text>
   </View>
 </View>
 
@@ -119,7 +119,7 @@ dating-logout-image.png */}
     <View style={styles.changePasswordImageView}>
       <Image source={require('../../../assets/dating-change-password-image.png')} style={styles.changePasswordImage} resizeMode='contain'/>
     </View>
-    <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginLeft:10}}>Change Password</Text>
+    <Text style={{fontSize:10, fontWeight:'bold', color:'#4a4c52', marginLeft:10}}>Change Password</Text>
   </View>
   <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/>
 </View>
