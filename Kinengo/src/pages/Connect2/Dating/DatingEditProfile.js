@@ -97,20 +97,20 @@ const DatingEditProfile = (props) => {
 
 {/* dating-edit-image.png
 dating-logout-image.png */}
-<View style={{flexDirection:'row', alignItems:'center'}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:20}}>
   
-  <View>
+  <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
-      <Image/>
+      <Image source={require('../../../assets/dating-edit-image.png')} style={styles.buttonImage}/>
     </View>
-    <Text style={{fontSize:10, lineHeight:15, color:'#282727'}}>Logout</Text>
+    <Text style={{fontSize:10, lineHeight:15, color:'#282727', marginTop:10}}>Logout</Text>
   </View>
   
-  <View>
+  <View style={{alignItems:'center'}}>
     <View style={styles.buttonView}>
-      <Image/>
+    <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
     </View>
-    <Text style={{fontSize:10, lineHeight:15, color:'#282727'}}>Edit</Text>
+    <Text style={{fontSize:10, lineHeight:15, color:'#282727', marginTop:10}}>Edit</Text>
   </View>
 </View>
 
@@ -291,9 +291,9 @@ const styles = StyleSheet.create({
     justifyContent:'center', 
     alignItems:'center', 
     backgroundColor:'#fff', 
-    width:50, 
-    height:50, 
-    borderRadius:25,
+    width:60, 
+    height:60, 
+    borderRadius:30,
     shadowColor: '#000000',
     shadowOffset: {
       width:0,
@@ -303,5 +303,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     elevation: 2,
   },
+  buttonImage:{
+    width:30,
+    height:30
+  }
 });
 export default DatingEditProfile 
