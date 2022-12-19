@@ -70,7 +70,7 @@ const DatingEditProfile = (props) => {
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
 {/* <View style={styles.topContainer}> */}
-<View style={{width:'100%', backgroundColor:'#e42f5e'}}>
+<View style={{width:'100%', backgroundColor:'#ff3b7f'}}>
   <ImageBackground source={require('../../../assets/dating-edit-profile-top-image.png')} style={{width:'100%', height:220, marginTop:80}}>
     <Image source={require('../../../assets/dating-message-image.png')} style={styles.profilePictureStyle}/>
     <View style={styles.contactUsContainer}>
