@@ -60,7 +60,7 @@ const DatingEditProfile = (props) => {
       <ScrollView>
 <View style={{flexDirection:'row', alignItems:'center', height:80, backgroundColor:'#fff',padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
   <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{flex:1}}>
-    <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:15, height:10}}/>
+    <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
   <View style={{flex:3, flexDirection:'row', justifyContent:'center'}}>
       <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Edit Profile</Text>
