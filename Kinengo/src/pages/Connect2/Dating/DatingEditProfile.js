@@ -101,21 +101,21 @@ const DatingEditProfile = (props) => {
   <TouchableOpacity onPress={()=>{changeShowMeValue(0)}} style={[styles.showMeView , {backgroundColor: showMeValue === 0 ? '#fff1f6': '#fff', borderColor: showMeValue === 0 ? '#ff3b7f' : '#e3d0d7'}]}>
     <Text style={styles.showMeText}>Men</Text>
     <View style={[styles.showMeImageView, {backgroundColor: showMeValue === 0 ? '#ff3b7f' : '#e3d0d7'}]}>
-      <Image source={require('../../../assets/dating-selected-arrow.png')} style={{height:20, width:20}} resizeMode='contain'/> 
+      <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
     </View>
   </TouchableOpacity>
   
-  <TouchableOpacity onPress={()=>{changeShowMeValue(1)}} style={[styles.showMeView , {backgroundColor: showMeValue === 1 ? '#fff1f6': '#fff', borderColor: showMeValue === 1 ? '#ff3b7f' : '#e3d0d7'}]}>
+  <TouchableOpacity onPress={()=>{changeShowMeValue(1)}} style={[styles.showMeView , {marginLeft:10, backgroundColor: showMeValue === 1 ? '#fff1f6': '#fff', borderColor: showMeValue === 1 ? '#ff3b7f' : '#e3d0d7'}]}>
     <Text style={styles.showMeText}>Women</Text>
     <View style={[styles.showMeImageView, {backgroundColor: showMeValue === 1 ? '#ff3b7f' : '#e3d0d7'}]}>
-      <Image source={require('../../../assets/dating-selected-arrow.png')} style={{height:20, width:20}} resizeMode='contain'/> 
+      <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
     </View>
   </TouchableOpacity>
   
-  <TouchableOpacity onPress={()=>{changeShowMeValue(2)}} style={[styles.showMeView , {backgroundColor: showMeValue === 2 ? '#fff1f6': '#fff', borderColor: showMeValue === 2 ? '#ff3b7f' : '#e3d0d7'}]}>
+  <TouchableOpacity onPress={()=>{changeShowMeValue(2)}} style={[styles.showMeView , {marginLeft:10, backgroundColor: showMeValue === 2 ? '#fff1f6': '#fff', borderColor: showMeValue === 2 ? '#ff3b7f' : '#e3d0d7'}]}>
     <Text style={styles.showMeText}>Everyone</Text>
     <View style={[styles.showMeImageView, {backgroundColor: showMeValue === 2 ? '#ff3b7f' : '#e3d0d7'}]}>
-      <Image source={require('../../../assets/dating-selected-arrow.png')} style={{height:20, width:20}} resizeMode='contain'/> 
+      <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
     </View>
   </TouchableOpacity>
 
@@ -153,9 +153,12 @@ const styles = StyleSheet.create({
   },
   showMeView:{
     flexDirection:'row', 
-    alignItems:'center', 
+    alignItems:'center',
+    justifyContent:'space-between',
+    width:'27%', 
     padding:10, 
-    borderRadius:5,
+    // paddingHorizontal:15, 
+    borderRadius:20,
     borderWidth:0.5
   },
   showMeText:{
@@ -165,10 +168,14 @@ const styles = StyleSheet.create({
   showMeImageView:{
     justifyContent:'center', 
     alignItems:'center',
-    height:30, 
-    width:30, 
-    borderRadius:30/2,
+    height:20, 
+    width:20, 
+    borderRadius:20/2,
     marginLeft:10,
+  },
+  showMeImage:{
+    height:15, 
+    width:15
   }
 });
 export default DatingEditProfile 
