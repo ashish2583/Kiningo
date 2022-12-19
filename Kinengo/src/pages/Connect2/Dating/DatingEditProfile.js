@@ -63,6 +63,7 @@ const DatingEditProfile = (props) => {
     setShowMeValue(index)
   }
 
+  const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
@@ -120,6 +121,67 @@ const DatingEditProfile = (props) => {
   </TouchableOpacity>
 
 </View>
+
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10}}>
+  <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>Age preference</Text>
+  <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>18-24</Text>
+</View>
+<MultiSlider
+            // values={[multiSliderValue[0], multiSliderValue[1]]}
+            values={[multiSliderValue[0]]}
+            sliderLength={320}
+            onValuesChange={multiSliderValuesChange}
+            min={0}
+            max={100}
+            step={1}
+            allowOverlap={false}
+            minMarkerOverlapDistance={10}
+            markerStyle={{
+              ...Platform.select({
+                ios: {
+                  height: 30,
+                  width: 30,
+                  shadowColor: '#000000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 3
+                  },
+                  shadowRadius: 1,
+                  shadowOpacity: 0.1,
+                  borderColor:'#ED1C24',
+                  borderWidth:1
+                },
+                android: {
+                  height: 30,
+                  width: 30,
+                  borderRadius: 50,
+                  backgroundColor: '#fff',
+                  borderColor:'#ED1C24',
+                  borderWidth:1
+                }
+              })
+            }}
+            pressedMarkerStyle={{
+              ...Platform.select({
+                android: {
+                  height: 30,
+                  width: 30,
+                  borderRadius: 20,
+                  backgroundColor: '#ED1C24'
+                }
+              })
+            }}
+            selectedStyle={{backgroundColor: '#ED1C24'}}
+            trackStyle={{
+              height:5
+            }}
+            touchDimensions={{
+              height: 40,
+              width: 40,
+              borderRadius: 20,
+              slipDisplacement: 40
+            }}
+            />
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 </View>
 
