@@ -116,9 +116,7 @@ dating-logout-image.png */}
 
 <View style={styles.changePasswordContainer}>
   <View style={styles.changePasswordLeftSubContainer}>
-    <View styles={styles.changePasswordImageView}>
-      <Image source={require('../../../assets/dating-change-password-image.png')} style={styles.changePasswordImage} resizeMode='contain'/>
-    </View>
+    <Image source={require('../../../assets/dating-change-password-image.png')} style={styles.changePasswordImage} resizeMode='contain'/>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#4a4c52', marginLeft:10}}>Change Password</Text>
   </View>
   <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/>
@@ -269,7 +267,7 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     backgroundColor:'#fff0f0',
     padding: 10,
-    height:80
+    // height:120
   },
   changePasswordLeftSubContainer:{
     flexDirection:'row', 
@@ -284,8 +282,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#ff3b7f'
   },
   changePasswordImage:{
-    width:40,
-    height:40,
+    width:100,
+    height:100,
   },
   buttonView:{
     justifyContent:'center', 
