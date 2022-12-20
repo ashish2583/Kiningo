@@ -20,7 +20,7 @@ const DatingEditProfile = (props) => {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [userMessage, setUserMessage] = useState('')
-  const [multiSliderValue, setMultiSliderValue] = useState([18, 60])
+  const [multiSliderValue, setMultiSliderValue] = useState([18, 24])
   const [showPassionsModal, setShowPassionsModal] = useState(false)
   const [selectedPassions, setSelectedPassions] = useState(['90s Kid', 'Festival', 'Travelling'])
   const [allPassions, setAllPassions] = useState(['90s Kid', 'Musicians', 'Maggi', 'Sneakers','Foodie','Yippie','Festival', 'Travelling', 'k-pop'])
@@ -184,6 +184,7 @@ const DatingEditProfile = (props) => {
               })
             }}
             selectedStyle={{backgroundColor: '#f23476'}}
+            unselectedStyle={{backgroundColor: '#e3d0d7', borderColor:'#f23476', borderWidth:0.5}}
             trackStyle={{
               height:5
             }}
