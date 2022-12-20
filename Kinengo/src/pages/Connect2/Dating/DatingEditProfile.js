@@ -195,6 +195,11 @@ const DatingEditProfile = (props) => {
               slipDisplacement: 40
             }}
             />
+
+      <View style={{height:50}} />      
+
+      <MyButtons title="Save" height={60} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{}} marginHorizontal={20} fontSize={11}
+      titlecolor={Mycolors.BG_COLOR}  hLinearColor={['#8d046e', '#e30f50']}/>  
      </View>       
 <View style={{width:'100%',alignSelf:'center',marginTop:20, backgroundColor:'#F8F8F8'}}>
 </View>
