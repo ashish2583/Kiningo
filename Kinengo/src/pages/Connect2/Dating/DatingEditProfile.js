@@ -100,7 +100,7 @@ const DatingEditProfile = (props) => {
        autoCapitalize = 'none'
        style={[styles.input]}
      />
-<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>Passions</Text>
+<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10, marginTop:15}}>Passions</Text>
 <View style={{flexDirection:'row', justifyContent:'space-between', backgroundColor:'#fff1f6', padding:20, borderRadius:10}}>
    <Text style={{fontSize:10, color:'#ff5e96', fontStyle: 'italic'}}>{selectedPassions?.join(', ')}</Text>
    <TouchableOpacity onPress={()=>setShowPassionsModal(true)}>
@@ -108,7 +108,7 @@ const DatingEditProfile = (props) => {
    </TouchableOpacity>
 </View>
 
-<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>Show me</Text>
+<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10, marginTop:15}}>Show me</Text>
 <View style={{flexDirection:'row', alignItems:'center'}}>
   <TouchableOpacity onPress={()=>{changeShowMeValue(0)}} style={[styles.showMeView , {backgroundColor: showMeValue === 0 ? '#fff1f6': '#fff', borderColor: showMeValue === 0 ? '#ff3b7f' : '#e3d0d7'}]}>
     <Text style={styles.showMeText}>Men</Text>
@@ -133,7 +133,7 @@ const DatingEditProfile = (props) => {
 
 </View>
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:15}}>
   <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>Age preference</Text>
   <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>{`${multiSliderValue[0]}-${multiSliderValue[1]}`}</Text>
 </View>
@@ -141,7 +141,7 @@ const DatingEditProfile = (props) => {
   <MultiSlider
             values={[multiSliderValue[0], multiSliderValue[1]]}
             // values={[multiSliderValue[0]]}
-            sliderLength={320}
+            sliderLength={350}
             onValuesChange={multiSliderValuesChange}
             min={18}
             max={60}
