@@ -248,7 +248,7 @@ const DatingEditProfile = (props) => {
                   keyExtractor={item => item.id}
                   renderItem={({item,index})=>{
                     return(
-                      <TouchableOpacity onPress={()=>{changeSelectedPassions(item)}} style={[styles.showMeView , {width:'30%',marginRight:10,backgroundColor: selectedPassions?.includes(item) ? '#fff1f6': '#fff', borderColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
+                      <TouchableOpacity onPress={()=>{changeSelectedPassions(item)}} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,backgroundColor: selectedPassions?.includes(item) ? '#fff1f6': '#fff', borderColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
                         <Text style={styles.showMeText}>{item}</Text>
                         <View style={[styles.showMeImageView, {backgroundColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
                           <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
