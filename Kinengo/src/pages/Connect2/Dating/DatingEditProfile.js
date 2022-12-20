@@ -23,7 +23,7 @@ const DatingEditProfile = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([18, 60])
   const [showPassionsModal, setShowPassionsModal] = useState(false)
   const [selectedPassions, setSelectedPassions] = useState(['90s Kid', 'Festival', 'Travelling'])
-  const [allPassions, setAllPassions] = useState(['90s Kid', 'Musicians', 'Maggi', 'Sneakers','Foodie','Maggi','Festival', 'Travelling', 'k-pop'])
+  const [allPassions, setAllPassions] = useState(['90s Kid', 'Musicians', 'Maggi', 'Sneakers','Foodie','Yippie','Festival', 'Travelling', 'k-pop'])
   const [showMeValue, setShowMeValue] = useState(0)
   const [upData,setupData]=useState([
     {
@@ -62,6 +62,14 @@ const DatingEditProfile = (props) => {
     }
 
     setShowMeValue(index)
+  }
+  const changeSelectedPassions = (value) => {
+    if(selectedPassions?.includes(value)){
+      const updatedData = selectedPassions?.filter(el=>el !== value)
+      setSelectedPassions([...updatedData])
+    }else{
+      setSelectedPassions([...selectedPassions, value])
+    }
   }
 
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
@@ -225,13 +233,30 @@ const DatingEditProfile = (props) => {
           </View>
         
           <View style={{width:'95%',alignSelf:'center'}}>
-              <Text style={{color:'#4a4c52',fontSize:12}}>
-                Select passions that you would like to share. Choose a minimum of 3.
-              </Text>
-              <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:10}}>
-                <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>Passions</Text>
-                <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>{`${selectedPassions?.length} / ${allPassions?.length}`}</Text>
-              </View>
+            <Text style={{color:'#4a4c52',fontSize:12}}>
+              Select passions that you would like to share. Choose a minimum of 3.
+            </Text>
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:10}}>
+              <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>Passions</Text>
+              <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>{`${selectedPassions?.length} / ${allPassions?.length}`}</Text>
+            </View>
+
+            <FlatList
+                  data={allPassions}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={3}
+                  keyExtractor={item => item.id}
+                  renderItem={({item,index})=>{
+                    return(
+                      <TouchableOpacity onPress={()=>{changeSelectedPassions(item)}} style={[styles.showMeView , {width:'30%',marginRight:10,backgroundColor: selectedPassions?.includes(item) ? '#fff1f6': '#fff', borderColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
+                        <Text style={styles.showMeText}>{item}</Text>
+                        <View style={[styles.showMeImageView, {backgroundColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
+                          <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
+                        </View>
+                      </TouchableOpacity>
+                    )
+                  }}
+                />
           </View>
 
             {/* <View style={{width:100,height:100}} /> */}
