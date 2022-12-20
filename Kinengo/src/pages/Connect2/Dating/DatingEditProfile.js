@@ -236,9 +236,9 @@ const DatingEditProfile = (props) => {
             <Text style={{color:'#4a4c52',fontSize:12}}>
               Select passions that you would like to share. Choose a minimum of 3.
             </Text>
-            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:10}}>
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:10, marginBottom:10}}>
               <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>Passions</Text>
-              <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>{`${selectedPassions?.length} / ${allPassions?.length}`}</Text>
+              <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>{`${selectedPassions?.length}/${allPassions?.length}`}</Text>
             </View>
 
             <FlatList
@@ -248,7 +248,7 @@ const DatingEditProfile = (props) => {
                   keyExtractor={item => item.id}
                   renderItem={({item,index})=>{
                     return(
-                      <TouchableOpacity onPress={()=>{changeSelectedPassions(item)}} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,backgroundColor: selectedPassions?.includes(item) ? '#fff1f6': '#fff', borderColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
+                      <TouchableOpacity onPress={()=>{changeSelectedPassions(item)}} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: selectedPassions?.includes(item) ? '#fff1f6': '#fff', borderColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
                         <Text style={styles.showMeText}>{item}</Text>
                         <View style={[styles.showMeImageView, {backgroundColor: selectedPassions?.includes(item) ? '#ff3b7f' : '#e3d0d7'}]}>
                           <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
