@@ -21,8 +21,9 @@ const DatingEditProfile = (props) => {
   const myTextInput = useRef()
   const [userMessage, setUserMessage] = useState('')
   const [multiSliderValue, setMultiSliderValue] = useState([18, 60])
-  const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [showPassionsModal, setShowPassionsModal] = useState(false)
   const [selectedPassions, setSelectedPassions] = useState(['90s Kid', 'Festival', 'Travelling'])
+  const [allPassions, setAllPassions] = useState(['90s Kid', 'Musicians', 'Maggi', 'Sneakers','Foodie','Maggi','Festival', 'Travelling', 'k-pop'])
   const [showMeValue, setShowMeValue] = useState(0)
   const [upData,setupData]=useState([
     {
@@ -94,7 +95,9 @@ const DatingEditProfile = (props) => {
 <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>Passions</Text>
 <View style={{flexDirection:'row', justifyContent:'space-between', backgroundColor:'#fff1f6', padding:20, borderRadius:10}}>
    <Text style={{fontSize:10, color:'#ff5e96', fontStyle: 'italic'}}>{selectedPassions?.join(', ')}</Text>
-   <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/> 
+   <TouchableOpacity onPress={()=>setShowPassionsModal(true)}>
+     <Image source={require('../../../assets/dating-change-password-right-arrow.png')} style={{height:20, width:20,}} resizeMode='contain'/> 
+   </TouchableOpacity>
 </View>
 
 <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>Show me</Text>
@@ -196,7 +199,46 @@ const DatingEditProfile = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
+<Modal
+        isVisible={showPassionsModal}
+        swipeDirection="down"
+        onBackdropPress={()=>setShowPassionsModal(false)}
+        onSwipeComplete={(e) => {
+          setShowPassionsModal(false)
+        }}
+          scrollTo={() => {}}
+          scrollOffset={1}
+          propagateSwipe={true}
+        coverScreen={false}
+        backdropColor='transparent'
+        style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
+      >
+        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+          <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+          
+          <View style={{flexDirection:'row',alignItems:'center', marginBottom:30, marginTop:10}}>
+            <View style={{flex:1}}/>
+            <Text style={{flex:4,color:Mycolors.Black,fontWeight:'500', textAlign:'center'}}>Passions</Text>
+            <TouchableOpacity onPress={()=>setShowPassionsModal(false)} style={{flex:1}}>
+              <Text style={{color:'#FF3B7F',fontWeight:'500', textAlign:'center'}}>Done</Text>
+            </TouchableOpacity>
+          </View>
+        
+          <View style={{width:'95%',alignSelf:'center'}}>
+              <Text style={{color:'#4a4c52',fontSize:12}}>
+                Select passions that you would like to share. Choose a minimum of 3.
+              </Text>
+              <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:10}}>
+                <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>Passions</Text>
+                <Text style={{color:'#4a4c52',fontSize:12, fontWeight:'500'}}>{`${selectedPassions?.length} / ${allPassions?.length}`}</Text>
+              </View>
+          </View>
 
+            {/* <View style={{width:100,height:100}} /> */}
+            </ScrollView>
+           
+            </View>
+</Modal>
     </SafeAreaView>
      );
   }
