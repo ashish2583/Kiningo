@@ -149,15 +149,15 @@ const DatingEditProfile = (props) => {
                   },
                   shadowRadius: 1,
                   shadowOpacity: 0.1,
-                  borderColor:'#ED1C24',
+                  borderColor:'#f23476',
                   borderWidth:1
                 },
                 android: {
                   height: 30,
                   width: 30,
                   borderRadius: 50,
-                  backgroundColor: '#fff',
-                  borderColor:'#ED1C24',
+                  backgroundColor: '#f23476',
+                  borderColor:'#f23476',
                   borderWidth:1
                 }
               })
@@ -168,11 +168,11 @@ const DatingEditProfile = (props) => {
                   height: 30,
                   width: 30,
                   borderRadius: 20,
-                  backgroundColor: '#ED1C24'
+                  backgroundColor: '#f23476'
                 }
               })
             }}
-            selectedStyle={{backgroundColor: '#ED1C24'}}
+            selectedStyle={{backgroundColor: '#f23476'}}
             trackStyle={{
               height:5
             }}
