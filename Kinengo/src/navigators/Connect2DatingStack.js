@@ -8,6 +8,7 @@ import DatingMessages from '../pages/Connect2/Dating/DatingMessages';
 import DatingChat from '../pages/Connect2/Dating/DatingChat';
 import DatingProfile from '../pages/Connect2/Dating/DatingProfile';
 import DatingEditProfile from '../pages/Connect2/Dating/DatingEditProfile';
+import DatingMoreInfo from '../pages/Connect2/Dating/DatingMoreInfo';
 
 const Connect2DatingStack=(props)=>{
    
@@ -24,6 +25,7 @@ const Connect2DatingStack=(props)=>{
             <Stack.Screen component = {DatingChat} name="DatingChat" />
             <Stack.Screen component = {DatingProfile} name="DatingProfile" />
             <Stack.Screen component = {DatingEditProfile} name="DatingEditProfile" />
+            <Stack.Screen component = {DatingMoreInfo} name="DatingMoreInfo" />
             
 
         </Stack.Navigator>

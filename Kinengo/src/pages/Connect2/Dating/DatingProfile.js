@@ -118,9 +118,9 @@ dating-logout-image.png */}
 <ImageBackground source={require('../../../assets/dating-edit-profile-bottom-image.png')} style={{width:'100%', height:250,}}>
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginHorizontal:40, top:-10}}>
   <View style={{alignItems:'center'}}>
-    <View style={styles.buttonView}>
+    <TouchableOpacity onPress={()=>props.navigation.navigate('DatingMoreInfo')} style={styles.buttonView}>
       <Image source={require('../../../assets/dating-logout-image.png')} style={styles.buttonImage}/>
-    </View>
+    </TouchableOpacity>
     <Text style={{fontSize:10, fontWeight:'bold', color:'#282727', marginTop:10}}>Logout</Text>
   </View>
   
