@@ -102,11 +102,11 @@ const DatingEditProfile = (props) => {
       <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
     </View>
   </View>
-  <View style={{marginLeft:20, backgroundColor:'#fde7eb',justifyContent:'center', alignItems:'center', height:100, width:100}}>
+  <View style={{marginLeft:20, backgroundColor:'#fde7eb',justifyContent:'center', alignItems:'center', height:100, width:100, borderRadius:10}}>
     <Image source={require('../../../assets/dating-upload-camera-icon.png')} style={{width:30, height:30, }} resizeMode='contain'/>
-    {/* <View style={styles.deleteIconView}>
-      <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
-    </View> */}
+    <View style={styles.plusIconView}>
+      <Image source={require('../../../assets/dating-upload-plus-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
+    </View>
   </View>
 </View>
 <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10, marginTop:20}}>About me</Text>
@@ -346,9 +346,20 @@ const styles = StyleSheet.create({
     top:-5,
     left:80
   },
+  plusIconView:{
+    justifyContent:'center', 
+    alignItems:'center',
+    width:30, 
+    height:30, 
+    borderRadius:50/2, 
+    backgroundColor:'#ff3b7f',
+    position:'absolute',
+    bottom:-10,
+    left:40
+  },
   deleteIcon:{
     width:10, 
     height:10
-  }
+  },
 });
 export default DatingEditProfile 
