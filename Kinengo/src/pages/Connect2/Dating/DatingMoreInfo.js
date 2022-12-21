@@ -11,6 +11,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import ViewMoreText from 'react-native-view-more-text';
 
 const DatingMoreInfo = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -96,12 +97,60 @@ const DatingMoreInfo = (props) => {
    // onClick={(item, index) => {alert('hello'+index)}}
     // autoPlay={true}
    // onItemChanged={(item) => console.log("item", item)}
+      indicatorContainerStyle={{bottom:70}}
+      caroselImageStyle={{height:500}}
       closeIconColor="#fff"
   />
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
-
+ <View style={{backgroundColor:'#fff5f7', top:-60, padding:20, borderRadius:10}}>
+  <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',}}>
+    <View>
+      <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center'}}>Mary Burgees</Text>
+      <Text style={{fontSize:10, color:'#e10f51', marginTop:5}}>@marry</Text>
+    </View>
+    <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#fee5e0', paddingVertical:10, paddingHorizontal:25,borderRadius:20}}>
+      <Text style={{fontSize:10, color:'#f3195a'}}>5 Miles</Text>
+    </View>
+    
+  </View>   
+  <Text style={{fontSize:10, color:'#4a4c52', marginTop:10}}>Age 23</Text>
+  <View style={{marginTop:10}}/>
+  <View>
+    <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+      <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold'}}>Location</Text>
+      <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#fee5e0', paddingVertical:5, paddingHorizontal:10,borderRadius:2}}>
+        <Text style={{fontSize:10, color:'#f3195a'}}>1 km</Text>
+      </View>
+    </View>
+    <Text style={{fontSize:10, color:'#4a4c52'}}>Chicago, IL, United States</Text>
+  </View>  
+  <View style={{marginTop:10}}/>
+  <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold', marginBottom:7}}>About</Text>
+  <ViewMoreText
+          numberOfLines={3}
+          renderViewMore={(onPress)=>{
+            return(
+              <Text onPress={onPress} style={{fontSize:10,color:'#dd2e44',textDecorationLine: "underline"}}>View more</Text>
+            )
+          }}
+          renderViewLess={(onPress)=>{
+            return(
+              <Text onPress={onPress} style={{fontSize:10,color:'#dd2e44',textDecorationLine: "underline"}}>View less</Text>
+            )
+           }}
+          textStyle={{textAlign: 'left',width:'95%'}}
+        >
+          <Text style={{fontSize:10, color:'#4a4c52'}}>
+          In publishing and graphic design, Lorem ipsum is a place-
+          holder text commonly used to demonstrate the visual form
+          of a document or a typeface without relying on meaningful
+          of a document or a typeface without relying on meaningful
+          content.
+          </Text>
+</ViewMoreText>
+</View>   
 
 
  </View>
