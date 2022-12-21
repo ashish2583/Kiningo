@@ -84,6 +84,7 @@ const DatingMoreInfo = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
       <ScrollView>
+<View style={{width:'100%',alignSelf:'center'}}>
   <ImageSlider 
     //  localImg={true}
     data={[
@@ -93,10 +94,11 @@ const DatingMoreInfo = (props) => {
         {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
     ]}
    // onClick={(item, index) => {alert('hello'+index)}}
-    autoPlay={true}
+    // autoPlay={true}
    // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="#fff"
-/>
+      closeIconColor="#fff"
+  />
+</View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
 
