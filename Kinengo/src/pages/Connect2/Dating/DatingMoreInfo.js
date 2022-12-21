@@ -109,6 +109,9 @@ const DatingMoreInfo = (props) => {
       closeIconColor="#fff"
   />
 </View>
+<TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{position:'absolute', top:40, left:20,}}>
+  <Image source={require('../../../assets/dating-white-back-button.png')} style={{width:25, height:15}} resizeMode='contain'/>
+</TouchableOpacity>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
  <View style={{backgroundColor:'#fff5f7', top:-60, padding:20, borderRadius:10}}>
