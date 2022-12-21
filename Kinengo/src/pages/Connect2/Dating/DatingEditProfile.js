@@ -76,8 +76,17 @@ const DatingEditProfile = (props) => {
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
+      <LinearGradient
+          colors={['#fd869f', '#fff']}
+          // start={{ x: 0, y: 0 }}
+          // end={{ x: 1, y: 1 }}
+          useAngle={true}
+          angle={315}
+          angleCenter={{ x: 0.5, y: 0.5}}
+          // style={{flex: 1,height:dimensions.SCREEN_HEIGHT}}
+        >
       <ScrollView>
-<View style={{flexDirection:'row', alignItems:'center', height:80, backgroundColor:'#fff',padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
+<View style={{flexDirection:'row', alignItems:'center', height:80,padding:20,}}>
   <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{flex:1}}>
     <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
@@ -291,6 +300,7 @@ const DatingEditProfile = (props) => {
            
             </View>
 </Modal>
+</LinearGradient>
     </SafeAreaView>
      );
   }
@@ -301,13 +311,22 @@ const styles = StyleSheet.create({
     fontSize: 13,
     borderColor: 'rgba(0,0,0,0.2)',
     borderWidth:0.5,
-   // backgroundColor: '#34333a',
+    backgroundColor: '#fff',
     color:'#fff',
     height:100,
     borderRadius:5,
     paddingHorizontal:15,
     paddingVertical:10,
-    color:Mycolors.Black
+    // color:Mycolors.Black,
+    shadowColor: '#91e3e3',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
+    elevation: 1,
+
   },
   showMeView:{
     flexDirection:'row', 
