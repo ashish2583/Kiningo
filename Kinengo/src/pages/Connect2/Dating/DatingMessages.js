@@ -77,8 +77,7 @@ const DatingMessages = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:'100%',marginHorizontal:5, marginBottom:20}}>
-                        <LinearGradient
-                          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                        <View
                           style={styles.flatlistMainView}
                         >
                         {/* <View style={styles.flatlistMainView}> */}
@@ -96,7 +95,7 @@ const DatingMessages = (props) => {
                           </View>
 
                         {/* </View> */}
-                        </LinearGradient>
+                        </View>
                       </View>
                     )
                   }}
@@ -120,7 +119,7 @@ const DatingMessages = (props) => {
 const styles = StyleSheet.create({
   flatlistMainView:{
     flexDirection:'row', 
-    // backgroundColor:'#fff', 
+    backgroundColor:'#fff0f0', 
     paddingVertical:15, 
     paddingHorizontal:10, 
     borderRadius:10
