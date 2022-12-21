@@ -19,6 +19,13 @@ const DatingMoreInfo = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [passionValues, setPassionsValues] = useState([
+    {id:'1',name:'Travelling', mutual: true}, 
+    {id:'2',name:'Books', mutual: true}, 
+    {id:'3',name:'Music', mutual: false}, 
+    {id:'4',name:'Dancing', mutual: false}, 
+    {id:'5',name:'Modelling', mutual: false},
+  ])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -98,7 +105,7 @@ const DatingMoreInfo = (props) => {
     // autoPlay={true}
    // onItemChanged={(item) => console.log("item", item)}
       indicatorContainerStyle={{bottom:70}}
-      caroselImageStyle={{height:500}}
+      caroselImageStyle={{height:400}}
       closeIconColor="#fff"
   />
 </View>
@@ -150,6 +157,27 @@ const DatingMoreInfo = (props) => {
           content.
           </Text>
 </ViewMoreText>
+
+<View style={{marginTop:10}}>
+<Text style={{fontSize:12, color:'#31313f', fontWeight:'bold',marginBottom:10}}>Passions</Text>
+<FlatList
+    data={passionValues}
+    showsHorizontalScrollIndicator={false}
+    numColumns={3}
+    keyExtractor={item => item.id}
+    renderItem={({item,index})=>{
+      return(
+        <View key={item.name} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: item?.mutual ? '#fff1f6': '#fff', borderColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
+          <Text style={styles.showMeText}>{item.name}</Text>
+          <View style={[styles.showMeImageView, {backgroundColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
+            <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
+          </View>
+        </View>
+      )
+    }}
+  />
+  
+</View>
 </View>   
 
 
@@ -370,6 +398,32 @@ const styles = StyleSheet.create({
     fontSize:12, 
     fontWeight:'400', 
     color:'#455A64'
-  }
+  },
+  showMeView:{
+    flexDirection:'row', 
+    alignItems:'center',
+    justifyContent:'space-between',
+    width:'27%', 
+    padding:10, 
+    // paddingHorizontal:15, 
+    borderRadius:20,
+    borderWidth:0.5
+  },
+  showMeText:{
+    fontSize:10, 
+    color:'#4a4c52'
+  },
+  showMeImageView:{
+    justifyContent:'center', 
+    alignItems:'center',
+    height:20, 
+    width:20, 
+    borderRadius:20/2,
+    marginLeft:10,
+  },
+  showMeImage:{
+    height:15, 
+    width:15
+  },
 });
 export default DatingMoreInfo 
