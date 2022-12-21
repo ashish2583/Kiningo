@@ -102,7 +102,7 @@ const DatingEditProfile = (props) => {
       <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
     </View>
   </View>
-  <View style={{marginLeft:20, backgroundColor:'#fde7eb',justifyContent:'center', alignItems:'center', height:100, width:100, borderRadius:10}}>
+  <View style={styles.plusIconSuperView}>
     <Image source={require('../../../assets/dating-upload-camera-icon.png')} style={{width:30, height:30, }} resizeMode='contain'/>
     <View style={styles.plusIconView}>
       <Image source={require('../../../assets/dating-upload-plus-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
@@ -361,5 +361,14 @@ const styles = StyleSheet.create({
     width:10, 
     height:10
   },
+  plusIconSuperView:{
+    marginLeft:20, 
+    backgroundColor:'#fde7eb',
+    justifyContent:'center', 
+    alignItems:'center', 
+    height:100, 
+    width:100, 
+    borderRadius:10
+  }
 });
 export default DatingEditProfile 
