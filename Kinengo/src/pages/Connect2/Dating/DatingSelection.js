@@ -101,7 +101,7 @@ const onRefresh = (id) => {
   props.navigation.navigate('DatingProfile')
  }
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7', height:'100%'}}>
       <ScrollView>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
@@ -124,9 +124,44 @@ const onRefresh = (id) => {
    press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
    press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
-  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>  
-
-  {SliderData.length > 0 ? <Carousel data={SliderData} onReject={onReject} onLove={onLove} onRefresh={onRefresh} /> : null}  
+  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>
+  <View style={{height:30}}/>  
+  <ImageSlider 
+    //  localImg={true}
+    data={[
+        // require('../../assets/Group75972.png'),
+        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+    ]}
+    caroselImageContainerStyle={{borderRadius: 20,  overflow: 'hidden'}}
+    // caroselImageStyle={{width:dimensions.SCREEN_WIDTH, height:400}}
+   // onClick={(item, index) => {alert('hello'+index)}}
+    // autoPlay={true}
+   // onItemChanged={(item) => console.log("item", item)}
+   showIndicator={false}
+      closeIconColor="#fff"
+  />
+  <View style={styles.buttonsRow}>
+    <TouchableOpacity onPress={()=>{onReject(1)}}>
+      <Image source={require('../../../assets/dating-reject-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>{onLove(1)}}>
+      <Image source={require('../../../assets/dating-love-image.png')} style={{width:110, height:110, top:-(110+10)/2,}} resizeMode='contain'/>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>{onRefresh(1)}}>
+      <Image source={require('../../../assets/dating-refresh-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
+    </TouchableOpacity>
+  </View>
+  <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center', top:-60}}>Mary Burgees</Text>
+  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', top:-50}}>
+    <Text style={{fontSize:10, color:'#e10f51'}}>@marry</Text>
+    <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
+    <Text style={{fontSize:10, color:'#e1e1e1'}}>Age 23</Text>
+    <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
+    <Text style={{fontSize:10, color:'#e1e1e1'}}>5 miles away</Text>
+  </View>  
+  {/* {SliderData.length > 0 ? <Carousel data={SliderData} onReject={onReject} onLove={onLove} onRefresh={onRefresh} /> : null}   */}
 
  </View>
 <View style={{height:100}} />
@@ -345,6 +380,11 @@ const styles = StyleSheet.create({
     fontSize:12, 
     fontWeight:'400', 
     color:'#455A64'
+  },
+  buttonsRow:{
+    flexDirection:'row',
+    alignItems:'center',
+    alignSelf:'center'
   }
 });
 export default PeopleHome 
