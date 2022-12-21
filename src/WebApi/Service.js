@@ -12,15 +12,18 @@ export const register = 'auth/register'
 export const login = 'auth/login'
 export const verify_otp = 'auth/verify-otp'
 export const shop_eat = 'shop/eat'
+export const shop_eat_business = 'shop/eat/business'
+export const shop_eat_business_id = 'shop/eat/business/id/'
+export const shop_eat_menu_userid = 'shop/eat/menu/userid/'
+export const shop_eat_cart = 'shop/eat/cart'
+export const shop_eat_cart_id = 'shop/eat/cart/id/'
+export const shop_eat_coupons_userid = 'shop/eat/coupons/userid/'
+export const shop_eat_cart_apply_coupon=`shop/eat/cart/apply-coupon`;
 
 
-export const booking_get_bid_status = 'booking/get_bid_status'
-export const booking_start_ride = 'booking/start_ride'
-export const booking_verify_ride = 'booking/verify_ride'
-export const booking_cancel_ride = 'booking/cancel_ride'
-export const driver_current_location = 'driver/current_location'
-export const booking_ride_status = 'booking/ride_status'
-export const GET_QUESTIONS=`common/driver_questions`;
+
+
+
 export const GET_CAR_BRANDS=`common/vehicle_brand`;
 export const GET_CAR_MODEL=`common/vehicle_model`;
 export const UPDATE_CAR_TYPE=`driver/profile`;
@@ -50,7 +53,7 @@ export const user_notification_change = 'user/notification_change'
 export const driver_logout = 'driver/logout' 
 export const driver_change_status = 'driver/change_status'
 export const booking_bid_price = 'booking/bid_price?ride_id='  
-export const driver_fuel_cost = 'driver/fuel_cost'   //
+export const driver_fuel_cost = 'driver/fuel_cost'
 export const driver_referral_earning = 'driver/referral_earning'
 export const driver_change_account_status = 'driver/change_account_status'
 
@@ -60,7 +63,7 @@ export const requestPostApi = async (endPoint,body,method,token) =>
   var header = {}
   if(token!='' && token!=undefined)
   {
-    header = {'Content-Type': 'multipart/form-data','Accept':'application/json','Authorization': 'Bearer '+ token,'Cache-Control': 'no-cache'}
+    header = {'Content-Type': 'application/json','Authorization': 'Bearer '+ token,'Cache-Control': 'no-cache'}
   }else{
     header = {"Content-Type": "application/json",'Accept':'application/json'}
   }
@@ -70,9 +73,10 @@ export const requestPostApi = async (endPoint,body,method,token) =>
   console.log('the body data',body)
   // console.log(header + '\n')
   try {
+    
       let response = await fetch(url, {
           method: method,
-          body:JSON.stringify(body),
+          body: body=='' ? '' : JSON.stringify(body),
           headers:header,
       }
       )

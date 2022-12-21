@@ -10,7 +10,7 @@ const initialState = {
     selected_drv_tab:1,
     selected_car_tab:1,
     drv_id:'',
-    vehicle_id:'',
+    venderDeatil:'',
     corp_user:null,
     dashdata:''
 }
@@ -77,17 +77,17 @@ export default (state = initialState ,action) => {
                 ...state,
                 selected_car_tab :action.selected_car_tab
             }
-            case types.DRVID :
+        case types.DRVID :
                 return {
                     ...state,
                     drv_id :action.drv_id
                 }
-                case types.VEHICLEID :
+        case types.VERDERDETAILS :
                     return {
                         ...state,
-                        vehicle_id :action.vehicle_id
+                        venderDeatil :action.venderDeatil
                     }
-                    case types.SAVE_CORP_USER_RESULTS :
+        case types.SAVE_CORP_USER_RESULTS :
                     return {
                         ...state,
                         corp_user :action.corp_user

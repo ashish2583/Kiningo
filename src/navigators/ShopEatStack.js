@@ -8,6 +8,8 @@ import FoodDetails from '../pages/Shop/ShopEat/FoodDetails';
 import ShopMyOrder from '../pages/Shop/ShopEat/ShopMyOrder';
 import ShopReview from '../pages/Shop/ShopEat/ShopReview';
 import ShopPayment from '../pages/Shop/ShopEat/ShopPayment';
+import ShopCart from '../pages/Shop/ShopEat/ShopCart';
+import ShopSearch from '../pages/Shop/ShopEat/ShopSearch';
 const ShopEatStack=(props)=>{
    
     const Stack = createNativeStackNavigator();
@@ -22,6 +24,8 @@ const ShopEatStack=(props)=>{
             <Stack.Screen component = {ShopMyOrder} name="ShopMyOrder" />
             <Stack.Screen component = {ShopReview} name="ShopReview" />
             <Stack.Screen component = {ShopPayment} name="ShopPayment" />
+            <Stack.Screen component = {ShopCart} name="ShopCart" />
+            <Stack.Screen component = {ShopSearch} name="ShopSearch" />
             <Stack.Screen component = {Shop} name="Shop" />
             
 

@@ -57,6 +57,10 @@ const HomeHeader = (props) => {
     width:props.img3width ? props.img3width : 'auto',
     height:props.img3height ? props.img3height : 'auto',
     justifyContent:'center',
+    padding:props.img3padding ? props.img3padding :'auto',
+    borderRadius:props.img3borderRadius ? props.img3borderRadius : 0 ,
+    backgroundColor:props.img3backgroundColor ? props.img3backgroundColor : 'transparent'
+  
     }} onPress={props.press3}>
 {props.img3 ?
  <Image source={props.img3} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>

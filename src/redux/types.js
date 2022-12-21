@@ -38,14 +38,7 @@ export const USERTYPE = "USERTYPE"; NOOFCAR
 
 export const NOOFCAR = "NOOFCAR";
 
-export const NOOFDRV = "NOOFDRV";
+export const VERDERDETAILS = "VERDERDETAILS";
 
-export const SELECTEDDRVTAB = "SELECTEDDRVTAB";
-
-export const SELECTEDCARTAB = "SELECTEDCARTAB";   
-
-export const VEHICLEID = "VEHICLEID";
-
-export const DRVID = "DRVID";  
 
 export const DASHDATA = "DASHDATA";

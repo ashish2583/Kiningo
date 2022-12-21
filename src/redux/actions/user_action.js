@@ -126,35 +126,17 @@ export const setNoOfCar = (data) => {
     }
 }
 
-export const setNoOfDrv = (data) => {
-    return {
-        type:types.NOOFDRV,
-        no_of_drv:data
-    }
-}
-
-export const setSelectedDrvTab = (data) => {
-    return {
-        type:types.SELECTEDDRVTAB,
-        selected_drv_tab:data
-    }
-}
 export const setSelectedCarTab = (data) => {
     return {
         type:types.SELECTEDCARTAB,
         selected_car_tab:data
     }
 }
-export const setDrvId = (data) => {
+
+export const setVenderDetail = (data) => {
     return {
-        type:types.DRVID,
-        drv_id:data
-    }
-}
-export const setVehicleId = (data) => {
-    return {
-        type:types.VEHICLEID,
-        vehicle_id:data
+        type:types.VERDERDETAILS,
+        venderDeatil:data
     }
 }
 export const setDashBoardData = (data) => {

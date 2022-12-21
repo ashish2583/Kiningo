@@ -12,9 +12,17 @@ import Modal from 'react-native-modal';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { setSelectedCarTab } from '../../../redux/actions/user_action'; 
 import DatePicker from 'react-native-datepicker';
+import { baseUrl,shop_eat_cart, login,shop_eat_cart_id,shop_eat_business_id,shop_eat_menu_userid, requestPostApi,requestGetApi,shop_eat } from '../../../WebApi/Service'
+import Loader from '../../../WebApi/Loader';
+import Toast from 'react-native-simple-toast'
+import MyAlert from '../../../component/MyAlert';
+import { useSelector, useDispatch } from 'react-redux';
 
 const FoodDetails = (props) => {
+  const User = useSelector(state => state.user.user_details)
   const [searchValue,setsearchValue]=useState('')
+  const [lat, setlat] = useState('28.6176')
+  const [lan, setlan] = useState('77.422')
   const [selectedTab,setselectedTab]=useState('Take Away')
   const [cookingIns,setcookingIns]=useState('')
   const [selectedTime,setselectedTime]=useState('1')
@@ -77,28 +85,199 @@ const FoodDetails = (props) => {
       img:require('../../../assets/images/images.png'),
     },
   ])
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
+  const [resData, setresData] = useState([])
+  const [menuresData, setmenuresData] = useState([])
+  const [My_Alert, setMy_Alert] = useState(false)
+  const [alert_sms, setalert_sms] = useState('')
+  const [bannerimg,setbannerimg]=useState('')
+  const [allImg,setAllImg] =useState([])
+  const [ClickedItemData, setClickedItemData]=useState('')
+  const [diningItens,setdiningItens]=useState([])
+  const [reloades,setreloades]=useState(false)
   useEffect(()=>{
-
+    vendorDetail()
+    menuList()
+    setBannerImages()
  },[])
 
+const setBannerImages=()=>{
+  console.log('ashish kumar verma');
+  var j=1
+  for(j=1;j<=allImg.length;j++){
+    setTimeout(()=>{
+      setbannerimg(allImg[j-1])
+      console.log('hii');
+    },500)
+    if(j==allImg.length){
+      j=1
+    }
+  }
+}
+
+const A=()=>{
+  setTimeout(()=>{
+    setbannerimg(allImg[j-1])
+    B()
+    console.log('hii');
+  },500)
+}
+const B=()=>{
+  A()
+}
+
+const putcart = async (item,add) => {
+   
+  setLoading(true)
+  var data=''
+ if(add=='+'){
+ data={
+    id: item.cart_id,
+    product_id: item.id,
+    quantity: item.cart_quantity+1,
+  }
+ }else{
+  if(item.quantity>1){
+    data={
+    id: item.id,
+    product_id: item.product_id,
+    quantity: item.cart_quantity-1,
+  }
+  }else{
+     deletcart(item)
+  }
+  
+ }
+  
+  const { responseJson, err } = await requestPostApi(shop_eat_cart_id+item.cart_id, data, 'PUT', User.token)
+  setLoading(false)
+  console.log('the res==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+     Toast.show(responseJson.headers.message)
+     menuList()
+     setreloades(!reloades)
+  } else {
+  // setalert_sms(err)
+  // setMy_Alert(true)
+  }
+}
+
+const deletcart = async (item) => {
+   
+  setLoading(true)
+  
+  const { responseJson, err } = await requestPostApi(shop_eat_cart_id+item.id, '', 'DELETE',User.token)
+  setLoading(false)
+  console.log('the res==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+    // Toast.show(responseJson.headers.message)
+    menuList()
+    setreloades(!reloades)
+  } else {
+  // setalert_sms(err)
+  // setMy_Alert(true)
+  }
+}
+
+
+ const postcart = async (items) => {
+  
+  setLoading(true)
+  var data={
+      product_id: items.id,
+      quantity: 1,
+      business_id: props.route.params.data.business_id,
+    }
+  const { responseJson, err } = await requestPostApi(shop_eat_cart, data, 'POST', User.token)
+  setLoading(false)
+  console.log('the res==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+   Toast.show(responseJson.headers.message)
+   menuList()
+  //  props.navigation.navigate('ShopCart')
+  } else {
+  setalert_sms(err)
+  setMy_Alert(true)
+  }
+}
+
+ const vendorDetail = async () => {
+   
+  setLoading(true)
+  
+  const { responseJson, err } = await requestGetApi(shop_eat_business_id+props.route.params.data.business_id, '', 'GET', '')
+  setLoading(false)
+  console.log('the res shop_eat_business_id==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+    console.log('the res shop_eat_business_id services ==>>', responseJson.body.services)
+    console.log('the res features ==>>', responseJson.body.features)
+    // console.log('the res coupons ==>>', responseJson.body.coupons)
+    // console.log('the res vendors ==>>', responseJson.body.vendors)
+     setbannerimg(responseJson.body.bannerImages[0].image)
+     var allimgs=[];
+     for(let i=1;i<=responseJson.body.bannerImages.length;i++){
+      allimgs.push(responseJson.body.bannerImages[i-1].image)
+     }
+     setAllImg(allimgs)
+     setresData(responseJson.body)
+  } else {
+     setalert_sms(err)
+     setMy_Alert(true)
+  }
+}
+
+const menuList = async () => {
+   
+  setLoading(true)
+  
+  const { responseJson, err } = await requestGetApi(shop_eat_menu_userid+props.route.params.data.userid, '', 'GET', User.token)
+  setLoading(false)
+  console.log('the res shop_eat_menu_userid ==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+    setmenuresData(responseJson.body)
+    setreloades(!reloades)
+  } else {
+     setalert_sms(err)
+     setMy_Alert(true)
+  }
+
+}
+
+const searchmenuList = async () => {
+   
+  setLoading(true)
+  
+  const { responseJson, err } = await requestGetApi(shop_eat_menu_userid+props.route.params.data.userid+'?name='+searchValue.text, '', 'GET', '')
+  setLoading(false)
+  console.log('the res shop_eat_menu_userid ==>>', responseJson)
+  if (responseJson.headers.success == 1) {
+    setmenuresData(responseJson.body)
+    setsearchValue('')
+  } else {
+     setalert_sms(err)
+     setMy_Alert(true)
+  }
+
+}
 
 const design=(img,ti,tit,w,imgh,imgw,bg,redious)=>{
   return(
     <View style={{flexDirection:'row',alignItems:'center',width:w,marginTop:10}}>
-   <View style={{width:40,height:40,backgroundColor:bg,justifyContent:'center',borderRadius:redious}}>
-    <Image source={img} style={{width:imgw,height:imgh,overflow:'hidden',alignSelf:'center'}}></Image>
+   <View style={{width:50,height:50,backgroundColor:bg,justifyContent:'center',borderRadius:redious,borderColor:'gray',borderWidth:0.5}}>
+    <Image source={{uri:img}} style={{width:imgw,height:imgh,overflow:'hidden',alignSelf:'center'}}></Image>
    </View>
-   <View style={{marginLeft:5,width:'85%'}}>
-    <Text style={{fontSize:10,fontWeight:'bold',color:Mycolors.Black}}>{ti}</Text>
-    <Text style={{fontSize:10,color:Mycolors.GrayColor,top:3}}>{tit}</Text>
+   <View style={{marginLeft:15,}}>
+    <Text style={{fontSize:12,fontWeight:'bold',color:Mycolors.Black}}>{ti}</Text>
+    <Text style={{fontSize:12,color:Mycolors.GrayColor,top:3}}>{tit}</Text>
    </View>
    
   </View>
   )
 }
 
-
-const flatliistDesign=(img,ti,rs,des,press,allpress)=>{
+ 
+const flatliistDesign=(img,ti,rs,des,press,allpress,item,mpress,apress)=>{
   return(
     <TouchableOpacity style={{width:'95%',height:120,marginHorizontal:5,marginVertical:5, padding:10,backgroundColor:'#fff',
     borderColor:'#dee4ec',
@@ -106,7 +285,52 @@ const flatliistDesign=(img,ti,rs,des,press,allpress)=>{
     elevation: 5,borderRadius:10,alignSelf:'center',flexDirection:'row',alignItems:'center'}}
     onPress={allpress}>
 <View style={{width:60,height:75,alignSelf:'center',borderRadius:5,borderWidth:3,borderColor:'#dee4ec'}}>
-<Image source={img}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+<Image source={{uri:img}}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+</View>
+<View style={{marginLeft:10}}>
+<Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} >{ti}</Text>
+<Text style={{color:Mycolors.RED,fontWeight:'600',fontSize:12,marginTop:9}} >{rs}</Text>
+<View style={{flexDirection:'row'}}>
+<Text style={{color:Mycolors.GrayColor,fontWeight:'600',fontSize:12,marginTop:9}} >Food Preparation Time:</Text>
+<Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} >{des}</Text>
+</View>
+
+
+{item.in_cart!='1' ?
+<View style={{width:70}}>
+<MyButtons title="ADD" height={30} width={'100%'} borderRadius={5} alignSelf="center" press={press} marginHorizontal={20} fontSize={11}
+titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0} />
+</View>
+: 
+<View style={{width:100,height:30,flexDirection:'row',alignItems:'center',marginTop:5,}}>
+<TouchableOpacity style={{width:30,height:30,borderRadius:20,backgroundColor:'#FFE2E6',justifyContent:'center'}}
+onPress={mpress}>
+<Text style={{textAlign:'center',fontSize:25,color:'red',top:-1}}>-</Text>
+</TouchableOpacity>
+<Text style={{marginHorizontal:10,color:Mycolors.Black}}>{item.cart_quantity}</Text>
+<TouchableOpacity style={{width:30,height:30,borderRadius:20,backgroundColor:'red',justifyContent:'center'}}
+onPress={apress}>
+<Text style={{textAlign:'center',fontSize:25,color:'#fff',top:-1}}>+</Text>
+</TouchableOpacity>
+   </View>
+}
+</View>
+  <View style={{position:'absolute',width:20,height:20,top:10,right:10,borderRadius:3,backgroundColor:'red',justifyContent:'center'}}>
+  <View style={{width:10,height:10,borderRadius:10,alignSelf:'center',backgroundColor:'#fff'}} />
+  </View>
+</TouchableOpacity>
+  )
+}
+
+const DiningflatliistDesign=(img,ti,rs,des,press,allpress,border)=>{
+  return(
+    <TouchableOpacity style={{width:'95%',height:120,marginHorizontal:5,marginVertical:5, padding:10,backgroundColor:'#fff',
+    borderColor:border ? 'green' :'#dee4ec',
+    borderWidth:1,
+    elevation: 5,borderRadius:10,alignSelf:'center',flexDirection:'row',alignItems:'center'}}
+    onPress={allpress}>
+<View style={{width:60,height:75,alignSelf:'center',borderRadius:5,borderWidth:3,borderColor:'#dee4ec'}}>
+<Image source={{uri:img}}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
 </View>
 <View style={{marginLeft:10}}>
 <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} >{ti}</Text>
@@ -118,12 +342,23 @@ const flatliistDesign=(img,ti,rs,des,press,allpress)=>{
 
 
 
-{press ?
+{!border ?
 <View style={{width:70}}>
 <MyButtons title="ADD" height={30} width={'100%'} borderRadius={5} alignSelf="center" press={press} marginHorizontal={20} fontSize={11}
 titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0} />
 </View>
-: null
+: 
+<View style={{width:100,height:30,flexDirection:'row',alignItems:'center',marginTop:5,}}>
+<TouchableOpacity style={{width:30,height:30,borderRadius:20,backgroundColor:'#FFE2E6',justifyContent:'center'}}
+>
+<Text style={{textAlign:'center',fontSize:25,color:'red',top:-1}}>-</Text>
+</TouchableOpacity>
+<Text style={{marginHorizontal:10,color:Mycolors.Black}}>1</Text>
+<TouchableOpacity style={{width:30,height:30,borderRadius:20,backgroundColor:'red',justifyContent:'center'}}
+>
+<Text style={{textAlign:'center',fontSize:25,color:'#fff',top:-1}}>+</Text>
+</TouchableOpacity>
+   </View>
 }
 </View>
   <View style={{position:'absolute',width:20,height:20,top:10,right:10,borderRadius:3,backgroundColor:'red',justifyContent:'center'}}>
@@ -136,24 +371,22 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   return(
     <SafeAreaView style={{backgroundColor:Mycolors.BG_COLOR}}>
       <ScrollView>
-   
 
-<View style={{backgroundColor:'#fff',height:dimensions.SCREEN_HEIGHT*33/100,width:'100%'}}>
-    <ImageBackground source={require('../../../assets/images/layer_42.png')}style={{width:'100%',height:'100%',overflow:'hidden'}}resizeMode='cover'>
+   <View style={{backgroundColor:'#fff',height:dimensions.SCREEN_HEIGHT*33/100,width:'100%'}}>
+    <ImageBackground source={{uri:bannerimg}}style={{width:'100%',height:'100%',overflow:'hidden'}}resizeMode='cover'>
     <HomeHeader height={60}  paddingHorizontal={15}
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} 
    img1width={30} img1height={30} img1backgroundColor={'#fff'} img1padding={5} img1borderRadius={4}
    press2={()=>{}} title2={'Food'} fontWeight={'bold'} img2height={20} color={Mycolors.BG_COLOR}
-   press3={()=>{}} img3width={25} img3height={25} />
-     
-       </ImageBackground>
+   press3={()=>{props.navigation.navigate('ShopCart')}} img3width={35} img3height={35} img3={require('../../../assets/Cart.png')} img3backgroundColor={'#000'} img3padding={8} img3borderRadius={4}/>
+    </ImageBackground>
     </View>
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:Mycolors.BG_COLOR}}>
 
 <View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignItems:'center',alignSelf:'center',backgroundColor:'#fff',borderRadius:9,paddingHorizontal:15,paddingVertical:10, top:-50}}>
   <View>
-<Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>GRECA Vegetarian Greek</Text>
+<Text style={{color:Mycolors.Black,fontSize:16,fontWeight:'600'}}>{resData.name}</Text>
 <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Restaurant</Text>
                           <View style={{flexDirection:'row',marginTop:5}}>
                           <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
@@ -162,8 +395,8 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   </View>
 
   <View>
-  <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',
-  shadowColor: '#000',
+      <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',
+      shadowColor: '#000',
       shadowOffset: {
         width: 0,
         height: 3
@@ -172,12 +405,14 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
       shadowOpacity: 0.3,
       justifyContent: 'center',
       elevation: 5,}}>
-          <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
-          </TouchableOpacity>
+      <Image source={require('../../../assets/layer_9.png')} style={{width:10,height:15,alignSelf:'center'}}></Image>
+      </TouchableOpacity>
   </View>
 
 </View>
 
+
+{/* 
 <View style={{flexDirection:'row',justifyContent:'space-between',top:-40}}>
 <View style={{width:'32%'}}>
 <MyButtons title="Take Away" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Take Away')}} marginHorizontal={20} fontSize={10}
@@ -193,13 +428,41 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 <MyButtons title="Book A Table" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Book A Table')}} marginHorizontal={20} fontSize={12}
   titlecolor={selectedTab=='Book A Table' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} hLinearColor={selectedTab=='Book A Table' ?['#fd001f','#b10027']:['transparent','transparent']} backgroundColor={'transparent'}/>
 </View>
-</View>
+</View> 
+*/}
 
 
+<View style={{width:'100%',alignSelf:'center',top:-40}}>
+          <FlatList
+                  data={resData.services}
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  // numColumns={2}
+                  renderItem={({item,index})=>{
+                    return(
+                      <>
+                      {item.attribute_value=='yes' ?
+                      <View style={{width:dimensions.SCREEN_WIDTH*32/100,marginHorizontal:10}}>
+                      <MyButtons title={item.attribute_label} height={37} width={'100%'} borderRadius={5} alignSelf="center"
+                       press={()=>{setselectedTab(item.attribute_label)}} marginHorizontal={20} fontSize={12}
+                        titlecolor={selectedTab==item.attribute_label ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} hLinearColor={selectedTab==item.attribute_label ?['#fd001f','#b10027']:['transparent','transparent']} backgroundColor={'transparent'}/>
+                      </View>
+                       :
+                      <>
+                      </>
+                      }                    
+                    </> 
+                    )
+                  }} 
+                  keyExtractor={item => item.id}
+                />
+         </View>
 
-{selectedTab=='Take Away' ? 
+
+ 
+{selectedTab=='Take Away' || selectedTab=='Delivery' ? 
 <View>
-<View style={{width:'95%',alignSelf:'center',top:-20}}>
+<View style={{width:'95%',alignSelf:'center',top:-10}}>
 <ViewMoreText
           numberOfLines={3}
           renderViewMore={(onPress)=>{
@@ -214,21 +477,26 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
            }}
           textStyle={{textAlign: 'left',width:'95%'}}
         >
-          <Text>
-          In publishing and graphic design, Lorem ipsum is a place-
-          holder text commonly used to demonstrate the visual form
-          of a document or a typeface without relying on meaningful
-          of a document or a typeface without relying on meaningful
-          content.
-          </Text>
+          <Text style={{fontSize:11,color:Mycolors.TEXT_COLOR}}>{resData.business_info}</Text>
 </ViewMoreText>
 </View>
- 
+       
+<View style={{width:'100%',alignSelf:'center',marginTop:10}}>
+        {resData.features?
+         resData.features.map((item,index)=> {
+        return(
+          <View style={{alignSelf:'center',width:'95%'}}>
+          {design(item.attribute_image,item.attribute_value,item.attribute_detail,'45%',25,28,'transparent',40)}
+          </View>
+              )
+            })
+       : null }
+   </View>
+
+{/*  
 <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',width:dimensions.SCREEN_WIDTH*95/100,alignSelf:'center'}}>
- 
   {design(require('../../../assets/shape_39.png'),'Food Preparation Time','34 minutes','45%',25,28,'red',20)}
   {design(require('../../../assets/shape_40.png'),'Hygiene Food','','45%',25,28,'red',20)}
-
 </View>
 {design(require('../../../assets/shape_41.png'),'Location','Disneys Hollvwood Studios Main Entrance.Kissimmee. FL 34747. United States','95%',25,28,5)}
 <View>
@@ -237,9 +505,9 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 <Text style={{fontSize:11,textAlign:'center',color:"red",fontWeight:'bold'}}>Call Restaurant</Text>
 </TouchableOpacity>
 </View>
-
 {design(require('../../../assets/shape_43.png'),'Cost','Cost for two - $24.78(approx)','95%',35,24,5)}
-  
+*/}
+ 
 </View>
 :
 selectedTab=='Dining' ? 
@@ -296,8 +564,8 @@ null
   // rightTitle="Non-Veg"
   trackBarStyle={{
     borderColor: "red",
-    width:80,height:25,
-    backgroundColor:'red'
+    width:65,height:25,
+    backgroundColor:toggleValue?'red':'green'
   }}
   
   trackBar={{
@@ -307,7 +575,7 @@ null
     // borderInActiveColor: "#1c1c1c",
     //borderWidth: 5,
     backgroundColor:'#fff',
-    width: 80,
+    width: 62,
   }}
 
   thumbButton={{
@@ -322,10 +590,11 @@ null
     right:2,
     backgroundColor:'#fff',
   }}
-  containerStyle={{width:80,height:40}}
+  containerStyle={{width:70,height:40}}
+
 />
 <View style={{position:'absolute',top:14,right:toggleValue ? 'auto' :8,left:toggleValue ? 5 :'auto'}}>
-  <Text style={{color:'#fff',fontSize:10}}>{toggleValue ? 'Veg' : 'Non-Veg'}</Text>
+  <Text style={{color:'#fff',fontSize:toggleValue ? 12 : 8,top:toggleValue ? -2:0 }}>{toggleValue ? 'Veg' : 'Non-Veg'}</Text>
 </View>
 </View>
 
@@ -335,14 +604,79 @@ null
 </View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-    {
-      upData.map((item,index)=> {
+    {selectedTab!='Dining' ? 
+      menuresData.map((item,index)=> {
         return(
           <View>
-          {flatliistDesign(require('../../../assets/images/layer_40.png'),'Match Time Feast','$140.00',' 34 minutes',()=>{Alert.alert('Add Pressed')},()=>{
+            {item.menuType=="Veg" && item.serviceType=='Take Away' && toggleValue==false ?
+          flatliistDesign(item.image,item.name,'$'+item.price,' 34 minutes',()=>{ postcart(item)},
+          ()=>{
+            setClickedItemData(item)
             setmodlevisual1(false)
             setmodlevisual2(true)
-          }   )}
+                            }  ,
+               item ,()=>{putcart(item,'-')},()=>{putcart(item,'+')}           
+                         )       
+            :
+            item.menuType!="Veg" && item.serviceType=='Take Away' && toggleValue==true ?
+            flatliistDesign(item.image,item.name,'$'+item.price,' 34 minutes',()=>{postcart(item)},()=>{
+              setClickedItemData(item)
+              setmodlevisual1(false)
+              setmodlevisual2(true)
+            },
+           item ,()=>{putcart(item,'-')},()=>{putcart(item,'+')}   
+            )
+            : null
+            }
+           </View>
+        )
+      }
+      )
+      :
+      menuresData.map((item,index)=> {
+        return(
+          <View>
+          
+            {item.menuType=="Veg" && item.serviceType=='Dinning' && toggleValue==false ?
+          DiningflatliistDesign(item.image,item.name,'$'+item.price,' 34 minutes',
+          ()=>{
+          let arr=diningItens
+          if(arr.includes(item)){
+
+          }else{
+          arr.push(item)
+          }
+         
+          setdiningItens(arr)
+          setreloades(!reloades)
+          },()=>{
+             setClickedItemData(item)
+            // setmodlevisual1(false)
+            // setmodlevisual2(true)
+                            }  ,
+              diningItens.includes(item) ? true : false              
+                         )       
+            :
+            item.menuType!="Veg" && item.serviceType=='Dinning' && toggleValue==true ?
+            DiningflatliistDesign(item.image,item.name,'$'+item.price,' 34 minutes',
+            ()=>{ 
+              let arr=diningItens
+              if(arr.includes(item)){
+    
+              }else{
+              arr.push(item)
+              }
+             
+              setdiningItens(arr)
+              setreloades(!reloades)
+            },()=>{
+              setClickedItemData(item)
+              // setmodlevisual1(false)
+              // setmodlevisual2(true)
+             
+            },   diningItens.includes(item) ? true : false )
+            : null
+            }
            </View>
         )
       }
@@ -466,8 +800,6 @@ null
           }}
         />
 
-
-
           </View>
 
           <View style={{width:'97%',alignSelf:'center',marginTop:10}}>
@@ -542,6 +874,7 @@ null
         }}
           scrollTo={() => {}}
           scrollOffset={1}
+          onBackdropPress={() =>  setmodlevisual1(false)}
           propagateSwipe={true}
         coverScreen={false}
         backdropColor='transparent'
@@ -554,18 +887,27 @@ null
           serchValue={searchValue} 
           onChangeText={(e)=>{setsearchValue(e)}} 
           press={()=>{Alert.alert('Hi')}}
-          presssearch={()=>{Alert.alert('Search Pressed')}}
+          presssearch={()=>{searchmenuList()}}
           paddingLeft={50}/>
             </View>
         
          <Text style={{fontWeight:'bold',fontSize:16,marginTop:15,left:5,color:'#cbcbcb'}}>7 Result Found</Text>
         
           <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-          {
-      upData.map((item,index)=> {
+         
+
+{
+      menuresData.map((item,index)=> {
         return(
           <View>
-          {flatliistDesign(require('../../../assets/images/layer_40.png'),'Match Time Feast','$140.00',' 34 minutes',()=>{Alert.alert('Add Pressed')},()=>{})}
+            {
+               flatliistDesign(item.image,item.name,'$'+item.price,' 34 minutes',()=>{selectedTab=='Dining' ? '' : postcart(item)},()=>{
+                setClickedItemData(item)
+                setmodlevisual1(false)
+                setmodlevisual2(true)
+                                }  ,item,()=>{putcart(item,'-')},()=>{putcart(item,'+')}
+                             )  
+            }
            </View>
         )
       }
@@ -586,7 +928,7 @@ null
         swipeDirection="down"
         onSwipeComplete={(e) => {
           setmodlevisual2(false)
-        }}
+         }}
           scrollTo={() => {}}
           scrollOffset={1}
           propagateSwipe={true}
@@ -604,10 +946,10 @@ null
     elevation: 5,borderRadius:10,alignSelf:'center',flexDirection:'row',alignItems:'center'}}
    >
 <View style={{width:60,height:75,alignSelf:'center',borderRadius:5,borderWidth:3,borderColor:'#dee4ec'}}>
-<Image source={require('../../../assets/images/layer_40.png')}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
+<Image source={{uri:ClickedItemData.image}}  style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:5,resizeMode: 'stretch'}} ></Image>
 </View>
 <View style={{marginLeft:10}}>
-<Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} >Match Time Feast</Text>
+<Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} >{ClickedItemData.name}</Text>
 <View style={{flexDirection:'row'}}>
 <Text style={{color:Mycolors.GrayColor,fontWeight:'600',fontSize:12,marginTop:9}} >Food Preparation Time:</Text>
 <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,marginTop:9}} > 34 minutes</Text>
@@ -636,7 +978,7 @@ null
 
           <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginVertical:15}}>
           <Text style={{color:Mycolors.Black,fontWeight:'500'}}>Total Payable Amount</Text>
-          <Text style={{color:Mycolors.Black,fontWeight:'500'}}>$140.00</Text>
+          <Text style={{color:Mycolors.Black,fontWeight:'500'}}>${ClickedItemData.price}</Text>
           </View>        
           <View style={{width:'95%',alignSelf:'center'}}>
           <MyButtons title="Proceed to payment" height={40} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{props.navigation.navigate('ShopPayment')}} marginHorizontal={20} fontSize={11}
@@ -658,6 +1000,7 @@ null
         }}
           scrollTo={() => {}}
           scrollOffset={1}
+          onBackdropPress={() =>  setmodlevisual3(false)}
           propagateSwipe={true}
         coverScreen={false}
         backdropColor='transparent'
@@ -667,8 +1010,8 @@ null
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
         
         <Text style={{fontWeight:'bold',color:Mycolors.Black,marginVertical:10}}>Book A Slot</Text>
-        
-        {flatliistDesign(require('../../../assets/images/layer_40.png'),'Match Time Feast','$140.00',' 34 minutes',null,()=>{}   )}
+ 
+        {flatliistDesign(ClickedItemData.image,ClickedItemData.name,'$'+ClickedItemData.price,' 34 minutes',null,()=>{} ,ClickedItemData ,()=>{} ,()=>{})}
 
         <View style={{width:'95%',marginHorizontal:5,marginVertical:10, padding:10,backgroundColor:Mycolors.TimingColor,
               borderColor:Mycolors.RED,borderWidth:0.2,borderRadius:7,alignSelf:'center',}}
@@ -757,6 +1100,7 @@ null
           setmodlevisual4(false)
         }}
           scrollTo={() => {}}
+          onBackdropPress={() =>  setmodlevisual4(false)}
           scrollOffset={1}
           propagateSwipe={true}
         coverScreen={false}
@@ -817,6 +1161,9 @@ null
            
             </View>
 </Modal>
+  {loading ?  
+  <Loader />
+  :null}
     </SafeAreaView>
      );
   }

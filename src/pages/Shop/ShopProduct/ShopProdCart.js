@@ -37,57 +37,8 @@ const ShopProduct = (props) => {
     },
   ])
 
-  const [upData,setupData]=useState([
-    {
-      id: '1',
-      title: 'Hair Cut',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '2',
-      title: 'Shaving',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '3',
-      title: 'Facial',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '4',
-      title: 'Hair Color',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '5',
-      title: 'Hair wash',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '6',
-      title: 'Beard style',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-    {
-      id: '7',
-      title: 'Facial',
-      desc:'',
-      time:'',
-      img:require('../../../assets/images/images.png'),
-    },
-  ])
+  
+  
   useEffect(()=>{
 
  },[])

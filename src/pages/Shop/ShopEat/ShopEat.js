@@ -1,16 +1,17 @@
 import React, { useEffect,useState ,useRef} from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, StatusBar} from 'react-native';
 import HomeHeader from '../../../component/HomeHeader';
 import SearchInput2 from '../../../component/SearchInput2';
 import SerchInput from '../../../component/SerchInput';
 import { dimensions, Mycolors } from '../../../utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
 import MyButtons from '../../../component/MyButtons';
-import { baseUrl, login, requestPostApi,requestGetApi,shop_eat } from '../../../WebApi/Service'
+import { baseUrl, login,shop_eat_business, requestPostApi,requestGetApi,shop_eat } from '../../../WebApi/Service'
 import Loader from '../../../WebApi/Loader';
 import Toast from 'react-native-simple-toast'
 import MyAlert from '../../../component/MyAlert';
 import { useSelector, useDispatch } from 'react-redux';
+import { saveUserResult, saveUserToken,setVenderDetail, setUserType } from '../../../redux/actions/user_action';
 
 const ShopEat = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -67,10 +68,15 @@ const ShopEat = (props) => {
       img:require('../../../assets/images/images.png'),
     },
   ])
+  const [resData, setresData] = useState(null)
+  const [venderdata, setvenderdata] = useState(null)
   const [My_Alert, setMy_Alert] = useState(false)
   const [alert_sms, setalert_sms] = useState('')
+  const [lat, setlat] = useState('28.6176')
+  const [lan, setlan] = useState('77.422')
   useEffect(()=>{
     homePage()
+    // venderList()
  },[])
 
  const homePage = async () => {
@@ -79,14 +85,49 @@ const ShopEat = (props) => {
     
     const { responseJson, err } = await requestGetApi(shop_eat, '', 'GET', '')
     setLoading(false)
-    console.log('the res==>>', responseJson)
-    // if (responseJson.headers.success == 1) {
-     
-    // } else {
-    //    setalert_sms(err)
-    //    setMy_Alert(true)
-    // }
+    console.log('the res==>>Home', responseJson)
+    if (responseJson.headers.success == 1) {
+      console.log('the res==>>Home.body.vendors', responseJson.body)
+      setresData(responseJson.body)
+    } else {
+       setalert_sms(err)
+       setMy_Alert(true)
+    }
   
+}
+
+const homePageSearch = async () => {
+  //  if(searchValue==''){
+  //   Toast.show('Please input ')
+  //  }
+  setLoading(true)
+  const { responseJson, err } = await requestGetApi(shop_eat+'?name='+searchValue.text+'&lat='+lat+'&long='+lan, '', 'GET', '')
+  setLoading(false)
+  console.log('the res==>>Home ?name=', responseJson)
+  if (responseJson.headers.success == 1) {
+    props.navigation.navigate('ShopSearch',{datas:responseJson.body.vendors})
+    setresData(responseJson.body)
+  } else {
+     setalert_sms(err)
+     setMy_Alert(true)
+  }
+
+}
+
+const venderList = async () => {
+   
+  setLoading(true)
+  
+  const { responseJson, err } = await requestGetApi(shop_eat_business, '', 'GET', '')
+  setLoading(false)
+  console.log('the res==>>shop_eat_business', responseJson)
+  if (responseJson.headers.success == 1) {
+      setvenderdata(responseJson.body)
+  } else {
+     setalert_sms(err)
+     setMy_Alert(true)
+  }
+
 }
 
 
@@ -109,14 +150,15 @@ const ShopEat = (props) => {
 serchValue={searchValue} 
 onChangeText={(e)=>{setsearchValue(e)}} 
 press={()=>{Alert.alert('Hi')}}
-presssearch={()=>{Alert.alert('Search Pressed')}}
+presssearch={()=>{homePageSearch()}}
 paddingLeft={50}/>
  
 
 
 <View style={{width:'100%',alignSelf:'center',marginTop:15}}>
+        {resData!=null ?
           <FlatList
-                  data={upData}
+                  data={resData.coupons}
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
                   // numColumns={2}
@@ -125,17 +167,15 @@ paddingLeft={50}/>
                       <View style={{width:250,marginHorizontal:5}}>
           <TouchableOpacity style={{width:250,height:155,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
           onPress={()=>{}}>
-          <Image source={require('../../../assets/images/banners.png')} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:20,resizeMode: 'stretch'}}></Image>
+          <Image source={{uri:item.image}} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:20,resizeMode: 'stretch'}}></Image>
           </TouchableOpacity>
           </View>
                     )
                   }}
                   keyExtractor={item => item.id}
                 />
+              : null  }
          </View>
-
-
-
 
 
   <View style={{width:'95%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',marginTop:20}}>
@@ -144,9 +184,11 @@ paddingLeft={50}/>
  onPress={()=>{}}>View More</Text>
 </View>
 
+
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+{resData !=null ? 
           <FlatList
-                  data={upData}
+                  data={resData.vendors}
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
                   // numColumns={2}
@@ -154,14 +196,17 @@ paddingLeft={50}/>
                     return(
                       <View style={{width:160,marginHorizontal:5}}>
           <TouchableOpacity style={{width:160,height:130,backgroundColor:Mycolors.LogininputBox,alignSelf:'center'}}
-          onPress={()=>{props.navigation.navigate('FoodDetails')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
+          onPress={()=>{
+            props.navigation.navigate('FoodDetails',{data:item})
+            dispatch(setVenderDetail(item))
+            }}>
+          <Image source={{uri:item.banner_image}} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:7}}></Image>
           </TouchableOpacity>
           <View style={{}}>
-          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>Cafe 36</Text>
+          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.name}</Text>
           </View>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:5,top:-10}}>
-          <Text style={{fontSize:9,color:Mycolors.RED,marginTop:5,textAlign:'left',}}>Cafe</Text>
+          <Text style={{fontSize:9,color:Mycolors.RED,marginTop:5,textAlign:'left',}}></Text>
           <TouchableOpacity style={{width:25,height:25,borderRadius:5,backgroundColor:'#fff',shadowColor: '#000',
       shadowOffset: {
         width: 0,
@@ -179,6 +224,8 @@ paddingLeft={50}/>
                   }}
                   keyExtractor={item => item.id}
                 />
+
+                : null}
          </View>
 
 
@@ -189,8 +236,9 @@ paddingLeft={50}/>
 </View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
+{resData!=null ?
           <FlatList
-                  data={upData}
+                  data={resData.categories}
                   horizontal={true}
                   showsHorizontalScrollIndicator={false}
                   // numColumns={2}
@@ -206,19 +254,17 @@ paddingLeft={50}/>
                    // justifyContent: 'center',
                     elevation: 5,borderRadius:10}}>
           <View style={{width:80,height:80,alignSelf:'center',marginTop:5}}>
-          <Image source={require('../../../assets/images/layer_29.png')} style={{width:'100%',height:'100%',alignSelf:'center',}}></Image>
+          <Image source={{uri:item.category_image}} style={{width:'100%',height:'100%',alignSelf:'center',borderRadius:10,overflow:'hidden'}}></Image>
           </View>
-        <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,textAlign:'center',marginTop:9}} >Healthy Food</Text>
+        <Text style={{color:Mycolors.Black,fontWeight:'600',fontSize:12,textAlign:'center',marginTop:9}} >{item.category_name}</Text>
           </TouchableOpacity>
                     )
                   }}
                   keyExtractor={item => item.id}
                 />
+:null}
+
          </View>
-
-
-
-
 
  </View>
 <View style={{height:100}} />
@@ -237,6 +283,7 @@ paddingLeft={50}/>
 </View>
 
 </View>
+{loading ? <Loader /> : null}
     </SafeAreaView>
      );
   }
