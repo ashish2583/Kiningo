@@ -88,7 +88,28 @@ const DatingEditProfile = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
-<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>About me</Text>
+<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10}}>Edit Profile Photo</Text>
+<View style={{flexDirection:'row', alignItems:'center'}}>
+  <View>
+    <Image source={require('../../../assets/dating-message-image.png')} style={{width:100, height:100, borderRadius:2}} resizeMode='contain'/>
+    <View style={styles.deleteIconView}>
+      <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
+    </View>
+  </View>
+  <View style={{marginLeft:20}}>
+    <Image source={require('../../../assets/dating-message-image.png')} style={{width:100, height:100, borderRadius:2}} resizeMode='contain'/>
+    <View style={styles.deleteIconView}>
+      <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
+    </View>
+  </View>
+  <View style={{marginLeft:20, backgroundColor:'#fde7eb',justifyContent:'center', alignItems:'center', height:100, width:100}}>
+    <Image source={require('../../../assets/dating-upload-camera-icon.png')} style={{width:30, height:30, }} resizeMode='contain'/>
+    {/* <View style={styles.deleteIconView}>
+      <Image source={require('../../../assets/dating-delete-photo-icon.png')} style={styles.deleteIcon} resizeMode='contain'/>
+    </View> */}
+  </View>
+</View>
+<Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginBottom:10, marginTop:20}}>About me</Text>
 <TextInput
        value={''}
        onChangeText={(e) => {}}
@@ -313,6 +334,21 @@ const styles = StyleSheet.create({
   showMeImage:{
     height:15, 
     width:15
+  },
+  deleteIconView:{
+    justifyContent:'center', 
+    alignItems:'center',
+    width:30, 
+    height:30, 
+    borderRadius:50/2, 
+    backgroundColor:'#ff001e',
+    position:'absolute',
+    top:-5,
+    left:80
+  },
+  deleteIcon:{
+    width:10, 
+    height:10
   }
 });
 export default DatingEditProfile 
