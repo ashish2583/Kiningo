@@ -82,7 +82,7 @@ const DatingMoreInfo = (props) => {
  }
 
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7', height:'100%'}}>
       <ScrollView>
 <View style={{width:'100%',alignSelf:'center'}}>
   <ImageSlider 

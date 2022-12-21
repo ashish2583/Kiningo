@@ -82,7 +82,7 @@ const PeopleHome = (props) => {
  }
 
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7'}}>
       <ScrollView>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   

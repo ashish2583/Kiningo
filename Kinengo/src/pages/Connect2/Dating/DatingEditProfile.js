@@ -75,16 +75,7 @@ const DatingEditProfile = (props) => {
   const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
 
   return(
-    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#F8F8F8'}}>
-      <LinearGradient
-          colors={['#fd869f', '#fff']}
-          // start={{ x: 0, y: 0 }}
-          // end={{ x: 1, y: 1 }}
-          useAngle={true}
-          angle={315}
-          angleCenter={{ x: 0.5, y: 0.5}}
-          // style={{flex: 1,height:dimensions.SCREEN_HEIGHT}}
-        >
+    <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7'}}>
       <ScrollView>
 <View style={{flexDirection:'row', alignItems:'center', height:80,padding:20,}}>
   <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{flex:1}}>
@@ -300,7 +291,6 @@ const DatingEditProfile = (props) => {
            
             </View>
 </Modal>
-</LinearGradient>
     </SafeAreaView>
      );
   }
