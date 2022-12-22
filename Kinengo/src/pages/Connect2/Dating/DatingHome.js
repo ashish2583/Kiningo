@@ -158,7 +158,7 @@ const PeopleHome = (props) => {
         <View style={{ height: '80%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
           {/* <View style={{alignItems:'center'}}> */}
-          <View style={{width:'90%',alignSelf:'center', marginTop:10}}>
+          <View style={{width:'90%',alignSelf:'center', marginTop:10, marginBottom:40}}>
           
             <View style={{flexDirection:'row', alignItems:'center',}}>
             <TouchableOpacity onPress={()=>{setShowFilterModal(false)}} style={{flex:1}}>
@@ -337,8 +337,12 @@ const PeopleHome = (props) => {
           </View>
         
           <View style={{width:'95%',alignSelf:'center'}}>
-          <MyButtons title="Save" height={50} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{props.navigation.navigate('ShopPayment')}} marginHorizontal={20} fontSize={11}
-          titlecolor={Mycolors.BG_COLOR} backgroundColor={'#FFD037'} marginVertical={0} />
+          <TouchableOpacity style={styles.applyButtonStyle}>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#fff',}}>Apply</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{marginTop:20}}>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', alignSelf:'center'}}>Reset</Text>
+          </TouchableOpacity>
           </View>
 
             {/* <View style={{width:100,height:100}} /> */}
@@ -459,5 +463,19 @@ const styles = StyleSheet.create({
     fontSize:11.3,
     fontWeight:'400'
   },
+  applyButtonStyle:{
+    width:'100%',
+    height:50, 
+    borderRadius:5, 
+    alignSelf:'center', 
+    backgroundColor:'#FF4989', 
+    justifyContent:'center', 
+    alignItems:'center',
+    shadowColor: '#00EE57',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    elevation: 2,
+  }
 });
 export default PeopleHome 
