@@ -171,6 +171,22 @@ const PeopleHome = (props) => {
           </View>
 
             <View style={{height:20}}/>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#8F93A0'}}>Location</Text>
+            <View style={styles.addCommentView}>
+            <TextInput
+              value={'California'}
+              onChangeText={(text) => {
+                (text)
+              }}
+              placeholder=""
+              placeholderTextColor={'#B2B7B9'}
+              style={styles.input}
+              multiline
+            />
+              <View style={{flex:1, alignItems:'flex-end'}}>
+                <Image source={require('../../../assets/dating-modal-location-icon.png')}/>
+              </View>
+            </View>
             <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>I'm intersted in</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
@@ -476,6 +492,48 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     shadowOpacity: 0.2,
     elevation: 2,
-  }
+  },
+  addCommentView:{
+    // position:'absolute', 
+    // bottom:20,
+    width:'100%', 
+    // backgroundColor:'#fff0f0', 
+    // padding:15, 
+    flexDirection:'row',
+    alignItems:'center', 
+    justifyContent:'space-between',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
+    // shadowRadius: 1,
+    // shadowOpacity: 0.3,
+    // elevation: 5,
+  },
+  input: {
+    // paddingLeft: 20,
+    fontSize: 11.3,
+    fontWeight:'bold',
+    color:'#3e5869',
+    flex: 7,
+    textDecorationLine: 'underline'
+  },
+  sendButtonView:{
+    // backgroundColor:'#fee3e3', 
+    paddingHorizontal:30, 
+    paddingVertical:10, 
+    borderRadius:20,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  cameraButtonView:{
+    paddingHorizontal:20, 
+    paddingVertical:10, 
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
 });
 export default PeopleHome 
