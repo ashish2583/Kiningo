@@ -17,7 +17,8 @@ const PeopleHome = (props) => {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
-  const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [showFilterModal, setShowFilterModal] = useState(false)
+  const [interstedInValue, setInterstedInValue] = useState(1)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -81,6 +82,13 @@ const PeopleHome = (props) => {
   setupData([...updatedData])
  }
 
+ const onChangeInterested = (value) => {
+    if(interstedInValue === value){
+      return
+    }
+    setInterstedInValue(value)
+ }
+
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7'}}>
       <ScrollView>
@@ -104,7 +112,7 @@ const PeopleHome = (props) => {
   <HomeHeader height={40}  paddingHorizontal={0}
    press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
    press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
-   press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
+   press3={()=>{setShowFilterModal(true)}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>  
 
   <View style={{}}>
@@ -125,11 +133,11 @@ const PeopleHome = (props) => {
 
 </ScrollView>
 <Modal
-        isVisible={showChooseMilesModal}
+        isVisible={showFilterModal}
         swipeDirection="down"
-        onBackdropPress={()=>setShowChooseMilesModal(false)}
+        onBackdropPress={()=>setShowFilterModal(false)}
         onSwipeComplete={(e) => {
-          setShowChooseMilesModal(false)
+          setShowFilterModal(false)
         }}
           scrollTo={() => {}}
           scrollOffset={1}
@@ -138,10 +146,40 @@ const PeopleHome = (props) => {
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '50%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-          <View style={{alignItems:'center'}}>
-            <Text style={{color:Mycolors.Black,fontWeight:'500', marginBottom:30, marginTop:10}}>Choose Miles</Text>
+          {/* <View style={{alignItems:'center'}}> */}
+          <View style={{width:'90%',alignSelf:'center', marginTop:10}}>
+          
+            <View style={{flexDirection:'row', alignItems:'center',}}>
+            <TouchableOpacity onPress={()=>{setShowFilterModal(false)}} style={{flex:1}}>
+              <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
+            </TouchableOpacity>
+            <View style={{flex:3, flexDirection:'row', justifyContent:'center'}}>
+                <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Filters</Text>
+            </View>
+            <View style={{flex:1}}/>
+          </View>
+
+            <View style={{height:20}}/>
+            <Text style={{fontSize:16, fontWeight:'500',color:'#455A64'}}>I'm intersted in</Text>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={interstedInValue === 0 ? styles.interestedText1 : styles.interestedText2}>
+                  Boys
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>onChangeInterested(1)} style={interstedInValue === 1 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={interstedInValue === 1 ? styles.interestedText1 : styles.interestedText2}>
+                  Girls
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>onChangeInterested(2)} style={interstedInValue === 2 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={interstedInValue === 2 ? styles.interestedText1 : styles.interestedText2}>
+                  Both
+                </Text>
+              </TouchableOpacity>
+            </View>
             <MultiSlider
             // values={[multiSliderValue[0], multiSliderValue[1]]}
             values={[multiSliderValue[0]]}
@@ -337,6 +375,30 @@ const styles = StyleSheet.create({
     fontSize:12, 
     fontWeight:'400', 
     color:'#455A64'
-  }
+  },
+  interestedView1:{
+    backgroundColor:'#FF4989',
+    width:'33%',
+    height:50,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  interestedView2:{
+    backgroundColor:'#fff',
+    width:'33%',
+    height:50,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  interestedText1:{
+    color:'#FFFFFF',
+    fontSize:14,
+    fontWeight:'400'
+  },
+  interestedText2:{
+    color:'#8F93A0',
+    fontSize:14,
+    fontWeight:'400'
+  },
 });
 export default PeopleHome 
