@@ -17,7 +17,7 @@ const PeopleHome = (props) => {
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [ageRangeSliderValue, setAgeRangeSliderValue] = useState([18, 60])
-  const [distanceSliderValue, setDistanceSliderValue] = useState([18, 60])
+  const [distanceSliderValue, setDistanceSliderValue] = useState([10, 60])
   const [showFilterModal, setShowFilterModal] = useState(false)
   const [interstedInValue, setInterstedInValue] = useState(1)
   const [filterByStatus, setFilterByStatus] = useState(1)
@@ -277,10 +277,10 @@ const PeopleHome = (props) => {
           </View>
             <MultiSlider
             // values={[ageRangeSliderValue[0], ageRangeSliderValue[1]]}
-            values={[distanceSliderValue[0][0]]}
+            values={[distanceSliderValue[0]]}
             sliderLength={320}
             onValuesChange={distanceSliderValuesChange}
-            min={18}
+            min={0}
             max={100}
             step={1}
             allowOverlap={false}
