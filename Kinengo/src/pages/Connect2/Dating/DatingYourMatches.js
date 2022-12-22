@@ -117,12 +117,12 @@ const DatingYourMatches = (props) => {
             <View style={styles.absoluteView}>
               <Text style={styles.nameStyle}>{item.name}</Text>
               <View style={styles.buttonsContainer}>
-                <View style={styles.buttonView}>
+                <TouchableOpacity style={styles.buttonView}>
                   <Image source={require('../../../assets/dating-matches-reject-icon.png')}/>
-                </View>
-                <View style={styles.buttonView}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonView}>
                   <Image source={require('../../../assets/dating-matches-love-icon.png')}/>
-                </View>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   flatListView:{
     width:dimensions.SCREEN_WIDTH/2.2,
     marginHorizontal:5,
-    height:170, 
+    height:250, 
     marginBottom:10
   },
   flatListImage:{
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
   absoluteView:{
     position:'absolute',
-    bottom:20,
+    bottom:10,
     left:dimensions.SCREEN_WIDTH/(2.2*4)
   },
   nameStyle:{
@@ -166,7 +166,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:"center",
-    width:100
+    width:100,
+    marginTop:10
   },
   buttonView:{
     width:40,
