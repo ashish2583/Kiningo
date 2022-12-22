@@ -193,7 +193,7 @@ const PeopleHome = (props) => {
                 borderBottomWidth: StyleSheet.hairlineWidth,
               }}
             />
-            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginTop:10}}>I'm intersted in</Text>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginTop:20}}>I'm intersted in</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
                 <Text style={interstedInValue === 0 ? styles.interestedText1 : styles.interestedText2}>
