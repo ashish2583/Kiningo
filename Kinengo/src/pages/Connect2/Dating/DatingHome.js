@@ -155,7 +155,7 @@ const PeopleHome = (props) => {
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '50%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '80%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
           {/* <View style={{alignItems:'center'}}> */}
           <View style={{width:'90%',alignSelf:'center', marginTop:10}}>
@@ -171,7 +171,7 @@ const PeopleHome = (props) => {
           </View>
 
             <View style={{height:20}}/>
-            <Text style={{fontSize:16, fontWeight:'500',color:'#455A64'}}>I'm intersted in</Text>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>I'm intersted in</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
                 <Text style={interstedInValue === 0 ? styles.interestedText1 : styles.interestedText2}>
@@ -190,7 +190,7 @@ const PeopleHome = (props) => {
               </TouchableOpacity>
             </View>
             
-            <Text style={{fontSize:16, fontWeight:'500',color:'#455A64', marginTop:10}}>Filter by</Text>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginTop:10}}>Filter by</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeFilterByStatus(0)} style={filterByStatus === 0 ? styles.interestedView1 : styles.interestedView2}>
                 <Text style={filterByStatus === 0 ? styles.interestedText1 : styles.interestedText2}>
@@ -451,12 +451,12 @@ const styles = StyleSheet.create({
   },
   interestedText1:{
     color:'#FFFFFF',
-    fontSize:14,
+    fontSize:11.3,
     fontWeight:'400'
   },
   interestedText2:{
     color:'#8F93A0',
-    fontSize:14,
+    fontSize:11.3,
     fontWeight:'400'
   },
 });
