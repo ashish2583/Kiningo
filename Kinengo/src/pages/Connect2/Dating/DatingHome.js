@@ -187,7 +187,13 @@ const PeopleHome = (props) => {
                 <Image source={require('../../../assets/dating-modal-location-icon.png')}/>
               </View>
             </View>
-            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>I'm intersted in</Text>
+            <View
+              style={{
+                borderBottomColor: '#DBDBDB',
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', marginTop:10}}>I'm intersted in</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
                 <Text style={interstedInValue === 0 ? styles.interestedText1 : styles.interestedText2}>
@@ -517,7 +523,7 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color:'#3e5869',
     flex: 7,
-    textDecorationLine: 'underline'
+    // textDecorationLine: 'underline'
   },
   sendButtonView:{
     // backgroundColor:'#fee3e3', 
