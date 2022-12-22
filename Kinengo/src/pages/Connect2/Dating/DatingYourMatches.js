@@ -103,6 +103,11 @@ const DatingYourMatches = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
+<View style={{marginBottom:20}}>
+  <Text style={{fontSize:22, fontWeight:'500',color:'#FF3B7F',marginBottom:5}}>Your Matches</Text>
+  <Text style={{fontSize:14, fontWeight:'400',color:'#455A64'}}>Here you can see people who liked you</Text>
+</View>
+
 <View style={{width:'100%',alignSelf:'center',}}>
   <FlatList
       data={matchesValues}
