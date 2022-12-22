@@ -11,20 +11,21 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
-import Carousel from './Components/Carousel/Carousel';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-const SliderData = [
-  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
-  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
-  {slider: `https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60`},
-]
+import ViewMoreText from 'react-native-view-more-text';
 
-const PeopleHome = (props) => {
+const DatingYourMatches = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [passionValues, setPassionsValues] = useState([
+    {id:'1',name:'Travelling', mutual: true}, 
+    {id:'2',name:'Books', mutual: true}, 
+    {id:'3',name:'Music', mutual: false}, 
+    {id:'4',name:'Dancing', mutual: false}, 
+    {id:'5',name:'Modelling', mutual: false},
+  ])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -88,80 +89,36 @@ const PeopleHome = (props) => {
   setupData([...updatedData])
  }
 
- const onReject = (id) => {
-  console.log('id rejected', id);
-  props.navigation.navigate('DatingChat')
- }
- const onLove = (id) => {
-  console.log('id loved', id);
-  props.navigation.navigate('DatingMessages')
-}
-const onRefresh = (id) => {
-  console.log('id refreshed', id);
-  props.navigation.navigate('DatingProfile')
- }
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7', height:'100%'}}>
       <ScrollView>
+      <View style={{flexDirection:'row', alignItems:'center', height:80,padding:20, borderBottomLeftRadius:25, borderBottomRightRadius:25}}>
+  <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{flex:1}}>
+    <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
+  </TouchableOpacity>
+  <View style={{flex:3, flexDirection:'row', justifyContent:'center'}}>
+      <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Your Matches</Text>
+  </View>
+  <View style={{flex:1}}/>
+</View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
-  
-  <View style={{flexDirection:'row', alignItems:'center'}}>
-    <View style={{flex:1, flexDirection:'row', justifyContent:'flex-start', alignItems:'center'}}>
-        <View style={{justifyContent:'center', alignItems:'center'}}>
-            <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20, borderColor:'#e42f5e', borderWidth:2}}/>
-        </View>
-    </View>
-    <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-        <Text style={{fontSize:12.5, color:'#31313f'}}>Personal connect</Text>
-    </View>
-    <TouchableOpacity style={{flex:1, flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}} onPress={()=>{props.navigation.navigate('DatingYourMatches')}}>
-        <Image source={require('../../../assets/dating-home-header-right-image.png')}/>
-    </TouchableOpacity>
-  </View>
 
-  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth, marginTop:10}}/>  
-  <HomeHeader height={40}  paddingHorizontal={0}
-   press1={()=>{}} img1={require('../../../assets/dating-location-image.png')} img1width={11} img1height={15} 
-   press2={()=>{}} title2={'New Yark USA'} fontWeight={'500'} img2height={20} right={dimensions.SCREEN_WIDTH*26/100} fontSize={10} color={'#e1194d'}
-   press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
-  <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>
-  <View style={{height:30}}/>  
-  <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    caroselImageContainerStyle={{borderRadius: 20,  overflow: 'hidden'}}
-    // caroselImageStyle={{width:dimensions.SCREEN_WIDTH, height:400}}
-   // onClick={(item, index) => {alert('hello'+index)}}
-    // autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-   showIndicator={false}
-      closeIconColor="#fff"
+<FlatList
+    data={passionValues}
+    showsHorizontalScrollIndicator={false}
+    numColumns={2}
+    keyExtractor={item => item.id}
+    renderItem={({item,index})=>{
+      return(
+        <View key={item.name} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: item?.mutual ? '#fff1f6': '#fff', borderColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
+          <Text style={styles.showMeText}>{item.name}</Text>
+          <View style={[styles.showMeImageView, {backgroundColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
+            <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
+          </View>
+        </View>
+      )
+    }}
   />
-  <View style={styles.buttonsRow}>
-    <TouchableOpacity onPress={()=>{onReject(1)}}>
-      <Image source={require('../../../assets/dating-reject-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onLove(1)}}>
-      <Image source={require('../../../assets/dating-love-image.png')} style={{width:110, height:110, top:-(110+10)/2,}} resizeMode='contain'/>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}}>
-      <Image source={require('../../../assets/dating-refresh-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
-    </TouchableOpacity>
-  </View>
-  <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center', top:-60}}>Mary Burgees</Text>
-  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', top:-50}}>
-    <Text style={{fontSize:10, color:'#e10f51'}}>@marry</Text>
-    <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
-    <Text style={{fontSize:10, color:'#e1e1e1'}}>Age 23</Text>
-    <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
-    <Text style={{fontSize:10, color:'#e1e1e1'}}>5 miles away</Text>
-  </View>  
-  {/* {SliderData.length > 0 ? <Carousel data={SliderData} onReject={onReject} onLove={onLove} onRefresh={onRefresh} /> : null}   */}
 
  </View>
 <View style={{height:100}} />
@@ -381,10 +338,31 @@ const styles = StyleSheet.create({
     fontWeight:'400', 
     color:'#455A64'
   },
-  buttonsRow:{
-    flexDirection:'row',
+  showMeView:{
+    flexDirection:'row', 
     alignItems:'center',
-    alignSelf:'center'
-  }
+    justifyContent:'space-between',
+    width:'27%', 
+    padding:10, 
+    // paddingHorizontal:15, 
+    borderRadius:20,
+    borderWidth:0.5
+  },
+  showMeText:{
+    fontSize:10, 
+    color:'#4a4c52'
+  },
+  showMeImageView:{
+    justifyContent:'center', 
+    alignItems:'center',
+    height:20, 
+    width:20, 
+    borderRadius:20/2,
+    marginLeft:10,
+  },
+  showMeImage:{
+    height:15, 
+    width:15
+  },
 });
-export default PeopleHome 
+export default DatingYourMatches 
