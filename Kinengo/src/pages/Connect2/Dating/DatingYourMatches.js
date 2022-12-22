@@ -19,12 +19,12 @@ const DatingYourMatches = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
-  const [passionValues, setPassionsValues] = useState([
-    {id:'1',name:'Travelling', mutual: true}, 
-    {id:'2',name:'Books', mutual: true}, 
-    {id:'3',name:'Music', mutual: false}, 
-    {id:'4',name:'Dancing', mutual: false}, 
-    {id:'5',name:'Modelling', mutual: false},
+  const [matchesValues, setMatchesValues] = useState([
+    {id:'1',name:'Rose', img: require('../../../assets/dating-your-matches-person-image.png')}, 
+    {id:'2',name:'Rose', img: require('../../../assets/dating-your-matches-person-image.png')}, 
+    {id:'3',name:'Rose', img: require('../../../assets/dating-your-matches-person-image.png')}, 
+    {id:'4',name:'Rose', img: require('../../../assets/dating-your-matches-person-image.png')}, 
+    {id:'5',name:'Rose', img: require('../../../assets/dating-your-matches-person-image.png')},
   ])
   const [upData,setupData]=useState([
     {
@@ -103,19 +103,22 @@ const DatingYourMatches = (props) => {
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
-<FlatList
-    data={passionValues}
-    showsHorizontalScrollIndicator={false}
-    numColumns={2}
-    keyExtractor={item => item.id}
-    renderItem={({item,index})=>{
-      return(
-        <View key={item.name} style={[styles.flatListView, index % 2 === 0 ? styles.leftView : styles.rightView]}>
-          <Image source={require('../../../assets/dating-your-matches-person-image.png')}/>
-        </View>
-      )
-    }}
-  />
+<View style={{width:'100%',alignSelf:'center',}}>
+  <FlatList
+      data={matchesValues}
+      showsHorizontalScrollIndicator={false}
+      numColumns={2}
+      style={{alignSelf:'center'}}
+      keyExtractor={item => item.id}
+      renderItem={({item,index})=>{
+        return(
+          <View key={item.name} style={styles.flatListView}>
+            <Image source={item.img} style={styles.flatListImage} />
+          </View>
+        )
+      }}
+    />
+</View>
 
  </View>
 <View style={{height:100}} />
@@ -126,14 +129,16 @@ const DatingYourMatches = (props) => {
   }
 const styles = StyleSheet.create({
   flatListView:{
-    width:'48%', 
-    height:200
+    width:dimensions.SCREEN_WIDTH/2.2,
+    marginHorizontal:5,
+    height:170, 
+    marginBottom:10
   },
-  leftView:{
-    marginRight:10
-  },
-  rightView:{
-    marginLeft:10
-  },
+  flatListImage:{
+    width:'100%',
+    height:'100%',
+    alignSelf:'center',
+    borderRadius:7
+  }
 });
 export default DatingYourMatches 
