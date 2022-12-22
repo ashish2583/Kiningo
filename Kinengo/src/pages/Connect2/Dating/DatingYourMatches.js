@@ -114,6 +114,17 @@ const DatingYourMatches = (props) => {
         return(
           <View key={item.name} style={styles.flatListView}>
             <Image source={item.img} style={styles.flatListImage} />
+            <View style={styles.absoluteView}>
+              <Text style={styles.nameStyle}>{item.name}</Text>
+              <View style={styles.buttonsContainer}>
+                <View style={styles.buttonView}>
+                  <Image source={require('../../../assets/dating-matches-reject-icon.png')}/>
+                </View>
+                <View style={styles.buttonView}>
+                  <Image source={require('../../../assets/dating-matches-love-icon.png')}/>
+                </View>
+              </View>
+            </View>
           </View>
         )
       }}
@@ -139,6 +150,31 @@ const styles = StyleSheet.create({
     height:'100%',
     alignSelf:'center',
     borderRadius:7
+  },
+  absoluteView:{
+    position:'absolute',
+    bottom:20,
+    left:dimensions.SCREEN_WIDTH/(2.2*4)
+  },
+  nameStyle:{
+    fontSize:16,
+    fontWeight:'500',
+    color:'#fff',
+    textAlign:'center'
+  },
+  buttonsContainer:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:"center",
+    width:100
+  },
+  buttonView:{
+    width:40,
+    height:40,
+    borderRadius:40/2,
+    backgroundColor:'#FFF1ED',
+    alignItems:'center',
+    justifyContent:'center'
   }
 });
 export default DatingYourMatches 
