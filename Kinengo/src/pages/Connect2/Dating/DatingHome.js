@@ -16,9 +16,11 @@ const PeopleHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
-  const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
+  const [ageRangeSliderValue, setAgeRangeSliderValue] = useState([18, 60])
+  const [distanceSliderValue, setDistanceSliderValue] = useState([18, 60])
   const [showFilterModal, setShowFilterModal] = useState(false)
   const [interstedInValue, setInterstedInValue] = useState(1)
+  const [filterByStatus, setFilterByStatus] = useState(1)
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -66,7 +68,8 @@ const PeopleHome = (props) => {
     },
 
   ])
-  const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
+  const ageRangeSliderValuesChange = (values) => {setAgeRangeSliderValue(values)}
+  const distanceSliderValuesChange = (values) => {setDistanceSliderValue(values)}
   useEffect(()=>{
 
  },[])
@@ -87,6 +90,12 @@ const PeopleHome = (props) => {
       return
     }
     setInterstedInValue(value)
+ }
+ const onChangeFilterByStatus = (value) => {
+    if(filterByStatus === value){
+      return
+    }
+    setFilterByStatus(value)
  }
 
   return(
@@ -163,7 +172,7 @@ const PeopleHome = (props) => {
 
             <View style={{height:20}}/>
             <Text style={{fontSize:16, fontWeight:'500',color:'#455A64'}}>I'm intersted in</Text>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+            <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
               <TouchableOpacity onPress={()=>onChangeInterested(0)} style={interstedInValue === 0 ? styles.interestedView1 : styles.interestedView2}>
                 <Text style={interstedInValue === 0 ? styles.interestedText1 : styles.interestedText2}>
                   Boys
@@ -180,12 +189,35 @@ const PeopleHome = (props) => {
                 </Text>
               </TouchableOpacity>
             </View>
+            
+            <Text style={{fontSize:16, fontWeight:'500',color:'#455A64', marginTop:10}}>Filter by</Text>
+            <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
+              <TouchableOpacity onPress={()=>onChangeFilterByStatus(0)} style={filterByStatus === 0 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={filterByStatus === 0 ? styles.interestedText1 : styles.interestedText2}>
+                  All
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>onChangeFilterByStatus(1)} style={filterByStatus === 1 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={filterByStatus === 1 ? styles.interestedText1 : styles.interestedText2}>
+                  Online
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>onChangeFilterByStatus(2)} style={filterByStatus === 2 ? styles.interestedView1 : styles.interestedView2}>
+                <Text style={filterByStatus === 2 ? styles.interestedText1 : styles.interestedText2}>
+                  New
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:15}}>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>Age range</Text>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>{`${ageRangeSliderValue[0]}-${ageRangeSliderValue[1]}`}</Text>
+          </View>
             <MultiSlider
-            // values={[multiSliderValue[0], multiSliderValue[1]]}
-            values={[multiSliderValue[0]]}
+            values={[ageRangeSliderValue[0], ageRangeSliderValue[1]]}
+            // values={[multiSliderValue[0]]}
             sliderLength={320}
-            onValuesChange={multiSliderValuesChange}
-            min={0}
+            onValuesChange={ageRangeSliderValuesChange}
+            min={18}
             max={100}
             step={1}
             allowOverlap={false}
@@ -202,7 +234,7 @@ const PeopleHome = (props) => {
                   },
                   shadowRadius: 1,
                   shadowOpacity: 0.1,
-                  borderColor:'#ED1C24',
+                  borderColor:'#f23476',
                   borderWidth:1
                 },
                 android: {
@@ -210,7 +242,7 @@ const PeopleHome = (props) => {
                   width: 30,
                   borderRadius: 50,
                   backgroundColor: '#fff',
-                  borderColor:'#ED1C24',
+                  borderColor:'#f23476',
                   borderWidth:1
                 }
               })
@@ -225,7 +257,8 @@ const PeopleHome = (props) => {
                 }
               })
             }}
-            selectedStyle={{backgroundColor: '#ED1C24'}}
+            selectedStyle={{backgroundColor: '#f23476'}}
+            unselectedStyle={{backgroundColor: '#FFCEBF'}}
             trackStyle={{
               height:5
             }}
@@ -236,52 +269,70 @@ const PeopleHome = (props) => {
               slipDisplacement: 40
             }}
             />
-            <View style={{flexDirection:'row', alignItems:'center', width:'95%',
-                  height:60,
-                  paddingHorizontal:20,
-                  backgroundColor:'#fff',
-                  alignSelf:'center',
-                  shadowColor: 'rgba(0, 0, 0, 0.5)',
+            
+
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:15}}>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869'}}>Distance</Text>
+            <Text style={{fontSize:11.3, fontWeight:'bold', color:'#ff3b7f'}}>{distanceSliderValue[0]}</Text>
+          </View>
+            <MultiSlider
+            // values={[ageRangeSliderValue[0], ageRangeSliderValue[1]]}
+            values={[distanceSliderValue[0][0]]}
+            sliderLength={320}
+            onValuesChange={distanceSliderValuesChange}
+            min={18}
+            max={100}
+            step={1}
+            allowOverlap={false}
+            minMarkerOverlapDistance={10}
+            markerStyle={{
+              ...Platform.select({
+                ios: {
+                  height: 30,
+                  width: 30,
+                  shadowColor: '#000000',
                   shadowOffset: {
                     width: 0,
                     height: 3
                   },
                   shadowRadius: 1,
                   shadowOpacity: 0.1,
-                  // overflow: 'hidden',
-                  elevation: 5,
-                  marginTop:30,
-                  marginBottom:30,}}>
-            <TextInput
-                ref={myTextInput}
-                value={String(multiSliderValue[0])}
-                onChangeText={(e) => {
-                  const value = e.replace(/[^0-9]/g, '')
-                  if(Number(value) > 100){
-                    Toast.show('Miles cannot be more than 100', Toast.SHORT)
-                  }else if(Number(value) < 0){
-                    Toast.show('Miles cannot be less than 0', Toast.SHORT)
-                  } else{
-                    multiSliderValuesChange([Number(value)])
-                  }
-                }}
-                textAlignVertical={'center'}
-                // onChangeText={(e) => console.log('e', e)}
-                placeholder={'0'}
-                placeholderTextColor="#263238"
-                multiline={true}
-              // maxLength={500}
-              // keyboardType="number-pad"
-                autoCapitalize = 'none'
-                style={{
-                  color:'#263238',
-                  fontSize:12,
-                  fontWeight:'500'
-                }}
-                keyboardType='numeric'
-              />
-              <Text onPress={()=>{myTextInput.current.focus()}} style={{color:'#263238', fontSize:12, fontWeight:'500'}}> miles</Text>
-              </View>
+                  borderColor:'#f23476',
+                  borderWidth:1
+                },
+                android: {
+                  height: 30,
+                  width: 30,
+                  borderRadius: 50,
+                  backgroundColor: '#fff',
+                  borderColor:'#f23476',
+                  borderWidth:1
+                }
+              })
+            }}
+            pressedMarkerStyle={{
+              ...Platform.select({
+                android: {
+                  height: 30,
+                  width: 30,
+                  borderRadius: 20,
+                  backgroundColor: '#ED1C24'
+                }
+              })
+            }}
+            selectedStyle={{backgroundColor: '#f23476'}}
+            unselectedStyle={{backgroundColor: '#FFCEBF'}}
+            trackStyle={{
+              height:5
+            }}
+            touchDimensions={{
+              height: 40,
+              width: 40,
+              borderRadius: 20,
+              slipDisplacement: 40
+            }}
+            />
+            
             {/* <Text style={{color:Mycolors.GrayColor,fontWeight:'600',fontSize:12,marginTop:9}} >{multiSliderValue[0]} miles</Text> */}
           </View>
         
@@ -381,7 +432,15 @@ const styles = StyleSheet.create({
     width:'33%',
     height:50,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    shadowColor:'#0089CF',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 1,
+    shadowOpacity: 0.1,
+    elevation: 2
   },
   interestedView2:{
     backgroundColor:'#fff',
