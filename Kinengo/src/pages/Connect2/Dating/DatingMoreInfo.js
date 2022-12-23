@@ -114,29 +114,30 @@ const DatingMoreInfo = (props) => {
 </TouchableOpacity>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
 
- <View style={{backgroundColor:'#fff5f7', top:-60, padding:20, borderRadius:10}}>
+ <View style={{backgroundColor:'#fff5f7', padding:20}}>
   <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',}}>
     <View>
-      <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center'}}>Mary Burgees</Text>
-      <Text style={{fontSize:10, color:'#e10f51', marginTop:5}}>@marry</Text>
+      <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold',}}>Mary Burgees, 23</Text>
+      {/* <Text style={{fontSize:10, color:'#e10f51', marginTop:5}}>@marry</Text> */}
+      <Text style={{fontSize:10, color:'#4a4c52', marginTop:5}}>Professional model</Text>
     </View>
-    <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#fee5e0', paddingVertical:10, paddingHorizontal:25,borderRadius:20}}>
-      <Text style={{fontSize:10, color:'#f3195a'}}>5 Miles</Text>
+    <View style={{justifyContent:'center',alignItems:'center', width:40, height:40,borderRadius:10, backgroundColor:'#fff', shadowColor: '#0089CF',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 2}}>
+      <Image source={require('../../../assets/dating-home-header-right-image.png')} style={{width:20, height:20}}/>
     </View>
     
   </View>   
-  <Text style={{fontSize:10, color:'#4a4c52', marginTop:10}}>Age 23</Text>
-  <View style={{marginTop:10}}/>
-  <View>
-    <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-      <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold'}}>Location</Text>
-      <View style={{justifyContent:'center',alignItems:'center',backgroundColor:'#fee5e0', paddingVertical:5, paddingHorizontal:10,borderRadius:2}}>
-        <Text style={{fontSize:10, color:'#f3195a'}}>1 km</Text>
+  <View style={{marginTop:20}}/>
+    <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+      <View>
+        <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold'}}>Location</Text>
+        <Text style={{fontSize:10, color:'#4a4c52'}}>Chicago, IL, United States</Text>
+      </View>
+      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'rgba(255, 73, 137, 0.13)', width:80,height:30,borderRadius:15, paddingHorizontal:10, shadowColor: 'rgba(255, 73, 137)',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.13,elevation: 2}}>
+        <Image source={require('../../../assets/dating-maptrifold.png')} style={{width:20, height:20}}/>
+        <Text style={{fontSize:10, color:'#FF4989'}}>2.5 km</Text>
       </View>
     </View>
-    <Text style={{fontSize:10, color:'#4a4c52'}}>Chicago, IL, United States</Text>
-  </View>  
-  <View style={{marginTop:10}}/>
+  <View style={{marginTop:30}}/>
   <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold', marginBottom:7}}>About</Text>
   <ViewMoreText
           numberOfLines={3}
@@ -161,7 +162,7 @@ const DatingMoreInfo = (props) => {
           </Text>
 </ViewMoreText>
 
-<View style={{marginTop:10}}>
+<View style={{marginTop:20}}>
 <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold',marginBottom:10}}>Passions</Text>
 <FlatList
     data={passionValues}
