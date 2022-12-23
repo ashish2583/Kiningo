@@ -179,7 +179,7 @@ const DatingMoreInfo = (props) => {
         )
       }else{
         return(
-          <View key={item.name} style={[styles.showMeView , {justifyContent:'center', width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: '#fff', borderColor: '#e3d0d7'}]}>
+          <View key={item.name} style={[styles.showMeView , {justifyContent:'center', width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10, borderColor: '#e3d0d7'}]}>
             <Text style={styles.showMeText}>{item.name}</Text>
           </View>
         )
