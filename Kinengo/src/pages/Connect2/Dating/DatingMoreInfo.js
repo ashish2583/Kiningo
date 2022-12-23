@@ -188,13 +188,13 @@ const DatingMoreInfo = (props) => {
   />
 
 <View style={styles.buttonsRow}>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={{backgroundColor:'#fff',width:70, height:70,borderRadius:90/2, justifyContent:'center', alignItems:'center'}}>
+    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={styles.buttonViewOne}>
       <Image source={require('../../../assets/dating-more-info-reject.png')} style={{width:20, height:20, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onLove(1)}} style={{backgroundColor:'#FF4989',width:80, height:80,borderRadius:90/2, justifyContent:'center', alignItems:'center', marginHorizontal:15}}>
+    <TouchableOpacity onPress={()=>{onLove(1)}} style={styles.buttonViewTwo}>
       <Image source={require('../../../assets/dating-more-info-heart.png')} style={{width:40, height:40, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={{backgroundColor:'#fff',width:70, height:70,borderRadius:90/2, justifyContent:'center', alignItems:'center'}}>
+    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={styles.buttonViewOne}>
       <Image source={require('../../../assets/dating-yellow-star.png')} style={{width:20, height:20, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
   </View>
@@ -454,5 +454,32 @@ const styles = StyleSheet.create({
     alignSelf:'center',
     marginTop:20
   },
+  buttonViewOne:{
+    backgroundColor:'#fff',
+    width:70, 
+    height:70,
+    borderRadius:90/2, 
+    justifyContent:'center', 
+    alignItems:'center',
+    shadowColor: '#000000',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.07,
+    elevation: 1,
+  },
+  buttonViewTwo:{
+    backgroundColor:'#FF4989',
+    width:80, 
+    height:80,
+    borderRadius:90/2, 
+    justifyContent:'center', 
+    alignItems:'center', 
+    marginHorizontal:15,
+    shadowColor: '#E94057',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    elevation: 4,
+  }
 });
 export default DatingMoreInfo 
