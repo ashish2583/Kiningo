@@ -165,7 +165,8 @@ const styles = StyleSheet.create({
   addCommentContainer:{
     position:'absolute', 
     bottom:20,
-    padding:15, 
+    padding:15,
+    backgroundColor:'#fff5f7', 
     alignItems:'center', 
     justifyContent:'center', 
     borderTopWidth:0.5, 
