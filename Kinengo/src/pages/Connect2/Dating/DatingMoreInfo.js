@@ -191,7 +191,7 @@ const DatingMoreInfo = (props) => {
     <TouchableOpacity onPress={()=>{onRefresh(1)}} style={{backgroundColor:'#fff',width:70, height:70,borderRadius:90/2, justifyContent:'center', alignItems:'center'}}>
       <Image source={require('../../../assets/dating-more-info-reject.png')} style={{width:20, height:20, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onLove(1)}} style={{backgroundColor:'#FF4989',width:80, height:80,borderRadius:90/2, justifyContent:'center', alignItems:'center'}}>
+    <TouchableOpacity onPress={()=>{onLove(1)}} style={{backgroundColor:'#FF4989',width:80, height:80,borderRadius:90/2, justifyContent:'center', alignItems:'center', marginHorizontal:15}}>
       <Image source={require('../../../assets/dating-more-info-heart.png')} style={{width:40, height:40, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
     <TouchableOpacity onPress={()=>{onRefresh(1)}} style={{backgroundColor:'#fff',width:70, height:70,borderRadius:90/2, justifyContent:'center', alignItems:'center'}}>
@@ -450,8 +450,9 @@ const styles = StyleSheet.create({
   buttonsRow:{
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'space-evenly',
+    // justifyContent:'space-evenly',
     alignSelf:'center',
+    marginTop:20
   },
 });
 export default DatingMoreInfo 
