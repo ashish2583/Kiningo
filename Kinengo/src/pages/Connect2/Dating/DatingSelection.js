@@ -7,6 +7,7 @@ import SearchInputEnt from 'src/component/SearchInputEnt';
 import SerchInput from 'src/component/SerchInput';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
+import AppIntroSlider from 'react-native-app-intro-slider';
 import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
@@ -25,6 +26,12 @@ const PeopleHome = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
+  const [introSliderData] = useState([
+    // require('../../assets/Group75972.png'),
+    {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+    {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+    {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -100,6 +107,15 @@ const onRefresh = (id) => {
   console.log('id refreshed', id);
   props.navigation.navigate('DatingProfile')
  }
+const _renderItem = ({ item }) => {
+  return (
+      <Image source={{uri: item.image}} style={{width:dimensions.SCREEN_WIDTH*0.9,height:dimensions.SCREEN_HEIGHT/2, borderRadius:20}}/>
+    // <View key={item.key} style={styles.slide}>
+    //   <Text style={styles.title}>{item.title}</Text>
+    //   <Text style={styles.text}>{item.text}</Text>
+    // </View>
+  );
+}
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{backgroundColor:'#fff5f7', height:'100%'}}>
       <ScrollView>
@@ -126,22 +142,24 @@ const onRefresh = (id) => {
    press3={()=>{}} img3={require('../../../assets/dating-filter-image.png')} img3width={25} img3height={25} />  
   <View style={{borderBottomColor: '#ffb0ba', borderBottomWidth: StyleSheet.hairlineWidth}}/>
   <View style={{height:30}}/>  
-  <ImageSlider 
-    //  localImg={true}
+  <AppIntroSlider
+    data={introSliderData}
+    renderItem={_renderItem}
+    renderPagination={() => null}
+    renderDoneButton={()=><View />}
+    renderNextButton={()=><View />}
+    keyExtractor={(item) => item.id}
+  />
+  {/* <ImageSlider 
     data={[
-        // require('../../assets/Group75972.png'),
         {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
         {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
         {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
     ]}
     caroselImageContainerStyle={{borderRadius: 20,  overflow: 'hidden'}}
-    // caroselImageStyle={{width:dimensions.SCREEN_WIDTH, height:400}}
-   // onClick={(item, index) => {alert('hello'+index)}}
-    // autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
    showIndicator={false}
       closeIconColor="#fff"
-  />
+  /> */}
   <View style={styles.buttonsRow}>
     <TouchableOpacity onPress={()=>{onReject(1)}}>
       <Image source={require('../../../assets/dating-reject-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
@@ -385,6 +403,10 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     alignSelf:'center'
+  },
+  slide:{
+    width:'100%',
+    height:300,
   }
 });
 export default PeopleHome 
