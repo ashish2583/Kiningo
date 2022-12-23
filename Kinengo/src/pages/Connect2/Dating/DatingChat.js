@@ -141,15 +141,15 @@ const DatingChat = (props) => {
     }}
     placeholder="Type a message"
     placeholderTextColor={'#B2B7B9'}
-    style={styles.input}
+    style={[styles.input, {width:'70%'}]}
     multiline
   />
-    <View style={{flexDirection:'row', alignItems:'center', flex:2}}>
+    <View style={{flexDirection:'row', alignItems:'center', width:'30%'}}>
         <TouchableOpacity onPress={sendMessage} style={styles.cameraButtonView}>
             <Image source={require('../../../assets/dating-camera-icon.png')}/>
         </TouchableOpacity>
         <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
-            <Image source={require('../../../assets/dating-send-icon.png')}/>
+            <Image source={require('../../../assets/dating-send-icon.png')} style={styles.sendButton} resizeMode='contain'/>
         </TouchableOpacity>
     </View>
   </View>
@@ -180,21 +180,24 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight:'500',
     color:'#000',
-    flex: 7
   },
   sendButtonView:{
     backgroundColor:'#fee3e3', 
-    paddingHorizontal:30, 
-    paddingVertical:10, 
-    borderRadius:20,
-    flex:1,
+    height:50,
+    width:50,
+    borderRadius:50/2,
+    // flex:1,
     justifyContent:'center',
     alignItems:'center'
+  },
+  sendButton:{
+    height:20,
+    width:20,
   },
   cameraButtonView:{
     paddingHorizontal:20, 
     paddingVertical:10, 
-    flex:1,
+    // flex:1,
     justifyContent:'center',
     alignItems:'center'
   },
