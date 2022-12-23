@@ -170,14 +170,20 @@ const DatingMoreInfo = (props) => {
     numColumns={3}
     keyExtractor={item => item.id}
     renderItem={({item,index})=>{
-      return(
-        <View key={item.name} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: item?.mutual ? '#fff1f6': '#fff', borderColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
-          <Text style={styles.showMeText}>{item.name}</Text>
-          <View style={[styles.showMeImageView, {backgroundColor: item?.mutual ? '#ff3b7f' : '#e3d0d7'}]}>
-            <Image source={require('../../../assets/dating-selected-arrow.png')} style={styles.showMeImage} resizeMode='contain'/> 
+      if(item.mutual){
+        return(
+          <View key={item.name} style={[styles.showMeView , {width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: '#fff1f6', borderColor: '#ff3b7f'}]}>
+              <Image source={require('../../../assets/dating-tick-icon.png')} style={styles.showMeImage} resizeMode='contain'/> 
+            <Text style={[styles.showMeText, {marginLeft:7}]}>{item.name}</Text>
           </View>
-        </View>
-      )
+        )
+      }else{
+        return(
+          <View key={item.name} style={[styles.showMeView , {justifyContent:'center', width:'30%',marginHorizontal:index % 3 === 1 ? 10 : 0,marginBottom:10,backgroundColor: '#fff', borderColor: '#e3d0d7'}]}>
+            <Text style={styles.showMeText}>{item.name}</Text>
+          </View>
+        )
+      }
     }}
   />
   
@@ -406,11 +412,11 @@ const styles = StyleSheet.create({
   showMeView:{
     flexDirection:'row', 
     alignItems:'center',
-    justifyContent:'space-between',
+    // justifyContent:'space-between',
     width:'27%', 
     padding:10, 
     // paddingHorizontal:15, 
-    borderRadius:20,
+    borderRadius:5,
     borderWidth:0.5
   },
   showMeText:{
