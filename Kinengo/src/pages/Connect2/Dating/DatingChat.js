@@ -133,6 +133,7 @@ const DatingChat = (props) => {
 
 </ScrollView>
 
+<View style={styles.addCommentContainer}>
 <View style={styles.addCommentView}>
   <TextInput
     value={userMessage}
@@ -153,16 +154,24 @@ const DatingChat = (props) => {
         </TouchableOpacity>
     </View>
   </View>
+  </View>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-  addCommentView:{
+  addCommentContainer:{
     position:'absolute', 
     bottom:20,
-    width:'100%', 
-    backgroundColor:'#fff0f0', 
     padding:15, 
+    alignItems:'center', 
+    justifyContent:'center', 
+    borderTopWidth:0.5, 
+    borderTopColor:'#ffb0ba', 
+  },
+  addCommentView:{
+    width:'100%', 
+    backgroundColor:'#fff0f0',
+    // padding:15, 
     flexDirection:'row',
     alignItems:'center', 
     justifyContent:'space-between',
