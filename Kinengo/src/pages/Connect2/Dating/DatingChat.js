@@ -108,7 +108,7 @@ const DatingChat = (props) => {
                         :
                         <View style={{flexDirection:'row'}}>
                             <View style={{flex:5.5}}>
-                            <View style={{backgroundColor: '#fff', marginLeft:10, padding:10, borderRadius:15,}}>
+                            <View style={{marginLeft:10, padding:10, borderRadius:5, borderWidth:0.5, borderColor:'#ffb0ba'}}>
                                 <Text style={styles.leftMessage}>{item.message}</Text>
                               </View>
                                 <Text style={{fontSize:10, fontWeight:'400', color:'#e42f5e', marginTop:2, textAlign:'right'}}>{item.time}</Text>
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   leftMessage:{
     fontSize:13, 
     fontWeight:'400', 
-    color:'#455A64'
+    color:'#996673'
 },
   rightMessage:{
     fontSize:13, 
