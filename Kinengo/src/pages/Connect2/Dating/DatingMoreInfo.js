@@ -188,13 +188,13 @@ const DatingMoreInfo = (props) => {
   />
 
 <View style={styles.buttonsRow}>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={styles.buttonViewOne}>
+    <TouchableOpacity onPress={()=>{}} style={styles.buttonViewOne}>
       <Image source={require('../../../assets/dating-more-info-reject.png')} style={{width:20, height:20, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onLove(1)}} style={styles.buttonViewTwo}>
+    <TouchableOpacity onPress={()=>{}} style={styles.buttonViewTwo}>
       <Image source={require('../../../assets/dating-more-info-heart.png')} style={{width:40, height:40, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={styles.buttonViewOne}>
+    <TouchableOpacity onPress={()=>{}} style={styles.buttonViewOne}>
       <Image source={require('../../../assets/dating-yellow-star.png')} style={{width:20, height:20, top:0,}} resizeMode='contain'/>
     </TouchableOpacity>
   </View>
