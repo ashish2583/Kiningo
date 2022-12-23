@@ -155,7 +155,7 @@ const PeopleHome = (props) => {
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '80%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '70%', backgroundColor: '#fff5f7', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
           {/* <View style={{alignItems:'center'}}> */}
           <View style={{width:'90%',alignSelf:'center', marginTop:10, marginBottom:40}}>
@@ -362,7 +362,7 @@ const PeopleHome = (props) => {
           <TouchableOpacity style={styles.applyButtonStyle}>
             <Text style={{fontSize:11.3, fontWeight:'bold', color:'#fff',}}>Apply</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{marginTop:20}}>
+          <TouchableOpacity style={{marginTop:20, marginBottom:50}}>
             <Text style={{fontSize:11.3, fontWeight:'bold', color:'#3e5869', alignSelf:'center'}}>Reset</Text>
           </TouchableOpacity>
           </View>
