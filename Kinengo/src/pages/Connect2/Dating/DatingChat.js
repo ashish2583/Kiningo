@@ -144,7 +144,7 @@ const DatingChat = (props) => {
       setUserMessage(text)
     }}
     placeholder="Type a message"
-    placeholderTextColor={'#B2B7B9'}
+    placeholderTextColor={'#edc4c4'}
     style={[styles.input, {width:'70%'}]}
     multiline
   />
