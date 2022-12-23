@@ -63,7 +63,7 @@ const DatingMessages = (props) => {
     <Image source={require('../../../assets/dating-back-arrow.png')} style={{width:25, height:15}} resizeMode='contain'/>
   </TouchableOpacity>
   <View style={{flex:3, flexDirection:'row', justifyContent:'center'}}>
-      <Text style={{fontSize:12.5, fontWeight:'600', color:'#31313f'}}>Personal connect messages</Text>
+      <Text style={{fontSize:12.5, fontWeight:'bold', color:'#31313f'}}>Personal connect messages</Text>
   </View>
   <View style={{flex:1}}/>
 </View>

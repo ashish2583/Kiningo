@@ -128,7 +128,7 @@ const _renderItem = ({ item }) => {
         </View>
     </View>
     <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-        <Text style={{fontSize:12.5, color:'#31313f'}}>Personal connect</Text>
+        <Text style={{fontSize:12.5, fontWeight:'bold', color:'#31313f'}}>Personal connect</Text>
     </View>
     <TouchableOpacity style={{flex:1, flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}} onPress={()=>{props.navigation.navigate('DatingYourMatches')}}>
         <Image source={require('../../../assets/dating-home-header-right-image.png')}/>

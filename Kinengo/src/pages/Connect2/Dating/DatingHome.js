@@ -110,7 +110,7 @@ const PeopleHome = (props) => {
         </View>
     </View>
     <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-        <Text style={{fontSize:12.5, color:'#31313f'}}>Personal connect</Text>
+        <Text style={{fontSize:12.5, fontWeight:'bold', color:'#31313f'}}>Personal connect</Text>
     </View>
     <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
         <Image source={require('../../../assets/dating-home-header-right-image.png')}/>
