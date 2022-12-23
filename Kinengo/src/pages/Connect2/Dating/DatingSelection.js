@@ -161,18 +161,18 @@ const _renderItem = ({ item }) => {
       closeIconColor="#fff"
   /> */}
   <View style={styles.buttonsRow}>
-    <TouchableOpacity onPress={()=>{onReject(1)}}>
-      <Image source={require('../../../assets/dating-reject-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
+    <TouchableOpacity onPress={()=>{onReject(1)}} style={styles.buttonViewOne}>
+      <Image source={require('../../../assets/dating-reject-image.png')} style={{width:20, height:20,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onLove(1)}}>
-      <Image source={require('../../../assets/dating-love-image.png')} style={{width:110, height:110, top:-(110+10)/2,}} resizeMode='contain'/>
+    <TouchableOpacity onPress={()=>{onLove(1)}} style={styles.buttonViewTwo}>
+      <Image source={require('../../../assets/dating-love-image.png')} style={{width:40, height:40,}} resizeMode='contain'/>
     </TouchableOpacity>
-    <TouchableOpacity onPress={()=>{onRefresh(1)}}>
-      <Image source={require('../../../assets/dating-refresh-image.png')} style={{width:90, height:90, top:-(90+20)/2,}} resizeMode='contain'/>
+    <TouchableOpacity onPress={()=>{onRefresh(1)}} style={styles.buttonViewOne}>
+      <Image source={require('../../../assets/dating-refresh-image.png')} style={{width:20, height:20,}} resizeMode='contain'/>
     </TouchableOpacity>
   </View>
-  <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center', top:-60}}>Mary Burgees</Text>
-  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', top:-50}}>
+  <Text style={{fontSize:15, color:'#31313f', fontWeight:'bold', textAlign:'center', top:-20}}>Mary Burgees</Text>
+  <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', top:-10}}>
     <Text style={{fontSize:10, color:'#e10f51'}}>@marry</Text>
     <View style={{height: '100%',width: 1,backgroundColor: '#4a4c52', marginHorizontal:20}}></View>
     <Text style={{fontSize:10, color:'#e1e1e1'}}>Age 23</Text>
@@ -402,11 +402,39 @@ const styles = StyleSheet.create({
   buttonsRow:{
     flexDirection:'row',
     alignItems:'center',
-    alignSelf:'center'
+    alignSelf:'center',
+    top:-40
   },
   slide:{
     width:'100%',
     height:300,
+  },
+  buttonViewOne:{
+    backgroundColor:'#fff',
+    width:70, 
+    height:70,
+    borderRadius:90/2, 
+    justifyContent:'center', 
+    alignItems:'center',
+    shadowColor: '#000000',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.07,
+    elevation: 1,
+  },
+  buttonViewTwo:{
+    backgroundColor:'#FFF',
+    width:80, 
+    height:80,
+    borderRadius:90/2, 
+    justifyContent:'center', 
+    alignItems:'center', 
+    marginHorizontal:15,
+    shadowColor: '#E94057',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    elevation: 4,
   }
 });
 export default PeopleHome 
