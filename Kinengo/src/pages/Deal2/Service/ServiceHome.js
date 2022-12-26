@@ -3,6 +3,7 @@ import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,Touchab
 import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
+import ServiceSearch from './Components/ServiceSearch';
 import SerchInput from 'src/component/SerchInput';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
 import { ImageSlider,ImageCarousel } from "react-native-image-slider-banner";
@@ -128,13 +129,13 @@ const ServiceHome = (props) => {
    press3={()=>{}} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
-<SearchInputEnt marginTop={10} placeholder={'Search Categories'} 
+<ServiceSearch marginTop={10} placeholder={'Search for Service'} 
 serchValue={searchValue}
-searchIcon={require('../../../assets/product_search_icon.png')} 
+searchIcon={require('../../../assets/service-search-icon.png')} 
 onChangeText={(e)=>{setsearchValue(e)}} 
 press={()=>{Alert.alert('Hi')}}
 presssearch={()=>{Alert.alert('Search Pressed')}}
-paddingLeft={50}/>
+paddingLeft={20}/>
  
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
