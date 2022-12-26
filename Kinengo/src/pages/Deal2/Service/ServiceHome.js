@@ -1,6 +1,6 @@
 import React, { useEffect,useState ,useRef} from 'react';
 import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
-import HomeHeader from 'src/component/HomeHeader';
+import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
 import SerchInput from 'src/component/SerchInput';
@@ -122,9 +122,9 @@ const ServiceHome = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-    <HomeHeader height={60}  paddingHorizontal={15}
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/arrow.png')} img1width={18} img1height={15} 
-   press2={()=>{}} title2={'Categories'} fontWeight={'500'} img2height={20}
+    <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
+   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
+   press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} />
 
 <View style={{width:'96%',alignSelf:'center'}}>

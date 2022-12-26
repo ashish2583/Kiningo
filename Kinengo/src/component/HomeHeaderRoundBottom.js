@@ -6,7 +6,7 @@ import { dimensions, Mycolors } from 'src/utility/Mycolors';
 const HomeHeaderRoundBottom = (props) => {
     return (
         <View 
-        style={{
+        style={[{
             height:props.height ? props.height :'auto',
             width:'100%',
             padding: props.padding ? props.padding :'auto',
@@ -26,7 +26,7 @@ const HomeHeaderRoundBottom = (props) => {
             shadowRadius: 5,
             shadowOpacity: 1,
             elevation: 5,
-            }}
+            }, props.extraStyle]}
             >
    {props.press1 ?  
 <TouchableOpacity style={{
