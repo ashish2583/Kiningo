@@ -129,13 +129,15 @@ const ServiceHome = (props) => {
    press3={()=>{}} />
 
 <View style={{width:'96%',alignSelf:'center'}}>
-<ServiceSearch marginTop={10} placeholder={'Search for Service'} 
-serchValue={searchValue}
-searchIcon={require('../../../assets/service-search-icon.png')} 
-onChangeText={(e)=>{setsearchValue(e)}} 
-press={()=>{Alert.alert('Hi')}}
-presssearch={()=>{Alert.alert('Search Pressed')}}
-paddingLeft={20}/>
+<View style={{top:-20}}>
+    <ServiceSearch marginTop={0} placeholder={'Search for Service'} 
+    serchValue={searchValue}
+    searchIcon={require('../../../assets/service-search-icon.png')} 
+    onChangeText={(e)=>{setsearchValue(e)}} 
+    press={()=>{Alert.alert('Hi')}}
+    presssearch={()=>{Alert.alert('Search Pressed')}}
+    paddingLeft={20}/>
+</View>
  
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
