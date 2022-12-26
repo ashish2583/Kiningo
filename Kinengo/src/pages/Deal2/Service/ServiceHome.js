@@ -129,7 +129,7 @@ const ServiceHome = (props) => {
 
  const _renderItem = ({ item }) => {
   return (
-      <Image source={{uri: item.image}} style={{width:'100%',height:200, borderRadius:20, alignSelf:'center'}}/>
+      <Image source={{uri: item.image}} style={{width:'100%',height:170, borderRadius:20, alignSelf:'center'}}/>
     // <View key={item.key} style={styles.slide}>
     //   <Text style={styles.title}>{item.title}</Text>
     //   <Text style={styles.text}>{item.text}</Text>
@@ -172,6 +172,9 @@ const ServiceHome = (props) => {
     closeIconColor="transparent"
 />
    </View> */}
+
+  <View style={{height:10}}/> 
+
   <AppIntroSlider
       data={introSliderData}
       renderItem={_renderItem}
@@ -181,7 +184,7 @@ const ServiceHome = (props) => {
       keyExtractor={(item) => item.id}
     />
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
    <Text style={{fontSize:13,fontWeight:'400',color:'#6D2F91'}}>View all</Text>
 </View>
