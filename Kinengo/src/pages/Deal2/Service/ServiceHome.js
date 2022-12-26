@@ -198,17 +198,17 @@ const ServiceHome = (props) => {
                   numColumns={3}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/3.3,marginHorizontal:5,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.3,height:150,backgroundColor:'#fff', alignItems:'center', borderRadius:15}}
+                      <View style={{width:dimensions.SCREEN_WIDTH/3.7,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.7,height:140,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:80,height:80,borderRadius:80/2, marginTop:10}}
+          style={{justifyContent:'center', alignItems:'center', width:60,height:60,borderRadius:60/2, marginTop:10}}
          >
-          <Image source={item.img} style={{width:60,height:60, marginTop:20}} resizeMode='contain'></Image>
+          <Image source={item.img} style={{width:40,height:40, marginTop:20}} resizeMode='contain'></Image>
          </LinearGradient>
           
-          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
           <Image source={require('../../../assets/service-selected-category.png')} style={{width:20, height:20, position:'absolute', right:5}} resizeMode='contain'/>
           </TouchableOpacity>
           </View>
