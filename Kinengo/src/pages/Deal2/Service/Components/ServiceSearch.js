@@ -6,7 +6,7 @@ import { Mycolors } from '../../../../utility/Mycolors'
 const ServiceSearch = (props) => {
     return (
   
-<View style={{width:'87%',height:55,backgroundColor:'#fff',alignSelf:'center',flexDirection:'row',
+<View style={{width:'100%',height:55,backgroundColor:'#fff',alignSelf:'center',flexDirection:'row',
    shadowColor: '#000',
       shadowOffset: {
         width: 0,

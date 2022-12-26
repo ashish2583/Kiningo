@@ -12,6 +12,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
+import AppIntroSlider from 'react-native-app-intro-slider';
 
 const ServiceHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -20,6 +21,12 @@ const ServiceHome = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
+  const [introSliderData] = useState([
+    // require('../../assets/Group75972.png'),
+    {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+    {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+    {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+])
   const [categoryData, setCategoryData]=useState([
     {
       id: '1',
@@ -120,6 +127,15 @@ const ServiceHome = (props) => {
 
  },[])
 
+ const _renderItem = ({ item }) => {
+  return (
+      <Image source={{uri: item.image}} style={{width:'100%',height:200, borderRadius:20, alignSelf:'center'}}/>
+    // <View key={item.key} style={styles.slide}>
+    //   <Text style={styles.title}>{item.title}</Text>
+    //   <Text style={styles.text}>{item.text}</Text>
+    // </View>
+  );
+}
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
@@ -129,7 +145,7 @@ const ServiceHome = (props) => {
    press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} />
 
-<View style={{width:'96%',alignSelf:'center'}}>
+<View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
     <ServiceSearch marginTop={0} placeholder={'Search for Service'} 
     serchValue={searchValue}
@@ -156,6 +172,19 @@ const ServiceHome = (props) => {
     closeIconColor="transparent"
 />
    </View> */}
+  <AppIntroSlider
+      data={introSliderData}
+      renderItem={_renderItem}
+      // renderPagination={() => null}
+      renderDoneButton={()=><View />}
+      renderNextButton={()=><View />}
+      keyExtractor={(item) => item.id}
+    />
+
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
+   <Text style={{fontSize:13,fontWeight:'400',color:'#6D2F91'}}>View all</Text>
+</View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
