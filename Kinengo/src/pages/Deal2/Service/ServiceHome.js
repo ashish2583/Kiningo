@@ -169,9 +169,9 @@ const ServiceHome = (props) => {
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:90,height:90}}
+          style={{justifyContent:'center', alignItems:'center', width:80,height:80,borderRadius:80/2, marginTop:10}}
          >
-          <Image source={item.img} style={{width:80,height:80, marginTop:20}} resizeMode='contain'></Image>
+          <Image source={item.img} style={{width:60,height:60, marginTop:20}} resizeMode='contain'></Image>
          </LinearGradient>
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
