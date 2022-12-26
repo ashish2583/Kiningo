@@ -181,6 +181,8 @@ const ServiceHome = (props) => {
       // renderPagination={() => null}
       renderDoneButton={()=><View />}
       renderNextButton={()=><View />}
+      activeDotStyle={{top:60,backgroundColor:'#6D2F91'}}
+      dotStyle={{top:60,backgroundColor:'#D9D9D9'}}
       keyExtractor={(item) => item.id}
     />
 
