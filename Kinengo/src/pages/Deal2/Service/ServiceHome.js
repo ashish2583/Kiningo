@@ -11,6 +11,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import LinearGradient from 'react-native-linear-gradient'
 
 const ServiceHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -22,31 +23,31 @@ const ServiceHome = (props) => {
   const [categoryData, setCategoryData]=useState([
     {
       id: '1',
-      title: 'Electronics',
+      title: 'Appliance Repair',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/service-category-image.png'),
     },
     {
       id: '2',
-      title: 'Farm, Pet & Ranch',
+      title: 'Appliance Repair',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/service-category-image.png'),
     },
     {
       id: '3',
-      title: 'Hand Tool',
+      title: 'Appliance Repair',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/service-category-image.png'),
     },
     {
       id: '4',
-      title: 'Hardware',
+      title: 'Appliance Repair',
       desc:'',
       time:'',
-      img:require('../../../assets/farmland.jpg'),
+      img:require('../../../assets/service-category-image.png'),
     },
   ])
   const [upData,setupData]=useState([
@@ -160,14 +161,20 @@ const ServiceHome = (props) => {
           <FlatList
                   data={categoryData}
                   showsHorizontalScrollIndicator={false}
-                  numColumns={2}
+                  numColumns={3}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:200,backgroundColor:'#fff', alignItems:'center', borderRadius:15}}
+                      <View style={{width:dimensions.SCREEN_WIDTH/3.3,marginHorizontal:5,marginVertical:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.3,height:150,backgroundColor:'#fff', alignItems:'center', borderRadius:15}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
-          <Image source={item.img} style={{width:120,height:120,borderRadius:60, marginTop:20}}></Image>
-          <Text style={{fontSize:12,color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+          <LinearGradient
+          colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
+          style={{justifyContent:'center', alignItems:'center', width:90,height:90}}
+         >
+          <Image source={item.img} style={{width:80,height:80, marginTop:20}} resizeMode='contain'></Image>
+         </LinearGradient>
+          
+          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
           </TouchableOpacity>
           </View>
                     )
