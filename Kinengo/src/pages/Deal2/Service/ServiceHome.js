@@ -198,8 +198,8 @@ const ServiceHome = (props) => {
                   numColumns={3}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/3.7,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.7,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+                      <View style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
