@@ -725,6 +725,7 @@ const ChartClick = Platform.select({
           <Text style={{ textAlign: 'center', fontSize: 24, color: Mycolors.SearchBoxColor, fontWeight: '600' }} onPress={()=>props.navigation.navigate('ShopProductStack')}>Product</Text>
           <Text style={{ textAlign: 'center', fontSize: 24, color: Mycolors.SearchBoxColor, fontWeight: '600' }} onPress={()=>props.navigation.navigate('Connect2PeopleStack')}>People</Text>
           <Text style={{ textAlign: 'center', fontSize: 24, color: Mycolors.SearchBoxColor, fontWeight: '600' }} onPress={()=>props.navigation.navigate('Connect2DatingStack')}>Dating</Text>
+          <Text style={{ textAlign: 'center', fontSize: 24, color: Mycolors.SearchBoxColor, fontWeight: '600' }} onPress={()=>props.navigation.navigate('Deal2Service')}>Service</Text>
         </View>
 <View>
 <View style={{alignSelf:'center',borderColor:'#000',borderWidth:1,borderRadius:200,padding:4}}>
