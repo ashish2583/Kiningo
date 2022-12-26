@@ -175,6 +175,7 @@ const ServiceHome = (props) => {
          </LinearGradient>
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'left',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+          <Image source={require('../../../assets/service-selected-category.png')} style={{width:20, height:20, position:'absolute', right:5}} resizeMode='contain'/>
           </TouchableOpacity>
           </View>
                     )
