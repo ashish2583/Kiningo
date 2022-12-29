@@ -264,23 +264,32 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <FlatList
                   data={servicesList}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginHorizontal:5, backgroundColor:'#fff',borderRadius:15}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
                     <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
                 </View>
                 
-                <View style={{flex:4, marginLeft:10}}>
-                    <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black}}>{item.title}</Text>
-                    <View style={{flexDirection:'row', alignItems:'center'}}>
-                        <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black}}>${item.price}</Text>
-                        <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black, marginLeft:10}}>${item.time}</Text>
+                <View style={{flex:4, marginLeft:10, marginTop:10}}>
+                    <Text style={styles.unselectedTabText}>{item.title}</Text>
+                    <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
+                        <Text style={styles.unselectedTabText}>${item.price}</Text>
+                        <Text style={{fontSize:10,fontWeight:'400',color: '#B2B7B9', marginLeft:10}}>${item.time}</Text>
                     </View>
+                    {item.desc?.map((item, index)=>{
+                        return (
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                                <View style={{backgroundColor:'#263238', width:5, height:5, borderRadius:5/2}}/>
+                                <Text style={[styles.unselectedTabText, {marginLeft:5}]}>{item}</Text>
+                            </View>
+                        )
+                    })}
+                    <TouchableOpacity style={styles.addView}>
+                        <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Add</Text>
+                    </TouchableOpacity>
                 </View>
 
             </View>
@@ -735,15 +744,15 @@ const styles = StyleSheet.create({
     // width:'32%'
   },
   selectedTabText:{
-    fontSize:16,
-    fontWeight:'500',
+    fontSize:12,
+    fontWeight:'bold',
     color: '#6D2F91',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   unselectedTabText:{
-    fontSize:16,
-    fontWeight:'500',
-    color: Mycolors.Black
+    fontSize:12,
+    fontWeight:'bold',
+    color: '#263238'
   },
   messagesView:{
     paddingHorizontal:40,
@@ -752,6 +761,15 @@ const styles = StyleSheet.create({
     backgroundColor:'#6D2F91',
     alignItems:'center',
     justifyContent:'center',
-  }
+  },
+  addView:{
+    marginTop:10,
+    width:70,
+    height:30,
+    borderRadius:15,
+    backgroundColor:'#6D2F91',
+    alignItems:'center',
+    justifyContent:'center',
+  },
 });
 export default ServiceProductDetail 
