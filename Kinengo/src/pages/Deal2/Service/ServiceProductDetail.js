@@ -313,28 +313,18 @@ selectedTab=='Customer Reviews' ?
     <View style={{flexDirection:'row'}}>
     <Image source={require('../../../assets/store_image.png')}/>
     <View style={{marginLeft:15, marginTop:5}}>
-      <Text style={{fontSize:16, fontWeight:'500', color:'#263238'}}>Favlily Store</Text>
-      <View style={{flexDirection:'row',marginTop:5}}>
+      <Text style={{fontSize:14, fontWeight:'700', color:'#455A64'}}>Favlily Store</Text>
+      <View style={{flexDirection:'row',marginTop:5, alignItems:'center'}}>
         <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
-        <Text style={{color:Mycolors.Black,fontSize:14,fontWeight:'600',left:5}}>4.5</Text>
+        <Text style={{color:'#FFD037',fontSize:14,fontWeight:'400',marginLeft:10}}>4.5</Text>
+        <Text style={{color:'#6F6D6D',fontSize:12,fontWeight:'400',marginLeft:20}}>14 mins</Text>
       </View>
     </View>
     </View>
-    <TouchableOpacity style={{justifyContent:'center',alignItems:'center',marginTop:5,height:45, width:'35%', borderRadius:20, backgroundColor:'#FFC40C', shadowColor:  '#000',shadowOffset: {width:3,height:3}, shadowRadius: 5,shadowOpacity: 1.0,elevation: 5}}>
-      <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Contact store</Text>
-    </TouchableOpacity>
   </View>
 
   <Text style={{fontSize:14, fontWeight:'400', color:'#455A64', marginTop:15}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</Text>
 
-  <View style={{flexDirection:'row', marginTop:15}}>
-    <Image source={require('../../../assets/product_location2.png')} style={{height:30, width:30, flex:1 }} resizeMode='contain'/>
-    <View style={{marginLeft:15, flex:4}}>
-      <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>Location</Text>
-      <Text style={{fontSize:14, fontWeight:'500', color:'#B2B7B9'}}>500 S Buena Vista St, Burbank, CA 91521, United States</Text>
-    </View>
-    <Image source={require('../../../assets/product_google_maps_2.png')} style={{height:42, width:42, flex:2 }} resizeMode='contain'/>
-  </View>
 
 </View>
 </View>
