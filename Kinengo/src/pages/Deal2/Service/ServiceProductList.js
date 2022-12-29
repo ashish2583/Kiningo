@@ -156,21 +156,14 @@ const ServiceProductList = (props) => {
     paddingLeft={20}/>
 </View>
  
-
-
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
-   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
-   <Text style={{fontSize:13,fontWeight:'400',color:'#6D2F91'}}>View all</Text>
-</View>
-
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+<View style={{width:'100%',alignSelf:'center'}}>
           <FlatList
                   data={categoryData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:'100%',marginVertical:5}}>
+                      <View style={{width:'100%',marginVertical:10}}>
           <TouchableOpacity style={{width:'100%',height:100,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
