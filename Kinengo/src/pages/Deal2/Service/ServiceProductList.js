@@ -13,6 +13,7 @@ import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import AppIntroSlider from 'react-native-app-intro-slider';
+import IconAnt from 'react-native-vector-icons/AntDesign';
 
 const ServiceProductList = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -27,7 +28,7 @@ const ServiceProductList = (props) => {
     {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
     {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
 ])
-  const [categoryData, setCategoryData]=useState([
+  const [productData, setProductData]=useState([
     {
       id: '1',
       title: 'Air Conditioner',
@@ -158,7 +159,7 @@ const ServiceProductList = (props) => {
  
 <View style={{width:'100%',alignSelf:'center'}}>
           <FlatList
-                  data={categoryData}
+                  data={productData}
                   showsHorizontalScrollIndicator={false}
                   numColumns={1}
                   renderItem={({item,index})=>{
@@ -174,7 +175,11 @@ const ServiceProductList = (props) => {
             <Image source={item.img} style={{width:70,height:70, borderRadius:70/2}} resizeMode='contain'></Image>
             <Text style={{fontSize:14,fontWeight:'500',color:'#263238',fontWeight:'600', marginLeft:10}}>{item.title}</Text>
           </View>
-          <Image source={require('../../../assets/service-selected-category.png')} style={{width:40, height:40}} resizeMode='contain'/>
+          <View style={{width:40, height:40, borderRadius:40/2,justifyContent:'center', alignItems:'center', backgroundColor:'#6D2F91'}}>
+            <IconAnt name='check' color='#fff' size={20}  />
+            {/* <Image source={require('../../../assets/service-selected-category.png')} style={{width:10, height:10}} resizeMode='contain'/> */}
+          </View>
+          {/* <Image source={require('../../../assets/service-selected-category.png')} style={{width:40, height:40}} resizeMode='contain'/> */}
          </LinearGradient>
           
           </TouchableOpacity>

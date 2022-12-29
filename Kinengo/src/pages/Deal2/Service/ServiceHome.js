@@ -211,7 +211,7 @@ const ServiceHome = (props) => {
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
           <View style={{width:15, height:15, borderRadius:15/2,position:'absolute', right:5, top:5, justifyContent:'center', alignItems:'center', backgroundColor:'#6D2F91'}}>
-            <IconAnt name='check' color='#fff' fontSize={5}  />
+            <IconAnt name='check' color='#fff' size={10}  />
             {/* <Image source={require('../../../assets/service-selected-category.png')} style={{width:10, height:10}} resizeMode='contain'/> */}
           </View>
           </TouchableOpacity>
