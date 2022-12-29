@@ -223,7 +223,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 {/* </View> */}
 
 {/* <View style={{width:'32%', marginLeft:20}}> */}
-    <TouchableOpacity onPress={()=>{setselectedTab('Customer Reviews')}} style={selectedTab=='Customer Reviews' ? [styles.selectedTabStyle, {marginLeft:30}] : [styles.unselectedTabStyle, {marginLeft:30}]}>
+    <TouchableOpacity onPress={()=>{setselectedTab('Customer Reviews')}} style={selectedTab=='Customer Reviews' ? [styles.selectedTabStyle, {marginLeft:40}] : [styles.unselectedTabStyle, {marginLeft:40}]}>
         <Text style={selectedTab=='Customer Reviews' ? styles.selectedTabText : styles.unselectedTabText}>Customer Reviews</Text>
     </TouchableOpacity>
 {/* <MyButtons title='Customer Reviews' height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Customer Reviews')}} marginHorizontal={20} fontSize={12}
@@ -277,13 +277,13 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
                     <Text style={styles.unselectedTabText}>{item.title}</Text>
                     <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                         <Text style={styles.unselectedTabText}>${item.price}</Text>
-                        <Text style={{fontSize:10,fontWeight:'400',color: '#B2B7B9', marginLeft:10}}>${item.time}</Text>
+                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:10}}>${item.time}</Text>
                     </View>
                     {item.desc?.map((item, index)=>{
                         return (
                             <View style={{flexDirection:'row', alignItems:'center'}}>
                                 <View style={{backgroundColor:'#263238', width:5, height:5, borderRadius:5/2}}/>
-                                <Text style={[styles.unselectedTabText, {marginLeft:5}]}>{item}</Text>
+                                <Text style={[styles.bulletPoints, {marginLeft:5}]}>{item}</Text>
                             </View>
                         )
                     })}
@@ -745,13 +745,18 @@ const styles = StyleSheet.create({
   },
   selectedTabText:{
     fontSize:12,
-    fontWeight:'bold',
+    fontWeight:'500',
     color: '#6D2F91',
     paddingBottom: 10,
   },
   unselectedTabText:{
     fontSize:12,
-    fontWeight:'bold',
+    fontWeight:'500',
+    color: '#263238'
+  },
+  bulletPoints:{
+    fontSize:9,
+    fontWeight:'400',
     color: '#263238'
   },
   messagesView:{
@@ -761,6 +766,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#6D2F91',
     alignItems:'center',
     justifyContent:'center',
+    shadowColor:'#6D2F91',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.06,
+    elevation: 1
   },
   addView:{
     marginTop:10,
@@ -770,6 +780,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#6D2F91',
     alignItems:'center',
     justifyContent:'center',
+    shadowColor:'#6D2F91',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.17,
+    elevation: 2
   },
 });
 export default ServiceProductDetail 
