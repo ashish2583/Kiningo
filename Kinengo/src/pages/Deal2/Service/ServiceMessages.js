@@ -105,7 +105,7 @@ const DatingChat = (props) => {
                             <View style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,backgroundColor:'#fff'}}>
                                 <Text style={styles.rightMessage}>{item.message}</Text>
                               </View>
-                                <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'right'}}>{item.time}</Text>
+                                <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
                             </View>
                         </View>
                         :
@@ -114,7 +114,7 @@ const DatingChat = (props) => {
                             <View style={{marginLeft:10, padding:10, borderRadius:5, backgroundColor:'#fff'}}>
                                 <Text style={styles.leftMessage}>{item.message}</Text>
                               </View>
-                                <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'right'}}>{item.time}</Text>
+                                <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
                             </View>
                             <View style={{flex:2.5}}/>
                         </View>
