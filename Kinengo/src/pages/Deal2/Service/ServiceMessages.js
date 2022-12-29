@@ -85,7 +85,7 @@ const DatingChat = (props) => {
     <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:30, width:30, borderRadius:30/2}}/>
   </View>
   {/* <Image source={image1} style={{marginLeft:10, height:40, width:40, borderRadius:40/2, borderWidth:2, borderColor:'e42f5e'}}/> */}
-  <Text style={{fontSize:14, fontWeight:'600', color:'#fff', marginLeft:10}}>Aryav Nadkarni</Text>
+  <Text style={{fontSize:14, fontWeight:'600', color:'#fff', marginLeft:20}}>Aryav Nadkarni</Text>
 </View>
 <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
   
