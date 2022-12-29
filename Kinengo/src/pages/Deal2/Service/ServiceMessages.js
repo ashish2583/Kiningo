@@ -144,18 +144,13 @@ const DatingChat = (props) => {
       setUserMessage(text)
     }}
     placeholder="Type a message"
-    placeholderTextColor={'#edc4c4'}
+    placeholderTextColor={'#B2B7B9'}
     style={[styles.input, {width:'70%'}]}
     multiline
   />
-    <View style={{flexDirection:'row', alignItems:'center', width:'30%'}}>
-        <TouchableOpacity onPress={sendMessage} style={styles.cameraButtonView}>
-            <Image source={require('../../../assets/dating-camera-icon.png')}/>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
-            <Image source={require('../../../assets/dating-send-icon.png')} style={styles.sendButton} resizeMode='contain'/>
-        </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
+        <Text style={{fontSize:14, fontWeight:'400', color:'#fff'}}>Send</Text>
+    </TouchableOpacity>
   </View>
   </View>
     </SafeAreaView>
@@ -166,15 +161,15 @@ const styles = StyleSheet.create({
     position:'absolute', 
     bottom:20,
     padding:15,
-    backgroundColor:'#fff5f7', 
+    backgroundColor:'#fff', 
     alignItems:'center', 
     justifyContent:'center', 
-    borderTopWidth:0.5, 
-    borderTopColor:'#ffb0ba', 
+    // borderTopWidth:0.5, 
+    // borderTopColor:'#ffb0ba', 
   },
   addCommentView:{
     width:'100%', 
-    backgroundColor:'#fff0f0',
+    // backgroundColor:'#fff0f0',
     // padding:15, 
     flexDirection:'row',
     alignItems:'center', 
@@ -190,15 +185,16 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingLeft: 20,
-    fontSize: 14,
-    fontWeight:'500',
+    fontSize: 13,
+    fontWeight:'400',
     color:'#000',
   },
   sendButtonView:{
-    backgroundColor:'#fee3e3', 
-    height:50,
-    width:50,
-    borderRadius:50/2,
+    width:'30%',
+    backgroundColor:'#6D2F91',
+    paddingHorizontal:30, 
+    paddingVertical:15, 
+    borderRadius:30,
     // flex:1,
     justifyContent:'center',
     alignItems:'center'
