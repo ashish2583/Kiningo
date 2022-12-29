@@ -354,6 +354,12 @@ selectedTab=='Customer Reviews' ?
                     )
                   }}
                 />
+
+<TouchableOpacity style={styles.addReviewButtonView}>
+    <Text style={styles.addReviewText}>Add Review</Text>
+</TouchableOpacity>
+{/* <MyButtons title="Add Review" height={60} width={'100%'} borderRadius={10} alignSelf="center" press={()=>{props.navigation.navigate('DatingSelection')}} marginHorizontal={20} fontSize={11}
+      titlecolor={Mycolors.BG_COLOR}/>               */}
 </View>
 
 </View>
@@ -803,5 +809,29 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.17,
     elevation: 2
   },
+  addReviewButtonView:{
+    marginTop:30,
+    borderRadius:10, 
+    backgroundColor:'#6D2F91', 
+    width:'100%', 
+    height:60, 
+    justifyContent:'center', 
+    alignItems:'center',
+    shadowColor: '#000',
+    shadowOffset: {
+    width: 0,
+    height: 3
+    },
+    shadowRadius: 1,
+    shadowOpacity: 0.1,
+    justifyContent: 'center',
+    elevation: 1,
+  },
+  addReviewText:{
+    fontSize:14,
+    fontWeight:'500',
+    color:'#fff'
+  },
+
 });
 export default ServiceProductDetail 
