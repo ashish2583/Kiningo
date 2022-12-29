@@ -171,17 +171,17 @@ const ServiceProductList = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:'100%',marginVertical:5}}>
-          <TouchableOpacity style={{width:'100%',height:120,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
+          <TouchableOpacity style={{width:'100%',height:100,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
           onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 0)']}
-          style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between',marginTop:10}}
+          style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}
          >
           <View style={{flexDirection:'row', alignItems:'center'}}>
-            <Image source={item.img} style={{width:30,height:30, marginTop:20}} resizeMode='contain'></Image>
-            <Text style={{fontSize:13,fontWeight:'500',color:'#263238',fontWeight:'600'}}>{item.title}</Text>
+            <Image source={item.img} style={{width:80,height:80, borderRadius:80/2}} resizeMode='contain'></Image>
+            <Text style={{fontSize:14,fontWeight:'500',color:'#263238',fontWeight:'600', marginLeft:10}}>{item.title}</Text>
           </View>
-          <Image source={require('../../../assets/service-selected-category.png')} style={{width:20, height:20}} resizeMode='contain'/>
+          <Image source={require('../../../assets/service-selected-category.png')} style={{width:40, height:40}} resizeMode='contain'/>
          </LinearGradient>
           
           </TouchableOpacity>
