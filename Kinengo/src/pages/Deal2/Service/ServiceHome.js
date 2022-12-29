@@ -13,7 +13,7 @@ import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import AppIntroSlider from 'react-native-app-intro-slider';
-import IconAnt from 'react-native-vector-icons/AntDesign';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const ServiceHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -211,7 +211,7 @@ const ServiceHome = (props) => {
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
           <View style={{width:15, height:15, borderRadius:15/2,position:'absolute', right:5, top:5, justifyContent:'center', alignItems:'center', backgroundColor:'#6D2F91'}}>
-            <IconAnt name='check' color='#fff' size={10}  />
+            <IconFontAwesome name='check' color='#fff' size={10}  />
             {/* <Image source={require('../../../assets/service-selected-category.png')} style={{width:10, height:10}} resizeMode='contain'/> */}
           </View>
           </TouchableOpacity>
