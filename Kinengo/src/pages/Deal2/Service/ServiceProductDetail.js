@@ -307,7 +307,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 selectedTab=='Customer Reviews' ? 
 <View>
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-<View style={{width:'95%',marginTop:15,alignSelf:'center'}}>
+<View style={{width:'95%',marginTop:15,alignSelf:'center', backgroundColor:'#fff', padding:10, paddingBottom:30,borderRadius:15}}>
   
   <View style={{flexDirection:'row', justifyContent:'space-between'}}>
     <View style={{flexDirection:'row'}}>
