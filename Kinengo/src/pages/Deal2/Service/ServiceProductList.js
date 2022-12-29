@@ -14,7 +14,7 @@ import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import AppIntroSlider from 'react-native-app-intro-slider';
 
-const ServiceHome = (props) => {
+const ServiceProductList = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -30,31 +30,31 @@ const ServiceHome = (props) => {
   const [categoryData, setCategoryData]=useState([
     {
       id: '1',
-      title: 'Appliance Repair',
+      title: 'Air Conditioner',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/service-product-image.png'),
     },
     {
       id: '2',
-      title: 'Appliance Repair',
+      title: 'Air Conditioner',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/service-product-image.png'),
     },
     {
       id: '3',
-      title: 'Appliance Repair',
+      title: 'Air Conditioner',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/service-product-image.png'),
     },
     {
       id: '4',
-      title: 'Appliance Repair',
+      title: 'Air Conditioner',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/service-product-image.png'),
     },
   ])
   const [upData,setupData]=useState([
@@ -157,34 +157,6 @@ const ServiceHome = (props) => {
 </View>
  
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
-
-  <View style={{height:10}}/> 
-
-  <AppIntroSlider
-      data={introSliderData}
-      renderItem={_renderItem}
-      // renderPagination={() => null}
-      renderDoneButton={()=><View />}
-      renderNextButton={()=><View />}
-      activeDotStyle={{top:60,backgroundColor:'#6D2F91'}}
-      dotStyle={{top:60,backgroundColor:'#D9D9D9'}}
-      keyExtractor={(item) => item.id}
-    />
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
@@ -195,21 +167,23 @@ const ServiceHome = (props) => {
           <FlatList
                   data={categoryData}
                   showsHorizontalScrollIndicator={false}
-                  numColumns={3}
+                  numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
-          onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
+                      <View style={{width:'100%',marginVertical:5}}>
+          <TouchableOpacity style={{width:'100%',height:120,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
+          onPress={()=>{props.navigation.navigate('ShopCategoryProducts', {name: item.title})}}>
           <LinearGradient
-          colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:40,height:40,borderRadius:40/2, marginTop:10}}
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 0)']}
+          style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between',marginTop:10}}
          >
-          <Image source={item.img} style={{width:30,height:30, marginTop:20}} resizeMode='contain'></Image>
+          <View style={{flexDirection:'row', alignItems:'center'}}>
+            <Image source={item.img} style={{width:30,height:30, marginTop:20}} resizeMode='contain'></Image>
+            <Text style={{fontSize:13,fontWeight:'500',color:'#263238',fontWeight:'600'}}>{item.title}</Text>
+          </View>
+          <Image source={require('../../../assets/service-selected-category.png')} style={{width:20, height:20}} resizeMode='contain'/>
          </LinearGradient>
           
-          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
-          <Image source={require('../../../assets/service-selected-category.png')} style={{width:20, height:20, position:'absolute', right:5}} resizeMode='contain'/>
           </TouchableOpacity>
           </View>
                     )
@@ -233,4 +207,4 @@ const ServiceHome = (props) => {
 const styles = StyleSheet.create({
 
 });
-export default ServiceHome 
+export default ServiceProductList 
