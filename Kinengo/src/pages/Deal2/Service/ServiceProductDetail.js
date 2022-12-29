@@ -170,8 +170,6 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
             <Image source={require('../../../assets/service-video-header-back-button.png')} style={{width:20, height:20}}/>
         </TouchableOpacity>
    </View>
- <View style={{height:200,borderRadius:20,overflow:'hidden',marginTop:40,width:'96%',alignSelf:'center'}}>
-   </View>
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
 
@@ -189,15 +187,19 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 </View>
 
 <View style={{flexDirection:'row',}}>
-<View style={{width:'32%'}}>
-<MyButtons title="Description" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Description')}} marginHorizontal={20} fontSize={10}
-  titlecolor={selectedTab=='Description' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Description' ? '#FFC40C' : 'transparent'}/>
-</View>
+{/* <View style={{width:'32%'}}> */}
+    <TouchableOpacity onPress={()=>{setselectedTab('Description')}} style={selectedTab=='Description' ? styles.selectedTabStyle : styles.unselectedTabStyle}>
+        <Text style={selectedTab=='Description' ? styles.selectedTabText : styles.unselectedTabText}>Description</Text>
+    </TouchableOpacity>
+{/* </View> */}
 
-<View style={{width:'32%', marginLeft:20}}>
-<MyButtons title="Store Location" height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Store Location')}} marginHorizontal={20} fontSize={12}
-  titlecolor={selectedTab=='Store Location' ? Mycolors.BG_COLOR : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Store Location' ? '#FFC40C' : 'transparent'}/>
-</View>
+{/* <View style={{width:'32%', marginLeft:20}}> */}
+    <TouchableOpacity onPress={()=>{setselectedTab('Customer Reviews')}} style={selectedTab=='Customer Reviews' ? [styles.selectedTabStyle, {marginLeft:30}] : [styles.unselectedTabStyle, {marginLeft:30}]}>
+        <Text style={selectedTab=='Customer Reviews' ? styles.selectedTabText : styles.unselectedTabText}>Customer Reviews</Text>
+    </TouchableOpacity>
+{/* <MyButtons title='Customer Reviews' height={37} width={'100%'} borderRadius={5} alignSelf="center" press={()=>{setselectedTab('Customer Reviews')}} marginHorizontal={20} fontSize={12}
+  titlecolor={selectedTab=='Customer Reviews' ? '#6D2F91' : Mycolors.Black} marginVertical={0} backgroundColor={selectedTab=='Customer Reviews' ? '#FFC40C' : 'transparent'}/> */}
+{/* </View> */}
 
 </View>
 
@@ -260,7 +262,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   
 </View>
 :
-selectedTab=='Store Location' ? 
+selectedTab=='Customer Reviews' ? 
 <View>
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
 <View style={{width:'95%',marginTop:15,alignSelf:'center'}}>
@@ -306,17 +308,6 @@ null
 <View style={{height:100}} />
 
 </ScrollView>
-{selectedTab=='Description' ? 
-<View style={{width:'100%',position:'absolute',flexDirection:'row',justifyContent:'space-between',alignItems:'center',height:80, borderTopLeftRadius:10, borderTopRightRadius:10,bottom:10, paddingHorizontal:20, backgroundColor:'#fff'}}>
-<MyButtons title="Add to Cart" height={45} width={'48%'} borderRadius={5} press={()=>{
-}} fontSize={12}
-  titlecolor={'#FFC40C'} marginVertical={0} backgroundColor={'#FFF'} borderColor={'#FFC40C'} borderWidth={1}/>
-<MyButtons title="Buy Now" height={45} width={'48%'} borderRadius={5} press={()=>{
-setmodlevisual4(true)}} fontSize={12}
-  titlecolor={Mycolors.BG_COLOR} marginVertical={0} backgroundColor={'#FFC40C'}/>
-</View>
-: null
-}
 {/* ##############&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&  Model1 Search Clicked &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&   */}
 <Modal
         isVisible={modlevisual1}
@@ -700,6 +691,26 @@ const styles = StyleSheet.create({
     top:20, 
     left:20,
     borderRadius:5
-  }
+  },
+  selectedTabStyle:{
+    borderBottomWidth:1,
+    borderBottomColor:'#6D2F91',
+    alignItems:'center',
+    // width:'32%'
+  },
+  unselectedTabStyle:{
+    // width:'32%'
+  },
+  selectedTabText:{
+    fontSize:16,
+    fontWeight:'500',
+    color: '#6D2F91',
+    paddingBottom: 4
+  },
+  unselectedTabText:{
+    fontSize:16,
+    fontWeight:'500',
+    color: Mycolors.Black
+  },
 });
 export default ServiceProductDetail 
