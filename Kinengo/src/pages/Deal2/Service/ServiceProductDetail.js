@@ -58,6 +58,24 @@ const ServiceProductDetail = (props) => {
         img:require('../../../assets/service-product-image.png'),
     },
   ])
+  const [reviewsData, setReviewsData] = useState([
+    {
+        'id': 1,
+        img: require('../../../assets/store_image.png'), 
+        name: 'Maude Hall', 
+        rating: '4.5', 
+        time: '14 mins', 
+        message: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`
+    },
+    {
+        'id': 2,
+        img: require('../../../assets/store_image.png'), 
+        name: 'Maude Hall', 
+        rating: '4.5', 
+        time: '14 mins', 
+        message: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`
+    },
+])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -307,26 +325,35 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 selectedTab=='Customer Reviews' ? 
 <View>
 <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
-<View style={{width:'95%',marginTop:15,alignSelf:'center', backgroundColor:'#fff', padding:10, paddingBottom:30,borderRadius:15}}>
-  
-  <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-    <View style={{flexDirection:'row'}}>
-    <Image source={require('../../../assets/store_image.png')}/>
-    <View style={{marginLeft:15, marginTop:5}}>
-      <Text style={{fontSize:14, fontWeight:'700', color:'#455A64'}}>Favlily Store</Text>
-      <View style={{flexDirection:'row',marginTop:5, alignItems:'center'}}>
-        <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
-        <Text style={{color:'#FFD037',fontSize:14,fontWeight:'400',marginLeft:10}}>4.5</Text>
-        <Text style={{color:'#6F6D6D',fontSize:12,fontWeight:'400',marginLeft:20}}>14 mins</Text>
-      </View>
+<FlatList
+                  data={reviewsData}
+                  numColumns={1}
+                  keyExtractor={item => item.id}
+                  renderItem={({item,index})=>{
+                    return(
+    <View style={{width:'95%',marginTop:15,alignSelf:'center', backgroundColor:'#fff', padding:10, paddingBottom:30,borderRadius:15}}>
+    
+    <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+        <View style={{flexDirection:'row'}}>
+        <Image source={item.img}/>
+        <View style={{marginLeft:15, marginTop:5}}>
+        <Text style={{fontSize:14, fontWeight:'700', color:'#455A64'}}>{item.name}</Text>
+        <View style={{flexDirection:'row',marginTop:5, alignItems:'center'}}>
+            <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
+            <Text style={{color:'#FFD037',fontSize:14,fontWeight:'400',marginLeft:10}}>{item.rating}</Text>
+            <Text style={{color:'#6F6D6D',fontSize:12,fontWeight:'400',marginLeft:20}}>{item.time}</Text>
+        </View>
+        </View>
+        </View>
     </View>
+
+    <Text style={{fontSize:14, fontWeight:'400', color:'#455A64', marginTop:15}}>{item.message}</Text>
+
+
     </View>
-  </View>
-
-  <Text style={{fontSize:14, fontWeight:'400', color:'#455A64', marginTop:15}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</Text>
-
-
-</View>
+                    )
+                  }}
+                />
 </View>
 
 </View>
