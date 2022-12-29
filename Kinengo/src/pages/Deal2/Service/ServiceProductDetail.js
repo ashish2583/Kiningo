@@ -744,18 +744,18 @@ const styles = StyleSheet.create({
     // width:'32%'
   },
   selectedTabText:{
-    fontSize:12,
+    fontSize:14,
     fontWeight:'500',
     color: '#6D2F91',
     paddingBottom: 10,
   },
   unselectedTabText:{
-    fontSize:12,
+    fontSize:14,
     fontWeight:'500',
     color: '#263238'
   },
   bulletPoints:{
-    fontSize:9,
+    fontSize:12,
     fontWeight:'400',
     color: '#263238'
   },
