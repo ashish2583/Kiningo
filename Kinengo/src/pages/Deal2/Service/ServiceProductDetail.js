@@ -32,6 +32,32 @@ const ServiceProductDetail = (props) => {
   const [videoDetails, setVideoDetails] = useState({url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`})
   const [loading, setLoading] = useState(false)
   const [dayData, setDayData]=useState([{dayPart:'Day', id: 1},{dayPart:'Afternoon', id: 2},{dayPart:'Evening', id: 3}])
+  const [servicesList, setServicesList]=useState([
+    {
+        id: '1',
+        title: 'Deep clean AC service (window)',
+        price:949,
+        desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+        time:'45 mins',
+        img:require('../../../assets/service-product-image.png'),
+    },
+    {
+        id: '2',
+        title: 'Deep clean AC service (window)',
+        price:949,
+        desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+        time:'45 mins',
+        img:require('../../../assets/service-product-image.png'),
+    },
+    {
+        id: '3',
+        title: 'Deep clean AC service (window)',
+        price:949,
+        desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+        time:'45 mins',
+        img:require('../../../assets/service-product-image.png'),
+    },
+  ])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -173,20 +199,23 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
 
-<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',backgroundColor:'#F8F8F8',borderRadius:9,paddingVertical:10}}>
+<View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',backgroundColor:'#F8F8F8',borderRadius:9,paddingVertical:20}}>
   <View>
-<Text style={{color:Mycolors.Black,fontWeight:'600'}}>Intel 3rd Gen Motherboard</Text>
-<Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text>
+<Text style={{color:Mycolors.Black,fontWeight:'600'}}>Air Conditioner</Text>
+<View style={{flexDirection:'row',marginTop:10}}>
+    <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
+    <Text style={{color:'#455A64',fontSize:14,fontWeight:'400',left:5}}>4.78</Text>
+</View>
+{/* <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text> */}
   </View>
 
-  <View>
-    <Text style={{color:'#FFC40C', textAlign:'right', fontSize:16}}>$140.00</Text>
-    <Text style={{color: Mycolors.GrayColor, fontSize:11}}>30% off, $200</Text>
-  </View>
+  <TouchableOpacity style={styles.messagesView}>
+    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Messages</Text>
+  </TouchableOpacity>
 
 </View>
 
-<View style={{flexDirection:'row',}}>
+<View style={{flexDirection:'row',marginTop:10}}>
 {/* <View style={{width:'32%'}}> */}
     <TouchableOpacity onPress={()=>{setselectedTab('Description')}} style={selectedTab=='Description' ? styles.selectedTabStyle : styles.unselectedTabStyle}>
         <Text style={selectedTab=='Description' ? styles.selectedTabText : styles.unselectedTabText}>Description</Text>
@@ -206,18 +235,18 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 
 {selectedTab=='Description' ? 
-<View>
+<View style={{marginTop:20}}>
 <View style={{width:'95%',alignSelf:'center'}}>
 <ViewMoreText
           numberOfLines={3}
           renderViewMore={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'#FFC40C',textDecorationLine: "underline"}}>View more</Text>
+              <Text onPress={onPress} style={{color:'#6D2F91',textDecorationLine: "underline"}}>View more</Text>
             )
           }}
           renderViewLess={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'#FFC40C',textDecorationLine: "underline"}}>View less</Text>
+              <Text onPress={onPress} style={{color:'#6D2F91',textDecorationLine: "underline"}}>View less</Text>
             )
            }}
           textStyle={{textAlign: 'left',width:'95%'}}
@@ -230,28 +259,32 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           content.
           </Text>
 </ViewMoreText>
-<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:20, marginBottom:20,}}>
-  <Text style={{color:Mycolors.Black,fontWeight:'600'}}>Explore Similar Products</Text>
-  <Text style={{color:'#FFC40C',textDecorationLine: "underline", textDecorationColor:'#FFC40C'}} onPress={()=>{}}>View More</Text>
-</View>
+
+<Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginVertical:10}}>Add Service</Text>
 
 <FlatList
-                  data={upData}
+                  data={servicesList}
                   showsHorizontalScrollIndicator={true}
                   horizontal
+                  numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/2.2,marginHorizontal:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.2,height:170,backgroundColor:'#fff',alignSelf:'center', borderRadius:15, overflow:'hidden'}}
-          onPress={()=>{props.navigation.navigate('ShopProductDetails')}}>
-          <Image source={item.img} style={{width:'100%',height:'100%',alignSelf:'center'}}></Image>
-          </TouchableOpacity>
-          <View style={{}}>
-          <Text style={{fontSize:11,color:Mycolors.Black,marginTop:5,textAlign:'left',fontWeight:'bold'}}>{item.title}</Text>
-          </View>
-          <View style={{padding:5,paddingLeft:0,top:-5}}>
-          <Text style={{fontSize:9,color:Mycolors.GrayColor,marginTop:5,textAlign:'left',}}>{item.price}</Text>
-          </View>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginHorizontal:5, backgroundColor:'#fff',borderRadius:15}}>
+            <View style={{flexDirection:'row'}}>
+                <View style={{flex:1}}>
+                    <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
+                </View>
+                
+                <View style={{flex:4, marginLeft:10}}>
+                    <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black}}>{item.title}</Text>
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                        <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black}}>${item.price}</Text>
+                        <Text style={{fontSize:16,fontWeight:'500',color: Mycolors.Black, marginLeft:10}}>${item.time}</Text>
+                    </View>
+                </View>
+
+            </View>
+          
           </View>
                     )
                   }}
@@ -705,12 +738,20 @@ const styles = StyleSheet.create({
     fontSize:16,
     fontWeight:'500',
     color: '#6D2F91',
-    paddingBottom: 4
+    paddingBottom: 10
   },
   unselectedTabText:{
     fontSize:16,
     fontWeight:'500',
     color: Mycolors.Black
   },
+  messagesView:{
+    paddingHorizontal:40,
+    paddingVertical:5,
+    borderRadius:30,
+    backgroundColor:'#6D2F91',
+    alignItems:'center',
+    justifyContent:'center',
+  }
 });
 export default ServiceProductDetail 
