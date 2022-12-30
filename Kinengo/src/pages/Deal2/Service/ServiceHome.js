@@ -205,7 +205,7 @@ const ServiceHome = (props) => {
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 0)']}
           style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
