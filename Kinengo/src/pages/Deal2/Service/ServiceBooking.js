@@ -187,11 +187,11 @@ const ServiceBooking = (props) => {
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
-                <View style={{flex:1, justifyContent:'center'}}>
+                <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                     <Image source={item.personImg} style={{width:40,height:40,borderRadius:40/2}}></Image>
                 </View>
                 
-                <View style={{flex:6, marginLeft:10, flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+                <View style={{flex:6, marginLeft:5, flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
                     <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.personName}</Text>
                     {item.serviceStatus === 'Completed'? 
                     <View style={{flexDirection:'row', alignItems:'center'}}>
