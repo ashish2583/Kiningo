@@ -219,7 +219,7 @@ const ServiceHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
-<TouchableOpacity style={styles.proceedToPaymentView}>
+<TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceBooking')}} style={styles.proceedToPaymentView}>
     <Text style={styles.proceedToPaymentText}>Proceed to payment</Text>
 </TouchableOpacity>
     </SafeAreaView>
