@@ -234,7 +234,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 </View>
 
-<View style={{flexDirection:'row',marginTop:10}}>
+<View style={{width:'95%',alignSelf:'center',flexDirection:'row',marginTop:10}}>
 {/* <View style={{width:'32%'}}> */}
     <TouchableOpacity onPress={()=>{setselectedTab('Description')}} style={selectedTab=='Description' ? styles.selectedTabStyle : styles.unselectedTabStyle}>
         <Text style={selectedTab=='Description' ? styles.selectedTabText : styles.unselectedTabText}>Description</Text>
