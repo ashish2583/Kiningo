@@ -201,9 +201,11 @@ const ServiceHome = (props) => {
                   numColumns={3}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
-          onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
+                      <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}} onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
+          <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 0)']} 
+          style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+          >
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
           style={{justifyContent:'center', alignItems:'center', width:40,height:40,borderRadius:40/2, marginTop:10}}
@@ -212,8 +214,8 @@ const ServiceHome = (props) => {
          </LinearGradient>
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+          </LinearGradient>
           </TouchableOpacity>
-          </View>
                     )
                   }}
                   keyExtractor={item => item.id}
