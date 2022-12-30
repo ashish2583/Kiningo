@@ -179,7 +179,7 @@ const ServiceBooking = (props) => {
 
 <View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
     <View style={{width:'85%'}}>
-      <ServiceSearch marginTop={0} placeholder={'Search for Service'} 
+      <ServiceSearch marginTop={0} placeholder={'Select'} 
       serchValue={searchValue}
       searchIcon={require('../../../assets/service-booking-caret-down.png')} 
       onChangeText={(e)=>{setsearchValue(e)}} 
