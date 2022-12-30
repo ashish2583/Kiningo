@@ -22,12 +22,6 @@ const ServiceHome = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
-  const [introSliderData] = useState([
-    // require('../../assets/Group75972.png'),
-    {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-    {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-    {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-])
   const [categoryData, setCategoryData]=useState([
     {
       id: '1',
@@ -38,21 +32,21 @@ const ServiceHome = (props) => {
     },
     {
       id: '2',
-      title: 'Appliance Repair',
+      title: 'Home Painting',
       desc:'',
       time:'',
       img:require('../../../assets/service-category-image.png'),
     },
     {
       id: '3',
-      title: 'Appliance Repair',
+      title: 'Cleaning & Pest',
       desc:'',
       time:'',
       img:require('../../../assets/service-category-image.png'),
     },
     {
       id: '4',
-      title: 'Appliance Repair',
+      title: 'Disinfection',
       desc:'',
       time:'',
       img:require('../../../assets/service-category-image.png'),
@@ -143,12 +137,12 @@ const ServiceHome = (props) => {
       <ScrollView>
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
+   press2={()=>{}} title2={'Categories'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
-    <ServiceSearch marginTop={0} placeholder={'Search for Service'} 
+    <ServiceSearch marginTop={0} placeholder={'Search category'} 
     serchValue={searchValue}
     searchIcon={require('../../../assets/service-search-icon.png')} 
     onChangeText={(e)=>{setsearchValue(e)}} 
@@ -174,25 +168,6 @@ const ServiceHome = (props) => {
 />
    </View> */}
 
-  <View style={{height:10}}/> 
-
-  <AppIntroSlider
-      data={introSliderData}
-      renderItem={_renderItem}
-      // renderPagination={() => null}
-      renderDoneButton={()=><View />}
-      renderNextButton={()=><View />}
-      activeDotStyle={{top:60,backgroundColor:'#6D2F91'}}
-      dotStyle={{top:60,backgroundColor:'#D9D9D9'}}
-      keyExtractor={(item) => item.id}
-    />
-
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
-   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
-   <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCategories')}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#6D2F91'}}>View all</Text>
-   </TouchableOpacity>
-</View>
 
 <View style={{width:'100%',alignSelf:'center',marginTop:20}}>
           <FlatList
@@ -229,44 +204,9 @@ const ServiceHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
-  <TouchableOpacity style={styles.bookingsView}>
-      <Image source={require('../../../assets/service-bookings-icon.png')} style={{width:30}}/>
-      <Text style={styles.bookingsText}>My Booking</Text>
-  </TouchableOpacity>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-  bookingsView:{
-    position:'absolute',
-    bottom:20,
-    right:20,
-    paddingVertical:20,
-    paddingHorizontal:10,
-    // marginTop:30,
-    borderRadius:25, 
-    backgroundColor:'#6D2F91', 
-    // width:'30%',
-    alignSelf:'center', 
-    // height:100, 
-    // width:100, 
-    // justifyContent:'center', 
-    alignItems:'center',
-    shadowColor: '#000',
-    shadowOffset: {
-    width: 0,
-    height: 3
-    },
-    shadowRadius: 1,
-    shadowOpacity: 0.1,
-    justifyContent: 'center',
-    elevation: 1,
-  },
-  bookingsText:{
-    fontSize:14,
-    fontWeight:'500',
-    color:'#fff',
-    marginTop:5
-  },
 });
 export default ServiceHome 
