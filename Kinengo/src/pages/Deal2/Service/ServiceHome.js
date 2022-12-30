@@ -200,7 +200,7 @@ const ServiceHome = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5}}>
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10, borderWidth:1, borderColor:'#6D2F92'}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120,backgroundColor:'#fff', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
@@ -210,10 +210,6 @@ const ServiceHome = (props) => {
          </LinearGradient>
           
           <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
-          <View style={{width:15, height:15, borderRadius:15/2,position:'absolute', right:5, top:5, justifyContent:'center', alignItems:'center', backgroundColor:'#6D2F91'}}>
-            <IconFontAwesome name='check' color='#fff' size={10}  />
-            {/* <Image source={require('../../../assets/service-selected-category.png')} style={{width:10, height:10}} resizeMode='contain'/> */}
-          </View>
           </TouchableOpacity>
           </View>
                     )
