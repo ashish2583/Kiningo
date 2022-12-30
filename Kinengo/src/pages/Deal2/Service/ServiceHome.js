@@ -209,12 +209,12 @@ const ServiceHome = (props) => {
           onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:40,height:40,borderRadius:40/2, marginTop:10}}
+          style={{justifyContent:'center', alignItems:'center', width:60,height:60,borderRadius:60/2, marginTop:10}}
          >
-          <Image source={item.img} style={{width:30,height:30, marginTop:20}} resizeMode='contain'></Image>
+          <Image source={item.img} style={{width:40,height:40}} resizeMode='contain'></Image>
          </LinearGradient>
           
-          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600', marginTop:15}}>{item.title}</Text>
+          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600'}}>{item.title}</Text>
           </TouchableOpacity>
           </LinearGradient>
                     )
