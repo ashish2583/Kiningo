@@ -29,7 +29,10 @@ const ServiceBooking = (props) => {
         price:949,
         desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
         time:'45 mins',
-        img:require('../../../assets/service-product-image.png'),
+        serviceImg:require('../../../assets/service-product-image.png'),
+        personImg:require('../../../assets/service-booking-person-image.png'),
+        personName:'John Smith',
+        serviceStatus:'Cancelled'
     },
     {
         id: '2',
@@ -37,7 +40,10 @@ const ServiceBooking = (props) => {
         price:949,
         desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
         time:'45 mins',
-        img:require('../../../assets/service-product-image.png'),
+        serviceImg:require('../../../assets/service-product-image.png'),
+        personImg:require('../../../assets/service-booking-person-image.png'),
+        personName:'John Smith',
+        serviceStatus:'Completed'
     },
     {
         id: '3',
@@ -45,7 +51,10 @@ const ServiceBooking = (props) => {
         price:949,
         desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
         time:'45 mins',
-        img:require('../../../assets/service-product-image.png'),
+        serviceImg:require('../../../assets/service-product-image.png'),
+        personImg:require('../../../assets/service-booking-person-image.png'),
+        personName:'John Smith',
+        serviceStatus:'Completed'
     },
   ])
   const [categoryData, setCategoryData]=useState([
@@ -178,8 +187,32 @@ const ServiceBooking = (props) => {
                     return(
                       <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
+                <View style={{flex:1, justifyContent:'center'}}>
+                    <Image source={item.personImg} style={{width:40,height:40,borderRadius:40/2}}></Image>
+                </View>
+                
+                <View style={{flex:6, marginLeft:10, flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+                    <Text style={{fontSize:14, fontWeight:'500', color:'#455A64'}}>{item.personName}</Text>
+                    {item.serviceStatus === 'Completed'? 
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                      <View style={styles.completedCircle}/>
+                      <Text style={{fontSize:14, fontWeight:'500', color:'#29913C'}}>{item.serviceStatus}</Text>
+                    </View>
+                    :
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                      <View style={styles.cancelledCircle}/>
+                      <Text style={{fontSize:14, fontWeight:'500', color:'#ED1C24'}}>{item.serviceStatus}</Text>
+                    </View>
+                    }
+                 </View>
+
+            </View>
+
+            <View style={styles.seperatorView}/>          
+
+            <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
-                    <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
+                    <Image source={item.serviceImg} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
                 </View>
                 
                 <View style={{flex:4, marginLeft:10, marginTop:10}}>
@@ -188,18 +221,7 @@ const ServiceBooking = (props) => {
                         <Text style={styles.unselectedTabText}>${item.price}</Text>
                         <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>${item.time}</Text>
                     </View>
-                    {item.desc?.map((item, index)=>{
-                        return (
-                            <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <View style={{backgroundColor:'#263238', width:5, height:5, borderRadius:5/2}}/>
-                                <Text style={[styles.bulletPoints, {marginLeft:5}]}>{item}</Text>
-                            </View>
-                        )
-                    })}
-                    <TouchableOpacity style={styles.addView}>
-                        <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Remove</Text>
-                    </TouchableOpacity>
-                </View>
+                 </View>
 
             </View>
           
@@ -277,6 +299,25 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.17,
     elevation: 2
+  },
+  seperatorView:{
+    borderBottomWidth:StyleSheet.hairlineWidth,
+    borderBottomColor:'#E0E0E0',
+    marginVertical:10
+  },
+  completedCircle:{
+    backgroundColor:'#29913C',
+    width:15,
+    height:15,
+    borderRadius:15/2,
+    marginRight:5
+  },
+  cancelledCircle:{
+    backgroundColor:'#ED1C24',
+    width:15,
+    height:15,
+    borderRadius:15/2,
+    marginRight:5
   },
 });
 export default ServiceBooking 
