@@ -176,7 +176,11 @@ const ServiceHome = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
+                      <LinearGradient
+                      colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                      style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+                     >
+                      {/* <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}> */}
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
                     <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
@@ -203,7 +207,8 @@ const ServiceHome = (props) => {
 
             </View>
           
-          </View>
+          {/* </View> */}
+          </LinearGradient>
                     )
                   }}
                   keyExtractor={item => item.id}

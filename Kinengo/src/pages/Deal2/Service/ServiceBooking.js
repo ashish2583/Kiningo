@@ -202,7 +202,11 @@ const ServiceBooking = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.85, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
+                      <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={{width:dimensions.SCREEN_WIDTH*0.85, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+         >
+                       {/* <View style={{width:dimensions.SCREEN_WIDTH*0.85, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}> */}
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                     <Image source={item.personImg} style={{width:40,height:40,borderRadius:40/2}}></Image>
@@ -242,7 +246,8 @@ const ServiceBooking = (props) => {
 
             </View>
           
-          </View>
+          {/* </View> */}
+          </LinearGradient>
                     )
                   }}
                   keyExtractor={item => item.id}
