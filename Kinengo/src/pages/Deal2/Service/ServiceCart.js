@@ -166,7 +166,7 @@ const ServiceHome = (props) => {
    press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
-<View style={{width:'85%',alignSelf:'center'}}>
+<View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
  
   <View style={{height:10}}/> 
 
@@ -176,7 +176,7 @@ const ServiceHome = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
                     <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
