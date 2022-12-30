@@ -163,8 +163,8 @@ const ServiceHome = (props) => {
       <ScrollView>
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
-   press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
+   press2={()=>{}} title2={'My cart'} fontWeight={'500'} img2height={20} color={'#fff'}
+   press3={()=>{}} />
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
  
