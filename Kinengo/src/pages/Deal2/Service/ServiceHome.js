@@ -144,7 +144,7 @@ const ServiceHome = (props) => {
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
    press2={()=>{}} title2={'Service'} fontWeight={'500'} img2height={20} color={'#fff'}
-   press3={()=>{}} />
+   press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
@@ -231,10 +231,44 @@ const ServiceHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
+  <TouchableOpacity style={styles.bookingsView}>
+      <Image source={require('../../../assets/service-bookings-icon.png')} style={{width:30}}/>
+      <Text style={styles.bookingsText}>My Booking</Text>
+  </TouchableOpacity>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-
+  bookingsView:{
+    position:'absolute',
+    bottom:20,
+    right:20,
+    paddingVertical:20,
+    paddingHorizontal:10,
+    // marginTop:30,
+    borderRadius:25, 
+    backgroundColor:'#6D2F91', 
+    // width:'30%',
+    alignSelf:'center', 
+    // height:100, 
+    // width:100, 
+    // justifyContent:'center', 
+    alignItems:'center',
+    shadowColor: '#000',
+    shadowOffset: {
+    width: 0,
+    height: 3
+    },
+    shadowRadius: 1,
+    shadowOpacity: 0.1,
+    justifyContent: 'center',
+    elevation: 1,
+  },
+  bookingsText:{
+    fontSize:14,
+    fontWeight:'500',
+    color:'#fff',
+    marginTop:5
+  },
 });
 export default ServiceHome 
