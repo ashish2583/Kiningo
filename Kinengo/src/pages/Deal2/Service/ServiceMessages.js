@@ -101,20 +101,25 @@ const DatingChat = (props) => {
                       <View style={{width:'100%', marginBottom:20}}>
                         {item.me ?
                         <View style={{flexDirection:'row'}}>
-                            <View style={{flex:2.5}}/>
-                            <View style={{flex:5.5}}>
-                            <LinearGradient
-                              colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-                              style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,backgroundColor:'#fff', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-                            >
-                              <Text style={styles.rightMessage}>{item.message}</Text>
-                            </LinearGradient>
-                                <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
+                            <View style={{flex:2}}/>
+                            <View style={{flex:6, flexDirection:'row', alignItems:'flex-start'}}>
+                            <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:30, width:30, borderRadius:30/2}}/>
+                            <View>
+                              <LinearGradient
+                                colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                                style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,backgroundColor:'#fff', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+                              >
+                                <Text style={styles.rightMessage}>{item.message}</Text>
+                              </LinearGradient>
+                                  <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
+                            </View>  
                             </View>
                         </View>
                         :
                         <View style={{flexDirection:'row'}}>
-                            <View style={{flex:5.5}}>
+                            <View style={{flex:6, flexDirection:'row', alignItems:'flex-start'}}>
+                            <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:30, width:30, borderRadius:30/2}}/>
+                            <View>
                             <LinearGradient
                               colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
                               style={{marginLeft:10, padding:10, borderRadius:5, backgroundColor:'#fff', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
@@ -122,8 +127,9 @@ const DatingChat = (props) => {
                               <Text style={styles.leftMessage}>{item.message}</Text>
                             </LinearGradient>
                                 <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
+                            </View>  
                             </View>
-                            <View style={{flex:2.5}}/>
+                            <View style={{flex:2}}/>
                         </View>
                         }
                       </View>
