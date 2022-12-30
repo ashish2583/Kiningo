@@ -202,7 +202,7 @@ const ServiceBooking = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.8, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.85, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                     <Image source={item.personImg} style={{width:40,height:40,borderRadius:40/2}}></Image>
