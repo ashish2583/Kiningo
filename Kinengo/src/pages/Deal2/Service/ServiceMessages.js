@@ -10,6 +10,7 @@ import MyButtons from 'src/component/MyButtons';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import Modal from 'react-native-modal';
 import Toast from 'react-native-simple-toast'
+import LinearGradient from 'react-native-linear-gradient'
 
 const image1 = require('../../../assets/people-following-person.png')
 const image2 = require('../../../assets/people-sender-image.png')
@@ -102,18 +103,24 @@ const DatingChat = (props) => {
                         <View style={{flexDirection:'row'}}>
                             <View style={{flex:2.5}}/>
                             <View style={{flex:5.5}}>
-                            <View style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,backgroundColor:'#fff'}}>
-                                <Text style={styles.rightMessage}>{item.message}</Text>
-                              </View>
+                            <LinearGradient
+                              colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                              style={{backgroundColor: '#e42f5e', marginLeft:10, padding:10, borderRadius:15,backgroundColor:'#fff', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+                            >
+                              <Text style={styles.rightMessage}>{item.message}</Text>
+                            </LinearGradient>
                                 <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
                             </View>
                         </View>
                         :
                         <View style={{flexDirection:'row'}}>
                             <View style={{flex:5.5}}>
-                            <View style={{marginLeft:10, padding:10, borderRadius:5, backgroundColor:'#fff'}}>
-                                <Text style={styles.leftMessage}>{item.message}</Text>
-                              </View>
+                            <LinearGradient
+                              colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                              style={{marginLeft:10, padding:10, borderRadius:5, backgroundColor:'#fff', shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+                            >
+                              <Text style={styles.leftMessage}>{item.message}</Text>
+                            </LinearGradient>
                                 <Text style={{fontSize:10, fontWeight:'400', color:'#B2B7B9', marginTop:2, textAlign:'left', marginLeft:10}}>{item.time}</Text>
                             </View>
                             <View style={{flex:2.5}}/>
