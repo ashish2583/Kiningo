@@ -196,12 +196,12 @@ const ServiceBooking = (props) => {
                     {item.serviceStatus === 'Completed'? 
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                       <View style={styles.completedCircle}/>
-                      <Text style={{fontSize:14, fontWeight:'500', color:'#29913C'}}>{item.serviceStatus}</Text>
+                      <Text style={{fontSize:14, fontWeight:'400', color:'#29913C'}}>{item.serviceStatus}</Text>
                     </View>
                     :
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                       <View style={styles.cancelledCircle}/>
-                      <Text style={{fontSize:14, fontWeight:'500', color:'#ED1C24'}}>{item.serviceStatus}</Text>
+                      <Text style={{fontSize:14, fontWeight:'400', color:'#ED1C24'}}>{item.serviceStatus}</Text>
                     </View>
                     }
                  </View>
