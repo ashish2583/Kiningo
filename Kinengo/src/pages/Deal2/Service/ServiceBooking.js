@@ -175,17 +175,34 @@ const ServiceBooking = (props) => {
    press2={()=>{}} title2={'My Booking'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} />
 
-<View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
- 
+<View style={{marginTop:15,width:'90%',alignSelf:'center'}}>
+
+<View style={{flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
+    <View style={{width:'85%'}}>
+      <ServiceSearch marginTop={0} placeholder={'Search for Service'} 
+      serchValue={searchValue}
+      searchIcon={require('../../../assets/service-booking-caret-down.png')} 
+      onChangeText={(e)=>{setsearchValue(e)}} 
+      press={()=>{Alert.alert('Hi')}}
+      presssearch={()=>{Alert.alert('Search Pressed')}}
+      paddingLeft={20}/>
+    </View>
+    <View style={{width:'15%',flexDirection:'row', justifyContent:'flex-end'}}>
+      <View style={{backgroundColor:'#6D2F91', height:50, width:50, borderRadius:10,alignItems:'center', justifyContent:'center',}}>
+        <Image source={require('../../../assets/service-booking-filter-icon.png')} style={{width:30, height:30}}/>
+      </View>
+    </View>
+
+</View> 
   <View style={{height:10}}/> 
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
+<View style={{width:'95%',alignSelf:'center',marginTop:20}}>
 <FlatList
                   data={servicesList}
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.8, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
                     <Image source={item.personImg} style={{width:40,height:40,borderRadius:40/2}}></Image>
