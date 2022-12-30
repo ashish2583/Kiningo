@@ -165,7 +165,7 @@ const ServiceProductList = (props) => {
                   renderItem={({item,index})=>{
                     return(
                       <View style={{width:'100%',marginVertical:10}}>
-          <TouchableOpacity style={{width:'100%',height:90,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10}}
+          <TouchableOpacity style={{width:'100%',height:90,justifyContent:'center',backgroundColor:'#fff', borderRadius:15, paddingHorizontal:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
           onPress={()=>{props.navigation.navigate('ServiceProductDetail', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 0)']}
