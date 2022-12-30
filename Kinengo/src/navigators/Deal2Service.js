@@ -7,6 +7,7 @@ import ServiceProductList from '../pages/Deal2/Service/ServiceProductList';
 import ServiceProductDetail from '../pages/Deal2/Service/ServiceProductDetail';
 import ServiceMessages from '../pages/Deal2/Service/ServiceMessages';
 import ServiceCategories from '../pages/Deal2/Service/ServiceCategories';
+import ServiceCart from '../pages/Deal2/Service/ServiceCart';
 
 const Connect2DatingStack=(props)=>{
    
@@ -22,6 +23,7 @@ const Connect2DatingStack=(props)=>{
             <Stack.Screen component = {ServiceProductDetail} name="ServiceProductDetail" />
             <Stack.Screen component = {ServiceMessages} name="ServiceMessages" />
             <Stack.Screen component = {ServiceCategories} name="ServiceCategories" />
+            <Stack.Screen component = {ServiceCart} name="ServiceCart" />
             
 
         </Stack.Navigator>

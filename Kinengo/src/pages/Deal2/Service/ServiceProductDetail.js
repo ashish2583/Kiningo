@@ -305,7 +305,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
                             </View>
                         )
                     })}
-                    <TouchableOpacity style={styles.addView}>
+                    <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCart')}} style={styles.addView}>
                         <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Add</Text>
                     </TouchableOpacity>
                 </View>
