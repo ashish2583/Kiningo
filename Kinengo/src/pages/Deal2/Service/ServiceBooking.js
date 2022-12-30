@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   seperatorView:{
     borderBottomWidth:StyleSheet.hairlineWidth,
     borderBottomColor:'#E0E0E0',
-    marginVertical:10
+    marginVertical:15
   },
   completedCircle:{
     backgroundColor:'#29913C',
