@@ -295,7 +295,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
                     <Text style={styles.unselectedTabText}>{item.title}</Text>
                     <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                         <Text style={styles.unselectedTabText}>${item.price}</Text>
-                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:10}}>${item.time}</Text>
+                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>${item.time}</Text>
                     </View>
                     {item.desc?.map((item, index)=>{
                         return (

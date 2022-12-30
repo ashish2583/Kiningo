@@ -176,7 +176,7 @@ const ServiceHome = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10, alignSelf:'center'}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, paddingBottom:30,marginBottom:20, alignSelf:'center'}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
                     <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
@@ -186,7 +186,7 @@ const ServiceHome = (props) => {
                     <Text style={styles.unselectedTabText}>{item.title}</Text>
                     <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                         <Text style={styles.unselectedTabText}>${item.price}</Text>
-                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:10}}>${item.time}</Text>
+                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>${item.time}</Text>
                     </View>
                     {item.desc?.map((item, index)=>{
                         return (
@@ -197,7 +197,7 @@ const ServiceHome = (props) => {
                         )
                     })}
                     <TouchableOpacity style={styles.addView}>
-                        <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Add</Text>
+                        <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Remove</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -263,6 +263,20 @@ const styles = StyleSheet.create({
     fontSize:12,
     fontWeight:'400',
     color: '#263238'
+  },
+  addView:{
+    marginTop:10,
+    width:90,
+    height:30,
+    borderRadius:15,
+    backgroundColor:'#ED1C24',
+    alignItems:'center',
+    justifyContent:'center',
+    shadowColor:'#6D2F91',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.17,
+    elevation: 2
   },
 });
 export default ServiceHome 
