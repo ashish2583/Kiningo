@@ -481,7 +481,7 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom:20,
     marginTop:30,
-    borderRadius:10, 
+    borderRadius:5, 
     backgroundColor:'#6D2F91', 
     width:'90%',
     alignSelf:'center', 

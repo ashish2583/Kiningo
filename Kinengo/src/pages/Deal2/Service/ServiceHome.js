@@ -229,7 +229,7 @@ const ServiceHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
-  <TouchableOpacity style={styles.bookingsView}>
+  <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceBooking')}} style={styles.bookingsView}>
       <Image source={require('../../../assets/service-bookings-icon.png')} style={{width:30}}/>
       <Text style={styles.bookingsText}>My Booking</Text>
   </TouchableOpacity>

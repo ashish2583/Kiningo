@@ -15,7 +15,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const ServiceHome = (props) => {
+const ServiceBooking = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -163,7 +163,7 @@ const ServiceHome = (props) => {
       <ScrollView>
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'My cart'} fontWeight={'500'} img2height={20} color={'#fff'}
+   press2={()=>{}} title2={'My Booking'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} />
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
@@ -219,9 +219,6 @@ const ServiceHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
-<TouchableOpacity style={styles.proceedToPaymentView}>
-    <Text style={styles.proceedToPaymentText}>Proceed to payment</Text>
-</TouchableOpacity>
     </SafeAreaView>
      );
   }
@@ -281,31 +278,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.17,
     elevation: 2
   },
-  proceedToPaymentView:{
-    position:'absolute',
-    bottom:20,
-    marginTop:30,
-    borderRadius:5, 
-    backgroundColor:'#6D2F91', 
-    width:'90%',
-    alignSelf:'center', 
-    height:60, 
-    justifyContent:'center', 
-    alignItems:'center',
-    shadowColor: '#000',
-    shadowOffset: {
-    width: 0,
-    height: 3
-    },
-    shadowRadius: 1,
-    shadowOpacity: 0.1,
-    justifyContent: 'center',
-    elevation: 1,
-  },
-  proceedToPaymentText:{
-    fontSize:14,
-    fontWeight:'500',
-    color:'#fff'
-  },
 });
-export default ServiceHome 
+export default ServiceBooking 
