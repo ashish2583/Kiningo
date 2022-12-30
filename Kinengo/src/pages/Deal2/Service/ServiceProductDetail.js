@@ -15,6 +15,7 @@ import DatePicker from 'react-native-datepicker';
 import { createThumbnail } from "react-native-create-thumbnail";
 import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
+import LinearGradient from 'react-native-linear-gradient'
 
 const ServiceProductDetail = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -285,7 +286,10 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10}}>
+                      <LinearGradient
+                              colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+                              style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+                            >
             <View style={{flexDirection:'row'}}>
                 <View style={{flex:1}}>
                     <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
@@ -311,8 +315,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
                 </View>
 
             </View>
-          
-          </View>
+          </LinearGradient>
                     )
                   }}
                   keyExtractor={item => item.id}
