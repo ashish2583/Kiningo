@@ -226,7 +226,7 @@ const generateThumb = async () => {
  
   <View style={{height:10}}/> 
 
-  <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginTop:10, marginBottom:10}}>
+  <View style={{width:dimensions.SCREEN_WIDTH*0.85,marginTop:10, marginBottom:10}}>
           <FlatList
                   data={videoDetails}
                   // showsHorizontalScrollIndicator={true}
@@ -235,16 +235,21 @@ const generateThumb = async () => {
                   renderItem={({item,index})=>{
                     return(
                       <View
-          style={{width:dimensions.SCREEN_WIDTH/2.4,height:120,marginRight: 10,marginBottom:10, borderRadius:15, }}
+          style={{width:dimensions.SCREEN_WIDTH/2.4,height:100,marginRight: 10,marginBottom:10, borderRadius:15, }}
          >
           <VideoPlayer
             video={{ uri: item?.url }}
             // videoWidth={1600}
             videoWidth={dimensions.SCREEN_WIDTH/2.4}
-            videoHeight={120}
+            videoHeight={100}
             // videoHeight={900}
             thumbnail={{ uri: item?.thumbnail }}
             style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
+            customStyles={{
+              thumbnail: {width: dimensions.SCREEN_WIDTH/2.4, height:100},
+              videoWrapper: {width: dimensions.SCREEN_WIDTH/2.4, height:100},
+              // wrapper: {alignSelf:'center'},
+            }}
           />
           </View>
                     )
