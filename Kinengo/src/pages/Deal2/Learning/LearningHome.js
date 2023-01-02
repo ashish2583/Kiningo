@@ -269,7 +269,7 @@ const generateThumb = async () => {
    </TouchableOpacity>
 </View>
 
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:20, marginBottom:10}}>
           <FlatList
                   data={videoDetails}
                   showsHorizontalScrollIndicator={true}
@@ -277,14 +277,16 @@ const generateThumb = async () => {
                   renderItem={({item,index})=>{
                     return(
                       <View
-          style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+          style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight: 20, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
           <VideoPlayer
             video={{ uri: item?.url }}
-            videoWidth={1600}
-            videoHeight={900}
+            // videoWidth={1600}
+            videoWidth={dimensions.SCREEN_WIDTH/1.5}
+            videoHeight={160}
+            // videoHeight={900}
             thumbnail={{ uri: item?.thumbnail }}
-            style={{marginRight:10}}
+            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
           />
           </View>
                     )
