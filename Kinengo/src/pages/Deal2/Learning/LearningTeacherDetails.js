@@ -227,13 +227,14 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 <Text style={{color:Mycolors.Black,fontWeight:'600'}}>Air Conditioner</Text>
 <View style={{flexDirection:'row',marginTop:10}}>
     <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
-    <Text style={{color:'#455A64',fontSize:14,fontWeight:'400',left:5}}>4.78</Text>
+    <Text style={{color:'#455A64',fontSize:14,fontWeight:'400',marginLeft:5}}>4.78</Text>
+    <Text style={{color:'#455A64',fontSize:14,fontWeight:'400',marginLeft:45}}>3 Kms Away</Text>
 </View>
 {/* <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text> */}
   </View>
 
-  <TouchableOpacity style={styles.messagesView} onPress={()=>{props.navigation.navigate('ServiceMessages')}}>
-    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Messages</Text>
+  <TouchableOpacity style={styles.sendEnquiryView} onPress={()=>{props.navigation.navigate('ServiceMessages')}}>
+    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Inquiry</Text>
   </TouchableOpacity>
 
 </View>
@@ -457,11 +458,11 @@ const styles = StyleSheet.create({
     fontWeight:'400',
     color: '#263238'
   },
-  messagesView:{
-    paddingHorizontal:40,
+  sendEnquiryView:{
+    paddingHorizontal:30,
     paddingVertical:5,
     borderRadius:30,
-    backgroundColor:'#6D2F91',
+    backgroundColor:'#29913C',
     alignItems:'center',
     justifyContent:'center',
     shadowColor:'#6D2F91',
