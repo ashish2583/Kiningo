@@ -28,34 +28,41 @@ const LearningHome = (props) => {
     {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
     {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
 ])
-  const [categoryData, setCategoryData]=useState([
+  const [courseData, setCourseData]=useState([
     {
       id: '1',
-      title: 'Appliance Repair',
+      title: 'Learning Advisor',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/learning-learning-advisor-image.png'),
     },
     {
       id: '2',
-      title: 'Appliance Repair',
+      title: 'Training Facilitator',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/learning-training-facilitator-image.png'),
     },
     {
       id: '3',
-      title: 'Appliance Repair',
+      title: 'Web Development',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/learning-web-development-image.png'),
     },
     {
       id: '4',
-      title: 'Appliance Repair',
+      title: 'Learning Advisor',
       desc:'',
       time:'',
-      img:require('../../../assets/service-category-image.png'),
+      img:require('../../../assets/learning-learning-advisor-image.png'),
+    },
+    {
+      id: '5',
+      title: 'Training Facilitator',
+      desc:'',
+      time:'',
+      img:require('../../../assets/learning-training-facilitator-image.png'),
     },
   ])
   const [upData,setupData]=useState([
@@ -157,6 +164,34 @@ const LearningHome = (props) => {
     paddingLeft={20}/>
 </View>
  
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:20}}>
+          <FlatList
+                  data={courseData}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  renderItem={({item,index})=>{
+                    return(
+                      <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+         >
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+          onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
+          <LinearGradient
+          colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
+          style={{justifyContent:'center', alignItems:'center', width:60,height:60,borderRadius:60/2, marginTop:10}}
+         >
+          <Image source={item.img} style={{width:40,height:40}} resizeMode='contain'></Image>
+         </LinearGradient>
+          
+          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600'}}>{item.title}</Text>
+          </TouchableOpacity>
+          </LinearGradient>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
 
   {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
      <ImageSlider 
@@ -194,82 +229,15 @@ const LearningHome = (props) => {
    </TouchableOpacity>
 </View>
 
-<View style={{width:'100%',alignSelf:'center',marginTop:20}}>
-          <FlatList
-                  data={categoryData}
-                  showsHorizontalScrollIndicator={false}
-                  numColumns={3}
-                  renderItem={({item,index})=>{
-                    return(
-                      <LinearGradient
-          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={{width:dimensions.SCREEN_WIDTH/3.8,marginHorizontal: index % 3 == 1 ? 10 : 0,marginVertical:5, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-         >
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
-          onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
-          <LinearGradient
-          colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:60,height:60,borderRadius:60/2, marginTop:10}}
-         >
-          <Image source={item.img} style={{width:40,height:40}} resizeMode='contain'></Image>
-         </LinearGradient>
-          
-          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600'}}>{item.title}</Text>
-          </TouchableOpacity>
-          </LinearGradient>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-
-
-
 
 
  </View>
 <View style={{height:100}} />
 
 </ScrollView>
-  <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceBooking')}} style={styles.bookingsView}>
-      <Image source={require('../../../assets/service-bookings-icon.png')} style={{width:30}}/>
-      <Text style={styles.bookingsText}>My Booking</Text>
-  </TouchableOpacity>
     </SafeAreaView>
      );
   }
 const styles = StyleSheet.create({
-  bookingsView:{
-    position:'absolute',
-    bottom:20,
-    right:20,
-    paddingVertical:20,
-    paddingHorizontal:10,
-    // marginTop:30,
-    borderRadius:25, 
-    backgroundColor:'#6D2F91', 
-    // width:'30%',
-    alignSelf:'center', 
-    // height:100, 
-    // width:100, 
-    // justifyContent:'center', 
-    alignItems:'center',
-    shadowColor: '#000',
-    shadowOffset: {
-    width: 0,
-    height: 3
-    },
-    shadowRadius: 1,
-    shadowOpacity: 0.1,
-    justifyContent: 'center',
-    elevation: 1,
-  },
-  bookingsText:{
-    fontSize:14,
-    fontWeight:'500',
-    color:'#fff',
-    marginTop:5
-  },
 });
 export default LearningHome 
