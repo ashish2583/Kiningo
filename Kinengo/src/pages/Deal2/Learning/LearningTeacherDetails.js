@@ -212,7 +212,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
         thumbnail={{ uri: videoDetails?.thumbnail }}
         customStyles={{
           playArrow: {color: '#29913C'},
-          playButton: {backgroundColor: 'white'}
+          playButton: {backgroundColor: 'white', width: 46,height: 46,borderRadius: 46/2,}
         }}
         />
         <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={styles.backButtonAbsolute}>
