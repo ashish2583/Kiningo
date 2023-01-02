@@ -37,6 +37,32 @@ const LearningHome = (props) => {
     {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
     {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
 ])
+const [classesList, setClassesList]=useState([
+  {
+      id: '1',
+      title: 'Graphic Design Class',
+      price:949,
+      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+      distance:'3 kms away',
+      img:require('../../../assets/service-product-image.png'),
+  },
+  {
+      id: '2',
+      title: 'Graphic Design Class',
+      price:949,
+      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+      distance:'3 kms away',
+      img:require('../../../assets/service-product-image.png'),
+  },
+  {
+      id: '3',
+      title: 'Graphic Design Class',
+      price:949,
+      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
+      distance:'3 kms away',
+      img:require('../../../assets/service-product-image.png'),
+  },
+])
   const [courseData, setCourseData]=useState([
     {
       id: '1',
@@ -295,7 +321,48 @@ const generateThumb = async () => {
                 />
          </View>
 
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
+   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Classes Center</Text>
+   <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCategories')}}>
+     <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
+   </TouchableOpacity>
+</View>
 
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
+          <FlatList
+                  data={classesList}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  style={{marginTop:10}}
+                  renderItem={({item,index})=>{
+                    return(
+                      <LinearGradient
+          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
+          style={{width:dimensions.SCREEN_WIDTH*0.7,height:120,marginRight: 10, borderRadius:15, padding:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+         >
+        <View style={{flexDirection:'row'}}>
+        <View style={{flex:1}}>
+            <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
+        </View>
+        
+        <View style={{flex:4, marginLeft:20, marginTop:10}}>
+            <Text style={styles.unselectedTabText}>{item.title}</Text>
+            <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
+                <Text style={styles.unselectedTabText}>${item.price}</Text>
+                <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>{item.distance}</Text>
+            </View>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCart')}} style={styles.requestCallView}>
+                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Request a Call</Text>
+            </TouchableOpacity>
+        </View>
+
+    </View>
+          </LinearGradient>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
 
  </View>
 <View style={{height:100}} />
@@ -306,5 +373,24 @@ const generateThumb = async () => {
      );
   }
 const styles = StyleSheet.create({
+  unselectedTabText:{
+    fontSize:14,
+    fontWeight:'500',
+    color: '#263238'
+  },
+  requestCallView:{
+    marginTop:10,
+    width:140,
+    height:30,
+    borderRadius:15,
+    backgroundColor:'#29913C',
+    alignItems:'center',
+    justifyContent:'center',
+    shadowColor:'#6D2F91',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.17,
+    elevation: 2
+  },
 });
 export default LearningHome 
