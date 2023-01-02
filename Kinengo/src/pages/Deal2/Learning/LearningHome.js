@@ -288,7 +288,7 @@ const generateThumb = async () => {
       keyExtractor={(item) => item.id}
     />
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:50}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
    <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCategories')}}>
      <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
@@ -321,7 +321,7 @@ const generateThumb = async () => {
                 />
          </View>
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Classes Center</Text>
    <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCategories')}}>
      <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
