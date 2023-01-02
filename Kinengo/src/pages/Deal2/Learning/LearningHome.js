@@ -164,7 +164,7 @@ const LearningHome = (props) => {
     paddingLeft={20}/>
 </View>
  
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:20}}>
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
           <FlatList
                   data={courseData}
                   showsHorizontalScrollIndicator={true}
@@ -173,13 +173,13 @@ const LearningHome = (props) => {
                     return(
                       <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+          style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:120, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:130, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{props.navigation.navigate('ServiceProductList', {name: item.title})}}>
           <LinearGradient
-          colors={['rgba(247, 234, 255, 1)', 'rgba(255, 255, 255, 0)']}
-          style={{justifyContent:'center', alignItems:'center', width:60,height:60,borderRadius:60/2, marginTop:10}}
+          colors={['rgba(210, 241, 206, 1)', 'rgba(255, 255, 255, 0)']}
+          style={{justifyContent:'center', alignItems:'center', width:70,height:70,borderRadius:70/2, marginTop:10}}
          >
           <Image source={item.img} style={{width:40,height:40}} resizeMode='contain'></Image>
          </LinearGradient>
