@@ -244,7 +244,9 @@ const generateThumb = async () => {
         </View>
         
         <View style={{flex:4, marginLeft:20, marginTop:10}}>
-            <Text style={styles.unselectedTabText}>{item.title}</Text>
+            <TouchableOpacity onPress={()=>{props.navigation.navigate('LearningTeacherDetails')}}>
+              <Text style={styles.unselectedTabText}>{item.title}</Text>
+            </TouchableOpacity>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                 <Text style={{fontSize:10,fontWeight:'400',color: '#263238'}}>{item.nameOfClass}</Text>
             </View>

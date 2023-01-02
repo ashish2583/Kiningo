@@ -242,7 +242,7 @@ const generateThumb = async () => {
           style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/3.8,height:130, alignItems:'center', borderRadius:15, paddingHorizontal:10}}
-          onPress={()=>{props.navigation.navigate('LearningClassDetails', {name: item.title})}}>
+          onPress={()=>{props.navigation.navigate('LearningTeachersList', {name: item.title})}}>
           <LinearGradient
           colors={['rgba(210, 241, 206, 1)', 'rgba(255, 255, 255, 0)']}
           style={{justifyContent:'center', alignItems:'center', width:70,height:70,borderRadius:70/2, marginTop:10}}
