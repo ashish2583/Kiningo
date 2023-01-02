@@ -70,6 +70,7 @@ import ShopEntertainmentStack from './ShopEntertainmentStack';
 import Connect2PeopleStack from './Connect2PeopleStack';
 import Connect2DatingStack from './Connect2DatingStack';
 import Deal2Service from './Deal2Service';
+import Deal2Learning from './Deal2Learning';
 import ShopProductStack from './ShopProductStack';
 
 
@@ -138,6 +139,7 @@ const WeelStack=(props)=>{
             <Stack.Screen component = {Connect2PeopleStack} name="Connect2PeopleStack" />
             <Stack.Screen component = {Connect2DatingStack} name="Connect2DatingStack" />
             <Stack.Screen component = {Deal2Service} name="Deal2Service" />
+            <Stack.Screen component = {Deal2Learning} name="Deal2Learning" />
 
             <Stack.Screen component = {Talkie} name="Talkie" />
             <Stack.Screen component = {Finenc} name="Finenc" />
