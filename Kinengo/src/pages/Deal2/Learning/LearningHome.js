@@ -141,16 +141,16 @@ const LearningHome = (props) => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-    <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#6D2F92'
+    <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#29913C'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
    press2={()=>{}} title2={'Learning'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{props.navigation.navigate('ServiceCart')}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
-    <LearningSearch marginTop={0} placeholder={'Search for Service'} 
+    <LearningSearch marginTop={0} placeholder={'Search for courses'} 
     serchValue={searchValue}
-    searchIcon={require('../../../assets/service-search-icon.png')} 
+    searchIcon={require('../../../assets/learning-search-icon.png')} 
     onChangeText={(e)=>{setsearchValue(e)}} 
     press={()=>{Alert.alert('Hi')}}
     presssearch={()=>{Alert.alert('Search Pressed')}}
@@ -182,7 +182,7 @@ const LearningHome = (props) => {
       // renderPagination={() => null}
       renderDoneButton={()=><View />}
       renderNextButton={()=><View />}
-      activeDotStyle={{top:60,backgroundColor:'#6D2F91'}}
+      activeDotStyle={{top:60,backgroundColor:'#29913C'}}
       dotStyle={{top:60,backgroundColor:'#D9D9D9'}}
       keyExtractor={(item) => item.id}
     />
