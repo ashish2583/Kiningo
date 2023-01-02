@@ -215,7 +215,7 @@ const generateThumb = async () => {
 
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
-    <LearningSearch marginTop={0} placeholder={'Search for courses'} 
+    <LearningSearch marginTop={0} placeholder={'Search for teachers'} 
     serchValue={searchValue}
     searchIcon={require('../../../assets/learning-search-icon.png')} 
     onChangeText={(e)=>{setsearchValue(e)}} 
