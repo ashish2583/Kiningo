@@ -14,6 +14,9 @@ import Toast from 'react-native-simple-toast'
 import LinearGradient from 'react-native-linear-gradient'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import Loader from '../../../WebApi/Loader';
+import VideoPlayer from 'react-native-video-player'
+import { createThumbnail } from "react-native-create-thumbnail";
 
 const LearningHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -22,6 +25,12 @@ const LearningHome = (props) => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
+  const [loading, setLoading] = useState(false)
+  const [videoDetails, setVideoDetails] = useState([
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
+  ])
   const [introSliderData] = useState([
     // require('../../assets/Group75972.png'),
     {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
@@ -134,6 +143,37 @@ const LearningHome = (props) => {
   useEffect(()=>{
 
  },[])
+ useEffect(()=>{
+  generateThumb()
+},[])
+const generateThumb = async () => {
+  setLoading(true)
+  const thumbs = []
+  try {
+    for(let i = 0; i < videoDetails?.length; i++){
+      const resp = await createThumbnail({
+        url: videoDetails[0].url,
+        timeStamp: 10000,
+        // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+      })
+      thumbs.push(resp.path)
+    }
+    // const resp = await createThumbnail({
+    //   url: videoDetails?.url,
+    //   timeStamp: 10000,
+    //   // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+    // })
+    const videoDetailsCopy = [...videoDetails]
+    const updatedVideoDetails = videoDetailsCopy.map((el, index)=>{
+      return {...el, thumbnail: thumbs[index]}
+    })
+    setVideoDetails([...updatedVideoDetails])
+    // setVideoDetails({...videoDetails, thumbnail: resp.path})
+  } catch (error) {
+    console.log('thumbnail creating error', error);      
+  }
+  setLoading(false)
+}
 
  const _renderItem = ({ item }) => {
   return (
@@ -151,7 +191,7 @@ const LearningHome = (props) => {
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#29913C'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
    press2={()=>{}} title2={'Learning'} fontWeight={'500'} img2height={20} color={'#fff'}
-   press3={()=>{props.navigation.navigate('ServiceCart')}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
+   press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
@@ -223,11 +263,35 @@ const LearningHome = (props) => {
     />
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:40}}>
-   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Our Category</Text>
+   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
    <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCategories')}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#6D2F91'}}>View all</Text>
+     <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
    </TouchableOpacity>
 </View>
+
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
+          <FlatList
+                  data={videoDetails}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  renderItem={({item,index})=>{
+                    return(
+                      <View
+          style={{width:dimensions.SCREEN_WIDTH/3.8,marginRight: 10, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+         >
+          <VideoPlayer
+            video={{ uri: item?.url }}
+            videoWidth={1600}
+            videoHeight={900}
+            thumbnail={{ uri: item?.thumbnail }}
+            style={{marginRight:10}}
+          />
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
 
 
 
@@ -235,6 +299,7 @@ const LearningHome = (props) => {
 <View style={{height:100}} />
 
 </ScrollView>
+{loading ? <Loader /> : null}
     </SafeAreaView>
      );
   }
