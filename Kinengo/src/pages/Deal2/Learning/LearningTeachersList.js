@@ -250,7 +250,7 @@ const generateThumb = async () => {
             <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                 <Text style={{fontSize:10,fontWeight:'400',color: '#263238'}}>{item.nameOfClass}</Text>
             </View>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCart')}} style={styles.requestCallView}>
+            <TouchableOpacity onPress={()=>{}} style={styles.requestCallView}>
                 <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Enquiry</Text>
             </TouchableOpacity>
         </View>

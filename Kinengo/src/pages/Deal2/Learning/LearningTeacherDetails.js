@@ -233,8 +233,8 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 {/* <Text style={{color:Mycolors.GrayColor,fontSize:13,fontWeight:'500',marginVertical:4}}>Electronics</Text> */}
   </View>
 
-  <TouchableOpacity style={styles.sendEnquiryView} onPress={()=>{props.navigation.navigate('ServiceMessages')}}>
-    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Inquiry</Text>
+  <TouchableOpacity style={styles.sendEnquiryView} onPress={()=>{}}>
+    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Enquiry</Text>
   </TouchableOpacity>
 
 </View>
