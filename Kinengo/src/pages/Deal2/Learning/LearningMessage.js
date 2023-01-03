@@ -279,8 +279,8 @@ const styles = StyleSheet.create({
   },
   messageView:{
     marginTop:10,
-    width:160,
-    height:40,
+    width:150,
+    height:35,
     borderRadius:20,
     backgroundColor:'#29913C',
     alignItems:'center',
