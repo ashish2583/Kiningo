@@ -1,5 +1,5 @@
 import React, { useEffect,useState ,useRef} from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground, Platform, Linking} from 'react-native';
 import HomeHeader from 'src/component/HomeHeader';
 import SearchInput2 from 'src/component/SearchInput2';
 import { dimensions, Mycolors } from 'src/utility/Mycolors';
@@ -57,6 +57,37 @@ const LearningClassDetails = (props) => {
         desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
         time:'45 mins',
         img:require('../../../assets/service-product-image.png'),
+    },
+  ])
+  const [contactData, setContactData] = useState([
+    {
+      id:'1',
+      icon: require('../../../assets/learning-phone-icon.png'),
+      name: 'Phone',
+      value:'+91 9876543210',
+      onClick: (phoneNumber)=>{
+        if (Platform.OS === 'android') {
+          Linking.openURL(`tel:${phoneNumber}`);
+        } else {
+          Linking.openURL(`telprompt:${phoneNumber}`);
+        }
+      }
+    },
+    {
+      id:'2',
+      icon: require('../../../assets/learning-email-icon.png'),
+      name: 'Email',
+      value:'john.smith@gmail.com',
+      onClick: (email)=>{
+        Linking.openURL(`mailto:${email}`)
+      }
+    },
+    {
+      id:'3',
+      icon: require('../../../assets/learning-mappin-icon.png'),
+      name: 'Address',
+      value:'700 Park Ave, Brooklyn, NY 11206, USA',
+      onClick: ()=>{}
     },
   ])
   const [reviewsData, setReviewsData] = useState([
@@ -286,45 +317,16 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginTop:30, marginBottom:10}}>Contact Info.</Text>
 
-<FlatList
-                  data={servicesList}
-                  numColumns={1}
-                  renderItem={({item,index})=>{
-                    return(
-                      <LinearGradient
-                              colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-                              style={{width:dimensions.SCREEN_WIDTH*0.9, backgroundColor:'#fff',borderRadius:15, padding:10, marginBottom:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-                            >
-            <View style={{flexDirection:'row'}}>
-                <View style={{flex:1}}>
-                    <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
-                </View>
-                
-                <View style={{flex:4, marginLeft:10, marginTop:10}}>
-                    <Text style={styles.unselectedTabText}>{item.title}</Text>
-                    <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
-                        <Text style={styles.unselectedTabText}>${item.price}</Text>
-                        <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>${item.time}</Text>
-                    </View>
-                    {item.desc?.map((item, index)=>{
-                        return (
-                            <View style={{flexDirection:'row', alignItems:'center'}}>
-                                <View style={{backgroundColor:'#263238', width:5, height:5, borderRadius:5/2}}/>
-                                <Text style={[styles.bulletPoints, {marginLeft:5}]}>{item}</Text>
-                            </View>
-                        )
-                    })}
-                    <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCart')}} style={styles.addView}>
-                        <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Add</Text>
-                    </TouchableOpacity>
-                </View>
+{contactData?.map((item, index)=> 
+  <TouchableOpacity onPress={()=>item.onClick(item.value)} style={{flexDirection:'row', alignItems:'center', marginBottom:15}}>
+    <Image source={item.icon} />
+    <View style={{marginLeft:20}}>
+      <Text style={{fontSize:14, fontWeight:'500',color:'#263238'}}>{item.name}</Text>
+      <Text style={{fontSize:14, fontWeight:'400',color:'#455A64'}}>{item.value}</Text>
+    </View>
+  </TouchableOpacity>
+)}
 
-            </View>
-          </LinearGradient>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
 </View>
  
   
