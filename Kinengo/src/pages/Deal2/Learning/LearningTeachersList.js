@@ -273,7 +273,7 @@ const generateThumb = async () => {
   }
 const styles = StyleSheet.create({
   unselectedTabText:{
-    fontSize:14,
+    fontSize:16,
     fontWeight:'500',
     color: '#263238'
   },
