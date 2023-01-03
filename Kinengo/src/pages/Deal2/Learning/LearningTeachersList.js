@@ -280,8 +280,8 @@ const styles = StyleSheet.create({
   sendInquiryView:{
     marginTop:10,
     width:140,
-    height:40,
-    borderRadius:20,
+    height:45,
+    borderRadius:25,
     backgroundColor:'#29913C',
     alignItems:'center',
     justifyContent:'center',
