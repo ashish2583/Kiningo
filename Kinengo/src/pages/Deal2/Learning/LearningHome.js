@@ -214,13 +214,7 @@ const generateThumb = async () => {
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-    <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#29913C'
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Learning'} fontWeight={'500'} img2height={20} color={'#fff'}
-   press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
-
-<View style={{height:20}}/>
-<View style={{flexDirection:'row', alignItems:'center', backgroundColor:'#29913C',height:100, paddingtop:10, paddingBottom:25, paddingHorizontal:15, borderBottomLeftRadius:20,borderBottomRightRadius:20}}>
+  <View style={{flexDirection:'row', alignItems:'center', backgroundColor:'#29913C',height:100, paddingtop:10, paddingBottom:25, paddingHorizontal:15, borderBottomLeftRadius:20,borderBottomRightRadius:20}}>
   
   <View style={{flex:1,flexDirection:'row', justifyContent:'flex-start', alignItems:'center'}}>
     <TouchableOpacity onPress={()=>props.navigation.goBack()}>
@@ -231,8 +225,14 @@ const generateThumb = async () => {
   <View style={{flex:1,flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
     <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Learning</Text>
   </View>
+
   <View style={{flex:1,flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
-    <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Learning</Text>
+    <TouchableOpacity onPress={()=>{}}>
+      <Image source={require('../../../assets/learning-message-icon.png')} style={{width:25, height:20}}/>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>{}} style={{marginLeft:10}}>
+      <Image source={require('../../../assets/service-cart-icon.png')} style={{width:25, height:18}}/>
+    </TouchableOpacity>
   </View>
 
 </View>
