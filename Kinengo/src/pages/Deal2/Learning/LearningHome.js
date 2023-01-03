@@ -250,7 +250,7 @@ const generateThumb = async () => {
           <Image source={item.img} style={{width:40,height:40}} resizeMode='contain'></Image>
          </LinearGradient>
           
-          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center',fontWeight:'600'}}>{item.title}</Text>
+          <Text style={{fontSize:13,fontWeight:'500',color:'#263238',marginTop:5,textAlign:'center'}}>{item.title}</Text>
           </TouchableOpacity>
           </LinearGradient>
                     )
