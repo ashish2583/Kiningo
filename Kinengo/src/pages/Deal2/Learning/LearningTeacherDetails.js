@@ -224,7 +224,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 
 <View style={{width:'96%',flexDirection:'row',justifyContent:'space-between',alignSelf:'center',backgroundColor:'#F8F8F8',borderRadius:9,paddingVertical:20}}>
   <View>
-<Text style={{color:Mycolors.Black,fontWeight:'600'}}>Air Conditioner</Text>
+<Text style={{color:Mycolors.Black,fontWeight:'600'}}>John Smith</Text>
 <View style={{flexDirection:'row',marginTop:10}}>
     <Image source={require('../../../assets/Star.png')} style={{width:18,height:18}}></Image>
     <Text style={{color:'#455A64',fontSize:14,fontWeight:'400',marginLeft:5}}>4.78</Text>
@@ -234,7 +234,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
   </View>
 
   <TouchableOpacity style={styles.sendEnquiryView} onPress={()=>{}}>
-    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Enquiry</Text>
+    <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Inquiry</Text>
   </TouchableOpacity>
 
 </View>
