@@ -104,7 +104,8 @@ const DatingMoreInfo = (props) => {
    // onClick={(item, index) => {alert('hello'+index)}}
     // autoPlay={true}
    // onItemChanged={(item) => console.log("item", item)}
-      indicatorContainerStyle={{bottom:70}}
+      indicatorContainerStyle={{}}
+      activeIndicatorStyle={{backgroundColor:'#FF4989'}}
       caroselImageStyle={{height:400}}
       closeIconColor="#fff"
   />
@@ -132,7 +133,7 @@ const DatingMoreInfo = (props) => {
         <Text style={{fontSize:12, color:'#31313f', fontWeight:'bold'}}>Location</Text>
         <Text style={{fontSize:10, color:'#4a4c52'}}>Chicago, IL, United States</Text>
       </View>
-      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'rgba(255, 73, 137, 0.13)', width:80,height:30,borderRadius:15, paddingHorizontal:10, shadowColor: 'rgba(255, 73, 137)',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.13,elevation: 2}}>
+      <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#FFE7F0', width:80,height:30,borderRadius:15, paddingHorizontal:10, shadowColor: 'rgba(255, 73, 137)',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.13,elevation: 2}}>
         <Image source={require('../../../assets/dating-maptrifold.png')} style={{width:20, height:20}}/>
         <Text style={{fontSize:10, color:'#FF4989'}}>2.5 km</Text>
       </View>
