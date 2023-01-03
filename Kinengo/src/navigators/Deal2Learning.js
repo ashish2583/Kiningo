@@ -7,6 +7,7 @@ import LearningCentersList from '../pages/Deal2/Learning/LearningCentersList';
 import LearningTeachersList from '../pages/Deal2/Learning/LearningTeachersList';
 import LearningOnineStudyClasses from '../pages/Deal2/Learning/LearningOnineStudyClasses';
 import LearningTeacherDetails from '../pages/Deal2/Learning/LearningTeacherDetails';
+import LearningMessage from '../pages/Deal2/Learning/LearningMessage';
 
 const Deal2Learning=(props)=>{
    
@@ -22,6 +23,7 @@ const Deal2Learning=(props)=>{
             <Stack.Screen component = {LearningTeachersList} name="LearningTeachersList" />
             <Stack.Screen component = {LearningOnineStudyClasses} name="LearningOnineStudyClasses" />
             <Stack.Screen component = {LearningTeacherDetails} name="LearningTeacherDetails" />
+            <Stack.Screen component = {LearningMessage} name="LearningMessage" />
             
 
         </Stack.Navigator>

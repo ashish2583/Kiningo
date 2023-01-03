@@ -227,7 +227,7 @@ const generateThumb = async () => {
   </View>
 
   <View style={{flex:1,flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
-    <TouchableOpacity onPress={()=>{}}>
+    <TouchableOpacity onPress={()=>{props.navigation.navigate('LearningMessage')}}>
       <Image source={require('../../../assets/learning-message-icon.png')} style={{width:25, height:20}}/>
     </TouchableOpacity>
     <TouchableOpacity onPress={()=>{}} style={{marginLeft:15}}>

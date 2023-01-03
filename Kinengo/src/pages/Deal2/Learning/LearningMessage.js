@@ -18,7 +18,7 @@ import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 
-const LearningTeachersList = (props) => {
+const LearningMessage = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -210,7 +210,7 @@ const generateThumb = async () => {
       <ScrollView>
     <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#29913C'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Teachers List'} fontWeight={'500'} img2height={20} color={'#fff'}
+   press2={()=>{}} title2={'Message'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
@@ -250,8 +250,8 @@ const generateThumb = async () => {
             <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
                 <Text style={{fontSize:10,fontWeight:'400',color: '#263238'}}>{item.nameOfClass}</Text>
             </View>
-            <TouchableOpacity onPress={()=>{}} style={styles.requestCallView}>
-                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Enquiry</Text>
+            <TouchableOpacity onPress={()=>{}} style={styles.messageView}>
+                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Message</Text>
             </TouchableOpacity>
         </View>
 
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     fontWeight:'500',
     color: '#263238'
   },
-  requestCallView:{
+  messageView:{
     marginTop:10,
     width:140,
     height:30,
@@ -292,4 +292,4 @@ const styles = StyleSheet.create({
     elevation: 2
   },
 });
-export default LearningTeachersList 
+export default LearningMessage 
