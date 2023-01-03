@@ -26,6 +26,8 @@ const LearningHome = (props) => {
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
   const [loading, setLoading] = useState(false)
+  const [showVideoModal, setShowVideoModal] = useState(false)
+  const [selectedVideo, setSelectedVideo] = useState({})
   const [videoDetails, setVideoDetails] = useState([
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
@@ -322,7 +324,12 @@ const generateThumb = async () => {
                       <View
           style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight: 20, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
-          <VideoPlayer
+          <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160}}>
+            <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:50, left:dimensions.SCREEN_WIDTH/(1.5*2.5), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
+              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+            </TouchableOpacity>
+          </ImageBackground>
+          {/* <VideoPlayer
             video={{ uri: item?.url }}
             // videoWidth={1600}
             videoWidth={dimensions.SCREEN_WIDTH/1.5}
@@ -330,7 +337,7 @@ const generateThumb = async () => {
             // videoHeight={900}
             thumbnail={{ uri: item?.thumbnail }}
             style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
-          />
+          /> */}
           </View>
                     )
                   }}
@@ -386,6 +393,46 @@ const generateThumb = async () => {
 
 </ScrollView>
 {loading ? <Loader /> : null}
+<Modal
+        isVisible={showVideoModal}
+        swipeDirection="down"
+        onBackdropPress={()=>setShowVideoModal(false)}
+        onSwipeComplete={(e) => {
+          setShowVideoModal(false)
+        }}
+          scrollTo={() => {}}
+          scrollOffset={1}
+          propagateSwipe={true}
+        coverScreen={false}
+        backdropColor='transparent'
+        style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
+      >
+        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+          <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+          
+          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end', marginBottom:30, marginTop:10}}>
+            <TouchableOpacity onPress={()=>setShowVideoModal(false)} style={{}}>
+              <Text style={{color:'#FF3B7F',fontWeight:'500', textAlign:'center'}}>Close</Text>
+            </TouchableOpacity>
+          </View>
+          <VideoPlayer
+            video={{ uri: selectedVideo?.url }}
+            // videoWidth={1600}
+            videoWidth={dimensions.SCREEN_WIDTH*0.9}
+            videoHeight={250}
+            // videoHeight={900}
+            thumbnail={{ uri: selectedVideo?.thumbnail }}
+            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
+            customStyles={{
+              thumbnail: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
+              videoWrapper: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
+              // wrapper: {alignSelf:'center'},
+            }}
+          />
+            </ScrollView>
+           
+            </View>
+</Modal>
     </SafeAreaView>
      );
   }
