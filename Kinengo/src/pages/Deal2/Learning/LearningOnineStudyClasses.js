@@ -244,20 +244,6 @@ const generateThumb = async () => {
               <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
             </TouchableOpacity>
           </ImageBackground>
-          {/* <VideoPlayer
-            video={{ uri: item?.url }}
-            // videoWidth={1600}
-            videoWidth={dimensions.SCREEN_WIDTH/2.4}
-            videoHeight={100}
-            // videoHeight={900}
-            thumbnail={{ uri: item?.thumbnail }}
-            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
-            customStyles={{
-              thumbnail: {width: dimensions.SCREEN_WIDTH/2.4, height:100},
-              videoWrapper: {width: dimensions.SCREEN_WIDTH/2.4, height:100},
-              // wrapper: {alignSelf:'center'},
-            }}
-          /> */}
           </View>
                     )
                   }}
