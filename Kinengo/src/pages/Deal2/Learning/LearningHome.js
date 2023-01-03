@@ -219,6 +219,23 @@ const generateThumb = async () => {
    press2={()=>{}} title2={'Learning'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
+<View style={{height:20}}/>
+<View style={{flexDirection:'row', alignItems:'center', backgroundColor:'#29913C',height:100, paddingtop:10, paddingBottom:25, paddingHorizontal:15, borderBottomLeftRadius:20,borderBottomRightRadius:20}}>
+  
+  <View style={{flex:1,flexDirection:'row', justifyContent:'flex-start', alignItems:'center'}}>
+    <TouchableOpacity onPress={()=>props.navigation.goBack()}>
+      <Image source={require('../../../assets/service-header-back-button.png')} style={{width:25, height:18}}/>
+    </TouchableOpacity>
+  </View>
+
+  <View style={{flex:1,flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+    <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Learning</Text>
+  </View>
+  <View style={{flex:1,flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
+    <Text style={{fontSize:14, fontWeight:'500',color:'#fff'}}>Learning</Text>
+  </View>
+
+</View>
 <View style={{width:'85%',alignSelf:'center'}}>
 <View style={{top:-20}}>
     <LearningSearch marginTop={0} placeholder={'Search for courses'} 
