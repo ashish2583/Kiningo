@@ -236,7 +236,7 @@ const generateThumb = async () => {
                     return(
                       <LinearGradient
           colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={{width:'100%',height:120,marginBottom:15,marginRight: 10, borderRadius:15, padding:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+          style={{width:'100%',height:140,marginBottom:15,marginRight: 10, borderRadius:15, padding:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
          >
         <View style={{flexDirection:'row'}}>
         <View style={{flex:1}}>
@@ -248,10 +248,10 @@ const generateThumb = async () => {
               <Text style={styles.unselectedTabText}>{item.title}</Text>
             </TouchableOpacity>
             <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
-                <Text style={{fontSize:10,fontWeight:'400',color: '#263238'}}>{item.nameOfClass}</Text>
+                <Text style={{fontSize:14,fontWeight:'400',color: '#263238'}}>{item.nameOfClass}</Text>
             </View>
-            <TouchableOpacity onPress={()=>{}} style={styles.requestCallView}>
-                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Enquiry</Text>
+            <TouchableOpacity onPress={()=>{}} style={styles.sendInquiryView}>
+                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Send Inquiry</Text>
             </TouchableOpacity>
         </View>
 
@@ -277,11 +277,11 @@ const styles = StyleSheet.create({
     fontWeight:'500',
     color: '#263238'
   },
-  requestCallView:{
+  sendInquiryView:{
     marginTop:10,
     width:140,
-    height:30,
-    borderRadius:15,
+    height:40,
+    borderRadius:20,
     backgroundColor:'#29913C',
     alignItems:'center',
     justifyContent:'center',
