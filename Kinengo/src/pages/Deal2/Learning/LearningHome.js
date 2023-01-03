@@ -231,7 +231,7 @@ const generateThumb = async () => {
       <Image source={require('../../../assets/learning-message-icon.png')} style={{width:25, height:20}}/>
     </TouchableOpacity>
     <TouchableOpacity onPress={()=>{}} style={{marginLeft:15}}>
-      <Image source={require('../../../assets/service-cart-icon.png')} style={{width:25, height:18}}/>
+      <Image source={require('../../../assets/service-cart-icon.png')} style={{width:25, height:20}}/>
     </TouchableOpacity>
   </View>
 
