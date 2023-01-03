@@ -318,7 +318,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
 <Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginTop:30, marginBottom:10}}>Contact Info.</Text>
 
 {contactData?.map((item, index)=> 
-  <TouchableOpacity onPress={()=>item.onClick(item.value)} style={{flexDirection:'row', alignItems:'center', marginBottom:15}}>
+  <TouchableOpacity onPress={()=>item.onClick(item.value)} style={{flexDirection:'row', alignItems:'center', marginBottom:20}}>
     <Image source={item.icon} />
     <View style={{marginLeft:20}}>
       <Text style={{fontSize:14, fontWeight:'500',color:'#263238'}}>{item.name}</Text>
@@ -492,7 +492,7 @@ const styles = StyleSheet.create({
     bottom:20,
     marginTop:30,
     borderRadius:5, 
-    backgroundColor:'#6D2F91', 
+    backgroundColor:'#29913C', 
     width:'90%',
     alignSelf:'center', 
     height:60, 
