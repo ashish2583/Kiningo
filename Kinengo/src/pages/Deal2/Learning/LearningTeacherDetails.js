@@ -265,12 +265,12 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           numberOfLines={3}
           renderViewMore={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'#6D2F91',textDecorationLine: "underline"}}>View more</Text>
+              <Text onPress={onPress} style={{color:'#29913C',textDecorationLine: "underline"}}>View more</Text>
             )
           }}
           renderViewLess={(onPress)=>{
             return(
-              <Text onPress={onPress} style={{color:'#6D2F91',textDecorationLine: "underline"}}>View less</Text>
+              <Text onPress={onPress} style={{color:'#29913C',textDecorationLine: "underline"}}>View less</Text>
             )
            }}
           textStyle={{textAlign: 'left',width:'95%'}}
@@ -284,7 +284,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           </Text>
 </ViewMoreText>
 
-<Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginVertical:10}}>Add Service</Text>
+<Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginTop:30, marginBottom:10}}>Contact Info.</Text>
 
 <FlatList
                   data={servicesList}
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
   },
   selectedTabStyle:{
     borderBottomWidth:1,
-    borderBottomColor:'#6D2F91',
+    borderBottomColor:'#29913C',
     alignItems:'center',
     // width:'32%'
   },
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
   selectedTabText:{
     fontSize:14,
     fontWeight:'500',
-    color: '#6D2F91',
+    color: '#29913C',
     paddingBottom: 10,
   },
   unselectedTabText:{
