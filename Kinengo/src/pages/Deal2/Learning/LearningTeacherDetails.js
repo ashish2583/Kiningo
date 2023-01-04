@@ -561,7 +561,7 @@ const styles = StyleSheet.create({
     // marginBottom: 4,
 
     // width:dimensions.SCREEN_WIDTH,
-    height:300,
+    height:230,
     // marginRight: 20,
     // shadowColor:'#000',
     // shadowOffset: {width: 0,height: 3},
@@ -585,7 +585,7 @@ const styles = StyleSheet.create({
   },
   BackGroundImage: {
     width: '100%',
-    height: 300,
+    height: 230,
     justifyContent: 'center',
     // borderRadius:15
   },
