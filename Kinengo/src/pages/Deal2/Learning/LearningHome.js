@@ -348,8 +348,8 @@ const generateThumb = async () => {
                         <View style={styles.PlayIconContainer}>
                           <View style={styles.PlayIconWrapper}>
                             {/* <PlayIcon width={28} height={28} /> */}
-                            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:40, height:40, borderRadius:40/2,alignItems:'center', justifyContent:'center'}}>
-                              <Image source={require('../../../assets/learning-play-button.png')} style={{width:25, height:25}}/>
+                            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
+                              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
                             </View>
                           </View>
                         </View>
