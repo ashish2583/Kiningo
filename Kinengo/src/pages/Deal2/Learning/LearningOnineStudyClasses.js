@@ -17,6 +17,7 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
+import {VideoModel} from './Components/VideoModel';
 
 const LearningOnineStudyClasses = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -26,12 +27,13 @@ const LearningOnineStudyClasses = (props) => {
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
   const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState({})
   const [videoDetails, setVideoDetails] = useState([
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`, title: 'Big Buck Bunny',},
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`, title: 'Big Buck Bunny',},
+    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`, title: 'Big Buck Bunny',},
   ])
 const [teachersList, setTeachersList]=useState([
   {
@@ -168,6 +170,12 @@ const [teachersList, setTeachersList]=useState([
  useEffect(()=>{
   generateThumb()
 },[])
+const toggleModal = state => {
+  setShowModal({
+    isVisible: state.isVisible,
+    data: state.data,
+  });
+};
 const generateThumb = async () => {
   setLoading(true)
   const thumbs = []
@@ -227,26 +235,64 @@ const generateThumb = async () => {
 </View>
  
   <View style={{height:10}}/> 
-
+  {showModal.isVisible ? (
+        <VideoModel
+          isVisible={showModal.isVisible}
+          toggleModal={toggleModal}
+          videoDetail={showModal.data}
+          {...props}
+        />
+      ) : null}
   <View style={{width:dimensions.SCREEN_WIDTH*0.85,marginTop:10, marginBottom:10}}>
           <FlatList
                   data={videoDetails}
                   // showsHorizontalScrollIndicator={true}
                   // horizontal
                   numColumns={2}
-                  renderItem={({item,index})=>{
-                    return(
-                      <View
-          style={{width:dimensions.SCREEN_WIDTH/2.4,height:100,marginRight: 10,marginBottom:10, borderRadius:15, }}
-         >
-          <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/2.4,height:100}}>
-            <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:25, left:dimensions.SCREEN_WIDTH/(2.4*3), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
-              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
-            </TouchableOpacity>
-          </ImageBackground>
-          </View>
-                    )
-                  }}
+                  renderItem={({item}) => (
+                    <View style={styles.VideoThumbWrapper}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          setShowModal({
+                            isVisible: true,
+                            data: item,
+                          });
+                        }}>
+                        <View style={styles.PlayIconContainer}>
+                          <View style={styles.PlayIconWrapper}>
+                            {/* <PlayIcon width={28} height={28} /> */}
+                            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
+                              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+                            </View>
+                          </View>
+                        </View>
+                        <Image
+                          style={styles.BackGroundImage}
+                          // theme={theme}
+                          source={{uri:item?.thumbnail}}
+                          resizeMode={'contain'}
+                        />
+                      </TouchableOpacity>
+                      <Text 
+                      // theme={theme}
+                      style={{fontSize:14, fontWeight:'400', color:'red'}}
+                      >{item.title}
+                      </Text>
+                    </View>
+                  )}
+        //           renderItem={({item,index})=>{
+        //             return(
+        //               <View
+        //   style={{width:dimensions.SCREEN_WIDTH/2.4,height:100,marginRight: 10,marginBottom:10, borderRadius:15, }}
+        //  >
+        //   <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/2.4,height:100}}>
+        //     <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:25, left:dimensions.SCREEN_WIDTH/(2.4*3), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
+        //       <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+        //     </TouchableOpacity>
+        //   </ImageBackground>
+        //   </View>
+        //             )
+        //           }}
                   keyExtractor={item => item.id}
                 />
          </View>
@@ -319,6 +365,73 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.17,
     elevation: 2
+  },
+  videoContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#fff',
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+  },
+  ModalOutsideContainer: {
+    flex: 1,
+  },
+  VideoName: {
+    paddingVertical: 1,
+    paddingHorizontal: 2,
+    fontSize: 16,
+  },
+  VideoThumbWrapper: {
+    position: 'relative',
+    width: '48%',
+    marginRight: 8,
+    marginBottom: 4,
+  },
+  PlayIconContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  PlayIconWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  BackGroundImage: {
+    width: '100%',
+    height: 100,
+    justifyContent: 'center',
+  },
+  ModalContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    marginTop: '25%',
+  },
+  ModalWrapper: {
+    flex: 1,
+  },
+  ModalBox: {
+    width: '85%',
+    backgroundColor: '#fff',
+    paddingVertical: 2,
+    paddingHorizontal: 6,
+    borderRadius: 2,
+    opacity: 1,
+  },
+  VideoPlayerContainer: {
+    width: '100%',
+    height: 150,
+  },
+  VideoTitle: {
+    paddingTop: 8,
+    fontSize: 18,
   },
 });
 export default LearningOnineStudyClasses 
