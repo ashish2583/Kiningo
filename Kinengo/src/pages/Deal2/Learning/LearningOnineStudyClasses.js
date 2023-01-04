@@ -273,26 +273,8 @@ const generateThumb = async () => {
                           resizeMode={'contain'}
                         />
                       </TouchableOpacity>
-                      <Text 
-                      // theme={theme}
-                      style={{fontSize:14, fontWeight:'400', color:'red'}}
-                      >{item.title}
-                      </Text>
                     </View>
                   )}
-        //           renderItem={({item,index})=>{
-        //             return(
-        //               <View
-        //   style={{width:dimensions.SCREEN_WIDTH/2.4,height:100,marginRight: 10,marginBottom:10, borderRadius:15, }}
-        //  >
-        //   <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/2.4,height:100}}>
-        //     <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:25, left:dimensions.SCREEN_WIDTH/(2.4*3), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
-        //       <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
-        //     </TouchableOpacity>
-        //   </ImageBackground>
-        //   </View>
-        //             )
-        //           }}
                   keyExtractor={item => item.id}
                 />
          </View>

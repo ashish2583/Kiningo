@@ -3,7 +3,6 @@
  */
 import React, {useState, useEffect} from 'react';
 import {
-  Modal,
   TouchableWithoutFeedback,
   Text,
   StyleSheet,
@@ -12,7 +11,7 @@ import {
 } from 'react-native';
 import VideoPlayer from 'react-native-video-controls';
 import Orientation from 'react-native-orientation-locker';
-
+import Modal from 'react-native-modal';
 export const VideoModel = props => {
   const [screenState, setScreenState] = useState({
     fullScreen: false,
@@ -74,9 +73,9 @@ export const VideoModel = props => {
               <View style={styles.VideoPlayerContainer}>
                 {videoPlayerView()}
               </View>
-              <Text style={styles.VideoTitle}>
+              {/* <Text style={styles.VideoTitle}>
                 {props.videoDetail.title}
-              </Text>
+              </Text> */}
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -110,7 +109,19 @@ export const VideoModel = props => {
    <Modal
       animationType={'fade'}
       supportedOrientations={['portrait', 'landscape']}
+      swipeDirection="down"
+      onSwipeComplete={(e) => {
+        props.toggleModal({
+          isVisible: false,
+          data: null,
+        })
+      }}
+      scrollOffset={1}
+      propagateSwipe={true}
+      coverScreen={false}
+      backdropColor='transparent'
       transparent={true}
+      style={{ justifyContent: 'center', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       visible={props.isVisible}>
       <View
         style={styles.ModalWrapper}
@@ -144,7 +155,7 @@ const styles = StyleSheet.create({
   },
   ModalBox: {
     width: '85%',
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     paddingTop: 10,
     paddingHorizontal: 6,
     borderRadius: 4,
@@ -152,7 +163,7 @@ const styles = StyleSheet.create({
   },
   VideoPlayerContainer: {
     width: '100%',
-    height: 150,
+    height: 200,
   },
   VideoTitle: {
     paddingVertical: 8,
