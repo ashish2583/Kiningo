@@ -16,6 +16,7 @@ import { createThumbnail } from "react-native-create-thumbnail";
 import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import LinearGradient from 'react-native-linear-gradient'
+import {VideoModel} from './Components/VideoModel';
 
 const LearningClassDetails = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -30,6 +31,7 @@ const LearningClassDetails = (props) => {
   const [modlevisual2,setmodlevisual2] = useState(false)
   const [modlevisual3,setmodlevisual3] = useState(false)
   const [modlevisual4,setmodlevisual4] = useState(false)
+  const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [videoDetails, setVideoDetails] = useState({url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`})
   const [loading, setLoading] = useState(false)
   const [dayData, setDayData]=useState([{dayPart:'Day', id: 1},{dayPart:'Afternoon', id: 2},{dayPart:'Evening', id: 3}])
@@ -165,6 +167,12 @@ const LearningClassDetails = (props) => {
  useEffect(()=>{
     generateThumb()
   },[])
+  const toggleModal = state => {
+    setShowModal({
+      isVisible: state.isVisible,
+      data: state.data,
+    });
+  };
   const generateThumb = async () => {
     setLoading(true)
     try {
@@ -236,7 +244,43 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
     <SafeAreaView style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
    <View>
-    <VideoPlayer
+   {showModal.isVisible ? (
+        <VideoModel
+          isVisible={showModal.isVisible}
+          toggleModal={toggleModal}
+          videoDetail={showModal.data}
+          {...props}
+        />
+      ) : null}
+    <View style={styles.VideoThumbWrapper}>
+      <TouchableOpacity
+        onPress={() => {
+          setShowModal({
+            isVisible: true,
+            data: videoDetails,
+          });
+        }}>
+        <View style={styles.PlayIconContainer}>
+          <View style={styles.PlayIconWrapper}>
+            {/* <PlayIcon width={28} height={28} /> */}
+            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
+              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+            </View>
+          </View>
+        </View>
+        <Image
+          style={styles.BackGroundImage}
+          // theme={theme}
+          source={{uri:videoDetails?.thumbnail}}
+          resizeMode={'contain'}
+        />
+      </TouchableOpacity>
+        <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={styles.backButtonAbsolute}>
+            <Image source={require('../../../assets/service-video-header-back-button.png')} style={{width:20, height:20}}/>
+        </TouchableOpacity>
+    </View>
+
+    {/* <VideoPlayer
         video={{ uri: videoDetails?.url }}
         videoWidth={1600}
         videoHeight={900}
@@ -245,10 +289,7 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
           playArrow: {color: '#29913C'},
           playButton: {backgroundColor: 'white', width: 46,height: 46,borderRadius: 46/2,}
         }}
-        />
-        <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={styles.backButtonAbsolute}>
-            <Image source={require('../../../assets/service-video-header-back-button.png')} style={{width:20, height:20}}/>
-        </TouchableOpacity>
+        /> */}
    </View>
 
 <View style={{width:'96%',alignSelf:'center',backgroundColor:'#F8F8F8'}}>
@@ -512,6 +553,41 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontWeight:'500',
     color:'#fff'
+  },
+  VideoThumbWrapper: {
+    position: 'relative',
+    width: '100%',
+    // marginRight: 8,
+    // marginBottom: 4,
+
+    // width:dimensions.SCREEN_WIDTH,
+    height:300,
+    // marginRight: 20,
+    // shadowColor:'#000',
+    // shadowOffset: {width: 0,height: 3},
+    // shadowRadius: 1,
+    // shadowOpacity: 0.03,
+    // elevation: 1,
+  },
+  PlayIconContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  PlayIconWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  BackGroundImage: {
+    width: '100%',
+    height: 300,
+    justifyContent: 'center',
+    // borderRadius:15
   },
 
 });
