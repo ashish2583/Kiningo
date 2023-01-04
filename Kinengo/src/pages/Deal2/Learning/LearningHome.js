@@ -17,6 +17,7 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
+import {VideoModel} from './Components/VideoModel';
 
 const LearningHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -26,6 +27,7 @@ const LearningHome = (props) => {
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
   const [selectedCategory, setSelectedCategory]=useState('1')
   const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState({})
   const [videoDetails, setVideoDetails] = useState([
@@ -174,6 +176,12 @@ const [classesList, setClassesList]=useState([
  useEffect(()=>{
   generateThumb()
 },[])
+const toggleModal = state => {
+  setShowModal({
+    isVisible: state.isVisible,
+    data: state.data,
+  });
+};
 const generateThumb = async () => {
   setLoading(true)
   const thumbs = []
@@ -314,33 +322,59 @@ const generateThumb = async () => {
    </TouchableOpacity>
 </View>
 
+{showModal.isVisible ? (
+        <VideoModel
+          isVisible={showModal.isVisible}
+          toggleModal={toggleModal}
+          videoDetail={showModal.data}
+          {...props}
+        />
+      ) : null}   
+
 <View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:20, marginBottom:10}}>
           <FlatList
                   data={videoDetails}
                   showsHorizontalScrollIndicator={true}
                   horizontal
-                  renderItem={({item,index})=>{
-                    return(
-                      <View
-          style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight: 20, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-         >
-          <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160}}>
-            <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:50, left:dimensions.SCREEN_WIDTH/(1.5*2.5), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
-              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
-            </TouchableOpacity>
-          </ImageBackground>
-          {/* <VideoPlayer
-            video={{ uri: item?.url }}
-            // videoWidth={1600}
-            videoWidth={dimensions.SCREEN_WIDTH/1.5}
-            videoHeight={160}
-            // videoHeight={900}
-            thumbnail={{ uri: item?.thumbnail }}
-            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
-          /> */}
-          </View>
-                    )
-                  }}
+                  renderItem={({item}) => (
+                    <View style={styles.VideoThumbWrapper}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          setShowModal({
+                            isVisible: true,
+                            data: item,
+                          });
+                        }}>
+                        <View style={styles.PlayIconContainer}>
+                          <View style={styles.PlayIconWrapper}>
+                            {/* <PlayIcon width={28} height={28} /> */}
+                            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:40, height:40, borderRadius:40/2,alignItems:'center', justifyContent:'center'}}>
+                              <Image source={require('../../../assets/learning-play-button.png')} style={{width:25, height:25}}/>
+                            </View>
+                          </View>
+                        </View>
+                        <Image
+                          style={styles.BackGroundImage}
+                          // theme={theme}
+                          source={{uri:item?.thumbnail}}
+                          resizeMode={'contain'}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  )}
+        //           renderItem={({item,index})=>{
+        //             return(
+        //               <View
+        //   style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight: 20, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
+        //  >
+        //   <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160}}>
+        //     <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:50, left:dimensions.SCREEN_WIDTH/(1.5*2.5), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
+        //       <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+        //     </TouchableOpacity>
+        //   </ImageBackground>
+        //   </View>
+        //             )
+        //           }}
                   keyExtractor={item => item.id}
                 />
          </View>
@@ -455,6 +489,42 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.17,
     elevation: 2
+  },
+  VideoThumbWrapper: {
+    position: 'relative',
+    // width: '48%',
+    // marginRight: 8,
+    marginBottom: 4,
+
+    width:dimensions.SCREEN_WIDTH/1.5,
+    height:160,
+    marginRight: 20,
+    borderRadius:15, 
+    shadowColor:'#000',
+    shadowOffset: {width: 0,height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.03,
+    elevation: 1,
+  },
+  PlayIconContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  PlayIconWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  BackGroundImage: {
+    width: '100%',
+    height: 160,
+    justifyContent: 'center',
+    borderRadius:15
   },
 });
 export default LearningHome 
