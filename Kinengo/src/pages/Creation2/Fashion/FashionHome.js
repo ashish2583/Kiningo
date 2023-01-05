@@ -34,12 +34,6 @@ const FashionHome = (props) => {
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
   ])
-  const [introSliderData] = useState([
-    // require('../../assets/Group75972.png'),
-    {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-    {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-    {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-])
 const [classesList, setClassesList]=useState([
   {
       id: '1',
@@ -158,43 +152,6 @@ const [classesList, setClassesList]=useState([
   useEffect(()=>{
 
  },[])
- useEffect(()=>{
-  generateThumb()
-},[])
-const toggleModal = state => {
-  setShowModal({
-    isVisible: state.isVisible,
-    data: state.data,
-  });
-};
-const generateThumb = async () => {
-  setLoading(true)
-  const thumbs = []
-  try {
-    for(let i = 0; i < videoDetails?.length; i++){
-      const resp = await createThumbnail({
-        url: videoDetails[0].url,
-        timeStamp: 10000,
-        // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
-      })
-      thumbs.push(resp.path)
-    }
-    // const resp = await createThumbnail({
-    //   url: videoDetails?.url,
-    //   timeStamp: 10000,
-    //   // cacheName: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
-    // })
-    const videoDetailsCopy = [...videoDetails]
-    const updatedVideoDetails = videoDetailsCopy.map((el, index)=>{
-      return {...el, thumbnail: thumbs[index]}
-    })
-    setVideoDetails([...updatedVideoDetails])
-    // setVideoDetails({...videoDetails, thumbnail: resp.path})
-  } catch (error) {
-    console.log('thumbnail creating error', error);      
-  }
-  setLoading(false)
-}
 
  const _renderItem = ({ item }) => {
   return (
@@ -218,14 +175,14 @@ const generateThumb = async () => {
 <View style={{top:-20}}>
     <FashionSearch marginTop={0} placeholder={'Search here'} 
     serchValue={searchValue}
-    searchIcon={require('../../../assets/learning-search-icon.png')} 
+    searchIcon={require('../../../assets/fashion-search-icon.png')} 
     onChangeText={(e)=>{setsearchValue(e)}} 
     press={()=>{Alert.alert('Hi')}}
     presssearch={()=>{Alert.alert('Search Pressed')}}
     paddingLeft={20}/>
 </View>
  
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
           <FlatList
                   data={courseData}
                   showsHorizontalScrollIndicator={true}
@@ -269,16 +226,6 @@ const generateThumb = async () => {
 
   <View style={{height:10}}/> 
 
-  <AppIntroSlider
-      data={introSliderData}
-      renderItem={_renderItem}
-      // renderPagination={() => null}
-      renderDoneButton={()=><View />}
-      renderNextButton={()=><View />}
-      activeDotStyle={{top:60,backgroundColor:'#29913C'}}
-      dotStyle={{top:60,backgroundColor:'#D9D9D9'}}
-      keyExtractor={(item) => item.id}
-    />
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:50}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
@@ -287,53 +234,6 @@ const generateThumb = async () => {
    </TouchableOpacity>
 </View>
 
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:20, marginBottom:10}}>
-          <FlatList
-                  data={videoDetails}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item}) => (
-                    <View style={styles.VideoThumbWrapper}>
-                      <TouchableOpacity
-                        onPress={() => {
-                          setShowModal({
-                            isVisible: true,
-                            data: item,
-                          });
-                        }}>
-                        <View style={styles.PlayIconContainer}>
-                          <View style={styles.PlayIconWrapper}>
-                            {/* <PlayIcon width={28} height={28} /> */}
-                            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
-                              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
-                            </View>
-                          </View>
-                        </View>
-                        <Image
-                          style={styles.BackGroundImage}
-                          // theme={theme}
-                          source={{uri:item?.thumbnail}}
-                          resizeMode={'contain'}
-                        />
-                      </TouchableOpacity>
-                    </View>
-                  )}
-        //           renderItem={({item,index})=>{
-        //             return(
-        //               <View
-        //   style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight: 20, borderRadius:15, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-        //  >
-        //   <ImageBackground source={{ uri: item?.thumbnail }} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160}}>
-        //     <TouchableOpacity onPress={()=>{setSelectedVideo(item);setShowVideoModal(true)}} style={{position:'absolute', top:50, left:dimensions.SCREEN_WIDTH/(1.5*2.5), backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2, justifyContent:'center', alignItems:'center'}}>
-        //       <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
-        //     </TouchableOpacity>
-        //   </ImageBackground>
-        //   </View>
-        //             )
-        //           }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Classes Center</Text>
