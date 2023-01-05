@@ -214,24 +214,24 @@ const [classesList, setClassesList]=useState([
 
           <View style={styles.buttonsRow}>
             <View style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
+              <Image source={require('../../../assets/fashion-dark-like-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>4k</Text>
             </View>
             <View style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
+              <Image source={require('../../../assets/fashion-dark-dislike-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>1k</Text>
             </View>
             <View style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
+              <Image source={require('../../../assets/fashion-dark-share-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>Share</Text>
             </View>
             <View style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-report-button.png')} style={{height:20, width:20}} />
+              <Image source={require('../../../assets/fashion-dark-report-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>Report</Text>
             </View>
           </View>
 
-          <Text style={{fontSize:14, lineHeight:17.64, fontWeight:'400', color:'#455A64', marginTop:20}}>
+          <Text style={styles.descriptionText}>
           If you want to know who I am, you have to acknowledge where I come from.” These are the opening words of Walking Two Worlds, a new documentary that premiered at the Tribeca Film Festival last week exploring the meteoric rise of Indigenous model Quannah Chasinghorse. The film, directed by Maia Wikler, follows Chasinghorse and her mother, Jody Potts-Joseph, as they grapple with the two realities they currently exist in. One world they inhabit is the more familiar one—living on their Alaska homelands and engaging in their traditional hunting, fishing, and dogsledding practices. The other world is newer and perhaps more foreign, arriving thanks to Chasinghorse’s newfound status as one of the high-fashion world’s most in-demand new faces, taking over the runways for labels such as Gucci and Chanel and even attending the Met Gala twice. 
           </Text>
 
@@ -362,6 +362,13 @@ const styles = StyleSheet.create({
     fontWeight:'500', 
     color:'#455A64', 
     marginLeft:5
-  }
+  },
+  descriptionText:{
+    fontSize:14, 
+    lineHeight:17.64, 
+    fontWeight:'400', 
+    color:'#455A64', 
+    marginTop:20
+  },
 });
 export default FashionPost 
