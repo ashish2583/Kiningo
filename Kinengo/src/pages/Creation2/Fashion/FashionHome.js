@@ -344,49 +344,6 @@ const [classesList, setClassesList]=useState([
   <View style={{height:10}}/> 
 
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:50}}>
-   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Classes Center</Text>
-   <TouchableOpacity onPress={()=>{props.navigation.navigate('LearningCentersList')}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
-   </TouchableOpacity>
-</View>
-
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10}}>
-          <FlatList
-                  data={classesList}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  style={{marginTop:10}}
-                  renderItem={({item,index})=>{
-                    return(
-                      <LinearGradient
-          colors={['rgba(255, 255, 255, 1)', 'rgba(249, 249, 249, 1)']}
-          style={{width:dimensions.SCREEN_WIDTH*0.7,height:120,marginRight: 10, borderRadius:15, padding:10, shadowColor:'#000',shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.03,elevation: 1,}}
-         >
-        <View style={{flexDirection:'row'}}>
-        <View style={{flex:1}}>
-            <Image source={item.img} style={{width:60,height:60,borderRadius:60/2,alignSelf:'center'}}></Image>
-        </View>
-        
-        <View style={{flex:4, marginLeft:20, marginTop:10}}>
-            <Text style={styles.unselectedTabText}>{item.title}</Text>
-            <View style={{flexDirection:'row', alignItems:'center', marginTop:5, marginBottom:3}}>
-                <Text style={styles.unselectedTabText}>${item.price}</Text>
-                <Text style={{fontSize:10,fontWeight:'400',color: '#455A64', marginLeft:40}}>{item.distance}</Text>
-            </View>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('ServiceCart')}} style={styles.requestCallView}>
-                <Text style={{fontSize:14,fontWeight:'400',color:'#FFF'}}>Request a Call</Text>
-            </TouchableOpacity>
-        </View>
-
-    </View>
-          </LinearGradient>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
  </View>
 <View style={{height:100}} />
 </ScrollView>
