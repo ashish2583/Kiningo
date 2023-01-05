@@ -196,10 +196,14 @@ const [classesList, setClassesList]=useState([
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-                      
-          <Image source={require('../../../assets/fashion-post-image.png')} style={{width:dimensions.SCREEN_WIDTH,height:350}}></Image>
+          <View style={{position:'relative'}}>
+            <Image source={require('../../../assets/fashion-post-image.png')} style={{width:dimensions.SCREEN_WIDTH,height:350}}></Image>
+            <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{position:'absolute', left:20, top:20}}>
+                <Image source={require('../../../assets/service-header-back-button.png')} style={{width:25, height:20,}} />
+            </TouchableOpacity>
+          </View>            
 
-          <View style={{width:'85%', marginHorizontal:20,paddingVertical:20}}>
+          <View style={{width:'90%', alignSelf:'center',paddingVertical:20}}>
           <Text style={{fontSize:20, lineHeight:20, fontWeight:'400', color:'#000'}}>
           A New Documentary Explores the Meteoric Rise of Trailblazing Model Quannah Chasinghorse
           </Text>
