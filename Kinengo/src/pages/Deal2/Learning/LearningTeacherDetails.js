@@ -263,8 +263,8 @@ titlecolor={Mycolors.BG_COLOR} backgroundColor={Mycolors.RED} marginVertical={0}
         <View style={styles.PlayIconContainer}>
           <View style={styles.PlayIconWrapper}>
             {/* <PlayIcon width={28} height={28} /> */}
-            <View style={{backgroundColor:'rgba(0, 0, 0, 0.4)', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
-              <Image source={require('../../../assets/learning-play-button.png')} style={{width:30, height:30}}/>
+            <View style={{backgroundColor:'#fff', width:50, height:50, borderRadius:50/2,alignItems:'center', justifyContent:'center'}}>
+              <Image source={require('../../../assets/learning-green-play-button.png')} style={{width:16.5, height:19.5}}/>
             </View>
           </View>
         </View>
