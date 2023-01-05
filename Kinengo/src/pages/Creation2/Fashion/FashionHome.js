@@ -245,7 +245,7 @@ const [classesList, setClassesList]=useState([
    </TouchableOpacity>
 </View>
 
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start', marginTop:10}}>
           <FlatList
                   data={aroundTheWorldData}
                   showsHorizontalScrollIndicator={true}
@@ -307,6 +307,32 @@ const [classesList, setClassesList]=useState([
             </View>
           </View>
 
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
+
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10}}>
+   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Recommended for you</Text>
+   <TouchableOpacity onPress={()=>{}}>
+     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
+   </TouchableOpacity>
+</View>
+
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
+          <FlatList
+                  data={aroundTheWorldData}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  renderItem={({item,index})=>{
+                    return(
+                      
+          <View style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight:15}}
+          onPress={()=>{}}>
+          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
+          
           </View>
                     )
                   }}
@@ -469,7 +495,7 @@ const styles = StyleSheet.create({
     flexDirection:'row', 
     justifyContent:'space-between', 
     alignItems:'center', 
-    marginTop:10
+    marginTop:20
   },
   buttonView:{
     flexDirection:'row', 
