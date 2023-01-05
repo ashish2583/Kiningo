@@ -234,7 +234,7 @@ const generateThumb = async () => {
                     return(
                       <LinearGradient
           colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
-          style={{width:dimensions.SCREEN_WIDTH/2.8,marginRight: 10, borderRadius:15, }}
+          style={{width:dimensions.SCREEN_WIDTH/2.8,marginRight: 15, borderRadius:15, }}
          >
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.8,height:160,position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{}}>
