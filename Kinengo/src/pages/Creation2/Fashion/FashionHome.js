@@ -288,22 +288,22 @@ const [classesList, setClassesList]=useState([
             </Text>
           </ViewMoreText>
 
-          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+          <View style={styles.buttonsRow}>
+            <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
-              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>{item.likes}</Text>
+              <Text style={styles.buttonText}>{item.likes}</Text>
             </View>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+            <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
-              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>{item.dislikes}</Text>
+              <Text style={styles.buttonText}>{item.dislikes}</Text>
             </View>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+            <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
-              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>Share</Text>
+              <Text style={styles.buttonText}>Share</Text>
             </View>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
+            <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-report-button.png')} style={{height:20, width:20}} />
-              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>Report</Text>
+              <Text style={styles.buttonText}>Report</Text>
             </View>
           </View>
 
@@ -465,5 +465,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius:15
   },
+  buttonsRow:{
+    flexDirection:'row', 
+    justifyContent:'space-between', 
+    alignItems:'center', 
+    marginTop:10
+  },
+  buttonView:{
+    flexDirection:'row', 
+    alignItems:'center'
+  },
+  buttonText:{
+    fontSize:10, 
+    fontWeight:'500', 
+    color:'#8F93A0', 
+    marginLeft:5
+  }
 });
 export default FashionHome 
