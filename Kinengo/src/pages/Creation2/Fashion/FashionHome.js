@@ -17,6 +17,7 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
+import ViewMoreText from 'react-native-view-more-text';
 
 const FashionHome = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -63,6 +64,24 @@ const [classesList, setClassesList]=useState([
   const [aroundTheWorldData, setAroundTheWorldData]=useState([
     {
       id: '1',
+      name: 'Leslie Alexander',
+      desc:'',
+      time:'14 hours ago',
+      img:require('../../../assets/fashion-around-the-world-image.png'),
+      likes: '4k',
+      dislikes: '1k',
+    },
+    {
+      id: '2',
+      name: 'Leslie Alexander',
+      desc:'',
+      time:'14 hours ago',
+      img:require('../../../assets/fashion-around-the-world-image.png'),
+      likes: '4k',
+      dislikes: '1k',
+    },
+    {
+      id: '3',
       name: 'Leslie Alexander',
       desc:'',
       time:'14 hours ago',
@@ -219,8 +238,8 @@ const [classesList, setClassesList]=useState([
                 />
          </View>
 
-         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
-   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
+         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20, marginBottom:10}}>
+   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Around the world</Text>
    <TouchableOpacity onPress={()=>{}}>
      <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
    </TouchableOpacity>
@@ -234,16 +253,58 @@ const [classesList, setClassesList]=useState([
                   renderItem={({item,index})=>{
                     return(
                       
-          <View style={{width:dimensions.SCREEN_WIDTH/2.8,height:250,marginRight:15, borderRadius:10,overflow:'hidden',position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+          <View style={{width:dimensions.SCREEN_WIDTH/1.5,height:400,marginRight:15}}
           onPress={()=>{}}>
-          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/2.8,height:160}} resizeMode='contain'></Image>
+          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
           
-          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginVertical:10}}>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20}}  />
-              <Text style={{fontSize:12,fontWeight:'400',color:'#000'}}>{item.name}</Text>
+              <Text style={{fontSize:12,fontWeight:'400',color:'#000', marginLeft:10,}}>{item.name}</Text>
             </View>
               <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>{item.time}</Text>
+          </View>
+
+          <ViewMoreText
+            numberOfLines={3}
+            renderViewMore={(onPress)=>{
+              return(
+                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View more</Text>
+              )
+            }}
+            renderViewLess={(onPress)=>{
+              return(
+                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View less</Text>
+              )
+            }}
+            textStyle={{textAlign: 'left',width:'95%'}}
+          >
+            <Text style={{fontSize:14,fontWeight:'400', color:'#455A64'}}>
+            In publishing and graphic design, Lorem ipsum is a place-
+            holder text commonly used to demonstrate the visual form
+            of a document or a typeface without relying on meaningful
+            of a document or a typeface without relying on meaningful
+            content.
+            </Text>
+          </ViewMoreText>
+
+          <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:10}}>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
+              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>{item.likes}</Text>
+            </View>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
+              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>{item.dislikes}</Text>
+            </View>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
+              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>Share</Text>
+            </View>
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <Image source={require('../../../assets/fashion-report-button.png')} style={{height:20, width:20}} />
+              <Text style={{fontSize:10, fontWeight:'500', color:'#8F93A0', marginLeft:5}}>Report</Text>
+            </View>
           </View>
 
           </View>
@@ -257,7 +318,7 @@ const [classesList, setClassesList]=useState([
   <View style={{height:10}}/> 
 
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:50}}>
    <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Classes Center</Text>
    <TouchableOpacity onPress={()=>{props.navigation.navigate('LearningCentersList')}}>
      <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
