@@ -19,7 +19,7 @@ import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 import ViewMoreText from 'react-native-view-more-text';
 
-const FashionHome = (props) => {
+const FashionPost = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -196,108 +196,32 @@ const [classesList, setClassesList]=useState([
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-      <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#0089CF'
-   press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Fashion'} fontWeight={'500'} img2height={20} color={'#fff'}
-   press3={()=>{}} img3={require('../../../assets/service-cart-icon.png')} img3width={25} img3height={20} />
 
 <View style={{width:'85%',alignSelf:'center'}}>
-<View style={{top:-20}}>
-    <FashionSearch marginTop={0} placeholder={'Search here'} 
-    serchValue={searchValue}
-    searchIcon={require('../../../assets/fashion-search-icon.png')} 
-    onChangeText={(e)=>{setsearchValue(e)}} 
-    press={()=>{Alert.alert('Hi')}}
-    presssearch={()=>{Alert.alert('Search Pressed')}}
-    paddingLeft={20}/>
-</View>
- 
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
-          <FlatList
-                  data={courseData}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item,index})=>{
-                    return(
-                      
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.8,height:160,marginRight:15, borderRadius:10,overflow:'hidden',position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
-          onPress={()=>{}}>
-          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/2.8,height:160}} resizeMode='contain'></Image>
-          <LinearGradient
-          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
-          style={{position: 'absolute',top: 0,bottom: 0,left: 0,right: 0,zIndex: 1, }}
-         >
-            <View style={{flex: 1,flexDirection: 'column',justifyContent: 'flex-end',alignItems: 'center',}}>
-              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20}}>{item.title}</Text>
-            </View>
-         </LinearGradient>
-          </TouchableOpacity>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20, marginBottom:10}}>
-   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Around the world</Text>
-   <TouchableOpacity onPress={()=>{}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
-   </TouchableOpacity>
-</View>
 
 <View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start', marginTop:10}}>
-          <FlatList
-                  data={aroundTheWorldData}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item,index})=>{
-                    return(
                       
           <View style={{width:dimensions.SCREEN_WIDTH/1.5,marginRight:15}}
           onPress={()=>{}}>
-          <TouchableOpacity onPress={()=>{props.navigation.navigate('FashionPost')}}>
-            <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
-          </TouchableOpacity>
+          <Image source={require('../../../assets/fashion-around-the-world-image.png')} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
           
           <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginVertical:10}}>
             <View style={{flexDirection:'row', alignItems:'center'}}>
               <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20}}  />
-              <Text style={{fontSize:12,fontWeight:'400',color:'#000', marginLeft:10,}}>{item.name}</Text>
+              <Text style={{fontSize:12,fontWeight:'400',color:'#000', marginLeft:10,}}>Leslie Alexander</Text>
             </View>
-              <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>{item.time}</Text>
+              <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>14 hours ago</Text>
           </View>
 
-          <ViewMoreText
-            numberOfLines={3}
-            renderViewMore={(onPress)=>{
-              return(
-                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View more</Text>
-              )
-            }}
-            renderViewLess={(onPress)=>{
-              return(
-                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View less</Text>
-              )
-            }}
-            textStyle={{textAlign: 'left',width:'95%'}}
-          >
-            <Text style={{fontSize:14,fontWeight:'400', color:'#455A64'}}>
-            In publishing and graphic design, Lorem ipsum is a place-
-            holder text commonly used to demonstrate the visual form
-            of a document or a typeface without relying on meaningful
-            of a document or a typeface without relying on meaningful
-            content.
-            </Text>
-          </ViewMoreText>
 
           <View style={styles.buttonsRow}>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>{item.likes}</Text>
+              <Text style={styles.buttonText}>4k</Text>
             </View>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>{item.dislikes}</Text>
+              <Text style={styles.buttonText}>1k</Text>
             </View>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
@@ -310,37 +234,9 @@ const [classesList, setClassesList]=useState([
           </View>
 
           </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
          </View>
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:35}}>
-   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Recommended for you</Text>
-   <TouchableOpacity onPress={()=>{}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
-   </TouchableOpacity>
-</View>
 
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
-          <FlatList
-                  data={aroundTheWorldData}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item,index})=>{
-                    return(
-                      
-          <View style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight:15}}
-          onPress={()=>{}}>
-          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
-          
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
 
 
   <View style={{height:10}}/> 
@@ -349,11 +245,6 @@ const [classesList, setClassesList]=useState([
  </View>
 <View style={{height:100}} />
 </ScrollView>
-{/* <TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}> */}
-<TouchableOpacity style={{bottom:60,right:20,position:'absolute',alignSelf:'flex-end',width:80, height:80, borderRadius:80/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
-  <Image source={require('../../../assets/fashion-upload-icon.png')} style={{width:40,height:40 }}/>
-</TouchableOpacity>
-{/* </TouchableOpacity> */}
 {loading ? <Loader /> : null}
 <Modal
         isVisible={showVideoModal}
@@ -471,4 +362,4 @@ const styles = StyleSheet.create({
     marginLeft:5
   }
 });
-export default FashionHome 
+export default FashionPost 
