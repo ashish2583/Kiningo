@@ -253,7 +253,7 @@ const [classesList, setClassesList]=useState([
                   renderItem={({item,index})=>{
                     return(
                       
-          <View style={{width:dimensions.SCREEN_WIDTH/1.5,height:400,marginRight:15}}
+          <View style={{width:dimensions.SCREEN_WIDTH/1.5,marginRight:15}}
           onPress={()=>{}}>
           <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
           
@@ -314,7 +314,7 @@ const [classesList, setClassesList]=useState([
                 />
          </View>
 
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10}}>
+<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:35}}>
    <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Recommended for you</Text>
    <TouchableOpacity onPress={()=>{}}>
      <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
@@ -391,7 +391,7 @@ const [classesList, setClassesList]=useState([
 <View style={{height:100}} />
 </ScrollView>
 {/* <TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}> */}
-<TouchableOpacity style={{bottom:60,right:20,position:'absolute',alignSelf:'flex-end',width:60, height:60, borderRadius:60/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
+<TouchableOpacity style={{bottom:60,right:20,position:'absolute',alignSelf:'flex-end',width:80, height:80, borderRadius:80/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
   <Image source={require('../../../assets/fashion-upload-icon.png')} style={{width:40,height:40 }}/>
 </TouchableOpacity>
 {/* </TouchableOpacity> */}
