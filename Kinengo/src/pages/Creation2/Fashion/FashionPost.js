@@ -196,21 +196,19 @@ const [classesList, setClassesList]=useState([
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-
-<View style={{width:'85%',alignSelf:'center'}}>
-
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start', marginTop:10}}>
                       
-          <View style={{width:dimensions.SCREEN_WIDTH/1.5,marginRight:15}}
-          onPress={()=>{}}>
-          <Image source={require('../../../assets/fashion-around-the-world-image.png')} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
-          
-          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginVertical:10}}>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-              <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20}}  />
-              <Text style={{fontSize:12,fontWeight:'400',color:'#000', marginLeft:10,}}>Leslie Alexander</Text>
+          <Image source={require('../../../assets/fashion-post-image.png')} style={{width:dimensions.SCREEN_WIDTH,height:350}}></Image>
+
+          <View style={{width:'85%', marginHorizontal:20,paddingVertical:20}}>
+          <Text style={{fontSize:20, lineHeight:20, fontWeight:'400', color:'#000'}}>
+          A New Documentary Explores the Meteoric Rise of Trailblazing Model Quannah Chasinghorse
+          </Text>
+          <View style={{flexDirection:'row', alignItems:'center', marginVertical:10}}>
+            <Text style={{fontSize:12,fontWeight:'400',color:'#455A64'}}>By: Leslie Alexander</Text>
+            <View style={{flexDirection:'row', alignItems:'center', marginLeft:20}}>
+                <Image source={require('../../../assets/fashion-calendar-icon.png')} />
+                <Text style={{fontSize:12,fontWeight:'400',color:'#455A64', marginLeft:5}}>June 16, 2022, at 6:18 p.m.</Text>
             </View>
-              <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>14 hours ago</Text>
           </View>
 
 
@@ -234,14 +232,13 @@ const [classesList, setClassesList]=useState([
           </View>
 
           </View>
-         </View>
 
 
 
 
   <View style={{height:10}}/> 
 
-
+  <View style={{width:'85%',alignSelf:'center'}}>
  </View>
 <View style={{height:100}} />
 </ScrollView>
@@ -346,19 +343,20 @@ const styles = StyleSheet.create({
     borderRadius:15
   },
   buttonsRow:{
+    width:'80%',
     flexDirection:'row', 
     justifyContent:'space-between', 
     alignItems:'center', 
-    marginTop:20
+    marginTop:10
   },
   buttonView:{
     flexDirection:'row', 
     alignItems:'center'
   },
   buttonText:{
-    fontSize:10, 
+    fontSize:14, 
     fontWeight:'500', 
-    color:'#8F93A0', 
+    color:'#455A64', 
     marginLeft:5
   }
 });
