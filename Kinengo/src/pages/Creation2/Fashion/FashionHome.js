@@ -232,20 +232,19 @@ const generateThumb = async () => {
                   horizontal
                   renderItem={({item,index})=>{
                     return(
-                      <LinearGradient
-          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
-          style={{width:dimensions.SCREEN_WIDTH/2.8,marginRight: 15, borderRadius:15, }}
-         >
-          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.8,height:160,position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+                      
+          <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.8,height:160,marginRight:15, borderRadius:10,overflow:'hidden',position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
           onPress={()=>{}}>
           <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/2.8,height:160}} resizeMode='contain'></Image>
-          <View style={{position: 'absolute',top: 0,bottom: 20,left: 0,right: 0,zIndex: 1,}}>
+          <LinearGradient
+          colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
+          style={{position: 'absolute',top: 0,bottom: 0,left: 0,right: 0,zIndex: 1, }}
+         >
             <View style={{flex: 1,flexDirection: 'column',justifyContent: 'flex-end',alignItems: 'center',}}>
-              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',}}>{item.title}</Text>
+              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20}}>{item.title}</Text>
             </View>
-          </View>
+         </LinearGradient>
           </TouchableOpacity>
-          </LinearGradient>
                     )
                   }}
                   keyExtractor={item => item.id}
