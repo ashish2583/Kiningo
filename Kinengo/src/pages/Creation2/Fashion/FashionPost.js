@@ -203,7 +203,7 @@ const [classesList, setClassesList]=useState([
           <Text style={{fontSize:20, lineHeight:20, fontWeight:'400', color:'#000'}}>
           A New Documentary Explores the Meteoric Rise of Trailblazing Model Quannah Chasinghorse
           </Text>
-          <View style={{flexDirection:'row', alignItems:'center', marginVertical:10}}>
+          <View style={{flexDirection:'row', alignItems:'center', marginTop:10}}>
             <Text style={{fontSize:12,fontWeight:'400',color:'#455A64'}}>By: Leslie Alexander</Text>
             <View style={{flexDirection:'row', alignItems:'center', marginLeft:20}}>
                 <Image source={require('../../../assets/fashion-calendar-icon.png')} />
@@ -230,6 +230,10 @@ const [classesList, setClassesList]=useState([
               <Text style={styles.buttonText}>Report</Text>
             </View>
           </View>
+
+          <Text style={{fontSize:14, lineHeight:17.64, fontWeight:'400', color:'#455A64', marginTop:20}}>
+          If you want to know who I am, you have to acknowledge where I come from.” These are the opening words of Walking Two Worlds, a new documentary that premiered at the Tribeca Film Festival last week exploring the meteoric rise of Indigenous model Quannah Chasinghorse. The film, directed by Maia Wikler, follows Chasinghorse and her mother, Jody Potts-Joseph, as they grapple with the two realities they currently exist in. One world they inhabit is the more familiar one—living on their Alaska homelands and engaging in their traditional hunting, fishing, and dogsledding practices. The other world is newer and perhaps more foreign, arriving thanks to Chasinghorse’s newfound status as one of the high-fashion world’s most in-demand new faces, taking over the runways for labels such as Gucci and Chanel and even attending the Met Gala twice. 
+          </Text>
 
           </View>
 
