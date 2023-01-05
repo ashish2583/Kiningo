@@ -391,7 +391,7 @@ const [classesList, setClassesList]=useState([
 <View style={{height:100}} />
 </ScrollView>
 {/* <TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}> */}
-<TouchableOpacity style={{bottom:20,right:20,position:'absolute',alignSelf:'flex-end',width:60, height:60, borderRadius:60/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
+<TouchableOpacity style={{bottom:60,right:20,position:'absolute',alignSelf:'flex-end',width:60, height:60, borderRadius:60/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
   <Image source={require('../../../assets/fashion-upload-icon.png')} style={{width:40,height:40 }}/>
 </TouchableOpacity>
 {/* </TouchableOpacity> */}
