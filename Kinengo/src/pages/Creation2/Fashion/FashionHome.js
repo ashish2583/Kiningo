@@ -60,6 +60,17 @@ const [classesList, setClassesList]=useState([
       img:require('../../../assets/service-product-image.png'),
   },
 ])
+  const [aroundTheWorldData, setAroundTheWorldData]=useState([
+    {
+      id: '1',
+      name: 'Leslie Alexander',
+      desc:'',
+      time:'14 hours ago',
+      img:require('../../../assets/fashion-around-the-world-image.png'),
+      likes: '4k',
+      dislikes: '1k',
+    },
+  ])
   const [courseData, setCourseData]=useState([
     {
       id: '1',
@@ -208,31 +219,42 @@ const [classesList, setClassesList]=useState([
                 />
          </View>
 
-  {/* <View style={{height:140,borderRadius:10,overflow:'hidden',marginVertical:10,width:'98%',alignSelf:'center'}}>
-     <ImageSlider 
-    //  localImg={true}
-    data={[
-        // require('../../assets/Group75972.png'),
-        {img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
-        {img: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
-        {img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
-    ]}
-    onClick={(item, index) => {Alert.alert('hello'+index)}}
-    autoPlay={true}
-   // onItemChanged={(item) => console.log("item", item)}
-    closeIconColor="transparent"
-/>
-   </View> */}
-
-  <View style={{height:10}}/> 
-
-
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:50}}>
-   <Text style={{fontSize:18,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
-   <TouchableOpacity onPress={()=>{props.navigation.navigate('LearningOnineStudyClasses')}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#29913C'}}>View all</Text>
+         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
+   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Online Study Classes</Text>
+   <TouchableOpacity onPress={()=>{}}>
+     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
    </TouchableOpacity>
 </View>
+
+<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
+          <FlatList
+                  data={aroundTheWorldData}
+                  showsHorizontalScrollIndicator={true}
+                  horizontal
+                  renderItem={({item,index})=>{
+                    return(
+                      
+          <View style={{width:dimensions.SCREEN_WIDTH/2.8,height:250,marginRight:15, borderRadius:10,overflow:'hidden',position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
+          onPress={()=>{}}>
+          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/2.8,height:160}} resizeMode='contain'></Image>
+          
+          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+              <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20}}  />
+              <Text style={{fontSize:12,fontWeight:'400',color:'#000'}}>{item.name}</Text>
+            </View>
+              <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>{item.time}</Text>
+          </View>
+
+          </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>
+
+
+  <View style={{height:10}}/> 
 
 
 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20}}>
