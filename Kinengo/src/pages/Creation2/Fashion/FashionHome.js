@@ -30,6 +30,58 @@ const FashionHome = (props) => {
   const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState({})
+  const [showReportModal, setShowReportModal] = useState(false)
+  const [selectedReasonId, setSelectedReasonId]=useState(null)
+  const [reportReasonData, setReportReasonData]=useState([
+    {
+      id: '1',
+      name: 'I just don’t like it',
+      description: '',
+      selected: true
+    },
+    {
+      id: '2',
+      name: 'Nudity or pornography',
+      description: '',
+      selected: false
+    },
+    {
+      id: '3',
+      name: 'Hate speech or symbols',
+      description: 'Racist, homophobic or sexist slurs',
+      selected: false
+    },
+    {
+      id: '4',
+      name: 'Violence or threat of violence',
+      description: `Graphic injury, unlawful activity, dangerous or criminal organizations`,
+      selected: false
+    },
+    {
+      id: '5',
+      name: 'Sale or promotion of firearms',
+      description: '',
+      selected: false
+    },
+    {
+      id: '6',
+      name: 'Sale or promotion of drugs',
+      description: '',
+      selected: false
+    },
+    {
+      id: '7',
+      name: 'Harassment or bullying',
+      description: '',
+      selected: false
+    },
+    {
+      id: '8',
+      name: 'Intellectual property violation',
+      description: 'Copyright or trademark infringement',
+      selected: false
+    },
+  ])
   const [videoDetails, setVideoDetails] = useState([
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
     {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
@@ -291,22 +343,22 @@ const [classesList, setClassesList]=useState([
           </ViewMoreText>
 
           <View style={styles.buttonsRow}>
-            <View style={styles.buttonView}>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>{item.likes}</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>{item.dislikes}</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>Share</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{setShowReportModal(true)}} style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-report-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText}>Report</Text>
-            </View>
+            </TouchableOpacity>
           </View>
 
           </View>
@@ -356,11 +408,11 @@ const [classesList, setClassesList]=useState([
 {/* </TouchableOpacity> */}
 {loading ? <Loader /> : null}
 <Modal
-        isVisible={showVideoModal}
+        isVisible={showReportModal}
         swipeDirection="down"
-        onBackdropPress={()=>setShowVideoModal(false)}
+        onBackdropPress={()=>setShowReportModal(false)}
         onSwipeComplete={(e) => {
-          setShowVideoModal(false)
+          setShowReportModal(false)
         }}
           scrollTo={() => {}}
           scrollOffset={1}
@@ -369,28 +421,35 @@ const [classesList, setClassesList]=useState([
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '90%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30 }}>
+          <Text style={{fontSize:18, fontWeight:'700', color:'#455A64',textAlign:'center',marginBottom:20, marginTop:30}}>Report</Text>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-          
-          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end', marginBottom:30, marginTop:10}}>
-            <TouchableOpacity onPress={()=>setShowVideoModal(false)} style={{}}>
-              <Text style={{color:'#FF3B7F',fontWeight:'500', textAlign:'center'}}>Close</Text>
-            </TouchableOpacity>
-          </View>
-          <VideoPlayer
-            video={{ uri: selectedVideo?.url }}
-            // videoWidth={1600}
-            videoWidth={dimensions.SCREEN_WIDTH*0.9}
-            videoHeight={250}
-            // videoHeight={900}
-            thumbnail={{ uri: selectedVideo?.thumbnail }}
-            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
-            customStyles={{
-              thumbnail: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
-              videoWrapper: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
-              // wrapper: {alignSelf:'center'},
-            }}
-          />
+
+            <FlatList
+              data={reportReasonData}
+              showsHorizontalScrollIndicator={false}
+              numColumns={1}
+              keyExtractor={item => item.id}
+              style={{marginBottom:10}}
+              renderItem={({item,index})=>{
+                return(
+                  <TouchableOpacity key={item.id} onPress={()=>setSelectedReasonId(item.id)} style={selectedReasonId === item.id ? styles.selectedReasonView : styles.reasonView}>
+                    <Image source={selectedReasonId === item.id ? require('../../../assets/fastion-selected-reason-icon.png') :require('../../../assets/fastion-reason-icon.png')} />
+                    <View style={{marginLeft:10}}>
+                      <Text style={{fontSize:14, lineHeight:14, fontWeight:'400', color:'#455A64'}}>{item.name}</Text>
+                      {item.description ?
+                      <Text style={{fontSize:12, lineHeight:12, fontWeight:'400', color:'#C5C6C9', marginTop:2}}>{item.description}</Text>
+                      :null}
+                    </View>
+                  </TouchableOpacity>
+                  )
+                }}
+              />
+
+            <TouchableOpacity style={styles.reportButtonView}>
+              <Text style={{fontSize:15, fontWeight:'500', color:'#fff',}}>Report</Text>
+            </TouchableOpacity>    
+
             </ScrollView>
            
             </View>
@@ -469,6 +528,50 @@ const styles = StyleSheet.create({
     fontWeight:'500', 
     color:'#8F93A0', 
     marginLeft:5
+  },
+  reasonView:{
+    alignSelf:'center',
+    flexDirection:'row', 
+    alignItems:'center', 
+    backgroundColor:'#fff',
+    marginBottom:15,
+    // paddingVertical:10,
+    paddingHorizontal:10,
+    width:'90%',
+    height:60, 
+  },
+  selectedReasonView:{
+    alignSelf:'center',
+    flexDirection:'row', 
+    alignItems:'center', 
+    backgroundColor:'#fff',
+    marginBottom:15,
+    // paddingVertical:10,
+    paddingHorizontal:10,
+    width:'90%',
+    height:60,
+    borderColor:'#E7F7FF', 
+    borderWidth:1,
+    shadowColor:'#455A64',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 1
+  },
+  reportButtonView:{
+    height:60,
+    width:'90%',
+    alignSelf:'center',
+    backgroundColor:'#0089CF',
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius:5,
+    marginBottom:30,
+    shadowColor:'#000',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 2
   }
 });
 export default FashionHome 
