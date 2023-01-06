@@ -145,8 +145,10 @@ const FashionPost = (props) => {
     <View style={{width:'90%', marginLeft:30, marginTop:10}}>
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <Image source={replies[0].img}/>
-      <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{replies[0].name}</Text>
-      <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{replies[0].time}</Text>
+      <View style={{marginLeft:10}}>
+        <Text style={{fontSize:14, fontWeight:'700', color:'#455A64',}}>{replies[0].name}</Text>
+        <Text style={{fontSize:12, fontWeight:'400', color:'#6F6D6D',marginTop:5}}>{replies[0].time}</Text>
+      </View>
     </View>
     <View style={{marginTop:10}}>
       <Text numberOfLines={1} style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{replies[0].message}</Text>
