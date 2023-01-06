@@ -414,6 +414,7 @@ const FashionPost = (props) => {
               showsHorizontalScrollIndicator={false}
               numColumns={1}
               keyExtractor={item => item.id}
+              style={{marginBottom:10}}
               renderItem={({item,index})=>{
                 return(
                   <TouchableOpacity key={item.id} onPress={()=>setSelectedReasonId(item.id)} style={selectedReasonId === item.id ? styles.selectedReasonView : styles.reasonView}>
