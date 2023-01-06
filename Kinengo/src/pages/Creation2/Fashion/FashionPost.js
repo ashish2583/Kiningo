@@ -226,7 +226,7 @@ const FashionPost = (props) => {
                   numColumns={1}
                   renderItem={({item,index})=>{
                     return(
-                      <View style={{width:dimensions.SCREEN_WIDTH*0.9, marginBottom:15}}>
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.85, marginBottom:15, alignSelf:'center'}}>
                         <>
                         <View>
                           <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
