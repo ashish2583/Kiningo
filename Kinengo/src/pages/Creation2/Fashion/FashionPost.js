@@ -406,7 +406,7 @@ const FashionPost = (props) => {
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
         <View style={{ height: '90%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30 }}>
-          <Text style={{fontSize:18, fontWeight:'700', color:'#455A64',textAlign:'center',marginBottom:20}}>Report</Text>
+          <Text style={{fontSize:18, fontWeight:'700', color:'#455A64',textAlign:'center',marginBottom:20, marginTop:30}}>Report</Text>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
 
             <FlatList
@@ -422,7 +422,7 @@ const FashionPost = (props) => {
                     <View style={{marginLeft:10}}>
                       <Text style={{fontSize:14, lineHeight:14, fontWeight:'400', color:'#455A64'}}>{item.name}</Text>
                       {item.description ?
-                      <Text style={{fontSize:12, lineHeight:12, fontWeight:'400', color:'#C5C6C9'}}>{item.description}</Text>
+                      <Text style={{fontSize:12, lineHeight:12, fontWeight:'400', color:'#C5C6C9', marginTop:2}}>{item.description}</Text>
                       :null}
                     </View>
                   </TouchableOpacity>
@@ -608,6 +608,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     borderRadius:5,
+    marginBottom:30,
     shadowColor:'#000',
     shadowOffset: {width:3,height:3}, 
     shadowRadius: 5,
