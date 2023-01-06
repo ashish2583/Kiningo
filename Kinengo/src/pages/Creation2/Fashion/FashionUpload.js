@@ -25,7 +25,7 @@ const FashionUpload = (props) => {
   const myTextInput = useRef()
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100])
   const [showChooseMilesModal, setShowChooseMilesModal] = useState(false)
-  const [selectedCategory, setSelectedCategory]=useState('1')
+  const [selectedCategory, setSelectedCategory]=useState(null)
   const [loading, setLoading] = useState(false)
   const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [showVideoModal, setShowVideoModal] = useState(false)
@@ -151,7 +151,6 @@ const [classesList, setClassesList]=useState([
       desc:'',
       time:'',
       img:require('../../../assets/fashion-celebrity-style.png'),
-      selected: true,
     },
     {
       id: '2',
@@ -159,7 +158,6 @@ const [classesList, setClassesList]=useState([
       desc:'',
       time:'',
       img:require('../../../assets/fashion-celebrity-style.png'),
-      selected: false,
     },
     {
       id: '3',
@@ -167,7 +165,6 @@ const [classesList, setClassesList]=useState([
       desc:'',
       time:'',
       img:require('../../../assets/fashion-celebrity-style.png'),
-      selected: false,
     },
   ])
   const [upData,setupData]=useState([
@@ -271,13 +268,13 @@ const [classesList, setClassesList]=useState([
                     return(
                       
           <TouchableOpacity style={{width:dimensions.SCREEN_WIDTH/2.8,height:160,marginRight:15, borderRadius:10,overflow:'hidden',position: 'relative', alignItems:'center', borderRadius:15, paddingHorizontal:10}}
-          onPress={()=>{}}>
+          onPress={()=>{setSelectedCategory(item.id)}}>
           <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/2.8,height:160}} resizeMode='contain'></Image>
           <LinearGradient
           colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
           style={{position: 'absolute',top: 0,bottom: 0,left: 0,right: 0,zIndex: 1, }}
          >
-          {item.selected ? 
+          {selectedCategory === item.id ? 
             <View style={{flex:1, flexDirection:'column', justifyContent:'space-between',}}>
               <Image source={require('../../../assets/fashion-selected-category-check-circle.png')} style={{alignSelf:'flex-end', top:10, right:10}} />
               <Text style={{fontSize:14,fontWeight:'500',color:'#fff',textAlign:'center',bottom:20}}>{item.title}</Text>
