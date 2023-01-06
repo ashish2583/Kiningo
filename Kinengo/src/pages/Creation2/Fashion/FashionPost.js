@@ -1,5 +1,5 @@
 import React, { useEffect,useState ,useRef} from 'react';
-import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import {View,Image,Text,StyleSheet,SafeAreaView,TextInput,FlatList,Alert,TouchableOpacity, ScrollView, ImageBackground,Keyboard} from 'react-native';
 import HomeHeaderRoundBottom from 'src/component/HomeHeaderRoundBottom';
 import SearchInput2 from 'src/component/SearchInput2';
 import SearchInputEnt from 'src/component/SearchInputEnt';
@@ -295,6 +295,24 @@ const FashionPost = (props) => {
       likeChildComment={likeChildComment}
       // startFromIndex={startFromIndex}
     />
+
+<View style={styles.addCommentView}>
+  <TextInput
+    ref={myTextInput}
+    value={userMessage}
+    onChangeText={(text) => {
+      setUserMessage(text)
+    }}
+    placeholder="What's on your mind"
+    placeholderTextColor={'#B2B7B9'}
+    style={styles.input}
+    multiline
+  />
+  <TouchableOpacity onPress={sendMessage} style={styles.sendButtonView}>
+    <Text style={{fontSize:14, fontWeight:'500', color:'#fff'}}>Send</Text>
+  </TouchableOpacity>
+  </View>
+
 <Modal
         isVisible={showVideoModal}
         swipeDirection="down"
@@ -427,6 +445,40 @@ const styles = StyleSheet.create({
     fontWeight:'500', 
     color:'#8F93A0', 
     marginLeft:5
+  },
+  addCommentView:{
+    position:'absolute', 
+    bottom:10,
+    width:'100%', 
+    backgroundColor:'#fff', 
+    padding:15, 
+    flexDirection:'row',
+    alignItems:'center', 
+    justifyContent:'space-between',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
+    // shadowRadius: 1,
+    // shadowOpacity: 0.3,
+    // elevation: 5,
+  },
+  input: {
+    paddingLeft: 20,
+    fontSize: 14,
+    fontWeight:'500',
+    color:'#000',
+    flex: 7
+  },
+  sendButtonView:{
+    backgroundColor:'#0089CF', 
+    paddingHorizontal:30, 
+    paddingVertical:10, 
+    borderRadius:5,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
   }
 });
 export default FashionPost 
