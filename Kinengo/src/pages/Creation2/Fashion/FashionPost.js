@@ -29,12 +29,63 @@ const FashionPost = (props) => {
   const [selectedCategory, setSelectedCategory]=useState('1')
   const [loading, setLoading] = useState(false)
   const [showModal, setShowModal] = useState({isVisible: false, data: null});
-  const [showVideoModal, setShowVideoModal] = useState(false)
+  const [showReportModal, setShowReportModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState({})
   const [userMessage, setUserMessage] = useState('')
   const [replyingTo, setReplyingTo] = useState('')
   const [showAtUsername, setShowAtUsername] = useState(false)
   const [showRepliesModal, setShowRepliesModal] = useState(false)
+  const [selectedReasonId, setSelectedReasonId]=useState(null)
+  const [reportReasonData, setReportReasonData]=useState([
+    {
+      id: '1',
+      name: 'I just don’t like it',
+      description: '',
+      selected: true
+    },
+    {
+      id: '2',
+      name: 'Nudity or pornography',
+      description: '',
+      selected: false
+    },
+    {
+      id: '3',
+      name: 'Hate speech or symbols',
+      description: 'Racist, homophobic or sexist slurs',
+      selected: false
+    },
+    {
+      id: '4',
+      name: 'Violence or threat of violence',
+      description: `Graphic injury, unlawful activity, dangerous or criminal organizations`,
+      selected: false
+    },
+    {
+      id: '5',
+      name: 'Sale or promotion of firearms',
+      description: '',
+      selected: false
+    },
+    {
+      id: '6',
+      name: 'Sale or promotion of drugs',
+      description: '',
+      selected: false
+    },
+    {
+      id: '7',
+      name: 'Harassment or bullying',
+      description: '',
+      selected: false
+    },
+    {
+      id: '8',
+      name: 'Intellectual property violation',
+      description: 'Copyright or trademark infringement',
+      selected: false
+    },
+  ])
   const [upData,setupData]=useState([
     {
       id: '1',
@@ -217,22 +268,22 @@ const FashionPost = (props) => {
 
 
           <View style={styles.buttonsRow}>
-            <View style={styles.buttonView}>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-like-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText2}>4k</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-dislike-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText2}>1k</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-share-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText2}>Share</Text>
-            </View>
-            <View style={styles.buttonView}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{setShowReportModal(true)}} style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-report-button.png')} style={{height:20, width:20}} />
               <Text style={styles.buttonText2}>Report</Text>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <Text style={styles.descriptionText}>
@@ -341,11 +392,11 @@ const FashionPost = (props) => {
   </View>
 
 <Modal
-        isVisible={showVideoModal}
+        isVisible={showReportModal}
         swipeDirection="down"
-        onBackdropPress={()=>setShowVideoModal(false)}
+        onBackdropPress={()=>setShowReportModal(false)}
         onSwipeComplete={(e) => {
-          setShowVideoModal(false)
+          setShowReportModal(false)
         }}
           scrollTo={() => {}}
           scrollOffset={1}
@@ -356,26 +407,27 @@ const FashionPost = (props) => {
       >
         <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-          
-          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-end', marginBottom:30, marginTop:10}}>
-            <TouchableOpacity onPress={()=>setShowVideoModal(false)} style={{}}>
-              <Text style={{color:'#FF3B7F',fontWeight:'500', textAlign:'center'}}>Close</Text>
-            </TouchableOpacity>
-          </View>
-          <VideoPlayer
-            video={{ uri: selectedVideo?.url }}
-            // videoWidth={1600}
-            videoWidth={dimensions.SCREEN_WIDTH*0.9}
-            videoHeight={250}
-            // videoHeight={900}
-            thumbnail={{ uri: selectedVideo?.thumbnail }}
-            style={{marginRight:10, borderTopLeftRadius:15, borderTopRightRadius:15}}
-            customStyles={{
-              thumbnail: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
-              videoWrapper: {width: dimensions.SCREEN_WIDTH*0.9, height:250},
-              // wrapper: {alignSelf:'center'},
-            }}
-          />
+
+            <FlatList
+              data={reportReasonData}
+              showsHorizontalScrollIndicator={false}
+              numColumns={1}
+              keyExtractor={item => item.id}
+              renderItem={({item,index})=>{
+                return(
+                  <TouchableOpacity key={item.id} onPress={()=>setSelectedReasonId(item.id)} style={selectedReasonId === item.id ? styles.selectedReasonView : styles.reasonView}>
+                    <Image source={selectedReasonId === item.id ? require('../../../assets/fastion-selected-reason-icon.png') :require('../../../assets/fastion-reason-icon.png')} />
+                    <View style={{marginLeft:10}}>
+                      <Text style={{fontSize:14, lineHeight:14, fontWeight:'400', color:'#455A64'}}>{item.name}</Text>
+                      {item.description ?
+                      <Text style={{fontSize:12, lineHeight:12, fontWeight:'400', color:'#C5C6C9'}}>{item.description}</Text>
+                      :null}
+                    </View>
+                  </TouchableOpacity>
+                  )
+                }}
+              />
+
             </ScrollView>
            
             </View>
@@ -512,6 +564,24 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center'
-  }
+  },
+  reasonView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    backgroundColor:'#fff',
+    marginBottom:10,
+    paddingVertical:10,
+    paddingHorizontal:10, 
+  },
+  selectedReasonView:{
+    flexDirection:'row', 
+    alignItems:'center', 
+    backgroundColor:'#fff',
+    marginBottom:10,
+    paddingVertical:10,
+    paddingHorizontal:10, 
+    borderColor:'#E7F7FF', 
+    borderWidth:1
+  },
 });
 export default FashionPost 
