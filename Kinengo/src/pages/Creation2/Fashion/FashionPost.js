@@ -192,19 +192,19 @@ const FashionPost = (props) => {
           <View style={styles.buttonsRow}>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-like-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>4k</Text>
+              <Text style={styles.buttonText2}>4k</Text>
             </View>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-dislike-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>1k</Text>
+              <Text style={styles.buttonText2}>1k</Text>
             </View>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-share-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>Share</Text>
+              <Text style={styles.buttonText2}>Share</Text>
             </View>
             <View style={styles.buttonView}>
               <Image source={require('../../../assets/fashion-dark-report-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>Report</Text>
+              <Text style={styles.buttonText2}>Report</Text>
             </View>
           </View>
 
@@ -424,6 +424,12 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   buttonText:{
+    fontSize:14, 
+    fontWeight:'500', 
+    color:'#8F93A0', 
+    marginLeft:5
+  },
+  buttonText2:{
     fontSize:14, 
     fontWeight:'500', 
     color:'#455A64', 
