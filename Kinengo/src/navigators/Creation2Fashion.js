@@ -4,6 +4,7 @@ import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 import FashionHome from '../pages/Creation2/Fashion/FashionHome';
 import FashionPost from '../pages/Creation2/Fashion/FashionPost';
+import FashionUpload from '../pages/Creation2/Fashion/FashionUpload';
 
 const Deal2Learning=(props)=>{
    
@@ -16,6 +17,7 @@ const Deal2Learning=(props)=>{
              >
             <Stack.Screen component = {FashionHome} name="FashionHome" />
             <Stack.Screen component = {FashionPost} name="FashionPost" />
+            <Stack.Screen component = {FashionUpload} name="FashionUpload" />
             
 
         </Stack.Navigator>

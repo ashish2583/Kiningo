@@ -19,7 +19,7 @@ import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 import ViewMoreText from 'react-native-view-more-text';
 
-const FashionHome = (props) => {
+const FashionUpload = (props) => {
   const [searchValue,setsearchValue]=useState('')
   const [scrollEnabled, setScrollEnabled] = useState(false)
   const myTextInput = useRef()
@@ -248,22 +248,15 @@ const [classesList, setClassesList]=useState([
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
-      <HomeHeaderRoundBottom height={100} extraStyle={{paddingtop:10, paddingBottom:25}}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#0089CF'
+      <HomeHeaderRoundBottom height={100}  paddingHorizontal={15} borderBottomLeftRadius={20} borderBottomRightRadius={20} backgroundColor='#0089CF'
    press1={()=>{props.navigation.goBack()}} img1={require('../../../assets/service-header-back-button.png')} img1width={25} img1height={18} 
-   press2={()=>{}} title2={'Fashion'} fontWeight={'500'} img2height={20} color={'#fff'}
+   press2={()=>{}} title2={'Upload'} fontWeight={'500'} img2height={20} color={'#fff'}
    press3={()=>{}} img3={require('../../../assets/fashion-bell-icon.png')} img3width={25} img3height={22} />
 
-<View style={{width:'85%',alignSelf:'center'}}>
-<View style={{top:-20}}>
-    <FashionSearch marginTop={0} placeholder={'Search here'} 
-    serchValue={searchValue}
-    searchIcon={require('../../../assets/fashion-search-icon.png')} 
-    onChangeText={(e)=>{setsearchValue(e)}} 
-    press={()=>{Alert.alert('Hi')}}
-    presssearch={()=>{Alert.alert('Search Pressed')}}
-    paddingLeft={20}/>
-</View>
+<View style={{width:'85%',alignSelf:'center', marginTop:30}}>
  
+<Text style={{fontSize:16, fontWeight:'500',color:'#263238', marginBottom:5}}>Choose Category</Text>
+
 <View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
           <FlatList
                   data={courseData}
@@ -290,110 +283,6 @@ const [classesList, setClassesList]=useState([
                 />
          </View>
 
-         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginTop:20, marginBottom:10}}>
-   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Around the world</Text>
-   <TouchableOpacity onPress={()=>{}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
-   </TouchableOpacity>
-</View>
-
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start', marginTop:10}}>
-          <FlatList
-                  data={aroundTheWorldData}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item,index})=>{
-                    return(
-                      
-          <View style={{width:dimensions.SCREEN_WIDTH/1.5,marginRight:15}}
-          onPress={()=>{}}>
-          <TouchableOpacity onPress={()=>{props.navigation.navigate('FashionPost')}}>
-            <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
-          </TouchableOpacity>
-          
-          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginVertical:10}}>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-              <Image source={require('../../../assets/dating-home-header-left-image.png')} style={{height:40, width:40, borderRadius:20}}  />
-              <Text style={{fontSize:12,fontWeight:'400',color:'#000', marginLeft:10,}}>{item.name}</Text>
-            </View>
-              <Text style={{fontSize:12,fontWeight:'400',color:'#B2B7B9'}}>{item.time}</Text>
-          </View>
-
-          <ViewMoreText
-            numberOfLines={3}
-            renderViewMore={(onPress)=>{
-              return(
-                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View more</Text>
-              )
-            }}
-            renderViewLess={(onPress)=>{
-              return(
-                <Text onPress={onPress} style={{fontSize:14,color:'#0089CF',textDecorationLine: "underline"}}>View less</Text>
-              )
-            }}
-            textStyle={{textAlign: 'left',width:'95%'}}
-          >
-            <Text style={{fontSize:14,fontWeight:'400', color:'#455A64'}}>
-            In publishing and graphic design, Lorem ipsum is a place-
-            holder text commonly used to demonstrate the visual form
-            of a document or a typeface without relying on meaningful
-            of a document or a typeface without relying on meaningful
-            content.
-            </Text>
-          </ViewMoreText>
-
-          <View style={styles.buttonsRow}>
-            <TouchableOpacity style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>{item.likes}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>{item.dislikes}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-share-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>Share</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>{setShowReportModal(true)}} style={styles.buttonView}>
-              <Image source={require('../../../assets/fashion-report-button.png')} style={{height:20, width:20}} />
-              <Text style={styles.buttonText}>Report</Text>
-            </TouchableOpacity>
-          </View>
-
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
-<View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:10, marginTop:35}}>
-   <Text style={{fontSize:16,fontWeight:'500',color:'#263238'}}>Recommended for you</Text>
-   <TouchableOpacity onPress={()=>{}}>
-     <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>View all</Text>
-   </TouchableOpacity>
-</View>
-
-<View style={{width:dimensions.SCREEN_WIDTH*0.9,alignSelf:'flex-start',marginTop:0, marginBottom:10, marginTop:10}}>
-          <FlatList
-                  data={aroundTheWorldData}
-                  showsHorizontalScrollIndicator={true}
-                  horizontal
-                  renderItem={({item,index})=>{
-                    return(
-                      
-          <View style={{width:dimensions.SCREEN_WIDTH/1.5,height:160,marginRight:15}}
-          onPress={()=>{}}>
-          <Image source={item.img} style={{width:dimensions.SCREEN_WIDTH/1.5,height:160, borderRadius:4}}></Image>
-          
-          </View>
-                    )
-                  }}
-                  keyExtractor={item => item.id}
-                />
-         </View>
-
 
   <View style={{height:10}}/> 
 
@@ -401,11 +290,6 @@ const [classesList, setClassesList]=useState([
  </View>
 <View style={{height:100}} />
 </ScrollView>
-{/* <TouchableOpacity onPress={()=>props.navigation.navigate('ShopProdCart')} style={{width:'80%',height:60,flexDirection:'row',justifyContent:'flex-end',position:'absolute',bottom:40, right:20, shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}> */}
-<TouchableOpacity onPress={()=>{props.navigation.navigate('FashionUpload')}} style={{bottom:60,right:20,position:'absolute',alignSelf:'flex-end',width:80, height:80, borderRadius:80/2, backgroundColor:'#0089CF', justifyContent:'center', alignItems:'center', shadowColor: '#FFD037', shadowOffset: {width: 0,height: 3},shadowRadius: 1,shadowOpacity: 0.1,elevation: 5}}>
-  <Image source={require('../../../assets/fashion-upload-icon.png')} style={{width:40,height:40 }}/>
-</TouchableOpacity>
-{/* </TouchableOpacity> */}
 {loading ? <Loader /> : null}
 <Modal
         isVisible={showReportModal}
@@ -574,4 +458,4 @@ const styles = StyleSheet.create({
     elevation: 2
   }
 });
-export default FashionHome 
+export default FashionUpload 
