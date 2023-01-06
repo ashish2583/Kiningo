@@ -189,7 +189,7 @@ const sendMessage = () => {
             <View style={{marginTop:10}}>
               <Text style={{fontSize:14, lineHeight:20 ,fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
             </View>
-            <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between', width:'30%'}}>
+            <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between', width:'35%'}}>
                 {/* <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> item.index === el.index ? {...el, isLiked: !item.isLiked} : el))}}>
                   <Image source={item.isLiked ? require('../../../../assets/people-unsel-heart.png') : require('../../../../assets/people-sel-heart.png')} style={{width:30, height:30}}/>
                 </TouchableOpacity>
