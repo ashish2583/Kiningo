@@ -243,7 +243,7 @@ const FashionPost = (props) => {
                             </TouchableOpacity>
                           </View>
                           <View style={{marginTop:10}}>
-                            <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{item.message}</Text>
+                            <Text style={{fontSize:14, lineHeight:20, fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
                           </View>
                           <View style={{marginTop:15, flexDirection:'row', alignItems:'center',justifyContent:'space-between', width:'30%'}}>
                               {/* <TouchableOpacity onPress={()=>{setupData(upData.map((el, elIndex)=> index === elIndex ? {...el, isLiked: !item.isLiked} : el))}}>
