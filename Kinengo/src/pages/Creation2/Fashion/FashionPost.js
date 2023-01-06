@@ -18,6 +18,7 @@ import Loader from '../../../WebApi/Loader';
 import VideoPlayer from 'react-native-video-player'
 import { createThumbnail } from "react-native-create-thumbnail";
 import ViewMoreText from 'react-native-view-more-text';
+import RepliesModal from './components/RepliesModal'
 
 const FashionPost = (props) => {
   const [searchValue,setsearchValue]=useState('')
@@ -30,168 +31,140 @@ const FashionPost = (props) => {
   const [showModal, setShowModal] = useState({isVisible: false, data: null});
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState({})
-  const [videoDetails, setVideoDetails] = useState([
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
-    {url: `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`},
-  ])
-const [classesList, setClassesList]=useState([
-  {
-      id: '1',
-      title: 'Graphic Design Class',
-      price:949,
-      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
-      distance:'3 kms away',
-      img:require('../../../assets/service-product-image.png'),
-  },
-  {
-      id: '2',
-      title: 'Graphic Design Class',
-      price:949,
-      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
-      distance:'3 kms away',
-      img:require('../../../assets/service-product-image.png'),
-  },
-  {
-      id: '3',
-      title: 'Graphic Design Class',
-      price:949,
-      desc:['Get 2x deeper dust removal with unique foam je technology', 'Recommended for ACs serviced more than 6 months ago'],
-      distance:'3 kms away',
-      img:require('../../../assets/service-product-image.png'),
-  },
-])
-  const [aroundTheWorldData, setAroundTheWorldData]=useState([
-    {
-      id: '1',
-      name: 'Leslie Alexander',
-      desc:'',
-      time:'14 hours ago',
-      img:require('../../../assets/fashion-around-the-world-image.png'),
-      likes: '4k',
-      dislikes: '1k',
-    },
-    {
-      id: '2',
-      name: 'Leslie Alexander',
-      desc:'',
-      time:'14 hours ago',
-      img:require('../../../assets/fashion-around-the-world-image.png'),
-      likes: '4k',
-      dislikes: '1k',
-    },
-    {
-      id: '3',
-      name: 'Leslie Alexander',
-      desc:'',
-      time:'14 hours ago',
-      img:require('../../../assets/fashion-around-the-world-image.png'),
-      likes: '4k',
-      dislikes: '1k',
-    },
-  ])
-  const [courseData, setCourseData]=useState([
-    {
-      id: '1',
-      title: 'Celebrity Style',
-      desc:'',
-      time:'',
-      img:require('../../../assets/fashion-celebrity-style.png'),
-    },
-    {
-      id: '2',
-      title: 'Street Style',
-      desc:'',
-      time:'',
-      img:require('../../../assets/fashion-celebrity-style.png'),
-    },
-    {
-      id: '3',
-      title: 'Models',
-      desc:'',
-      time:'',
-      img:require('../../../assets/fashion-celebrity-style.png'),
-    },
-  ])
+  const [userMessage, setUserMessage] = useState('')
+  const [replyingTo, setReplyingTo] = useState('')
+  const [showAtUsername, setShowAtUsername] = useState(false)
+  const [showRepliesModal, setShowRepliesModal] = useState(false)
   const [upData,setupData]=useState([
     {
       id: '1',
-      catId: '1',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      name: 'Maude Hall',
+      message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
+      time:'14 min',
+      img:require('../../../assets/comment-person-image.png'),
+      isLiked: true,
+      replies:[]
     },
     {
       id: '2',
-      catId: '2',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      name: 'Eleanor Pena',
+      message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
+      time:'14 min',
+      img:require('../../../assets/comment-person-image.png'),
+      isLiked: false,
+      replies:[]
     },
     {
       id: '3',
-      catId: '3',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      name: 'Floyd Miles',
+      message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
+      time:'14 min',
+      img:require('../../../assets/comment-person-image.png'),
+      isLiked: true,
+      replies:[]
     },
     {
       id: '4',
-      catId: '4',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
+      name: 'Robert Fox',
+      message:`That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback.`,
+      time:'14 min',
+      img:require('../../../assets/comment-person-image.png'),
+      isLiked: true,
+      replies:[]
     },
-    {
-      id: '5',
-      catId: '1',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '6',
-      catId: '2',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
-    {
-      id: '7',
-      catId: '3',
-      title: 'Intel 3rd Gen Motherboard',
-      desc:'',
-      price:'$140.00',
-      time:'',
-      img:require('../../../assets/intel_motherboard.png'),
-    },
+
   ])
-  const multiSliderValuesChange = (values) => {setMultiSliderValue(values)}
+
   useEffect(()=>{
 
  },[])
 
- const _renderItem = ({ item }) => {
+ const sendMessage = () => {
+  if(userMessage?.trim()?.length === 0){
+    return
+  }
+  if(replyingTo){
+    const upDataCopy = [...upData]
+    upDataCopy.map(el=>{
+      if(replyingTo === el.id){
+        el.replies.push({
+          id:99,
+          name:'saurabh saneja',
+          message: userMessage,
+          time: '0 min',
+          img: require('../../../assets/people-sender-image.png'),
+          isLiked: false
+        })
+        return el
+      }
+    })
+    setupData([...upDataCopy])
+  }else{
+    const nextId = upData?.length+1
+    setupData([...upData, 
+      {
+        id: String(nextId),
+        name: 'Saurabh Saneja',
+        message:userMessage,
+        time:'14 min',
+        img:require('../../../assets/comment-person-image.png'),
+        isLiked: false,
+        replies:[]
+      },
+    ])
+  }
+  Keyboard.dismiss()
+  setUserMessage('')
+  setReplyingTo('')
+ }
+ 
+ const likeChildComment = (parentId, childIndex) => {
+  const upDataCopy = [...upData]
+  upDataCopy.map(el => {
+    if(el.id === parentId){
+      el.replies[childIndex].isLiked = !el.replies[childIndex].isLiked
+    }
+    return el
+  })
+  setupData([...upDataCopy])
+ }
+
+ const returnOneReply = (itemid) => {
+  const replies = upData?.find(el=>el.id === itemid)?.replies
+  if(replies?.length === 0){
+    return
+  }
   return (
-      <Image source={{uri: item.image}} style={{width:'100%',height:170, borderRadius:20, alignSelf:'center'}}/>
-    // <View key={item.key} style={styles.slide}>
-    //   <Text style={styles.title}>{item.title}</Text>
-    //   <Text style={styles.text}>{item.text}</Text>
-    // </View>
-  );
-}
+
+    <View style={{width:'90%', marginLeft:30, marginTop:10}}>
+    {replies?.length > 1 ? 
+    <TouchableOpacity onPress={()=>{setShowAtUsername(false);setReplyingTo(itemid);setShowRepliesModal(true)}} style={{marginBottom:10}}>
+      <Text style={{fontSize:14, fontWeight:'500', color:'#0089CF'}}>{`View previous ${replies?.length -1} replies`}</Text>
+    </TouchableOpacity>
+    :null}
+    <View style={{flexDirection:'row', alignItems:'center'}}>
+      <Image source={replies[0].img}/>
+      <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{replies[0].name}</Text>
+      <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{replies[0].time}</Text>
+    </View>
+    <View style={{marginTop:10}}>
+      <Text numberOfLines={1} style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{replies[0].message}</Text>
+    </View>
+    {/* <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+      <View style={{flexDirection:'row', alignItems:'center'}}>
+        <TouchableOpacity onPress={()=>{likeChildComment(itemid, index)}}>
+          <Image source={replies[0].isLiked ? require('../../../assets/people-sel-heart.png') : require('../../../assets/people-unsel-heart.png')} style={{width:30, height:30}}/>
+        </TouchableOpacity>
+        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
+      </View>
+      <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${replies[0].name}`); setReplyingTo(itemid)}} style={{flexDirection:'row', alignItems:'center'}}>
+        <Image source={require('../../../assets/people-reply-image.png')}/>
+        <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
+      </TouchableOpacity>
+    </View> */}
+  </View>
+    )
+ }
 
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
@@ -239,6 +212,52 @@ const [classesList, setClassesList]=useState([
           If you want to know who I am, you have to acknowledge where I come from.” These are the opening words of Walking Two Worlds, a new documentary that premiered at the Tribeca Film Festival last week exploring the meteoric rise of Indigenous model Quannah Chasinghorse. The film, directed by Maia Wikler, follows Chasinghorse and her mother, Jody Potts-Joseph, as they grapple with the two realities they currently exist in. One world they inhabit is the more familiar one—living on their Alaska homelands and engaging in their traditional hunting, fishing, and dogsledding practices. The other world is newer and perhaps more foreign, arriving thanks to Chasinghorse’s newfound status as one of the high-fashion world’s most in-demand new faces, taking over the runways for labels such as Gucci and Chanel and even attending the Met Gala twice. 
           </Text>
 
+
+
+          <View style={{width:'100%',alignSelf:'center',}}>
+          <FlatList
+                  data={upData}
+                  showsHorizontalScrollIndicator={false}
+                  numColumns={1}
+                  renderItem={({item,index})=>{
+                    return(
+                      <View style={{width:dimensions.SCREEN_WIDTH*0.9,marginHorizontal:5, marginBottom:15, paddingHorizontal:20}}>
+                        <>
+                        <View>
+                          <View style={{flexDirection:'row', alignItems:'center'}}>
+                            <Image source={item.img}/>
+                            <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{item.name}</Text>
+                            <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{item.time}</Text>
+                          </View>
+                          <View style={{marginTop:10}}>
+                            <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{item.message}</Text>
+                          </View>
+                          <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+                            <View style={{flexDirection:'row', alignItems:'center'}}>
+                              <TouchableOpacity onPress={()=>{setupData(upData.map((el, elIndex)=> index === elIndex ? {...el, isLiked: !item.isLiked} : el))}}>
+                                <Image source={item.isLiked ? require('../../../assets/people-unsel-heart.png') : require('../../../assets/people-sel-heart.png')} style={{width:30, height:30}}/>
+                              </TouchableOpacity>
+                              <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
+                            </View>
+                            <TouchableOpacity onPress={()=>{setShowAtUsername(true); setReplyingTo(item.id); setShowRepliesModal(true);}} style={{flexDirection:'row', alignItems:'center'}}>
+                              <Image source={require('../../../assets/people-reply-image.png')}/>
+                              <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                        <View style={{borderBottomColor: '#E0E0E0', borderBottomWidth: 1, marginTop:10}}/>
+                        {item?.replies?.length > 0 ?
+                        <>
+                        {returnOneReply(item.id)}
+                        </>
+                        :null}
+                        </>
+                     </View>
+                    )
+                  }}
+                  keyExtractor={item => item.id}
+                />
+         </View>  
           </View>
 
 
@@ -251,6 +270,17 @@ const [classesList, setClassesList]=useState([
 <View style={{height:100}} />
 </ScrollView>
 {loading ? <Loader /> : null}
+<RepliesModal
+      isVisible={showRepliesModal}
+      setIsVisible={setShowRepliesModal} 
+      data={upData}
+      setData={setupData}
+      replyingTo={replyingTo}
+      setReplyingTo={setReplyingTo}
+      showAtUsername={showAtUsername}
+      likeChildComment={likeChildComment}
+      // startFromIndex={startFromIndex}
+    />
 <Modal
         isVisible={showVideoModal}
         swipeDirection="down"
