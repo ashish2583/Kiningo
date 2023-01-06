@@ -600,7 +600,7 @@ const styles = StyleSheet.create({
   },
   reportButtonView:{
     height:60,
-    width:'80%',
+    width:'90%',
     alignSelf:'center',
     backgroundColor:'#0089CF',
     alignItems:'center',
