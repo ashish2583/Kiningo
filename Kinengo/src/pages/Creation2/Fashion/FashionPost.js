@@ -74,6 +74,12 @@ const FashionPost = (props) => {
     },
 
   ])
+  const [introSliderData] = useState([
+    // require('../../assets/Group75972.png'),
+    {key:'one' ,image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5a5uCP-n4teeW2SApcIqUrcQApev8ZVCJkA&usqp=CAU'},
+    {key:'two' ,image: 'https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg'},
+    {key:'three' ,image: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg'}
+])
 
   useEffect(()=>{
 
@@ -166,11 +172,30 @@ const FashionPost = (props) => {
     )
  }
 
+ const _renderItem = ({ item }) => {
+  return (
+      <Image source={{uri: item.image}} style={{width:'100%',height:350, alignSelf:'center'}}/>
+    // <View key={item.key} style={styles.slide}>
+    //   <Text style={styles.title}>{item.title}</Text>
+    //   <Text style={styles.text}>{item.text}</Text>
+    // </View>
+  );
+}
+
   return(
     <SafeAreaView scrollEnabled={scrollEnabled} style={{height:'100%', backgroundColor: '#F8F8F8'}}>
       <ScrollView>
           <View style={{position:'relative'}}>
-            <Image source={require('../../../assets/fashion-post-image.png')} style={{width:dimensions.SCREEN_WIDTH,height:350}}></Image>
+          <AppIntroSlider
+            data={introSliderData}
+            renderItem={_renderItem}
+            // renderPagination={() => null}
+            renderDoneButton={()=><View />}
+            renderNextButton={()=><View />}
+            activeDotStyle={{backgroundColor:'#0089CF', height:4, width:18, borderRadius:0, top:20}}
+            dotStyle={{backgroundColor:'#fff', height:4, width:18, borderRadius:0, top:20}}
+            keyExtractor={(item) => item.id}
+          />
             <TouchableOpacity onPress={()=>{props.navigation.goBack()}} style={{position:'absolute', left:20, top:20}}>
                 <Image source={require('../../../assets/service-header-back-button.png')} style={{width:25, height:20,}} />
             </TouchableOpacity>
