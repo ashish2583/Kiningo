@@ -219,7 +219,7 @@ const FashionPost = (props) => {
             <Text style={{fontSize:13,fontWeight:'400',color:'#0089CF'}}>Add a comment</Text>
           </TouchableOpacity>
         </View>
-          <View style={{width:'100%',alignSelf:'center',marginTop:10}}>
+          <View style={{width:'100%',alignSelf:'center',marginTop:15}}>
           <FlatList
                   data={upData}
                   showsHorizontalScrollIndicator={false}
