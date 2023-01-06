@@ -137,11 +137,6 @@ const FashionPost = (props) => {
   return (
 
     <View style={{width:'90%', marginLeft:30, marginTop:10}}>
-    {replies?.length > 1 ? 
-    <TouchableOpacity onPress={()=>{setShowAtUsername(false);setReplyingTo(itemid);setShowRepliesModal(true)}} style={{marginBottom:10}}>
-      <Text style={{fontSize:14, fontWeight:'500', color:'#0089CF'}}>{`View previous ${replies?.length -1} replies`}</Text>
-    </TouchableOpacity>
-    :null}
     <View style={{flexDirection:'row', alignItems:'center'}}>
       <Image source={replies[0].img}/>
       <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{replies[0].name}</Text>
@@ -162,6 +157,11 @@ const FashionPost = (props) => {
         <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
       </TouchableOpacity>
     </View> */}
+    {replies?.length > 1 ? 
+    <TouchableOpacity onPress={()=>{setShowAtUsername(false);setReplyingTo(itemid);setShowRepliesModal(true)}} style={{marginBottom:10, marginTop:10,alignSelf:'flex-end'}}>
+      <Text style={{fontSize:14, fontWeight:'500', color:'#0089CF'}}>{`View ${replies?.length -1} replies`}</Text>
+    </TouchableOpacity>
+    :null}
   </View>
     )
  }
@@ -234,7 +234,7 @@ const FashionPost = (props) => {
                               <Image source={item.img}/>
                               <View style={{marginLeft:10}}>
                                 <Text style={{fontSize:14, fontWeight:'700', color:'#455A64'}}>{item.name}</Text>
-                                <Text style={{fontSize:12, fontWeight:'400', color:'#6F6D6D'}}>{item.time}</Text>
+                                <Text style={{fontSize:12, fontWeight:'400', color:'#6F6D6D', marginTop:5}}>{item.time}</Text>
                               </View>
                             </View>
                             <TouchableOpacity onPress={()=>{setShowAtUsername(true); setReplyingTo(item.id); setShowRepliesModal(true);}} style={{flexDirection:'row', alignItems:'center'}}>
