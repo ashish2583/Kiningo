@@ -405,7 +405,8 @@ const FashionPost = (props) => {
         backdropColor='transparent'
         style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
-        <View style={{ height: '50%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 20 }}>
+        <View style={{ height: '90%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30 }}>
+          <Text style={{fontSize:18, fontWeight:'700', color:'#455A64',textAlign:'center',marginBottom:20}}>Report</Text>
           <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
 
             <FlatList
@@ -427,6 +428,10 @@ const FashionPost = (props) => {
                   )
                 }}
               />
+
+            <TouchableOpacity style={styles.reportButtonView}>
+              <Text style={{fontSize:15, fontWeight:'500', color:'#fff',}}>Report</Text>
+            </TouchableOpacity>    
 
             </ScrollView>
            
@@ -570,22 +575,41 @@ const styles = StyleSheet.create({
     flexDirection:'row', 
     alignItems:'center', 
     backgroundColor:'#fff',
-    marginBottom:10,
+    marginBottom:15,
     paddingVertical:10,
     paddingHorizontal:10,
-    width:'85%', 
+    width:'90%', 
   },
   selectedReasonView:{
     alignSelf:'center',
     flexDirection:'row', 
     alignItems:'center', 
     backgroundColor:'#fff',
-    marginBottom:10,
+    marginBottom:15,
     paddingVertical:10,
     paddingHorizontal:10,
-    width:'85%', 
+    width:'90%',
     borderColor:'#E7F7FF', 
-    borderWidth:1
+    borderWidth:1,
+    shadowColor:'#455A64',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 1
   },
+  reportButtonView:{
+    height:60,
+    width:'80%',
+    alignSelf:'center',
+    backgroundColor:'#0089CF',
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius:5,
+    shadowColor:'#000',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 2
+  }
 });
 export default FashionPost 
