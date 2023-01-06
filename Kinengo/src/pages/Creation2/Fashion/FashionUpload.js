@@ -274,8 +274,9 @@ const [classesList, setClassesList]=useState([
           colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
           style={{position: 'absolute',top: 0,bottom: 0,left: 0,right: 0,zIndex: 1, }}
          >
-            <View style={{flex: 1,flexDirection: 'column',justifyContent: 'flex-end',alignItems: 'center',}}>
-              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20}}>{item.title}</Text>
+            <View style={{flex: 1,flexDirection: 'row',}}>
+              <Image source={require('../../../assets/fashion-selected-category-check-circle.png')} style={{alignSelf:'flex-start', top:10, left:dimensions.SCREEN_WIDTH/3.6}} />
+              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20, alignSelf:"flex-end"}}>{item.title}</Text>
             </View>
          </LinearGradient>
           </TouchableOpacity>
@@ -312,6 +313,10 @@ const [classesList, setClassesList]=useState([
           <TouchableOpacity style={styles.uploadButtonView}>
             <Image source={require('../../../assets/fashion-upload-screen-upload-button.png')} />
             <Text style={{fontSize:14, fontWeight:'500', color:'#263238',}}>Upload</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.saveButtonView}>
+            <Text style={{fontSize:15, fontWeight:'500', color:'#fff',}}>Save</Text>
           </TouchableOpacity>
 
   <View style={{height:10}}/> 
@@ -488,5 +493,21 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     elevation: 1
   },
+  saveButtonView:{
+    marginTop:55,
+    height:60,
+    width:'100%',
+    alignSelf:'center',
+    backgroundColor:'#0089CF',
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius:5,
+    marginBottom:30,
+    shadowColor:'#000',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.10,
+    elevation: 2
+  }
 });
 export default FashionUpload 
