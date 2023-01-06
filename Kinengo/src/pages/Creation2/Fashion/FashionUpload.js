@@ -32,6 +32,8 @@ const FashionUpload = (props) => {
   const [selectedVideo, setSelectedVideo] = useState({})
   const [showReportModal, setShowReportModal] = useState(false)
   const [selectedReasonId, setSelectedReasonId]=useState(null)
+  const [headingTitle, setHeadingTitle]=useState('')
+  const [newsArticle, setNewsArticle]=useState('')
   const [reportReasonData, setReportReasonData]=useState([
     {
       id: '1',
@@ -283,6 +285,34 @@ const [classesList, setClassesList]=useState([
                 />
          </View>
 
+         <TextInput
+          value={headingTitle}
+          onChangeText={(e) => setHeadingTitle(e)}
+          placeholder={'Heading Title'}
+          placeholderTextColor="#8F93A0"
+          multiline={true}
+          // maxLength={500}
+          // keyboardType="number-pad"
+          autoCapitalize = 'none'
+          style={styles.headingTitleStyle}
+          />
+
+         <TextInput
+          value={newsArticle}
+          onChangeText={(e) => setNewsArticle(e)}
+          placeholder={'Type your news Article here...'}
+          placeholderTextColor="#8F93A0"
+          multiline={true}
+          // maxLength={500}
+          // keyboardType="number-pad"
+          autoCapitalize = 'none'
+          style={styles.newsArticleStyle}
+          />
+
+          <TouchableOpacity style={styles.uploadButtonView}>
+            <Image source={require('../../../assets/fashion-upload-screen-upload-button.png')} />
+            <Text style={{fontSize:14, fontWeight:'500', color:'#263238',}}>Upload</Text>
+          </TouchableOpacity>
 
   <View style={{height:10}}/> 
 
@@ -291,53 +321,6 @@ const [classesList, setClassesList]=useState([
 <View style={{height:100}} />
 </ScrollView>
 {loading ? <Loader /> : null}
-<Modal
-        isVisible={showReportModal}
-        swipeDirection="down"
-        onBackdropPress={()=>setShowReportModal(false)}
-        onSwipeComplete={(e) => {
-          setShowReportModal(false)
-        }}
-          scrollTo={() => {}}
-          scrollOffset={1}
-          propagateSwipe={true}
-        coverScreen={false}
-        backdropColor='transparent'
-        style={{ justifyContent: 'flex-end', margin: 0, backgroundColor: 'rgba(0,0,0,0.5)' }}
-      >
-        <View style={{ height: '90%', backgroundColor: '#fff', borderTopLeftRadius: 30, borderTopRightRadius: 30 }}>
-          <Text style={{fontSize:18, fontWeight:'700', color:'#455A64',textAlign:'center',marginBottom:20, marginTop:30}}>Report</Text>
-          <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
-
-            <FlatList
-              data={reportReasonData}
-              showsHorizontalScrollIndicator={false}
-              numColumns={1}
-              keyExtractor={item => item.id}
-              style={{marginBottom:10}}
-              renderItem={({item,index})=>{
-                return(
-                  <TouchableOpacity key={item.id} onPress={()=>setSelectedReasonId(item.id)} style={selectedReasonId === item.id ? styles.selectedReasonView : styles.reasonView}>
-                    <Image source={selectedReasonId === item.id ? require('../../../assets/fastion-selected-reason-icon.png') :require('../../../assets/fastion-reason-icon.png')} />
-                    <View style={{marginLeft:10}}>
-                      <Text style={{fontSize:14, lineHeight:14, fontWeight:'400', color:'#455A64'}}>{item.name}</Text>
-                      {item.description ?
-                      <Text style={{fontSize:12, lineHeight:12, fontWeight:'400', color:'#C5C6C9', marginTop:2}}>{item.description}</Text>
-                      :null}
-                    </View>
-                  </TouchableOpacity>
-                  )
-                }}
-              />
-
-            <TouchableOpacity style={styles.reportButtonView}>
-              <Text style={{fontSize:15, fontWeight:'500', color:'#fff',}}>Report</Text>
-            </TouchableOpacity>    
-
-            </ScrollView>
-           
-            </View>
-</Modal>
     </SafeAreaView>
      );
   }
@@ -442,13 +425,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.10,
     elevation: 1
   },
-  reportButtonView:{
+  uploadButtonView:{
     height:60,
     width:'90%',
     alignSelf:'center',
-    backgroundColor:'#0089CF',
+    backgroundColor:'rgba(255, 255, 255, 0.13)',
+    flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
+    borderWidth:1,
+    borderColor:'#263238',
+    borderStyle:'dashed',
     borderRadius:5,
     marginBottom:30,
     shadowColor:'#000',
@@ -456,6 +443,46 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0.10,
     elevation: 2
-  }
+  },
+  headingTitleStyle: {
+    paddingLeft: 15,
+    width:'100%',
+    fontSize: 13,
+    borderColor: '#F6F6F6',
+    borderWidth:1,
+   // backgroundColor: '#34333a',
+    color:'#fff',
+    marginTop:20,
+    height:60,
+    borderRadius:5,
+    paddingHorizontal:15,
+    paddingVertical:10,
+    color:Mycolors.Black,
+    shadowColor:'#DFDDDD',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 1
+  },
+  newsArticleStyle: {
+    paddingLeft: 15,
+    width:'100%',
+    fontSize: 13,
+    borderColor: '#F6F6F6',
+    borderWidth:1,
+   // backgroundColor: '#34333a',
+    color:'#fff',
+    marginTop:20,
+    height:168,
+    borderRadius:5,
+    paddingHorizontal:15,
+    paddingVertical:10,
+    color:Mycolors.Black,
+    shadowColor:'#DFDDDD',
+    shadowOffset: {width:3,height:3}, 
+    shadowRadius: 5,
+    shadowOpacity: 0.05,
+    elevation: 1
+  },
 });
 export default FashionUpload 
