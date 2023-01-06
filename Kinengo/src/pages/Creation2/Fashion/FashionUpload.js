@@ -426,8 +426,9 @@ const styles = StyleSheet.create({
     elevation: 1
   },
   uploadButtonView:{
+    marginTop:20,
     height:60,
-    width:'90%',
+    width:'100%',
     alignSelf:'center',
     backgroundColor:'rgba(255, 255, 255, 0.13)',
     flexDirection:'row',
@@ -438,11 +439,14 @@ const styles = StyleSheet.create({
     borderStyle:'dashed',
     borderRadius:5,
     marginBottom:30,
-    shadowColor:'#000',
-    shadowOffset: {width:3,height:3}, 
+    shadowColor: '#000',
+    shadowOffset: {
+    width:0,
+    height:3
+    }, 
     shadowRadius: 5,
     shadowOpacity: 0.10,
-    elevation: 2
+    elevation: 0.5,
   },
   headingTitleStyle: {
     paddingLeft: 15,
