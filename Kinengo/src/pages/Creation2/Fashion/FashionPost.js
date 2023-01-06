@@ -238,8 +238,8 @@ const FashionPost = (props) => {
                               </View>
                             </View>
                             <TouchableOpacity onPress={()=>{setShowAtUsername(true); setReplyingTo(item.id); setShowRepliesModal(true);}} style={{flexDirection:'row', alignItems:'center'}}>
-                              <Image source={require('../../../assets/people-reply-image.png')}/>
-                              <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
+                              <Image source={require('../../../assets/fashion-reply-icon.png')}/>
+                              <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginLeft:10}}>Reply</Text>
                             </TouchableOpacity>
                           </View>
                           <View style={{marginTop:10}}>
