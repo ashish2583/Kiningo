@@ -274,9 +274,8 @@ const [classesList, setClassesList]=useState([
           colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.43)']}
           style={{position: 'absolute',top: 0,bottom: 0,left: 0,right: 0,zIndex: 1, }}
          >
-            <View style={{flex: 1,flexDirection: 'row',}}>
-              <Image source={require('../../../assets/fashion-selected-category-check-circle.png')} style={{alignSelf:'flex-start', top:10, left:dimensions.SCREEN_WIDTH/3.6}} />
-              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20, alignSelf:"flex-end"}}>{item.title}</Text>
+            <View style={{flex: 1,flexDirection: 'column',justifyContent: 'flex-end',alignItems: 'center',}}>
+              <Text style={{fontSize:14,fontWeight:'500',color:'#fff',bottom:20}}>{item.title}</Text>
             </View>
          </LinearGradient>
           </TouchableOpacity>
