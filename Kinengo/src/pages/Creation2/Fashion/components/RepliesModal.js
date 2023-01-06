@@ -173,25 +173,35 @@ const sendMessage = () => {
           <View style={{width:'90%',alignSelf:'center', marginTop:20}}>
           {data?.filter(el=>el.id === replyingTo)?.map((item, index)=> 
           <View>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-              <Image source={item.img}/>
-              <Text style={{fontSize:18, fontWeight:'500', color:'#000', marginLeft:10}}>{item.name}</Text>
-              <Text style={{fontSize:12, fontWeight:'400', color:'#B4BBC6', marginLeft:20}}>{item.time}</Text>
+            <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+                <View style={{flexDirection:'row', alignItems:'center'}}>
+                    <Image source={item.img}/>
+                    <View style={{marginLeft:10}}>
+                        <Text style={{fontSize:14, fontWeight:'700', color:'#455A64',}}>{item.name}</Text>
+                        <Text style={{fontSize:12, fontWeight:'400', color:'#6F6D6D',marginTop:5}}>{item.time}</Text>
+                    </View>
+                </View>
+                <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${item.name}`); setReplyingTo(item.id)}} style={{flexDirection:'row', alignItems:'center'}}>
+                    <Image source={require('../../../../assets/fashion-reply-icon.png')}/>
+                    <Text style={{fontSize:14, fontWeight:'500', color:'#455A64', marginLeft:10}}>Reply</Text>
+              </TouchableOpacity>
             </View>
             <View style={{marginTop:10}}>
-              <Text style={{fontSize:14, fontWeight:'400', color:'#272727'}}>{item.message}</Text>
+              <Text style={{fontSize:14, lineHeight:20 ,fontWeight:'400', color:'#455A64'}}>{item.message}</Text>
             </View>
-            <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
-              <View style={{flexDirection:'row', alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> item.index === el.index ? {...el, isLiked: !item.isLiked} : el))}}>
+            <View style={{marginTop:15, flexDirection:'row', alignItems:'center', justifyContent:'space-between', width:'30%'}}>
+                {/* <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> item.index === el.index ? {...el, isLiked: !item.isLiked} : el))}}>
                   <Image source={item.isLiked ? require('../../../../assets/people-unsel-heart.png') : require('../../../../assets/people-sel-heart.png')} style={{width:30, height:30}}/>
                 </TouchableOpacity>
-                <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text>
-              </View>
-              <TouchableOpacity onPress={()=>{myTextInput.current.focus(); setUserMessage(`@${item.name}`); setReplyingTo(item.id)}} style={{flexDirection:'row', alignItems:'center'}}>
-                <Image source={require('../../../../assets/people-reply-image.png')}/>
-                <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Reply</Text>
-              </TouchableOpacity>
+                <Text style={{fontSize:14, fontWeight:'500', color:'#B4BBC6', marginLeft:10}}>Like</Text> */}
+                <TouchableOpacity onPress={()=>{setData(data.map((el, elIndex)=> item.index === el.index ? {...el, isLiked: !item.isLiked} : el))}} style={styles.buttonView}>
+                    <Image source={require('../../../../assets/fashion-like-button.png')} style={{height:20, width:20}} />
+                    <Text style={styles.buttonText}>{item?.likes}4k</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonView}>
+                    <Image source={require('../../../../assets/fashion-dislike-button.png')} style={{height:20, width:20}} />
+                    <Text style={styles.buttonText}>{item?.dislikes}1k</Text>
+                </TouchableOpacity>
             </View>
           </View>
           )}
@@ -306,6 +316,16 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center'
-  }
+  },
+  buttonView:{
+    flexDirection:'row', 
+    alignItems:'center'
+  },
+  buttonText:{
+    fontSize:14, 
+    fontWeight:'500', 
+    color:'#8F93A0', 
+    marginLeft:5
+  },
 })
 export default RepliesModal;
