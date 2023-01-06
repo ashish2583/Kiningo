@@ -566,20 +566,24 @@ const styles = StyleSheet.create({
     alignItems:'center'
   },
   reasonView:{
+    alignSelf:'center',
     flexDirection:'row', 
     alignItems:'center', 
     backgroundColor:'#fff',
     marginBottom:10,
     paddingVertical:10,
-    paddingHorizontal:10, 
+    paddingHorizontal:10,
+    width:'85%', 
   },
   selectedReasonView:{
+    alignSelf:'center',
     flexDirection:'row', 
     alignItems:'center', 
     backgroundColor:'#fff',
     marginBottom:10,
     paddingVertical:10,
-    paddingHorizontal:10, 
+    paddingHorizontal:10,
+    width:'85%', 
     borderColor:'#E7F7FF', 
     borderWidth:1
   },
